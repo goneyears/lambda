@@ -1,0 +1,29 @@
+#lang racket
+(provide square close-enough? average inc)
+(define (square x)
+  (* x x))
+(define (average x y)
+  (/ (+ x y) 2))
+(define tolerance 0.000001)
+  (define (close-enough? a b)
+    (if (< (abs (- a b)) tolerance)
+        true
+        false))
+(define (fixed-point f first-guess)
+  
+
+  
+  (define (try f guess step-count)
+    (newline)
+    (display step-count)
+    (display ' : )
+    (display guess)
+    (let ((next (f guess)))
+      (if (close-enough? guess next)
+          next
+          (try f next (+ 1 step-count)))))
+  (try f first-guess 1)
+  )
+
+(define (inc x)
+  (+ x 1))
