@@ -1,6 +1,6 @@
 #lang racket
 
-(require (file "C:/Users/Mach/Files/scheme/basic/basic.rkt"))
+(require (file "basic/basic.rkt"))
 
 (define (compose f g)
   (lambda(x) (f (g x))))
