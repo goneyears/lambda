@@ -1,0 +1,42 @@
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!! Attention, Important !!!!!!!!!!!!!!!!!!!!!!!!!
+/* !			no canges in the layout of this file                 !
+/* !									     !
+/* ! 									     !
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/* REV 007/ 05.08.2002
+
+/* 
+/* 
+/* 
+/* 
+/* 
+/* 
+/* 
+
+#  2.0 Guides                                400
+#  3.0 Gripper Units                         200
+#  4.0 Handling Gripper Units                200
+#  5.0 Emergency Stop Switch                 600
+#  6.1 Plate Transfer for plastic Nests      800
+#  7.0 Pneumatic System                      400
+#  8.0 Cylinder / Couplings                  400
+#  9.0 Inspector / Sensors                   400
+# 10.0 Test Screwdriver                      400
+# 10.1 Test Screwdriver Torque               200
+# 11.2 NEFF Wiesel Linear Axis               400
+# 12.0 Screw Inserter                        400
+# 13.0 Savety Equipment                      600
+# 14.0 Rotating Vibrating Conveyor           200
+# 15.0 Shockabsorbers                        200
+# 16.0 Pusbuttons and Early Warnig Systems   400
+# 17.0 Ultrasound Welding Device             200
+# 18.0 Maintennace Unit                      400
+# 19.0 Phoenix Self-Built Screwdriver        400
+# 20.0 Flex Link Transport System            600
+# 21.0 Pressure Reduding Valve               600
+# 23.0 Feeds and Separators                  200
+# 24.0 Electrical Cabinets                   800
+# 25.0 Nets/ Part Holders                    200
+# 29.0 Industrial PC                         400
+# 31.0 Guard Door Safety Lock                400

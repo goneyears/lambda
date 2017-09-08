@@ -1,0 +1,1219 @@
+ /-----------------------------------------------------------------------
+/* Fehlertextdatei f黵 :  BM 020759
+/* Ersteller           :  Han Yinbao	
+/* Datum               :  13.01.2016
+/* Ge鋘dert            :
+/*
+/-----------------------------------------------------------------------
+
+/-----------------------------------------------------------------------
+/************************ Betriebsmittelnummer *************************
+/-----------------------------------------------------------------------
+
+BMNR# BM_020759
+
+WARTUNG# 30
+
+PACKMODUL# 1
+
+/-----------------------------------------------------------------------
+/************************ Maschinenbezeichnung *************************
+/-----------------------------------------------------------------------
+
+M#1.0 MP 1 - MKDSN BC500/508 Assembly Machine
+/*M#2.0 MP 2 - xxxxx
+/*M#3.0 MP 3 - xxxxx
+
+/-----------------------------------------------------------------------
+/*********** Texte zu den Achsparametern in der SACHNR.TXT *************
+/-----------------------------------------------------------------------
+/*********************  Maschinenteil 1 [SpsA]  ************************
+/-----------------------------------------------------------------------
+
+/*************************************
+/******** Namen der Achse(n) *********
+/*************************************
+
+AN#1.1 MaPart1 St.201 WPC transfer
+AN#1.2 MaPart1 St.1 housing separation
+
+/*************************************
+/******* Offsets der Achse(n) ********
+
+/*************************************
+
+
+/*AOT#1.1.0 Axis St.201 swiveled position
+/*AOT#1.1.1 Axis St.201 offset housing 1 in WPC
+/*AOT#1.1.2 Axis St.201 offset housing 2 in WPC
+/*AOT#1.1.3 Axis St.201 offset housing 3 in WPC
+/*AOT#1.1.4 Axis St.201 offset housing 4 in WPC
+
+/*AOT#1.2.0 Axis St.1 pickup position housing 1
+/*AOT#1.2.1 Axis St.1 Offset Pin 1-2
+/*AOT#1.2.2 Axis St.1 Offset Pin 1-3
+/*AOT#1.2.3 Axis St.1 Offset Pin 1-4
+/*AOT#1.2.4 Axis St.1 Pickup pos Insert
+/*AOT#1.2.5 Axis St.1 Unload Position
+
+
+
+
+/*********************************
+/*********Special Function********
+/*********************************
+
+/*SCHF#1.1 Test Good Dummy
+/*SCHF#1.2 Test Bad Dummy
+/*SCHF#1.3 St.4 Only this insert station
+/*SCHF#1.4 St.4 Bridge coil light barrier
+
+/*SCHF#1.6 St.8 Einzelbest點kung
+/*SCHF#1.7 St.8 Lichtschranke Gurt 黚erbr點ken
+/*SCH#1.8 St.8 Positionskontrolle 黚erbr點ken
+
+
+/*SCH#1.9 WPC transfer
+/*SCHF#1.10 Intervallpr黤ung Stift starten
+/*SCHF#1.11 St.5 Gegenhalter Dom
+
+
+
+
+/-----------------------------------------------------------------------
+/*********** Texte zu den Spsparametern in der SACHNR.TXT **************
+/-----------------------------------------------------------------------
+
+/*SPS#0.0 SPS-Parameter 0
+/*SPS#1.0 SPS-Parameter 1
+/*SPS#2.0 SPS-Parameter 2
+/*SPS#3.0 SPS-Parameter 3
+/*SPS#4.0 SPS-Parameter 4
+/*SPS#5.0 SPS-Parameter 5
+/*SPS#6.0 SPS-Parameter 6
+/*SPS#7.0 SPS-Parameter 7
+/*SPS#8.0 SPS-Parameter 8
+/*SPS#9.0 SPS-Parameter 9
+/*SPS#10.0 SPS-Parameter 10
+/*SPS#11.0 SPS-Parameter 11
+/*SPS#12.0 SPS-Parameter 12
+/*SPS#13.0 SPS-Parameter 13
+/*SPS#14.0 SPS-Parameter 14
+/*SPS#15.0 SPS-Parameter 15
+/*SPS#16.0 SPS-Parameter 16
+/*SPS#17.0 SPS-Parameter 17
+/*SPS#18.0 SPS-Parameter 18
+/*SPS#19.0 SPS-Parameter 19
+/*SPS#20.0 SPS-Parameter 20
+/*SPS#21.0 SPS-Parameter 21
+/*SPS#22.0 SPS-Parameter 22
+/*SPS#23.0 SPS-Parameter 23
+/*SPS#24.0 SPS-Parameter 24
+/*SPS#25.0 SPS-Parameter 25
+/*SPS#26.0 SPS-Parameter 26
+/*SPS#27.0 SPS-Parameter 27
+/*SPS#28.0 SPS-Parameter 28
+/*SPS#29.0 SPS-Parameter 29
+
+PAT#1.0 count Housing in WPC
+PAT#1.1 Housing-Typ
+PAT#1.2 count Housing in WPC
+PAT#1.4 Stiftoberfl鋍he
+PAT#1.5 Gabeltyp
+PAT#1.6 Stiftl鋘ge
+PAT#1.7 kleiner Abstand Geh鋟se auf Nest
+PAT#1.8 BM-躡erpr黤ung ein
+PAT#1.9 SPS-Parameter 9
+PAT#1.10 SPS-Parameter 10
+PAT#1.11 SPS-Parameter 11
+PAT#1.12 SPS-Parameter 12
+PAT#1.13 SPS-Parameter 13
+PAT#1.14 SPS-Parameter 14
+PAT#1.15 SPS-Parameter 15
+PAT#1.16 ZE-Einheit Schr鋑band (m/min)*10
+PAT#1.17 ZE-Einheit ESR2000 A-Stellung
+PAT#1.18 Ventil 1 Volt*100
+PAT#1.19 Ventil 2 Volt*100
+PAT#1.20 Abweiser Position 1 oder 2
+PAT#1.21 SPS-Parameter 21
+PAT#1.22 SPS-Parameter 22
+PAT#1.23 SPS-Parameter 23
+PAT#1.24 SPS-Parameter 24
+PAT#1.25 SPS-Parameter 25
+PAT#1.26 SPS-Parameter 26
+PAT#1.27 SPS-Parameter 27
+PAT#1.28 SPS-Parameter 28
+PAT#1.29 SPS-Parameter 29
+
+
+
+
+
+/-----------------------------------------------------------------------
+/*********************** Anwendermaschinenteil 1 ***********************
+/-----------------------------------------------------------------------
+
+
+
+/*************************************
+/* Texte zu den Produktionsdaten MT1 *
+/*************************************
+
+F#1.500 Work cycles
+F#1.501 Good poles
+F#1.502 Reject poles
+F#1.504 Not finished poles
+F#1.503 Empty cycles
+F#1.505 Good parts quantity
+F#1.506 Reject quantity
+/*F#1.508 Rejected blocks
+
+/*************************************
+/**** Stationsbezeichnungen MT1 ******
+/*************************************
+
+ST#1.1 St.1 housing insert
+ST#1.2 St.2 carrier state check
+ST#1.6 St.6 screw insert
+ST#1.7 St.7 screw state check
+ST#1.8 St.8 Screw close 
+ST#1.9 St.9 Screw open
+ST#1.10 St.10 camera check 1
+ST#1.13 St.13 camera check 2
+ST#1.14 St.14 carrier check 
+ST#1.15 St.15 reject article out
+ST#1.16 St.16 good article out
+
+ST#1.21 St.31 press plate insert
+/*ST#1.22 St.32 current bar check
+ST#1.23 St.33 current bar check
+ST#1.25 St.35 clamping sleeve insert
+ST#1.27 St.37 clamping sleeve press
+ST#1.28 St.38 metal parts ejection
+ST#1.29 St.40 metal parts insert
+ST#1.31 St.39 metal parts pos check
+ST#1.32 St.42 carrier empty check
+
+/*************************************
+/*** Texte zu den Pr黤fehlern MT1 ****
+/*************************************
+
+F#1.550 Checking fault 0
+F#1.551 Checking fault 1
+F#1.552 St.2 Reject after Emergency Stop
+F#1.553 St.2 housing missing
+F#1.554 St.2 housing length error
+F#1.555 St.7 Reject after Emergency Stop
+F#1.556 St.7 B2 check fault
+F#1.557 St.7 B1 check fault
+F#1.558 St.8 Reject after Emergency Stop
+F#1.559 St.9 Reject after Emergency Stop
+F#1.560 Checking fault 10
+F#1.561	St.8 light sensor not active
+F#1.562 St.8 light sensor not stable
+F#1.563	St.8 torque reached
+F#1.564 St.8 light sensor not free
+F#1.565 St.8 Max.time exceeded
+F#1.566 Checking fault 16
+F#1.567	Checking fault 17
+F#1.568 Checking fault 18
+F#1.569 Checking fault 19
+F#1.570 Checking fault 20
+F#1.571 St.9 light sensor not active
+F#1.572 St.9 light sensor not stable
+F#1.573 St.9 torque reached
+F#1.574 St.9 light sensor not free
+F#1.575 St.9 Max.time exceeded 
+F#1.576	St.9 torque not reached
+F#1.577 Checking fault 27
+F#1.578 Checking fault 28
+F#1.579 Checking fault 29
+F#1.580 Checking fault 30
+F#1.581 St.9 light sensor not free
+F#1.582	St.9 light sensor not active
+F#1.583 Checking fault 33
+F#1.584 St.10 K1: Object missing
+F#1.585 St.10 K1: Object search
+F#1.586 St.10 K1: screw head error
+F#1.587 St.10 K1: screw slot error
+F#1.588 St.10 K1: housing error
+F#1.589 St.10 K1: Error
+F#1.590 St.10 K1: Reset 
+F#1.591 St.13 K2: Object missing
+F#1.592 St.13 K2: Object search
+F#1.593 St.13 K2: housing wall error
+F#1.594 St.13 K2: press plate not found
+F#1.595 St.13 K2: press plate bent
+F#1.596 St.13 K2: clamping sleeve error
+F#1.597 Checking fault 47
+F#1.598 St.13 K2: Error
+F#1.599 St.13 K2: Reset
+
+/*************************************
+/*********** Warnungen MT1 ***********
+/*************************************
+F#1.450 intermediate conveyor belt
+K#1.450 to MP2 is full
+K#1.450 machine part 1 standby
+
+F#1.451 St.1 housing channel empty
+K#1.451 machine part 1 standby
+F#1.452 St.1 housing channel not full
+K#1.452 please check conveyor system
+
+F#1.453 St.6 minus screw channel empty
+K#1.453 machine part 1 standby
+F#1.454 St.7 minus screw channel not full
+K#1.454 please check conveyor system
+
+F#1.455 St.6 phillips screw channel empty
+K#1.455 machine part 1 standby
+F#1.456 St.6 phillips screw channel not full
+K#1.456 please check conveyor system
+
+F#1.457 St.31 press plate channel empty
+K#1.457 machine part 1 standby
+F#1.458 St.31 press plate channel not full
+K#1.458 please check conveyor system
+
+F#1.459 St.35 clamping sleeve channel empty
+K#1.459 machine part 1 standby
+F#1.460 St.35 clamping sleeve channel not full
+K#1.460 please check conveyor system
+
+F#1.461 St.15 reject box not in position
+K#1.461 machine part 1 standby
+F#1.462 PC warning[12]
+F#1.463 PC warning[13]
+F#1.464 PC warning[14]
+F#1.465 PC warning[15]
+F#1.466 PC warning[16]
+F#1.467 PC warning[17]
+F#1.468 PC warning[18]
+F#1.469 PC warning[19]
+F#1.470 PC warning[20]
+F#1.471 PC warning[21]
+F#1.472 PC warning[22]
+F#1.473 MP 1 wating for WPC
+K#1.473 machine part 1 standby
+F#1.474 PC warning[24]
+
+/*************************************
+/********* Informationen MT1 *********
+/*************************************
+/*	    1.......10........20........30........40
+F#1.475 Process monitoring is activated
+F#1.476 Machine is unloading
+F#1.477 Machine is unloaded
+K#1.477 article release available
+F#1.478 Single step is activated
+/*[4]
+F#1.479 St.1 Housing Feeder Jammed
+K#1.479 St.1 pls check feeding system
+/*[5]
+F#1.480 St.6 minus screw Feeder Jammed
+K#1.480 St.6 pls check feeding system
+/*[6]
+F#1.481 St.6 phillips Screw Feeder Jammed
+K#1.481 St.6 pls check feeding system
+/*[7]
+F#1.482 St.31 press plate Feeder Jammed
+K#1.482 St.31 pls check feeding system
+/*[8]
+F#1.483 St.35 clamping sleeve Feeder Jammed
+K#1.483 St.35 pls check feeding system
+
+F#1.484 Info[9]
+F#1.485 Info[10]
+F#1.486 Info[11]
+F#1.487 Info[12]
+F#1.488 Info[13]
+F#1.489 Info[14]
+F#1.490 Info[15]
+F#1.491 Info[16]
+F#1.492 Info[17]
+F#1.493 Info[18]
+F#1.494 Info[19]
+F#1.495 Service Time activated for switch!
+K#1.495 To switch off once more press botton
+F#1.496 Intermediate conveyor belt
+K#1.496 to next MP2 is off
+K#1.496 machine part 1 standby
+F#1.497 Intermediate conveyor belt
+K#1.497 to next MP2 is full
+K#1.497 machine part 1 standby
+F#1.498 Conveyor belt from MP0 is empty
+K#1.498 machine part 1 standby
+F#1.499 FlexLink transport system is off
+K#1.499 machine part 1 standby
+
+/*----------------------------------------------------------------------
+/********* Fehler die durch das Fehlerprogramm erkannt werden **********
+/*----------------------------------------------------------------------
+/*********                Fehler der Stationen                **********
+/*----------------------------------------------------------------------
+
+F#1.0 MKDSN MT 1
+K#1.0 BM 020759
+
+
+/*********************
+/***** STATION 1 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.11 St.1 housing separator not up	
+X#1.11 +1-B1/4
+Y#1.11 +1-Y1/4
+F#1.12 St.1 housing separator not down
+X#1.12 +1-B1/2
+Y#1.12 +1-Y1/2
+
+F#1.13 St.1 housing separator not up
+X#1.13 +1-B2/4
+Y#1.13 +1-Y2/4
+F#1.14 St.1 housing separator not down
+X#1.14 +1-B2/2
+Y#1.14 +1-Y2/2
+
+F#1.19 St.1 housing channel switch not in front
+X#1.19 +1-B5/4
+Y#1.19 +1-Y5/4
+F#1.20 St.1 housing channel switch not back
+X#1.20 +1-B5/2
+Y#1.20 +1-Y5/2
+
+F#1.21 St.1 housing gripper driver not in front
+X#1.21 +1-B6/4
+Y#1.21 +1-Y6/4
+F#1.22 St.1 housing gripper driver not back
+X#1.22 +1-B6/2
+Y#1.22 +1-Y6/2
+
+F#1.23 St.1 housing gripper driver not in front
+X#1.23 +1-B7/4
+Y#1.23 +1-Y7/4
+F#1.24 St.1 housing gripper driver not back
+X#1.24 +1-B7/2
+Y#1.24 +1-Y7/2
+
+F#1.25 St.1 housing insert not in front
+X#1.25 +1-B8/4
+Y#1.25 +1-Y8/4
+F#1.26 St.1 housing insert not back
+X#1.26 +1-B8/2
+Y#1.26 +1-Y8/2
+
+F#1.27 St.1 carrier opener not up
+X#1.27 +1-B9/4
+Y#1.27 +1-Y9/4
+F#1.28 St.1 carrier opener not down
+X#1.28 +1-B9/2
+Y#1.28 +1-Y9/2
+
+F#1.29 St.1 carrier opener not up
+X#1.29 +1-B10/4
+Y#1.29 +1-Y10/4
+F#1.30 St.1 carrier opener not down
+X#1.30 +1-B10/2
+Y#1.30 +1-Y10/2
+
+F#1.31 St.1 carrier switcher not in front
+X#1.31 +1-B11/4
+Y#1.31 +1-Y11/4
+F#1.32 St.1 carrier switcher not back
+X#1.32 +1-B11/2
+Y#1.32 +1-Y11/2
+
+F#1.33 St.1 carrier switcher not in front
+X#1.33 +1-B12/4
+Y#1.33 +1-Y12/4
+F#1.34 St.1 carrier switcher not back
+X#1.34 +1-B12/2
+Y#1.34 +1-Y12/2
+
+F#1.35 St.1 housing not in position
+X#1.35 +1-B1E
+F#1.36 St.1 0-1 alternation error
+X#1.36 +1-B1E
+
+F#1.37 St.1 carrier switcher check error
+X#1.37 +1-B4
+F#1.38 St.1 0-1 alternation error
+X#1.38 +1-B4
+
+F#1.39 St.1 carrier opener check error
+X#1.39 +1-B5
+F#1.40 St.1 0-1 alternation error
+X#1.40 +1-B5
+
+F#1.41 St.1 carrier opener check error
+X#1.41 +1-B6
+F#1.42 St.1 0-1 alternation error
+X#1.42 +1-B6
+
+F#1.46 St.1 0-1 alternation error
+X#1.46 +1-B4
+
+/***********************************
+/***** STATION 2 *****
+/***********************************
+/*     1.......10........20........30........40
+
+F#1.44 St.2 0-1 alternation error
+X#1.44 +2-B1
+F#1.45 St.2 housing not in carrier 3x reject
+X#1.45 +2-B1
+F#1.46 St.2 housing legth 3x reject
+X#1.46 +2-B1
+
+/**********************
+/***** STATION   6 ****
+/**********************
+/*     1.......10........20........30........40
+F#1.203 St.7 screw press not in front	
+X#1.203 +7-B1/4
+Y#1.203 +7-Y1/4
+F#1.204 St.7 screw press not back
+X#1.204 +7-B1/2
+Y#1.204 +7-Y1/2
+
+F#1.205 St.7 cs press not in front
+X#1.205 +7-B2/4
+Y#1.205 +7-Y2/4
+F#1.206 St.7 cs press not back
+X#1.206 +7-B2/2
+Y#1.206 +7-Y2/2
+
+F#1.207 St.7 0-1 alternation error
+X#1.207 +7-B1
+
+F#1.208 St.7 0-1 alternation error
+X#1.208 +7-B2
+
+F#1.209 St.7 3x reject
+X#1.209 +7-B1
+
+F#1.210 St.7 spring check error
+X#1.210 +7-B2
+
+F#1.215 St.7 3x reject
+X#1.215 +7-B2
+
+/**********************
+/***** STATION  6 *****
+/**********************
+/*     1.......10........20........30........40
+F#1.51 St.6 screw inserter not in right	
+X#1.51 +6-B1/4
+Y#1.51 +6-Y1/4
+F#1.52 St.6 screw inserter not in left	
+X#1.52 +6-B1/2
+Y#1.52 +6-Y1/2
+
+F#1.53 St.6 screw inserter driver not in front
+X#1.53 +6-B2/4
+Y#1.53 +6-Y2/4
+F#1.54 St.6 screw inserter driver not back
+X#1.54 +6-B2/2
+Y#1.54 +6-Y2/2
+
+F#1.57 St.6 minus screw seperate down
+X#1.57 +6-B3/4
+Y#1.57 +6-Y3/4
+F#1.58 St.6 minus screw seperate up	
+X#1.58 +6-B3/2
+Y#1.58 +6-Y3/2
+
+F#1.59 St.6 screw not in position
+X#1.59 +6-B1E
+F#1.60 St.6 0-1 alternation error
+X#1.60 +6-B1E
+
+F#1.61 St.6 phillips screw seperate not down
+X#1.61 +6-B4/2
+Y#1.61 +6-Y4/2
+F#1.62 St.6 phillips screw seperate not up
+X#1.62 +6-B4/4
+Y#1.62 +6-Y4/4
+
+F#1.63 St.6 screw not in position
+X#1.63 +6-B4E
+F#1.64 St.6 0-1 alternation error
+X#1.64 +6-B4E
+
+F#1.65 St.6 screw not seperated
+X#1.65 +6-B7E
+F#1.67 St.6 0-1 alternation error
+X#1.67 +6-B7E
+
+F#1.66 St.6 screw inserter senor not active	
+X#1.66 +6-B1/2/4
+Y#1.66 +6-Y1/2/4
+
+/**********************
+/***** STATION  8 *****
+/**********************
+/*     1.......10........20........30........40
+F#1.71 St.8 screw test not in front	
+X#1.71 +8-B1/4
+Y#1.71 +8-Y1/4
+F#1.72 St.8 screw test not back
+X#1.72 +8-B1/2
+Y#1.72 +8-Y1/2
+
+F#1.73 St.8 0-1 alternation error
+X#1.73 +8-B1
+
+F#1.74 St.8 error time out
+
+F#1.75 St.8 driver error
+
+F#1.76 St.8 profinet error
+
+F#1.77 St.8 no feedback from driver
+
+F#1.78 St.8 3x reject
+X#1.78 +8-B1
+
+
+
+/**********************
+/***** STATION   9 ****
+/**********************
+/*     1.......10........20........30........40
+F#1.81 St.9 screw test not in front	
+X#1.81 +9-B1/4
+Y#1.81 +9-Y1/4
+F#1.82 St.9 screw test not back
+X#1.82 +9-B1/2
+Y#1.82 +9-Y1/2
+
+F#1.83 St.9 0-1 alternation error
+X#1.83 +9-B1
+
+F#1.84 St.9 error time out
+
+F#1.85 St.9 driver error
+
+F#1.86 St.9 profinet error
+
+F#1.87 St.9 no feedback from driver
+
+F#1.88 St.9 3x reject
+X#1.88 +9-B1
+
+
+/**********************
+/***** STATION 10*****
+/**********************
+/*     1.......10........20........30........40
+F#1.90 error St.10 Camera 
+K#1.90 No individual defect found
+
+F#1.91 error St.10 Camera 
+K#1.91 Camera-PC not ready
+K#1.91 Cameraprogramm not active?
+
+F#1.92 error St.10 Camera 
+K#1.92 Camera-Measurement not started
+K#1.92 ready message Camera 1 not reset
+K#1.92 with "Unlock" confirm / Reject
+
+F#1.93 error St.10 Camera 
+K#1.93 Camera-Measurement not finished
+K#1.93 ready message of cameraprogram miss
+K#1.93 with "Unlock" confirm / Reject
+
+F#1.98 St.10 high reject rate
+K#1.98 Please check or call technician
+
+F#1.99 St.10 3 times rejects Camera 1
+
+
+/**********************
+/***** STATION  11 ****
+/**********************
+/*     1.......10........20........30........40
+
+/**********************
+/***** STATION 12 *****
+/**********************
+/*     1.......10........20........30........40
+
+/**********************
+/***** STATION 13 *****
+/**********************
+/*     1.......10........20........30........40
+F#1.100 error St.13 Camera 
+K#1.100 No individual defect found
+
+F#1.101 error St.13 Camera 
+K#1.101 Camera-PC not ready
+K#1.101 Cameraprogramm not active?
+
+F#1.102 error St.13 Camera 
+K#1.102 Camera-Measurement not started
+K#1.102 ready message Camera 2 not reset
+K#1.102 with "Unlock" confirm / Reject
+
+F#1.103 error St.13 Camera 
+K#1.103 Camera-Measurement not finished
+K#1.103 ready message of cameraprogram miss
+K#1.103 with "Unlock" confirm / Reject
+
+F#1.108 St.13 high reject rate
+K#1.108 Please check or call technician
+
+F#1.109 St.13 3 times rejects Camera 2
+
+/**********************
+/***** STATION 14 *****
+/**********************
+/*     1.......10........20........30........40
+
+F#1.111 St.14 0-1 alternation error
+X#1.111 +14-B1
+F#1.112 St.14 article position wrong
+X#1.112 +14-B1
+
+/**********************
+/***** STATION 15 *****
+/**********************
+/*     1.......10........20........30........40
+F#1.121 St.15 carrier opener1 not up	
+X#1.121 +15-B1/4
+Y#1.121 +15-Y1/4
+F#1.122 St.15 carrier opener1 not down	
+X#1.122 +15-B1/2
+Y#1.122 +15-Y1/2
+
+F#1.123 St.15 reject push out not in front
+X#1.123 +15-B2/4
+Y#1.123 +15-Y2/4
+F#1.124 St.15 reject push out not back
+X#1.124 +15-B2/2
+Y#1.124 +15-Y2/2
+
+F#1.125 St.15 gripper move not in front
+X#1.125 +15-B3/4
+Y#1.125 +15-Y3/4
+F#1.126 St.15 gripper move not back
+X#1.126 +15-B3/2
+Y#1.126 +15-Y3/2
+
+F#1.127 St.15 reject transportation not in front
+X#1.127 +15-B5/4
+Y#1.127 +15-Y5/4
+F#1.128 St.15 reject transportation not back
+X#1.128 +15-B5/2
+Y#1.128 +15-Y5/2
+
+F#1.129 St.15 carrier opener2 not up	
+X#1.129 +15-B6/4
+Y#1.129 +15-Y6/4
+F#1.130 St.15 carrier opener2 not down	
+X#1.130 +15-B6/2
+Y#1.130 +15-Y6/2
+
+F#1.131 St.15 reject stopper1 not up	
+X#1.131 +15-B7/4
+Y#1.131 +15-Y7/4
+F#1.132 St.15 reject stopper1 not down	
+X#1.132 +15-B7/2
+Y#1.132 +15-Y7/2
+
+F#1.133 St.15 reject stopper2 not up	
+X#1.133 +15-B8/4
+Y#1.133 +15-Y8/4
+F#1.134 St.15 reject stopper2 not down	
+X#1.134 +15-B8/2
+Y#1.134 +15-Y8/2
+
+F#1.135 St.15 reject stopper3 not up	
+X#1.135 +15-B9/4
+Y#1.135 +15-Y9/4
+F#1.136 St.15 reject stopper3 not down
+X#1.136 +15-B9/2
+Y#1.136 +15-Y9/2
+
+F#1.137 St.15 carrier opener1 check error	
+X#1.137 +15-B1
+F#1.138 St.15 0-1 alternation error
+X#1.138 +15-B1
+
+F#1.139 St.15 carrier opener2 check error	
+X#1.139 +15-B2
+F#1.140 St.15 0-1 alternation error
+X#1.140 +15-B2
+
+F#1.261 St.15 reject pos 1 check error
+X#1.261 +15-B3
+F#1.262 St.15 0-1 alternation error
+X#1.262 +15-B3
+
+F#1.263 St.15 reject pos 2 check error
+X#1.263 +15-B4
+F#1.264 St.15 0-1 alternation error
+X#1.264 +15-B4
+
+F#1.265 St.15 reject pos 3 check error	
+X#1.265 +15-B5
+F#1.266 St.15 0-1 alternation error
+X#1.266 +15-B5
+
+F#1.272 St.15 reject box 1 not reached
+X#1.272 +15-B3
+Y#1.272 +15-Y7/4
+
+F#1.273 St.15 reject box 2 not reached
+X#1.273 +15-B4
+Y#1.273 +15-Y8/4
+
+F#1.274 St.15 reject box 3 not reached
+X#1.274 +15-B5
+Y#1.274 +15-Y9/4
+
+F#1.275 St.15 reject transportation not back
+F#1.275 St.15 reject box 4 not reached
+X#1.275 +15-B5/2
+Y#1.275 +15-Y5/2
+
+/************************
+/***** STATION 16:  *****
+/************************
+/*	   1.......10........20........30........40
+F#1.141 St.16 carrier opener not up	
+X#1.141 +16-B1/4
+Y#1.141 +16-Y1/4
+F#1.142 St.16 carrier opener not down	
+X#1.142 +16-B1/2
+Y#1.142 +16-Y1/2
+
+F#1.143 St.16 product push out not in front
+X#1.143 +16-B2/4
+Y#1.143 +16-Y2/4
+F#1.144 St.16 product push out not back
+X#1.144 +16-B2/2
+Y#1.144 +16-Y2/2
+
+F#1.145 St.16 product position_H not in front
+X#1.145 +16-B3/4
+Y#1.145 +16-Y3/4
+F#1.146 St.16 product position_H not back
+X#1.146 +16-B3/2
+Y#1.146 +16-Y3/2
+
+F#1.147 St.16 product position_V not down	
+X#1.147 +16-B4/4
+Y#1.147 +16-Y4/4
+F#1.148 St.16 product position_V not up
+X#1.148 +16-B4/2
+Y#1.148 +16-Y4/2
+
+F#1.149 St.16 product exchanger not in front	
+X#1.149 +16-B5/4
+Y#1.149 +16-Y5/4
+F#1.150 St.16 product exchanger not back
+X#1.150 +16-B5/2
+Y#1.150 +16-Y5/2
+
+F#1.151 St.16 product fix not in front
+X#1.151 +16-B6/4
+Y#1.151 +16-Y6/4
+F#1.152 St.16 product fix not back	
+X#1.152 +16-B6/2
+Y#1.152 +16-Y6/2
+
+F#1.153 St.16 product move out not in left
+X#1.153 +16-B7/4
+Y#1.153 +16-Y7/4
+F#1.154 St.16 product move out not in right
+X#1.154 +16-B7/2
+Y#1.154 +16-Y7/2
+
+/*********************
+/***** STATION 31 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.161 St.31 press plate insert not in right	
+X#1.161 +31-B1/4
+Y#1.161 +31-Y1/4
+F#1.162 St.31 press plate insert not in left	
+X#1.162 +31-B1/2
+Y#1.162 +31-Y1/2
+
+F#1.163 St.31 press plate not in position
+X#1.163 +31-B1E
+F#1.164 St.31 0-1 alternation error
+X#1.164 +31-B1E
+
+F#1.165 St.31 inserter sensor not active
+X#1.165 +31-B1/4/2
+Y#1.165 +31-Y1/4/2
+
+/*********************
+/***** STATION 32 *****
+/*********************
+/*     1.......10........20........30........40
+
+F#1.171 St.32 0-1 alternation error
+X#1.171 +32-B1
+F#1.172 St.32 3x reject
+X#1.172 +32-B1
+
+/*********************
+/***** STATION 33 *****
+/*********************
+/*     1.......10........20........30........40
+
+F#1.181 St.33 0-1 alternation error
+X#1.181 +33-B1
+F#1.182 St.33 3x reject
+X#1.182 +33-B1
+
+/*********************
+/***** STATION 35 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.191 St.35 clamping sleeve insert not down	
+X#1.191 +35-B1/4
+Y#1.191 +35-Y1/4
+F#1.192 St.35 clamping sleeve insert not up	
+X#1.192 +35-B1/2
+Y#1.192 +35-Y1/2
+F#1.193 St.35 clamping sleeve not in position
+X#1.193 +35-B1E
+F#1.194 St.35 0-1 alternation error
+X#1.194 +35-B1E
+F#1.195 St.35 clamping sleeve cover not down
+X#1.195 +35-B4
+/*********************
+/***** STATION 37 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.201 St.37 press clamping sleeve not down	
+X#1.201 +37-B1/4
+Y#1.201 +37-Y1/4
+F#1.202 St.37 press clamping sleeve not up	
+X#1.202 +37-B1/2
+Y#1.202 +37-Y1/2
+
+/*********************
+/***** STATION 38 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.211 St.38 metal parts ejectior not in front	
+X#1.211 +38-B1/4
+Y#1.211 +38-Y1/4
+F#1.212 St.38 metal parts ejectior not back	
+X#1.212 +38-B1/2
+Y#1.212 +38-Y1/2
+
+F#1.213 St.38 parts close checking not OK
+X#1.213 +38-B1
+F#1.214 St.38 0-1 alternation error
+X#1.214 +38-B1
+
+/*********************
+/***** STATION 39 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.225 St.39 please check the pos of metal part 
+
+/*********************
+/***** STATION 40 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.221 St.40 metal parts insert not in front	
+X#1.221 +40-B1/4
+Y#1.221 +40-Y1/4
+F#1.222 St.40 metal parts insert not back	
+X#1.222 +40-B1/2
+Y#1.222 +40-Y1/2
+
+/*********************
+/***** STATION 42 *****
+/*********************
+/*     1.......10........20........30........40
+F#1.231 St.42 3x reject
+X#1.231 +42-B1
+F#1.232 St.42 0-1 alternation error
+X#1.232 +42-B1
+
+
+/*****************************************
+/*****  STATION 1 - ACHSE LEERR腢MEN  ****
+/*****************************************
+/*      1.......10........20........30........40
+F#1.320 St.1 Achse Vereinzelung leerr鋟men
+K#1.320 alle Geh鋟se entnehmen
+/**********************
+/*** BARCODESCANNER ***
+/**********************
+
+F#1.391 Fault barcode scanner: manual active
+K#1.391 Call electrician!
+F#1.392 Fault barcode scanner: No response
+K#1.392 Push acknowledge and switch on again
+F#1.393 Fault barcode scanner: No WPC release
+K#1.393 WPC is not released in
+K#1.393 WPC data management tool
+K#1.393 Call electrician!
+F#1.394 Fault barcode scanner: No response (2)
+K#1.394 Take out WPC on additional errors!
+K#1.394 Call electrician!
+
+F#1.399 Fault barcode scanner
+K#1.399 Call Mr Blinne
+
+/*----------------------------------------------------------------------
+/************************** ALLGEMEINE FEHLER **************************
+/*----------------------------------------------------------------------
+
+F#1.401 Emergency-Stop was pressed!
+F#1.402 Error Key switch not OK
+F#1.403 Low air pressure
+K#1.403 Check air pressure at
+K#1.403 air supply unit
+F#1.404 Data fault on the hard disc
+K#1.404 WPC information are deleted!
+F#1.405 Fault Interbus
+K#1.405 Call electrician!
+F#1.406 Main axis motor turned while doors open
+K#1.406 Axis St.201 safety circuit not OK
+K#1.406	Call electrician!
+F#1.407 Axis St201:reference point not reached
+K#1.407 Check the reference point sensor!
+X#1.407 +201-B3
+F#1.408 Main Plate motor turned while doors open
+K#1.408 Plate St.202 safety circuit not OK
+K#1.408	Call electrician!
+F#1.409 Plate1 not ready
+K#1.409	Call electrician!
+
+F#1.410 safety door not installed!
+K#1.410 please install the safety door!
+X#1.410 +401-S5
+
+F#1.420 No fault found!
+K#1.420 Call programmer!
+K#1.420 Do NOT acknowledge or
+K#1.420 start the machine!
+
+
+F#1.425 Drive Unit 8 				/*Antrieb 8 
+K#1.425 Error final position 		/*Endstellung der Kolben error!
+F#1.426 Drive Unit 7 				/*Antrieb 7 
+K#1.426 Error final position 		/*Endstellung der Kolben error!
+F#1.427 Drive Unit 6 				/*Antrieb 6 
+K#1.427 Error final position 		/*Endstellung der Kolben error!
+F#1.428 Drive Unit 5 				/*Antrieb 5 
+K#1.428 Error final position 		/*Endstellung der Kolben error!
+F#1.429 Drive Unit 4 				/*Antrieb 4 
+K#1.429 Error final position 		/*Endstellung der Kolben error!
+F#1.430 Drive Unit 3 				/*Antrieb 3 
+K#1.430 Error final position 		/*Endstellung der Kolben error!
+F#1.431 Drive Unit 2 				/*Antrieb 2 
+K#1.431 Error final position 		/*Endstellung der Kolben error!
+F#1.432 Drive Unit 1 				/*Antrieb 1 
+K#1.432 Error final position 		/*Endstellung der Kolben error!
+
+
+F#1.441 safety door 8 not closed
+X#1.441 +401-S8
+F#1.442 safety door 7 not closed
+X#1.442 +401-S7
+F#1.443 safety door 6 not closed
+X#1.443 +401-S6
+F#1.444 safety door 5 not closed
+X#1.444 +401-S5
+F#1.445 safety door 4 not closed
+X#1.445 +401-S4
+F#1.446 safety door 3 not closed
+X#1.446 +401-S3
+F#1.447 safety door 2 not closed
+X#1.447 +401-S2
+F#1.448 safety door 1 not closed
+X#1.448 +401-S1
+F#1.449 Fault safety door locking
+K#1.449 safety doors not locked
+K#1.449 All safety doors closed?
+K#1.449 Please check all doors!
+
+/**********************
+/**** SERVO ST.201 ****
+/**********************
+
+F#1.700 No set of parameters chosen
+K#1.700 or INC/mm is zero
+K#1.700 Please check axis parameters!
+K#1.700 Fault axis St.201
+F#1.701 Servo overcurrent
+K#1.701 Fault axis St.201
+F#1.702 Servo error
+K#1.702 Fault axis St.201
+F#1.703 Positive limit position reached
+X#1.703 +201-B1
+K#1.703 Fault axis St.201
+F#1.704 Negative limit position reached
+X#1.704 +201-B2
+K#1.704 Fault axis St.201
+F#1.705 Pos. software limit position exceeded
+K#1.705 Fault axis St.201
+F#1.706 Neg. software limit position exceeded
+K#1.706 Fault axis St.201
+F#1.707 Invalid set of parameters chosen
+K#1.707 Fault axis St.201
+F#1.708 Invalid mode chosen
+K#1.708 Fault axis St.201
+F#1.709 Cylinders not at end position
+K#1.709 Fault axis St.201
+/**********************
+/**** SERVO ST.1 ****
+/**********************
+
+F#1.710 No set of parameters chosen
+K#1.710 or INC/mm is zero
+K#1.710 Please check axis parameters!
+K#1.710 Fault axis St.1
+F#1.711 Servo overcurrent
+K#1.711 Fault axis St.1
+F#1.712 Servo error
+K#1.712 Fault axis St.1
+F#1.713 Positive limit position reached
+X#1.713 +1-B10
+K#1.713 Fault axis St.1
+F#1.714 Negative limit position reached
+X#1.714 +1-B11
+K#1.714 Fault axis St.1
+F#1.715 Pos. software limit position exceeded
+K#1.715 Fault axis St.1
+F#1.716 Neg. software limit position exceeded
+K#1.716 Fault axis St.1
+F#1.717 Invalid set of parameters chosen
+K#1.717 Fault axis St.1
+F#1.718 Invalid mode chosen
+K#1.718 Fault axis St.1
+F#1.719 Cylinders not at end position
+K#1.719 Fault axis St.1
+
+/**********************
+/***** STATION 201 ****
+/**********************
+
+F#1.800 Fault sequence axis St.201
+K#1.800 No single fault found
+F#1.801 Axis St.201:Swivel unit not back
+X#1.801 +201-B1/2
+Y#1.801 +201-Y1/2
+F#1.802 Axis St.201:Swivel unit not front
+X#1.802 +201-B1/4
+Y#1.802 +201-Y1/4
+F#1.803 Axis St.201:WPC not run in
+X#1.803 +201-B4
+F#1.804 Axis St.201:Position not reached
+K#1.804 Check axis positioning time
+F#1.805 WPC not pushed out of the axis
+K#1.805 or intermidiate conveyor belt is full
+X#1.805 +302-B1
+F#1.807 Data could not be sent
+K#1.807 Check WPC data management
+F#1.808 Axis St201:Reference point not reached
+K#1.808 Check reference sensor!
+X#1.808 +201-B3
+F#1.809 BDE-data not transmitted
+K#1.809 BDE-PC off ?
+K#1.809 Check connection !
+
+/**********************
+/***** STATION 1   ****
+/**********************
+
+F#1.816 Axis St.1:Position not reached!
+K#1.816 check positioning control time!
+F#1.817 Axis St.1:Reference drive not OK
+K#1.817 Check positioning control time!
+
+/**********************
+/***** STATION 203 ****
+/**********************
+
+F#1.830 error Ablauf Teller
+K#1.830 kein Einzelfehler gefunden
+F#1.831 Plate has not reached P-Cam 	
+K#1.831 Teller hat P-Nocke nicht erreicht
+X#1.831 -B301.1
+F#1.832 Plate has not left P-Cam 	
+K#1.832 Teller hat P-Nocke nicht verlassen
+X#1.832 -B301.1
+
+F#1.835 BDE-data not transmitted
+K#1.835 BDE-PC off ?
+K#1.835 Check connection !
+F#1.836 Plate drives over P-Cam  		
+K#1.836 Teller hat P-Nocke 黚erfahren
+K#1.836 deleted WPC-info
+X#1.836 -B201.1
+F#1.837 Plate before start not in position
+K#1.837 Teller vor Start nicht in Position
+K#1.837 P-Cam not reached
+X#1.837 -B201.1
+
+/**********************
+/***** STATION 204 ****
+/**********************
+//      1.......10........20........30........40
+F#1.850 error plate process
+K#1.850 no single fault found
+F#1.851 Plate has not reached P-Cam
+X#1.851 +204-B1
+F#1.852 Plate has not left P-CamS
+X#1.852 +204-B1
+F#1.853 plate hasn't recieved in pos. signal 
+K#1.853 from siemens FU
+F#1.854 plate hasn't recieved ready signal 
+K#1.854 from siemens FU
+
+
+F#1.855 BDE-data not transmitted
+K#1.855 BDE-PC off ?
+K#1.855 Check connection !
+F#1.856 plate over drived P-Cam
+X#1.856 +204-B1
+F#1.857 Plate before start not in position
+K#1.857 P-Cam not reached
+X#1.857 +204-B1
+/**********************
+/*** Bewegungstest ****
+/**********************
+/*        1.......10........20........30........40
+/*F#1.896 Movement test valve terminal A1 not OK
+/*K#1.896 check Valve of valve terminal A1!
+/*K#1.896 St.1 housings insert
+/*X#1.896 +1-B1/2-4
+/*Y#1.896 +1-Y1/2-4
+
+F#1.889 Movement test A7 not OK
+K#1.889 Check valves!
+F#1.890 Movement test A7 not OK
+K#1.890 Check valves!
+F#1.891 Bewegungstest A6 not OK
+K#1.891 Check valves!
+F#1.892 Movement test A5 not OK
+K#1.892 Check valves!
+F#1.893 Movement test A4 not OK
+K#1.893 Check valves!
+F#1.894 Movement test A3 not OK
+K#1.894 Check valves!
+F#1.895 Movement test A2 not OK
+K#1.895 Check valves!
+F#1.896 Movement test A1 not OK
+K#1.896 Check valves!
+
+
+F#1.897 Movement test St.203 not OK
+K#1.897 Check valves of St.203!
+F#1.898 Movement test St.202 not OK
+K#1.898 Check valves of St.202!
+F#1.899 Movement test St.201 not OK
+K#1.899 Check valves of St.201!

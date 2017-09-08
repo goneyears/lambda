@@ -1,0 +1,282 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+
+using Microsoft.Office.Core;
+using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
+
+
+
+namespace fehlertranslater
+{
+
+    public partial class Form1 : Form
+    {
+        const int MAXEXCELROW = 1000;
+        #region hide
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void translate_btn_Click(object sender, EventArgs e)
+
+        {
+            Excel.Application oXL=new Excel.Application();
+            Excel.Workbooks oWBs=oXL.Workbooks;
+            Excel.Worksheet oDicExcelsht;
+
+
+
+            string dir = "f:\\PerDocs\\Prgref\\fehlertranslater\\fehlertranslater\\" ;
+            Excel. Workbook oDicExcel = oWBs.Add(dir+ "dictionary.xlsx");
+            oDicExcelsht = oDicExcel.Worksheets[1];
+
+            int newExcelStartRow = 1;
+
+
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            ReadDictionary(oDicExcelsht, dic);
+            newExcelStartRow = dic.Count + 1;
+            Debug.WriteLine("columns------------:" + dic.Count);
+            Debug.WriteLine("readdictionary end");
+            //using (System.IO.StreamReader fehlerTxt = new System.IO.StreamReader(@"D:\PerDocs\Prgref\fehlertranslater\fehlertranslater\test.txt"))
+            //using (System.IO.StreamWriter fehlerunicodeTxt = new System.IO.StreamWriter(@"D:\PerDocs\Prgref\fehlertranslater\fehlertranslater\testunicode.txt"))
+
+            System.IO.StreamReader fehlerTxt = new System.IO.StreamReader(@"f:\PerDocs\Prgref\fehlertranslater\fehlertranslater\test.txt");
+            System.IO.StreamWriter fehlerunicodeTxt = new System.IO.StreamWriter(@"f:\PerDocs\Prgref\fehlertranslater\fehlertranslater\testunicode.txt");
+
+            
+            string fehlerLine;
+            while ((fehlerLine = fehlerTxt.ReadLine()) != null)
+            {
+                string translateLine = "";
+                string unTransWords = "";
+                TransResult result = TransResult.NotYet;
+                if (fehlerLine != "")
+                {
+                    Debug.WriteLine("fehlerLine: " + fehlerLine);
+                    //Debug.WriteLine(fehlerLine[0]);
+                    //Debug.WriteLine(fehlerLine[1]);
+                    if ((fehlerLine[0] == 'F' || fehlerLine[0] == 'K') && (fehlerLine[1] == '#'))
+                    {
+
+                        Debug.WriteLine("startTranslate");
+                        result = TranslateLine(fehlerLine, ref translateLine, ref unTransWords, dic);
+                        Debug.WriteLine("result:" + translateLine);
+                        Debug.WriteLine("endtranslate");
+                    }
+
+                }
+                if (result == TransResult.NotYet)
+                {
+                    fehlerunicodeTxt.WriteLine(fehlerLine);
+                }
+                else if(result==TransResult.Partial)
+                {
+                    oDicExcelsht.Cells[newExcelStartRow, Col.B] = unTransWords;
+                    oDicExcelsht.Cells[newExcelStartRow, Col.C] = translateLine;
+                    newExcelStartRow++;
+                    Debug.WriteLine("excel new fehlerline " + fehlerLine);
+                    fehlerunicodeTxt.WriteLine(translateLine);
+                }
+                else if(result==TransResult.Full)
+                {
+                    fehlerunicodeTxt.WriteLine(translateLine);
+                }
+            }
+            
+
+
+            fehlerunicodeTxt.Close();
+            oXL.AlertBeforeOverwriting = false;
+
+            string path =  "f:\\PerDocs\\Prgref\\fehlertranslater\\fehlertranslater\\dictionary.xlsx";
+            oDicExcel.SaveAs(path, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+    Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+            oXL.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oWBs);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oXL);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oDicExcelsht);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oDicExcel);
+
+            oWBs = null;
+            oDicExcelsht = null;
+            oXL = null;
+            oDicExcel = null;
+            GC.Collect();
+            MessageBox.Show("finish");
+        }
+
+
+        private void ReadDictionary(Excel.Worksheet sht, Dictionary<string, string> dic)
+        {
+            Xl2Dic(sht, dic, Col.B, Col.C);
+            // add up case
+            ;
+        }
+
+        private TransResult TranslateLine(string inputLine, ref string outputLine, ref string unTransWords ,Dictionary<string, string> dic)
+        {
+            TransResult result = TransResult.Full;
+            
+            string endSymbol = "";
+            string fehlerLineTrimed = System.Text.RegularExpressions.Regex.Replace(inputLine, @"\b\s+\b", " ");
+            fehlerLineTrimed=fehlerLineTrimed.Trim(' ');
+
+            if(fehlerLineTrimed.Contains('!'))
+            {
+                endSymbol = "!";
+            }
+            if (fehlerLineTrimed.Contains('?'))
+            {
+                endSymbol = "?";
+            }
+            fehlerLineTrimed = fehlerLineTrimed.Trim('!','?',' ');
+            string[] fehlerWords = fehlerLineTrimed.Split(' ');
+            outputLine = fehlerWords[0]+" ";
+            unTransWords = string.Join(" ",fehlerWords,1,2);
+            int startTransPos = 1;
+            int lastTransPos = 1;
+
+            while (startTransPos < fehlerWords.Length)
+            {
+                bool beTranslated = false ;
+                string increasedWord = "";
+
+                string wordsBlock = "";
+
+                //startpos 0 is F# or K#, so start from 1
+                for (int iScan = startTransPos; iScan <= fehlerWords.Length-1; iScan++)
+                {
+                    string tempResult = "";
+                    increasedWord = ConnectStr(increasedWord , fehlerWords[iScan]);
+                    Debug.WriteLine("increasedword : " + increasedWord);
+                    if (TranslateWord(increasedWord, ref tempResult,dic))
+                    {
+                        wordsBlock = tempResult;
+                        lastTransPos = iScan;
+                        beTranslated = true;
+                        Debug.WriteLine("resultBlock: " + wordsBlock);
+                    }
+                }
+
+                //startTransPos = lastTransPos+1;
+                //lastTransPos = startTransPos;
+                Debug.WriteLine(startTransPos);
+                if (beTranslated)
+                {
+                    startTransPos = lastTransPos + 1;
+                    outputLine = outputLine  + wordsBlock;
+
+                }
+                else
+                {
+                    outputLine = outputLine + " " + fehlerWords[startTransPos];
+                    startTransPos++;
+                    result = TransResult.Partial;
+                }
+                Debug.WriteLine("whileresult: " + outputLine);
+            }
+           // if (result == "") result = fehlerLine;
+
+            outputLine = outputLine + endSymbol;
+
+
+            return result ;
+        }
+
+        private bool TranslateWord(string inputWord, ref string outputWord, Dictionary<string, string> dic)
+        {
+            //add case
+
+            //Debug.WriteLine("inputword" + inputWord);
+            if (dic.ContainsKey(inputWord))
+            {
+                outputWord = dic[inputWord];
+                return true;
+            }
+
+                outputWord = inputWord;
+                return false;
+        }
+
+        private void Xl2Dic(Excel.Worksheet sht, Dictionary<string, string> dic,  Col origiCol, Col transCol)
+        {
+
+            bool xlEnd = false;
+            int iRow = 1;
+            while(iRow < MAXEXCELROW && !xlEnd)
+            {
+                if (sht.Cells[iRow, origiCol].value != null && sht.Cells[iRow, transCol].value != null)
+                {
+                    string cellvalue = sht.Cells[iRow, origiCol].value;
+                    Debug.WriteLine(cellvalue);
+                    try
+                    {
+                        dic.Add(sht.Cells[iRow, origiCol].value, sht.Cells[iRow, transCol].value);
+                    }
+                    catch (ArgumentException)
+                    {
+                        Debug.WriteLine("duplicate key");
+                    }
+                    iRow++;
+                    Debug.WriteLine(iRow);
+                }
+                else
+                {
+                    xlEnd = true;
+                }
+
+            }
+            Debug.WriteLine("xl2dic end");
+        }
+
+        private string ConnectStr(string str,string addStr)
+        {
+            if(str!="")
+            {
+                return str+" "+addStr;
+            }
+            else
+            {
+                return addStr;
+            }
+        }
+        #endregion
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string path =  "f:\\PerDocs\\Prgref\\fehlertranslater\\fehlertranslater\\dictionary.xlsx";
+            QExcel xls = new QExcel(path);
+
+            xls.Display();
+
+            xls.Close();
+            QExcel xlss = new QExcel(path);
+
+            xlss.Display();
+
+            xlss.Close();
+            Debug.WriteLine("end");
+            int i=0;
+            int j=0;
+
+            i++;
+            j++;
+            ;
+        }
+
+
+    }
+}

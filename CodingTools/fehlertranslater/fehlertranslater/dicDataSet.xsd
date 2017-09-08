@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dicDataSet" targetNamespace="http://tempuri.org/dicDataSet.xsd" xmlns:mstns="http://tempuri.org/dicDataSet.xsd" xmlns="http://tempuri.org/dicDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dictionaryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dictionaryConnectionString (Settings)" PropertyReference="ApplicationSettings.fehlertranslater.Properties.Settings.GlobalReference.Default.dictionaryConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DefaultDictionaryTableAdapter" GeneratorDataComponentClassName="DefaultDictionaryTableAdapter" Name="DefaultDictionary" UserDataComponentName="DefaultDictionaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dictionaryConnectionString (Settings)" DbObjectName="DefaultDictionary" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT OriginalField, TranslationField FROM DefaultDictionary</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="OriginalField" DataSetColumn="OriginalField" />
+              <Mapping SourceColumn="TranslationField" DataSetColumn="TranslationField" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dicDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dicDataSet" msprop:Generator_UserDSName="dicDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DefaultDictionary" msprop:Generator_TableClassName="DefaultDictionaryDataTable" msprop:Generator_TableVarName="tableDefaultDictionary" msprop:Generator_TablePropName="DefaultDictionary" msprop:Generator_RowDeletingName="DefaultDictionaryRowDeleting" msprop:Generator_RowChangingName="DefaultDictionaryRowChanging" msprop:Generator_RowEvHandlerName="DefaultDictionaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DefaultDictionaryRowDeleted" msprop:Generator_UserTableName="DefaultDictionary" msprop:Generator_RowChangedName="DefaultDictionaryRowChanged" msprop:Generator_RowEvArgName="DefaultDictionaryRowChangeEvent" msprop:Generator_RowClassName="DefaultDictionaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OriginalField" msprop:Generator_ColumnVarNameInTable="columnOriginalField" msprop:Generator_ColumnPropNameInRow="OriginalField" msprop:Generator_ColumnPropNameInTable="OriginalFieldColumn" msprop:Generator_UserColumnName="OriginalField" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TranslationField" msprop:Generator_ColumnVarNameInTable="columnTranslationField" msprop:Generator_ColumnPropNameInRow="TranslationField" msprop:Generator_ColumnPropNameInTable="TranslationFieldColumn" msprop:Generator_UserColumnName="TranslationField" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

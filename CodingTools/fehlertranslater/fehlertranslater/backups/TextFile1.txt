@@ -1,0 +1,349 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+
+using Microsoft.Office.Core;
+using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
+
+using System.Data.OleDb; 
+
+namespace fehlertranslater
+{
+    
+
+    public partial class Form1 : Form
+    {
+      //  public DataTable dt = new DataTable();
+        public OleDbDataAdapter thisAdapter = new OleDbDataAdapter();
+
+
+        string dir = "..\\..\\..\\";
+        const int MAXEXCELROW = 1000;
+
+        int readTxtLineNum = 0;
+        int fullTransLineNum = 0;
+        int fehlerLineNum = 0;
+        int dicCount = 0;
+        int xlsRow = 0;
+        static int testint = 0;
+        #region hide
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        void ProgressDispThread()
+        {
+            while (true)
+            {
+                readlines_label.Text = readTxtLineNum.ToString();
+                fulltrans_label.Text = fullTransLineNum.ToString();
+                fehlernum_label.Text = fehlerLineNum.ToString();
+                readlines_label.Refresh();
+                fulltrans_label.Refresh();
+                fehlernum_label.Refresh();
+
+                diccount_label.Text = dicCount.ToString() + "/" + xlsRow.ToString();
+                diccount_label.Refresh();
+
+                testint++;
+                label1.Text = testint.ToString();
+                label1.Refresh();
+
+                System.Threading.Thread.Sleep(200);
+            }
+
+        }
+        private void translate_btn_Click(object sender, EventArgs e)
+
+        {
+           readTxtLineNum = 0;
+           fullTransLineNum = 0;
+           fehlerLineNum = 0;
+
+
+           OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+           thisConnection.Open();
+        //   string sql = "select sht1.ori,sht1.trans from sht1 WHERE ((ori not In (SELECT ori FROM sht1 As Tmp GROUP BY ori HAVING Count(*)>1 ))) order by ID";
+
+           //string sql1 = "select  OriginalField,TranslationField from BasicDictionary";
+           //string sql2 = "select  OriginalField,TranslationField from NewDictionary";
+           //string sql = sql1 + " UNION " + sql2;
+
+           string sql1 = "select  OriginalField,TranslationField from BasicDictionary WHERE ((OriginalField not In (SELECT OriginalField FROM BasicDictionary As Tmp GROUP BY OriginalField HAVING Count(*)>1 )))";
+           string sql2 = "select  OriginalField,TranslationField from NewDictionary WHERE ((OriginalField not In (SELECT OriginalField FROM NewDictionary As Tmp GROUP BY OriginalField HAVING Count(*)>1 )))";
+           string sqlunion = sql1 + " UNION " + sql2;
+           string sqlunionb = "(" + sqlunion + ")";
+           string sql = "Select * from " + sqlunionb + "WHERE ((OriginalField not In (SELECT OriginalField FROM " + sqlunionb + " As Tmp GROUP BY OriginalField HAVING Count(*)>1 )))";
+           thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+           System.Data.DataSet thisDataSet = new System.Data.DataSet();
+           thisAdapter.Fill(thisDataSet, "Dictionary1");
+           DataTable dt = thisDataSet.Tables["Dictionary1"];
+           dataGridView2.DataSource = dt;
+
+           Dictionary<string, string> dic = new Dictionary<string, string>();
+           dic.Clear();
+           {
+               dic = dt.Rows.Cast<DataRow>().ToDictionary(x => x[0].ToString().ToUpper(), x => x[1].ToString());
+           }
+
+           string sqlDel = "delete * from UntransDictionary";
+           OleDbCommand commDel = new OleDbCommand(sqlDel, thisConnection);
+
+           commDel.ExecuteNonQuery();
+
+
+           Debug.WriteLine(System.AppDomain.CurrentDomain.BaseDirectory);
+
+
+           int newExcelStartRow = 1;
+
+
+
+           newExcelStartRow = dic.Count + 1;
+           Debug.WriteLine("columns------------:" + dic.Count);
+           Debug.WriteLine("readdictionary end");
+
+           System.IO.StreamReader fehlerTxt = new System.IO.StreamReader(dir + "test.txt");
+           System.IO.StreamWriter fehlerunicodeTxt = new System.IO.StreamWriter(dir + "testunicode.txt");
+
+
+           string fehlerLine;
+           while ((fehlerLine = fehlerTxt.ReadLine()) != null)
+           {
+
+
+               Debug.WriteLine("original----------" + fehlerLine);
+               Line line = new Line(fehlerLine, dic);
+               Debug.WriteLine("translation------" + line.Translation);
+               if (line.TransResult == Line.TranslationResult.Partial)
+               {
+
+
+                   //  string sqlInsert = "insert into NewDictionary(OriginalField,TranslationField)values(line.OriginalBlock,line.TranslatedBlock)";
+
+                   // string sqlInsert = "insert into UntransDictionary(OriginalField,TranslationField)values(\"new\",\"new1\")";
+
+
+                   string sqlInsert = "insert into UntransDictionary(OriginalField,TranslationField)values(" + "\"" + (line.OriginalBlock).ToString() + "\"" + "," + "\"" + (line.TranslatedBlock).ToString() + "\"" + ")";
+                   OleDbCommand comm = new OleDbCommand(sqlInsert, thisConnection);
+
+                   comm.ExecuteNonQuery();
+
+                   newExcelStartRow++;
+                   Debug.WriteLine("excel new fehlerline " + fehlerLine);
+                   fehlerunicodeTxt.WriteLine(line.Translation);
+               }
+               else
+               {
+                   fehlerunicodeTxt.WriteLine(line.Translation);
+               }
+
+
+               readTxtLineNum++;
+               if (line.Type == Line.LineType.fehler)
+               {
+                   fehlerLineNum++;
+               }
+
+               if (line.TransResult == Line.TranslationResult.Full)
+               {
+                   fullTransLineNum++;
+               }
+
+           }
+
+
+           fehlerunicodeTxt.Close();
+           thisConnection.Close();  
+            MessageBox.Show("finish");
+
+        }
+
+
+
+
+
+
+
+
+        #endregion
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            readlines_label.Text = readTxtLineNum.ToString();
+            fulltrans_label.Text = fullTransLineNum.ToString();
+            fehlernum_label.Text = fehlerLineNum.ToString();
+            readlines_label.Refresh();
+            fulltrans_label.Refresh();
+            fehlernum_label.Refresh();
+
+            diccount_label.Text = dicCount.ToString() + "/" + xlsRow.ToString();
+            diccount_label.Refresh();
+
+            testint++;
+            label1.Text = testint.ToString();
+            label1.Refresh();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Control.CheckForIllegalCrossThreadCalls = false;
+        }
+
+        private void BasicDic_Disp_Click(object sender, EventArgs e)
+        {
+            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            string sql = "select ID,OriginalField,TranslationField from BasicDictionary order by ID";
+          //  string sql = "select top 2 sht1.ori from sht1";
+
+           // string sql = "select BasicDictionary.ori,BasicDictionary.trans from BasicDictionary WHERE ((ori  In (SELECT ori FROM BasicDictionary As Tmp GROUP BY ori HAVING Count(*)>1 ))) order by ID";
+             thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+            System.Data.DataSet thisDataSet = new System.Data.DataSet();
+            thisAdapter.Fill(thisDataSet, "NewDictionary1");
+            DataTable dt = thisDataSet.Tables["NewDictionary1"];
+            this.dataGridView2.DataSource = dt;
+
+            thisConnection.Close();
+          //  dataGridView2.EndEdit();
+
+        }
+
+        private void BasicDic_Update_Click(object sender, EventArgs e)
+        {
+
+            dataGridView2.EndEdit();
+            string sql = "select * from BasicDictionary";
+            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            OleDbDataAdapter da = new OleDbDataAdapter(sql, thisConnection);
+
+            OleDbCommandBuilder bld = new OleDbCommandBuilder(da);
+            thisAdapter.UpdateCommand = bld.GetUpdateCommand();
+
+
+
+            DataTable dt = (DataTable)dataGridView2.DataSource;
+
+            da.Update(dt);
+            dt.AcceptChanges();
+
+            thisConnection.Close(); 
+        }
+
+        private void NewDic_Disp_Click(object sender, EventArgs e)
+        {
+            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            string sql = "select ID, OriginalField,TranslationField from NewDictionary order by ID";
+            thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+            System.Data.DataSet thisDataSet = new System.Data.DataSet();
+            thisAdapter.Fill(thisDataSet, "NewDictionary1");
+            DataTable dt = thisDataSet.Tables["NewDictionary1"];
+            this.dataGridView2.DataSource = dt;
+
+            thisConnection.Close();
+          //  dataGridView2.EndEdit();
+        }
+
+        private void NewDic_Update_Click(object sender, EventArgs e)
+        {
+            dataGridView2.EndEdit();
+            string sql = "select * from NewDictionary";
+            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            OleDbDataAdapter da = new OleDbDataAdapter(sql, thisConnection);
+
+            OleDbCommandBuilder bld = new OleDbCommandBuilder(da);
+            thisAdapter.UpdateCommand = bld.GetUpdateCommand();
+
+            DataTable dt = (DataTable)dataGridView2.DataSource;
+
+            da.Update(dt);
+            dt.AcceptChanges();
+
+            thisConnection.Close(); 
+        }
+
+        private void UnTrans_Disp_Click(object sender, EventArgs e)
+        {//OriginalField,TranslationField order by ID
+          //  OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            //string sql1 = "select OriginalField,TranslationField from BasicDictionary";
+            //string sql2 = "select OriginalField,TranslationField from NewDictionary";
+            //string sql = sql1 +" UNION " + sql2;
+            
+            //thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+            //System.Data.DataSet thisDataSet = new System.Data.DataSet();
+            //thisAdapter.Fill(thisDataSet, "NewDictionary1");
+            //DataTable dt = thisDataSet.Tables["NewDictionary1"];
+            //this.dataGridView2.DataSource = dt;
+            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
+            string sql = "select ID,OriginalField,TranslationField from UntransDictionary order by ID";
+            thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+            System.Data.DataSet thisDataSet = new System.Data.DataSet();
+            thisAdapter.Fill(thisDataSet, "NewDictionary1");
+            DataTable dt = thisDataSet.Tables["NewDictionary1"];
+            this.dataGridView2.DataSource = dt;
+
+            thisConnection.Close();
+            dataGridView2.EndEdit();
+        }
+
+
+        public void DataGridViewEnableCopy(DataGridView p_Data)
+        {
+            Clipboard.SetData(DataFormats.Text, p_Data.GetClipboardContent());
+        }
+
+        public void DataGirdViewCellPaste(DataGridView p_Data)
+        {
+
+                // 获取剪切板的内容，并按行分割
+                string pasteText = Clipboard.GetText();
+                if (string.IsNullOrEmpty(pasteText))
+                    return;
+                string[] lines = pasteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    if (string.IsNullOrEmpty(line.Trim('\t',' ')))
+                        continue;
+                    // 按 Tab 分割数据
+                
+                    string[] vals = (line.Trim('\t')).Split('\t');
+                   ( (DataTable)p_Data.DataSource).Rows.Add(vals);
+                }
+
+        }
+
+        public void DataGridViewEnablePaste(DataGridView p_Data)
+        {
+            if (p_Data == null)
+                return;
+            p_Data.KeyDown += new KeyEventHandler(p_Data_KeyDown);
+        }
+
+        public void p_Data_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V)
+            {
+                if (sender != null && sender.GetType() == typeof(DataGridView))
+                    // 调用上面的粘贴代码
+                    DataGirdViewCellPaste((DataGridView)sender);
+            }
+        }
+
+
+
+
+
+    }
+}
+    

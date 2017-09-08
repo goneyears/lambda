@@ -1,0 +1,4 @@
+2017-06-29 10:43:29,390 [7] ERROR Cell4.Form1 [(null)] <(null)>
+ - test for log
+2017-06-29 10:45:42,028 [7] ERROR Cell4.Form1 [(null)] <(null)>
+ - test for log
