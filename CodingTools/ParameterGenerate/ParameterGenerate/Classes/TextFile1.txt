@@ -1,0 +1,443 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ParameterGenerate.Classes
+{
+    class InterPretLine:Line
+    {
+        private const int InfoParaListNum = 6;
+        private const int SpsParaListNum=20;
+        private const int AxisParaListNum = 3;
+        private const int CamParaListNum = 11;
+
+        private const int MGNum = 2;
+        private const int OutLineNum = 60;
+        private const int InfoParaStartLineNum = 0;
+        private const int SpsParaStartLineNum=4;
+        private const int AxisParaStartLineNum = 44;
+        private const int CamParaStartLineNum = 47;
+        private List<string> lineLexeme = new List<string>();
+        private int[,] spsParaList = new int[MGNum+1, SpsParaListNum];//add 1 for mg count form 1,not 0
+        private string[] infoParaList = new string[InfoParaListNum];
+        private string[] axisParaList = new string[AxisParaListNum];
+        private int[] camParaList = new int[CamParaListNum];
+
+
+        public string[] outLines = new string[OutLineNum];
+
+        private string serialNum;
+        private string housingType;
+        private string isFlange;
+        private string teilmass;
+        private string color;
+        private int poleNumber;
+        private int numberOfHousings;
+        public InterPretLine(string str)
+        {
+            Initial();
+            Original = str;
+            RemoveAdditionalComment();
+            CurrentPosition = 0;
+
+            GetAllLexeme();
+
+            ListToParameters();
+            
+        }
+        public void Initial()
+        {
+            for (int i = 0; i < SpsParaListNum; i++)
+            {
+                spsParaList[1, i] = 0;
+                spsParaList[2, i] = 0;
+            }
+
+            for (int i = 0; i < CamParaListNum; i++)
+            {
+                camParaList[i] = 0;
+            }
+        }
+
+
+        private int CurrentPosition { get; set; }
+
+        public void ListToParameters()
+        {
+            serialNum = lineLexeme[0];
+            housingType = lineLexeme[1];
+            isFlange = lineLexeme[2];
+            teilmass = lineLexeme[3];
+            color = lineLexeme[4];
+            poleNumber = int.Parse(lineLexeme[5]);
+
+            if (poleNumber <= 7)
+            {
+                numberOfHousings = 3;
+            }
+            else if (8 <= poleNumber && poleNumber <= 12)
+            {
+                numberOfHousings = 2;
+            }
+            else if (13 <= poleNumber && poleNumber <= 24)
+            {
+                numberOfHousings = 1;
+            }
+
+            ListToInfoParameters();
+            ListToSPSParameters();
+            ListToAxisParameters();
+            ListToCameraParameters();
+
+            OutputInfoParameters();
+            OutputSpsParameters();
+            OutputAxisParameters();
+            OutputCameraParameters();
+        }
+
+
+        private string GenerateType()
+        {
+            
+            if (housingType == "MSTB")      //BS# MSTB 2.5/3-ST-5.08
+            {
+                string st="";
+                if(isFlange=="FLANGE")
+                {
+                    st="STF";
+                }
+                else if(isFlange=="NOFLANGE")
+                {
+                    st="ST";
+                }
+
+                string teilStr=teilmass[0]+"."+teilmass[1]+teilmass[2];
+
+                return "MSTB 2.5/" + poleNumber.ToString() +"-"+ st + "-" + teilStr;
+            }
+            else if (housingType == "BCP")    //BS# BCP-508F-3 BK
+            {
+                string st = "";
+                if (isFlange == "FLANGE")
+                {
+                    st = "F";
+                }
+                else if (isFlange == "NOFLANGE")
+                {
+                    st = "";
+                }
+                return "BCP-" + teilmass + st + "-" + poleNumber.ToString() +" "+ color;
+            }
+            else
+            {
+                return "error of type";
+            }
+
+
+        }
+
+        public void ListToInfoParameters()
+        {
+            string type = GenerateType();
+            infoParaList[0] = type;
+            infoParaList[1] = teilmass[0] + "." + teilmass[1] + teilmass[2];
+            infoParaList[2] = poleNumber.ToString();
+            infoParaList[3] = "120";
+            infoParaList[4] = "2";
+            infoParaList[5] = serialNum + "-00/010 " + type;
+
+        }
+        public void OutputInfoParameters()
+        {
+            //0	BS# MSTB 2.5/3-ST-5.08
+            //1	TL# 5.08
+            //2	PL# 3
+            //3	TT# 120
+            //58	RM# 2
+            //59	SNR# 1757022-00/010 MSTB 2.5/3-ST-5.08
+            outLines[InfoParaStartLineNum+0]= "BS# "+infoParaList[0];
+            outLines[InfoParaStartLineNum+1]= "TL# "+infoParaList[1];
+            outLines[InfoParaStartLineNum+2]= "PL# "+infoParaList[2];
+            outLines[InfoParaStartLineNum+3]= "TT# "+infoParaList[3];
+            outLines[InfoParaStartLineNum+58]= "RM# "+infoParaList[4];
+            outLines[InfoParaStartLineNum + 59] = "SNR# " + infoParaList[5];
+        }
+
+
+        public void ListToSPSParameters()
+        {
+
+            spsParaList[1, 0] = numberOfHousings;
+
+            if (housingType == "MSTB")
+            {
+                spsParaList[1, 1] = 1;
+            }
+            else if (housingType == "BCP")
+            {
+                spsParaList[1, 1] = 0;
+            }
+
+            if (isFlange == "FLANGE")
+            {
+                spsParaList[1, 3] = 1;
+            }
+            else if (isFlange == "NOFLANGE")
+            {
+                spsParaList[1, 3] = 0;
+            }
+
+            if (housingType == "MSTB")
+            {
+                spsParaList[1, 9] = 1;
+            }
+            else if (housingType == "BCP")
+            {
+                spsParaList[1, 9] = 10;
+            }
+
+            spsParaList[2, 0] = spsParaList[1, 0];
+            spsParaList[2, 1] = spsParaList[1, 1];
+            spsParaList[2, 3] = spsParaList[1, 3];
+            spsParaList[2, 9] = spsParaList[1, 9];
+        }
+        public void OutputSpsParameters()
+        {
+            for (int i = 0; i < SpsParaListNum; i++)
+            {
+                outLines[SpsParaStartLineNum + i] = FormatSpsParameter(1, i); //mg1
+                outLines[SpsParaStartLineNum + SpsParaListNum + i] = FormatSpsParameter(2, i); //mg2
+            }
+        }
+        public string FormatSpsParameter(int iMG, int iPara)
+        {
+            string[] paraDescription = new string[SpsParaListNum];
+            for (int i = 0; i < SpsParaListNum; i++)
+            {
+                paraDescription[i] = "free";
+            }
+            paraDescription[0] = "Number of Housing in Nest";
+            paraDescription[1] = "Housing Type";
+            paraDescription[3] = "Flange";
+            paraDescription[9] = "screw type 1: minus screw 10: phillips screw";
+            string paraFornt = "PAR# " + iMG.ToString() + " ";
+            string paraEnd = "  /* SPS-Parameter " + FormatStr(iPara) + " " + paraDescription[iPara];
+            string paraMid = FormatStr(spsParaList[iMG, iPara]);
+
+            return paraFornt + paraMid + paraEnd;
+
+        }
+
+        public void ListToAxisParameters()
+        {
+            //AO# 1.1 5.00,0.000,0.000,47.200,123.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+            //AO# 1.2 5.00,20.700,-78.735,-43.735,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+            //AO# 2.1 5.00,0.000,0.000,47.200,123.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+            switch (numberOfHousings)
+            {
+                case 1:
+                    {
+                        axisParaList[0] = "5.075,0.000,0.000,0.000,0.000,0.000,0.000,-5.00,-1.354,60.000,90.0,0.000";
+                        axisParaList[1] = "5.075,2087,-78.735,-43.735,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        axisParaList[2] = "5.075,0.000,0.000,0.000,0.000,10.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        break;
+                    }
+                    
+                case 2:
+                    {
+                        axisParaList[0] = "5.08,0.000,0.000,123.000,0.000,0.000,0.000,-5.00,-1.354,60.000,90.0,0.000";
+                        axisParaList[1] = "5.08,2087,-78.735,-43.735,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        axisParaList[2] = "5.08,0.000,0.000,123.000,0.000,10.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        break;
+                    }
+                case 3:
+                    {
+                        axisParaList[0] = "5.08,0.000,0.000,47.200,123.000,0.000,0.000,-5.00,-1.354,60.000,90.0,0.000";
+                        axisParaList[1] = "5.08,2087,-78.735,-43.735,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        axisParaList[2] = "5.08,0.000,0.000,47.200,123.000,10.000,0.000,0.000,0.000,0.000,0.000,0.000";
+                        break;
+                    }
+                default:
+                    {
+                        axisParaList[0] = "error";
+                        axisParaList[1] = "error";
+                        axisParaList[2] = "error";
+                        break;
+                    }
+            }
+
+        }
+        public void OutputAxisParameters()
+        {
+            outLines[AxisParaStartLineNum + 0] = "AO# 1.1 " + axisParaList[0];
+            outLines[AxisParaStartLineNum + 1] = "AO# 1.2 " + axisParaList[1];
+            outLines[AxisParaStartLineNum + 2] = "AO# 2.1 " + axisParaList[2];
+        }
+
+        public void ListToCameraParameters()
+        {
+            if(color=="GY")
+            {
+                camParaList[0] = 8;
+            }
+            else if(color=="BK")
+            {
+                camParaList[0] = 1;
+            }
+            if (housingType == "MSTB" && color=="GN")
+            {
+                camParaList[0] = 0;
+            }
+            else if (housingType == "BCP" && color == "GN")
+            {
+                camParaList[0] = 23;
+            }
+
+            if (isFlange == "FLANGE")
+            {
+                camParaList[1] = 1;
+            }
+            else if (isFlange == "NOFLANGE")
+            {
+                camParaList[1] = 0;
+            }
+
+            if (housingType == "MSTB" )
+            {
+                camParaList[6] = 0;
+                camParaList[8] = 0;
+                camParaList[9] = 0;
+            }
+            else if (housingType == "BCP")
+            {
+                camParaList[6] = 1;
+                camParaList[8] = 1;
+                camParaList[9] = 1;
+            }
+
+        }
+        public void OutputCameraParameters()
+        {
+            for (int i = 0; i < CamParaListNum; i++)
+            {
+                outLines[CamParaStartLineNum + i] = FormatCameraParameter(i);
+            }
+        }
+        public string FormatCameraParameter( int iPara)
+        {
+            string[] paraDescription = new string[CamParaListNum];
+            for (int i = 0; i < CamParaListNum; i++)
+            {
+                paraDescription[i] = "free";
+            }
+            paraDescription[0] = "(0=MSTB GN, 1=BK, 8=GY, 23=BCP GN,  )";
+            paraDescription[1] = "(0:  ST  1:  STF  2:  STFR 3:  STFL 4:  RN   5:  RNR  6:  RNL  7:  KG )";
+            paraDescription[2] = "(0:  SN silver metal surface	1:  AU golden metal surface )";
+            paraDescription[6] = "(0:MSTB 1:BCP)";
+            paraDescription[8] = "(0: Standard slot (minus) screw 1: Phillips (cross) screw 2:	Steel (cross) screw)";
+            paraDescription[9] = "(0: Standard slot (minus) screw 1: Phillips (cross) screw)";
+            string paraFornt = "KAM# " + " ";
+            string paraEnd = "  /* Parameter " + FormatStr(iPara) + " " + paraDescription[iPara];
+            string paraMid = FormatStr(camParaList[ iPara]);
+
+            return paraFornt + paraMid + paraEnd;
+
+        }
+
+
+
+
+
+
+
+
+
+ #region Lexeme process
+        public void GetAllLexeme()
+        {
+            LexType _lexType;
+            _lexType=GetNextLex();
+            while (_lexType != LexType.END)
+            {
+                _lexType = GetNextLex();
+            }
+        }
+        public char GetNextChar()
+        {
+            if(CurrentPosition<length) return RegularLine[CurrentPosition++];
+            return '\0';
+        }
+        public LexType GetNextLex()
+        {
+            const int LEX_STATE_START=1;
+            const int LEX_STATE_LEX = 2;
+
+            if(CurrentPosition>=length) return LexType.END;
+            string currLexeme = "";
+            int iCurrLexState=LEX_STATE_START;
+            while (true)
+            {
+                bool addChar = false ;
+                bool lexDone = false ;
+                char cChar = GetNextChar();
+                if (cChar == '\0') break;
+                
+                switch(iCurrLexState)
+                {
+                    case LEX_STATE_START:
+                        if (IsCharWhiteSpace(cChar))
+                        {
+                            addChar = false;
+                        }
+
+                        if (IsCharAlpha(cChar) || IsCharNum(cChar))
+                        {
+                            addChar = true;
+                            iCurrLexState = LEX_STATE_LEX;
+                        }
+                       break;
+                    case LEX_STATE_LEX:
+                        if (IsCharWhiteSpace(cChar))
+                        {
+                            addChar = false;
+                            lexDone = true;
+                        }
+
+                        if (IsCharAlpha(cChar) || IsCharNum(cChar))
+                        {
+                            addChar = true;
+                            iCurrLexState = LEX_STATE_LEX;
+                        }
+                       break;
+
+                }
+
+                if (addChar) currLexeme = currLexeme + cChar;
+                if (lexDone)
+                {
+                    break;
+                }
+            }
+
+            LexType _lexType;
+            switch(iCurrLexState)
+            {
+                case LEX_STATE_LEX:
+                    _lexType=LexType.LEX;
+                    break;
+                default:
+                    _lexType=LexType.END;
+                    break;
+
+            }
+            lineLexeme.Add(currLexeme);
+            return _lexType;
+
+        }
+#endregion
+
+
+    }
+}

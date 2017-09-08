@@ -1,0 +1,213 @@
+/********************************************************************
+/*
+/* Sachnr.txt for BM 021191
+/* Creator: Mark Fabian / Markus Waldhoff
+/* Date: 07.05.2012
+/* time of day: 11:23:51
+/*
+/* automatic creation of an Excel macro
+/*
+/********************************************************************
+/*
+/* Declaration of parameters
+/* BS# Name of configuration level (sign max.36)
+/* SNR# NUMBER-REV/name of working process (sign max.30)
+/* TL# pitch
+/* PL# Poles count of one housing
+/* SO# special component placement, empty points in the housing
+/* TT# Technical  number (separate near several machine parts through comma)
+/* PAR# SPS-Parameter, the SPS parameters must be declared separately
+/*
+/* AO# Axis-Parameter (Offset values), the AO-Parameters must be explained in a separated way
+/* Example:
+/* AO#1.1 First Part.First Axis
+/* AO#2.1 Second Part.First Axis
+/* AO#2.2 Second Part.Second Axis
+/*
+/* KAM# Camera-Parameter, the KAM-parameters must be explained in a separated way
+/*
+/********************************************************************
+
+
+/****************************************************************
+/******  	   S P S - P A R A M E T E R  		*********
+/******             for machine part 1 and 2          *********
+/****************************************************************
+/*
+/*SPS-Parameter 0: Number of housing in nest
+/*
+/*SPS-Parameter 1: housing type  0: BCP
+/*                               1: MSTB
+/*
+/*SPS-Parameter 2: outer wall 0: no Flange Screw
+/*                            1: with Flange Screw
+/*
+/*SPS-Parameter 3: hook       0: no Lock Hook
+/*                            1: with Lock Hook
+/*
+/*SPS-Parameter 4:free	      
+/*
+/*SPS-Parameter 5: free	      
+/*
+/*SPS-Parameter 6: welding   0: welding ON
+/*                           1: welding OFF
+/*
+/*SPS-Parameter 7: free   
+/*
+/*SPS-Parameter 8: free
+/*
+/*SPS-Parameter 9: free
+/*
+/*SPS-Parameter 10: free
+/*
+/*SPS-Parameter 11: free
+/*
+/*SPS-Parameter 12: free
+/*
+/*SPS-Parameter 13: free
+/*
+/*SPS-Parameter 14: free
+/*
+/*SPS-Parameter 15: free
+/*
+/*SPS-Parameter 16: free
+/*
+/*SPS-Parameter 17: free
+/*
+/*SPS-Parameter 18: free
+/*
+/*SPS-Parameter 19: free
+/*
+/*SPS-Parameter 20: free
+/*
+/********************************************************************
+/*
+/******************    Description of AO-Parameter    ***************
+/*
+/********************************************************************
+/* Example:
+/* AO#1.1 First machine Part.First Axis
+/* AO#2.1 Second machine Part.First Axis
+/*
+/* Module 1 (Machine Part 1)
+/*--------------------------
+/* AXis St.201 
+/*
+/* Frist Parameter (Pitch):
+/* 5.08
+/*
+/* Second Parameter : Swing Position of the Axis "Everytime zero"
+/*
+/* Third Parameter  : First Housing first Pol Position "Everytime zero"
+/*
+/* Fourth Parameter : Second Housing first Pol Position 
+/*
+/* Fifth Parameter  : Third Housing last Pol Position 
+/*
+/* Axis St.1
+/*
+/* Eleventh Parameter   : Housing Pickup Position
+/*
+/* Twelfth Parameter    : Wait for Housing Position
+/*
+/* Thirteenth Parameter : Wait for Axis
+/*
+/* Fourteenth Parameter : Insert Housing Position
+/*
+/*
+/* Modul 2 (Machine Part 2)
+/*----------------------
+/* AXis St.201
+/*
+/* Frist Parameter (Pitch):
+/* 5.08
+/*
+/* Second Parameter : Swing Position of the Axis "Everytime zero"
+/*
+/* Third Parameter  : First Housing first Pol Position "Everytime zero"
+/*
+/* Fourth Parameter : Second Housing first Pol Position 
+/*
+/* Fifth Parameter  : Third Housing last Pol Position 
+/*
+/********************************************************************
+/******        Description of KAM-Parameter  	            *********
+/********************************************************************
+/*
+/* KAM# Kamera-Parameter
+/* =====================
+/*
+/* Parameter 1: Color of Housing   
+/* 0   GN *** green ***   
+/* 1   BK *** black *** 
+/* 2   // Orange               // OG 2003      Pastellorange   
+/* 3   // Blau                 // BU 5015      Himmelblau  
+/*                             // BU 5015/1    Himmelblau
+/*                             // BU 5015/2    Himmelblau
+/* 4   // Weiss                // WH 9010      Reinwei?   
+/* 5   // Beige (BG)           // LBGY 7032    aus Ultradur
+/* 6   // AB-Grau (ABGY)       // GY 7038      Achatgrau   
+/* 7   // KM-Grau (KMGY)       // GY 7035      Lichtgrau    
+/* 8   GY *** grey ***
+/* 9   // Blau-Grau            // BUGY 7031    Blaugrau    
+/*                             // BUGY 7031/1  Blaugrau
+/* 10  // LT-Grau
+/* 11  // Gelb                 // Ye 1018      Zinkgelb    
+/* 12  // Creme-Weiss (CRWH)   // WH 9001      Cremewei?  
+/* 13  // Rot                  // RD 3001      Signalrot   
+/*                             // RD 3003      Rubinrot
+/* 14  // Türkis               // PTQ 6034     Pastelltürkis   
+/* 15  // Grau-Weiss           // GYWH 9002    Grauwei?   
+/* 16  // Braun                // BN 8028      Terrabraun  
+/* 17  // THT-Schwarz          // BK 9005/1    Tiefschwarz THT 
+/* 18  // THT-Grün             // GN 6021/1    Blasgrün THT    
+/* 19  // THT-Kloeckner-Moeller-Grau
+/* 20  // LB-Grau              // GY 7032      aus Frianyl
+/*                             // GY 7032/1    Kieselgrau
+/* 21  // AEG-Grau
+/* 22  // Grau-Braun           // FRBK 8019/1  Graubraun   
+/* 23  // Grün PA6.6 *** BCP - green ***
+/* 24  // CC-Schwarz
+/* 25  // DK-Grau
+/* 26  // CC-Grün
+/* 27  // P&F-Grün             // GNTQ 5018    Türkisblau  
+/* 28  // ?-WH
+/* 29  // Violett              // VT 4005      Blaulila    
+/*                             // VT 4005/1    Blaulila
+/* 30  // S-Violett            // SVT 4008     Signalviolett   
+/* 31  // Dunkelblau           // BU 5010      Enzianblau  
+/* 32  // Signalgrau           // GY 7004
+/* 36  // CC-Grau              // GY 7042
+/*
+/* Parameter 2: Type of Housing
+/* 0:  ST       	// *** Housing without flange ***
+/* 1:  STF     	// *** Housing with flange ***
+/* 2:  STFR    	// Housing with flange right
+/* 3:  STFL    	// Housing with flange left
+/* 4:  RN      	// Gehäuse mit Rastflansch
+/* 5:  RNR     	// Rastflansch nur rechts
+/* 6:  RNL     	// Rastflansch nur links
+/* 7:  KG	// Gehäuse mit Rasthaken und Abstandsnocken
+/*
+/* Parameter 3: Preasure plate
+/* 0:  SN    	// *** silver metal surface ***
+/* 1:  AU       // golden metal surface
+/*
+/* Parameter 7: Housing type
+/* 0:  	*** MSTB ***
+/* 1:  	*** BCP ***
+/*
+/* Parameter 9: Screw type
+/* 0:	*** Standard slot (minus) screw ***
+/* 1:	*** Phillips (cross) screw ***
+/* 2:	Steel (cross) screw
+/*
+/* Parameter 10: Flange screw type
+/* 0:	*** Standard slot (minus) screw ***
+/* 1:	*** Phillips (cross) screw ***
+/*
+/*
+
+/*********************************************************
+/***** ARTIKEL FÜR AUTOMATISCHE BM-ÜBERPRÜFUNG (CME) *****
+/*********************************************************

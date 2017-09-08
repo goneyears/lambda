@@ -1,0 +1,94 @@
+BS# BCP-500-5 GN          
+TL# 5.00
+PL# 5 
+TT# 120 , 120
+PAR# 1 3     /* SPS-Parameter 0   Number of Housing in Nest                     
+PAR# 1 0     /* SPS-Parameter 1   Housing Type                                  
+PAR# 1 0     /* SPS-Parameter 2   free                                          
+PAR# 1 0     /* SPS-Parameter 3   Flange                                        
+PAR# 1 0     /* SPS-Parameter 4   free                                          
+PAR# 1 0     /* SPS-Parameter 5   free                                          
+PAR# 1 0     /* SPS-Parameter 6   free                                          
+PAR# 1 0     /* SPS-Parameter 7   free                                          
+PAR# 1 0     /* SPS-Parameter 8   free                                          
+PAR# 1 10     /* SPS-Parameter 9   screw type 1: minus screw 10: phillips screw  
+PAR# 1 0     /* SPS-Parameter 10  free                                          
+PAR# 1 0     /* SPS-Parameter 11  free                                          
+PAR# 1 0     /* SPS-Parameter 12  free                                          
+PAR# 1 0     /* SPS-Parameter 13  free                                          
+PAR# 1 0     /* SPS-Parameter 14  free                                          
+PAR# 1 0     /* SPS-Parameter 15  free                                          
+PAR# 1 0     /* SPS-Parameter 16  free                                          
+PAR# 1 0     /* SPS-Parameter 17  free                                          
+PAR# 1 0     /* SPS-Parameter 18  free                                          
+PAR# 1 0     /* SPS-Parameter 19  free                                          
+PAR# 2 3     /* SPS-Parameter 0   Number of Housing in Nest                     
+PAR# 2 0     /* SPS-Parameter 1   Housing Type                                  
+PAR# 2 0     /* SPS-Parameter 2   free                                          
+PAR# 2 0     /* SPS-Parameter 3   Flange                                        
+PAR# 2 0     /* SPS-Parameter 4   free                                          
+PAR# 2 0     /* SPS-Parameter 5   free                                          
+PAR# 2 0     /* SPS-Parameter 6   free                                          
+PAR# 2 0     /* SPS-Parameter 7   free                                          
+PAR# 2 0     /* SPS-Parameter 8   free                                          
+PAR# 2 0     /* SPS-Parameter 9   screw type 1: minus screw 10: phillips screw  
+PAR# 2 0     /* SPS-Parameter 10  free                                          
+PAR# 2 0     /* SPS-Parameter 11  free                                          
+PAR# 2 0     /* SPS-Parameter 12  free                                          
+PAR# 2 0     /* SPS-Parameter 13  free                                          
+PAR# 2 0     /* SPS-Parameter 14  free                                          
+PAR# 2 0     /* SPS-Parameter 15  free                                          
+PAR# 2 0     /* SPS-Parameter 16  free                                          
+PAR# 2 0     /* SPS-Parameter 17  free                                          
+PAR# 2 0     /* SPS-Parameter 18  free                                          
+PAR# 2 0     /* SPS-Parameter 19  free                                          
+AO# 1.1 5.00               /*Teilmass            
+AO# 1.1 0               /*MG1Axis1Offset0     
+AO# 1.1 0.00                 /*MG1Axis1Offset1     
+AO# 1.1 47.20                /*MG1Axis1Offset2     
+AO# 1.1 123.00               /*MG1Axis1Offset3     
+AO# 1.1 0               /*MG1Axis1Offset4     
+AO# 1.1 0               /*MG1Axis1Offset5     
+AO# 1.1 1.50                 /*MG1Axis1Offset6     
+AO# 1.1 20.354               /*MG1Axis1Offset7     
+AO# 1.1 80.000               /*MG1Axis1Offset8     
+AO# 1.1 97.00               /*MG1Axis1Offset9     
+AO# 1.1 0               /*MG1Axis1Offset10    
+AO# 1.2 5.00               /*Teilmass            
+AO# 1.2 0               /*MG1Axis2Offset0     
+AO# 1.2 0               /*MG1Axis2Offset1     
+AO# 1.2 0               /*MG1Axis2Offset2     
+AO# 1.2 0               /*MG1Axis2Offset3     
+AO# 1.2 0               /*MG1Axis2Offset4     
+AO# 1.2 0               /*MG1Axis2Offset5     
+AO# 1.2 0               /*MG1Axis2Offset6     
+AO# 1.2 0               /*MG1Axis2Offset7     
+AO# 1.2 0               /*MG1Axis2Offset8     
+AO# 1.2 0               /*MG1Axis2Offset9     
+AO# 1.2 0               /*MG1Axis2Offset10    
+AO# 2.1 5.00               /*Teilmass            
+AO# 2.1 0               /*MG2Axis1Offset0     
+AO# 2.1 0.00                 /*MG2Axis1Offset1     
+AO# 2.1 47.20                /*MG2Axis1Offset2     
+AO# 2.1 123.00               /*MG2Axis1Offset3     
+AO# 2.1 10.00                /*MG2Axis1Offset4     
+AO# 2.1 0               /*MG2Axis1Offset5     
+AO# 2.1 0               /*MG2Axis1Offset6     
+AO# 2.1 0               /*MG2Axis1Offset7     
+AO# 2.1 0               /*MG2Axis1Offset8     
+AO# 2.1 0               /*MG2Axis1Offset9     
+AO# 2.1 0               /*MG2Axis1Offset10    
+KAM# 23       /* Parameter 0   (0=MSTB GN, 1=BK, 8=GY, 23=BCP GN,  )                                                               
+KAM# 0       /* Parameter 1   (0:  ST  1:  STF  2:  STFR 3:  STFL 4:  RN   5:  RNR  6:  RNL  7:  KG )                             
+KAM# 0       /* Parameter 2   (0:  SN silver metal surface	1:  AU golden metal surface )                                         
+KAM# 0       /* Parameter 3   free                                                                                                
+KAM# 0       /* Parameter 4   free                                                                                                
+KAM# 0       /* Parameter 5   free                                                                                                
+KAM# 1       /* Parameter 6   (0:MSTB 1:BCP)                                                                                      
+KAM# 0       /* Parameter 7   free                                                                                                
+KAM# 1       /* Parameter 8   (0: Standard slot (minus) screw 1: Phillips (cross) screw 2:	Steel (cross) screw)                  
+KAM# 1       /* Parameter 9   (0: Standard slot (minus) screw 1: Phillips (cross) screw)                                          
+KAM# 0       /* Parameter 10  free                                                                                                
+RM# 2
+SNR# 5448255-00/010 BCP-500-5 GN          
+ 
