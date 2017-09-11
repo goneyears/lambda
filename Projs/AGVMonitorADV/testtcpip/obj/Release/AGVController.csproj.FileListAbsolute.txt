@@ -1,0 +1,9 @@
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Release\AGVController.exe.config
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Release\AGVController.exe
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Release\AGVController.pdb
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\testtcpip.AGVControl.resources
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.Properties.Resources.resources
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.csproj.GenerateResource.Cache
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.exe
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.pdb
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.csprojResolveAssemblyReference.cache

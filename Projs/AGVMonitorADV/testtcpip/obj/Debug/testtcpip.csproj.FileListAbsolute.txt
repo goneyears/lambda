@@ -1,0 +1,8 @@
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Debug\testtcpip.csproj.GenerateResource.Cache
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Debug\testtcpip.AGVControl.resources
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Debug\AGVController.exe.config
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Debug\AGVController.exe
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\bin\Debug\AGVController.pdb
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Debug\AGVController.Properties.Resources.resources
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Debug\AGVController.exe
+D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Debug\AGVController.pdb
