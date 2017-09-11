@@ -1,6 +1,6 @@
 import os
 
-def AddGitIgnoreFile(curdir):
+def AddGitEmptyFile(curdir):
     dirfile=os.path.join(curdir,'git.empty')
     f = open(dirfile, 'w')
     f.close()
@@ -10,8 +10,8 @@ def fillEmptyDir(curdir):
     dirfiles=os.listdir(curdir)
     #print(len(dirfiles))
     if not dirfiles:
-        print('Create git.empty file: '+curdir+'\git.empty')
-        AddGitIgnoreFile(curdir)
+        print('CREATE git.empty file: '+curdir+'\git.empty')
+        AddGitEmptyFile(curdir)
         return
     else:
         if(os.path.exists(os.path.join(curdir, 'git.empty')) and len(dirfiles)>1 ):
