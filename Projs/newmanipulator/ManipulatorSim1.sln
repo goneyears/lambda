@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManipulatorSim", "ManipulatorSim\ManipulatorSim\ManipulatorSim.csproj", "{26C66663-7FA1-412E-B074-40DFFB47BC85}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SetupForManuplaytor", "SetupForManuplaytor\SetupForManuplaytor.isproj", "{C6173750-C0CA-4534-8F12-5C178E1C6CB9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{26C66663-7FA1-412E-B074-40DFFB47BC85} = {26C66663-7FA1-412E-B074-40DFFB47BC85}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|x86 = CD_ROM|x86
+		Debug|x86 = Debug|x86
+		DVD-5|x86 = DVD-5|x86
+		Release|x86 = Release|x86
+		SingleImage|x86 = SingleImage|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.CD_ROM|x86.ActiveCfg = Release|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.CD_ROM|x86.Build.0 = Release|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.Debug|x86.ActiveCfg = Debug|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.Debug|x86.Build.0 = Debug|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.DVD-5|x86.ActiveCfg = Debug|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.DVD-5|x86.Build.0 = Debug|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.Release|x86.ActiveCfg = Release|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.Release|x86.Build.0 = Release|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.SingleImage|x86.ActiveCfg = Release|x86
+		{26C66663-7FA1-412E-B074-40DFFB47BC85}.SingleImage|x86.Build.0 = Release|x86
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.CD_ROM|x86.ActiveCfg = CD_ROM
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.CD_ROM|x86.Build.0 = CD_ROM
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.Debug|x86.ActiveCfg = SingleImage
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.Debug|x86.Build.0 = SingleImage
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.DVD-5|x86.ActiveCfg = DVD-5
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.DVD-5|x86.Build.0 = DVD-5
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.Release|x86.ActiveCfg = SingleImage
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.Release|x86.Build.0 = SingleImage
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.SingleImage|x86.ActiveCfg = SingleImage
+		{C6173750-C0CA-4534-8F12-5C178E1C6CB9}.SingleImage|x86.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
