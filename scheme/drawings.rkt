@@ -43,6 +43,7 @@
            (bottom-right (posn-offset posn width height))
            (upper-center (posn-offset posn (/ width 2) 0))
            (bottom-center (posn-offset posn (/ width 2) height))
+           (center (posn-offset posn (/ width 2) (/ height 2)))
            )      
        (cond ((eq? m 'posn) posn)
              ((eq? m 'width) width)
@@ -53,6 +54,7 @@
              ((eq? m 'bottom-right) bottom-right)
              ((eq? m 'upper-center) upper-center)
              ((eq? m 'bottom-center) bottom-center)
+             ((eq? m 'center) center)
              ((eq? m 'draw)
               ((draw-rectangle vp) posn width height))
              (else (error "Argument should be posn/width/height")))))
@@ -84,10 +86,14 @@
 (define (bottom-right-block blk) (blk 'bottom-right))
 (define (upper-center-block blk) (blk 'upper-center))
 (define (bottom-center-block blk) (blk 'bottom-center))
+(define (center-block blk) (blk 'center))
 
 ;advanced elements operations
+;(define (connector block1 block2)
+;  (line (bottom-center-block block1) (upper-center-block block2)))
+
 (define (connector block1 block2)
-  (line (bottom-center-block block1) (upper-center-block block2)))
+  (line (center-block block1) (center-block block2)))
 (define (connect block1 block2)
   (display-line (connector block1 block2)))
 
@@ -116,6 +122,18 @@
 ;(define block3 (block (make-posn 100 233) 100 50 "sql"))
 (define sql-prg (program-block "sql" 100 233))
 (display-block sql-prg)
-(connect main-prg agv-prg)
-(connect agv-prg sql-prg)
 
+(define test (program-block "test" 200 33))
+(display-block test)
+;(connect test agv-prg)
+;(connect agv-prg sql-prg)
+
+(define (connects . blks)
+  (define (con-iter len p1 plist)
+    (if (> len 1)
+    (connect p1 (car plist))
+    (con-iter (- len 1) p1 (cdr plist))))
+  (con-iter (length blks) (car blks) (cdr blks))
+  (connects . (cdr blks)))
+
+(connects agv-prg sql-prg main-prg)

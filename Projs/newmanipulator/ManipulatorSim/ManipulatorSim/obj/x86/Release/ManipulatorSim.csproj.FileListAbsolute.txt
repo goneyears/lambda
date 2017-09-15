@@ -32,3 +32,12 @@ C:\Users\Mach\Files\projects\SVNing\newmanipulator\ManipulatorSim\ManipulatorSim
 C:\Users\Mach\Files\projects\SVNing\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.application
 C:\Users\Mach\Files\projects\SVNing\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.exe
 C:\Users\Mach\Files\projects\SVNing\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.pdb
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\bin\Release\ManipulatorSim.exe.config
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.csproj.ResolveComReference.cache
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.exe
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.pdb
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.csprojResolveAssemblyReference.cache
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.Form1.resources
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.Properties.Resources.resources
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.TemperatureForm.resources
+C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.csproj.GenerateResource.Cache
