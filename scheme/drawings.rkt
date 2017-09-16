@@ -131,9 +131,9 @@
 (define (connects . blks)
   (define (con-iter len p1 plist)
     (if (> len 1)
-    (connect p1 (car plist))
-    (con-iter (- len 1) p1 (cdr plist))))
+        ((display len) (newline) (connect p1 (car plist)) (con-iter (- len 1) p1 (cdr plist)))
+        (+ len 0)))
   (con-iter (length blks) (car blks) (cdr blks))
   (connects . (cdr blks)))
 
-(connects agv-prg sql-prg main-prg)
+(connects main-prg agv-prg sql-prg)
