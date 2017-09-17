@@ -125,10 +125,16 @@
 
 (define test (program-block "test" 200 33))
 (display-block test)
+
+(define test1 (program-block "test1" 300 133))
+(display-block test1)
+
+(define test2 (program-block "test2" 300 233))
+(display-block test2)
 ;(connect test agv-prg)
 ;(connect agv-prg sql-prg)
 
-(define (connects . blks)
+(define (connectlists blks)
   (define (con-iter len p1 plist)
     (cond ((> len 2)
            ;(
@@ -141,9 +147,28 @@
            (newline)
            (con-iter (- len 1) p1 (cdr plist)));)
          ((= len 2) (connect p1 (car plist)))
-         ((< len 2) (+ len 0))))
-  (con-iter (length blks) (car blks) (cdr blks))
-  (display "advanced")
-  (if (> (length (cdr blks)) 1) (connects . (cdr blks)) (+ 1 1)))
+         ))
 
-(connects main-prg agv-prg sql-prg)
+  (display "advanced")
+  (cond ((> (length (cdr blks)) 1)
+         (con-iter (length blks) (car blks) (cdr blks))
+         (display "cdr-1 blks len:")
+         (display (length (cdr blks)))
+         (newline)
+         (connectlists (cdr blks)))
+        ((= (length (cdr blks)) 1)
+         (display "len of cdr blks: ")
+         (display (length blks))
+         (connect (car blks) (car (cdr blks)))
+         )
+        ))
+
+(define (connects . blks)
+  (connectlists blks))
+  
+
+(connects main-prg agv-prg sql-prg test test1 test2)
+(define (connect-test . blks)
+  (display (car blks))
+  (display (car (cdr blks))))
+(connect-test 'aa 'bb)
