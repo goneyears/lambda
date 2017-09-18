@@ -95,6 +95,7 @@
 (define (connector block1 block2)
   (line (center-block block1) (center-block block2)))
 (define (connect block1 block2)
+  (sleep 0.2)
   (display-line (connector block1 block2)))
 
 ;convenient elements
@@ -172,3 +173,10 @@
   (display (car blks))
   (display (car (cdr blks))))
 (connect-test 'aa 'bb)
+
+
+(display "2")
+(sleep 1)
+(display "3")
+(sleep 1)
+(display "4")
