@@ -113,16 +113,16 @@
 
 
 ;(define block1 (block (make-posn 50 66) 100 50 "main"))
-(define main-prg (program-block "main" 50 66))
-(display-block main-prg)
+(define blk1 (program-block "blk1" 50 66))
+(display-block blk1)
 
 ;(define block2 (block (make-posn 100 133) 100 50 "agv"))
-(define agv-prg (program-block "agv" 100 133))
-(display-block agv-prg)
+(define blk2 (program-block "blk2" 100 133))
+(display-block blk2)
 
 ;(define block3 (block (make-posn 100 233) 100 50 "sql"))
-(define sql-prg (program-block "sql" 100 233))
-(display-block sql-prg)
+(define blk3 (program-block "blk3" 100 233))
+(display-block blk3)
 
 (define test (program-block "test" 200 33))
 (display-block test)
@@ -168,7 +168,7 @@
   (connectlists blks))
   
 
-(connects main-prg agv-prg sql-prg test test1 test2)
+(connects blk1 blk2 blk3 test test1 test2)
 (define (connect-test . blks)
   (display (car blks))
   (display (car (cdr blks))))

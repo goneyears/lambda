@@ -1,0 +1,19 @@
+#lang racket
+(require graphics/graphics)
+
+;viewport basic operations
+(open-graphics)
+(define vp (open-viewport "new block window" 500 500))
+((draw-pixel vp) (make-posn 1 2))
+
+(define (draw-point posn)
+  ((draw-pixel vp) posn))
+
+(drawpoint (make-posn 3 4))
+
+(define (drawline startposn endposn)
+  (
+   (drawpoint startposn)
+   (drawline nextposn endposn)
+   )
+  
