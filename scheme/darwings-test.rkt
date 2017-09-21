@@ -12,11 +12,21 @@
 
 
 (define (drawline startposn endposn)
+  
+  (define k
+    (if (= (- (posn-x endposn) (posn-x startposn)) 0)
+        'inf
+        (/ (- (posn-y endposn) (posn-y startposn)) (- (posn-x endposn) (posn-x startposn)))))
+  
+  (define b
+    (if (eq? k 'inf) 'null (- (posn-y endposn) (* k (posn-x endposn)))))
+  
+  (define (y x) (if (eq? k 'inf) 'null (+ (* k x) b)))
+
   (define (notexceed? startposn endposn)
-    (<= (posn-x startposn) (posn-x endposn)))
-  (define k (/ (- (posn-y endposn) (posn-y startposn)) (- (posn-x endposn) (posn-x startposn))))
-  (define b (- (posn-y endposn) (* k (posn-x endposn))))
-  (define (y x) (+ (* k x) b))
+    (if (eq? k 'inf) (<= (posn-y startposn) (posn-y endposn))
+    (<= (posn-x startposn) (posn-x endposn))))
+  
   (define (drawline-iter startposn endposn)
     (let ((s-x (posn-x startposn))
           (s-y (posn-y startposn))
@@ -24,11 +34,19 @@
           (e-y (posn-y endposn)))
       (cond ((notexceed? startposn endposn)
              (drawpoint startposn)
-             (let ((nextposn (make-posn (+ s-x 1) (y (+ s-x 1)))))
+             (let ((nextposn
+                     (if (eq? k 'inf)
+                         (make-posn s-x (+ s-y 1))
+                         (make-posn (+ s-x 1) (y (+ s-x 1))))))
                (drawline-iter nextposn endposn))
              ))))
-  (drawline-iter startposn endposn))
+  (drawline-iter startposn endposn)
+ )
 
+
+(drawline (make-posn 300 1) (make-posn 300 300))
 
 (drawline (make-posn 1 300) (make-posn 300 300))
+
+
   
