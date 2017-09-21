@@ -24,7 +24,7 @@
   (define (y x) (if (eq? k 'inf) 'null (+ (* k x) b)))
 
   (define (notexceed? startposn endposn)
-    (if (eq? k 'inf) (<= (posn-y startposn) (posn-y endposn))
+    (and (<= (posn-y startposn) (posn-y endposn))
     (<= (posn-x startposn) (posn-x endposn))))
   
   (define (drawline-iter startposn endposn)
