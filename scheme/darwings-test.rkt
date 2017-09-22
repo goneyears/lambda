@@ -7,9 +7,41 @@
 ((draw-pixel vp) (make-posn 1 2))
 
 (define (drawpoint posn)
-   (sleep 0.002)
+   (sleep 0.0001)
    ((draw-pixel vp) posn))
 
+(define (display-posn posn)
+  (display (posn-x posn))
+  (display '-)
+  (display (posn-y posn))
+  (newline))
+
+(define (draw-horizontal start end static)
+  (cond ((< start end)
+          (drawpoint (make-posn start static))
+          (draw-horizontal (+ start 1) end static))
+         ((= start end)
+          (drawpoint (make-posn start static)))
+         ((> start end)
+          (draw-horizontal end start static))))
+
+(define (draw-vertical start end static)
+  (cond ((< start end)
+          (drawpoint (make-posn static start))
+          (draw-vertical (+ start 1) end static))
+         ((= start end)
+          (drawpoint (make-posn static start)))
+         ((> start end)
+          (draw-vertical end start static))))
+
+
+(define (draw-angle startposn endposn)
+  (let ((x1 (posn-x startposn))
+        (y1 (posn-y startposn))
+        (x2 (posn-x endposn))
+        (y2 (posn-y endposn)))
+    (draw-horizontal x1 x2 y1)
+    (draw-vertical y1 y2 x2)))
 
 (define (drawline startposn endposn)
   
@@ -21,7 +53,7 @@
   (define b
     (if (eq? k 'inf) 'null (- (posn-y endposn) (* k (posn-x endposn)))))
   
-  (define (y x) (if (eq? k 'inf) 'null (+ (* k x) b)))
+  (define (y x) (if (eq? k 'inf) 'null (round (+ (* k x) b))))
 
   (define (notexceed? startposn endposn)
     (and (<= (posn-y startposn) (posn-y endposn))
@@ -33,20 +65,23 @@
           (e-x (posn-x endposn))
           (e-y (posn-y endposn)))
       (cond ((notexceed? startposn endposn)
-             (drawpoint startposn)
+             ;(drawpoint startposn)
              (let ((nextposn
                      (if (eq? k 'inf)
                          (make-posn s-x (+ s-y 1))
                          (make-posn (+ s-x 1) (y (+ s-x 1))))))
+               (display-posn startposn)
+               (display-posn nextposn)
+               (draw-angle startposn nextposn)
                (drawline-iter nextposn endposn))
              ))))
   (drawline-iter startposn endposn)
  )
 
 
-(drawline (make-posn 300 1) (make-posn 300 300))
+((draw-line vp) (make-posn 1 1) (make-posn 300 20))
 
-(drawline (make-posn 1 300) (make-posn 300 300))
 
+(drawline (make-posn 1 101) (make-posn 300 121))
 
   
