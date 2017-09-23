@@ -43,6 +43,7 @@
            (bottom-right (posn-offset posn width height))
            (upper-center (posn-offset posn (/ width 2) 0))
            (bottom-center (posn-offset posn (/ width 2) height))
+           (center (posn-offset posn (/ width 2) (/ height 2)))
            )      
        (cond ((eq? m 'posn) posn)
              ((eq? m 'width) width)
@@ -53,6 +54,7 @@
              ((eq? m 'bottom-right) bottom-right)
              ((eq? m 'upper-center) upper-center)
              ((eq? m 'bottom-center) bottom-center)
+             ((eq? m 'center) center)
              ((eq? m 'draw)
               ((draw-rectangle vp) posn width height))
              (else (error "Argument should be posn/width/height")))))
@@ -84,11 +86,16 @@
 (define (bottom-right-block blk) (blk 'bottom-right))
 (define (upper-center-block blk) (blk 'upper-center))
 (define (bottom-center-block blk) (blk 'bottom-center))
+(define (center-block blk) (blk 'center))
 
 ;advanced elements operations
+;(define (connector block1 block2)
+;  (line (bottom-center-block block1) (upper-center-block block2)))
+
 (define (connector block1 block2)
-  (line (bottom-center-block block1) (upper-center-block block2)))
+  (line (center-block block1) (center-block block2)))
 (define (connect block1 block2)
+  (sleep 0.2)
   (display-line (connector block1 block2)))
 
 ;convenient elements
@@ -106,15 +113,70 @@
 
 
 ;(define block1 (block (make-posn 50 66) 100 50 "main"))
-(define main-prg (program-block "main" 50 66))
-(display-block main-prg)
+(define blk1 (program-block "blk1" 50 66))
+(display-block blk1)
 
 ;(define block2 (block (make-posn 100 133) 100 50 "agv"))
-(define agv-prg (program-block "agv" 100 133))
-(display-block agv-prg)
+(define blk2 (program-block "blk2" 100 133))
+(display-block blk2)
 
 ;(define block3 (block (make-posn 100 233) 100 50 "sql"))
-(define sql-prg (program-block "sql" 100 233))
-(display-block sql-prg)
-(connect main-prg agv-prg)
-(connect agv-prg sql-prg)
+(define blk3 (program-block "blk3" 100 233))
+(display-block blk3)
+
+(define test (program-block "test" 200 33))
+(display-block test)
+
+(define test1 (program-block "test1" 300 133))
+(display-block test1)
+
+(define test2 (program-block "test2" 300 233))
+(display-block test2)
+;(connect test agv-prg)
+;(connect agv-prg sql-prg)
+
+(define (connectlists blks)
+  (define (con-iter len p1 plist)
+    (cond ((> len 2)
+           ;(
+           (display "len: ")
+           (display len)
+           (newline)
+           (connect p1 (car plist))
+           (display "plist len: ")
+           (display (length plist))
+           (newline)
+           (con-iter (- len 1) p1 (cdr plist)));)
+         ((= len 2) (connect p1 (car plist)))
+         ))
+
+  (display "advanced")
+  (cond ((> (length (cdr blks)) 1)
+         (con-iter (length blks) (car blks) (cdr blks))
+         (display "cdr-1 blks len:")
+         (display (length (cdr blks)))
+         (newline)
+         (connectlists (cdr blks)))
+        ((= (length (cdr blks)) 1)
+         (display "len of cdr blks: ")
+         (display (length blks))
+         (connect (car blks) (car (cdr blks)))
+         )
+        ))
+
+(define (connects . blks)
+  (connectlists blks))
+  
+
+(connects blk1 blk2 blk3 test test1 test2)
+(define (connect-test . blks)
+  (display (car blks))
+  (display (car (cdr blks))))
+(connect-test 'aa 'bb)
+
+
+(display "2")
+(sleep 1)
+(display "3")
+(sleep 1)
+(display "4")

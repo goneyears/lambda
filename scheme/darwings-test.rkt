@@ -9,6 +9,14 @@
 (define (drawpoint posn)
    (sleep 0.0001)
    ((draw-pixel vp) posn))
+(define (displays . messages)
+  (define (display-iter messagelists)
+    (cond ((> (length messagelists) 0)
+              (display (car messagelists))
+              (newline)
+              (display-iter (cdr messagelists)))))
+  (display-iter messages)
+  )
 
 (define (display-posn posn)
   (display (posn-x posn))
@@ -44,7 +52,6 @@
     (draw-vertical y1 y2 x2)))
 
 (define (drawline startposn endposn)
-  
   (define k
     (if (= (- (posn-x endposn) (posn-x startposn)) 0)
         'inf
@@ -56,8 +63,9 @@
   (define (y x) (if (eq? k 'inf) 'null (round (+ (* k x) b))))
 
   (define (notexceed? startposn endposn)
-    (and (<= (posn-y startposn) (posn-y endposn))
-    (<= (posn-x startposn) (posn-x endposn))))
+    (cond ((eq? k 'inf)
+           (<= (posn-y startposn) (posn-y endposn)))
+           (else (<= (posn-x startposn) (posn-x endposn)))))
   
   (define (drawline-iter startposn endposn)
     (let ((s-x (posn-x startposn))
@@ -65,7 +73,6 @@
           (e-x (posn-x endposn))
           (e-y (posn-y endposn)))
       (cond ((notexceed? startposn endposn)
-             ;(drawpoint startposn)
              (let ((nextposn
                      (if (eq? k 'inf)
                          (make-posn s-x (+ s-y 1))
@@ -75,13 +82,15 @@
                (draw-angle startposn nextposn)
                (drawline-iter nextposn endposn))
              ))))
-  (drawline-iter startposn endposn)
+  (cond ((or (< (posn-x startposn) (posn-x endposn))
+             (and (eq? k 'inf) (< (posn-y startposn) (posn-y endposn))))
+         (drawline-iter startposn endposn))
+        (else (drawline-iter endposn startposn)))
  )
 
 
-((draw-line vp) (make-posn 1 1) (make-posn 300 20))
 
 
-(drawline (make-posn 1 101) (make-posn 300 121))
+(drawline (make-posn 300 300) (make-posn 300 101))
 
   

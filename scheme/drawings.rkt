@@ -23,6 +23,80 @@
 (define (posn-offset posn offset-x offset-y)
   (make-posn (+ (posn-x posn) offset-x) (+ (posn-y posn) offset-y)))
 
+;drawline new definition
+(define (drawpoint posn)
+   (sleep 0.0001)
+   ((draw-pixel vp) posn))
+
+(define (display-posn posn)
+  (display (posn-x posn))
+  (display '-)
+  (display (posn-y posn))
+  (newline))
+
+(define (draw-horizontal start end static)
+  (cond ((< start end)
+          (drawpoint (make-posn start static))
+          (draw-horizontal (+ start 1) end static))
+         ((= start end)
+          (drawpoint (make-posn start static)))
+         ((> start end)
+          (draw-horizontal end start static))))
+
+(define (draw-vertical start end static)
+  (cond ((< start end)
+          (drawpoint (make-posn static start))
+          (draw-vertical (+ start 1) end static))
+         ((= start end)
+          (drawpoint (make-posn static start)))
+         ((> start end)
+          (draw-vertical end start static))))
+
+
+(define (draw-angle startposn endposn)
+  (let ((x1 (posn-x startposn))
+        (y1 (posn-y startposn))
+        (x2 (posn-x endposn))
+        (y2 (posn-y endposn)))
+    (draw-horizontal x1 x2 y1)
+    (draw-vertical y1 y2 x2)))
+
+(define (drawline startposn endposn)
+  
+  (define k
+    (if (= (- (posn-x endposn) (posn-x startposn)) 0)
+        'inf
+        (/ (- (posn-y endposn) (posn-y startposn)) (- (posn-x endposn) (posn-x startposn)))))
+  
+  (define b
+    (if (eq? k 'inf) 'null (- (posn-y endposn) (* k (posn-x endposn)))))
+  
+  (define (y x) (if (eq? k 'inf) 'null (round (+ (* k x) b))))
+
+  (define (notexceed? startposn endposn)
+    (and (<= (posn-y startposn) (posn-y endposn))
+    (<= (posn-x startposn) (posn-x endposn))))
+  
+  (define (drawline-iter startposn endposn)
+    (let ((s-x (posn-x startposn))
+          (s-y (posn-y startposn))
+          (e-x (posn-x endposn))
+          (e-y (posn-y endposn)))
+      (cond ((notexceed? startposn endposn)
+             ;(drawpoint startposn)
+             (let ((nextposn
+                     (if (eq? k 'inf)
+                         (make-posn s-x (+ s-y 1))
+                         (make-posn (+ s-x 1) (y (+ s-x 1))))))
+               (display-posn startposn)
+               (display-posn nextposn)
+               (draw-angle startposn nextposn)
+               (drawline-iter nextposn endposn))
+             ))))
+  (drawline-iter startposn endposn)
+ )
+
+
 ;basic elements
   ;line
 (define (line start-posn end-posn)
