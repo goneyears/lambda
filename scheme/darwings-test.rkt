@@ -7,7 +7,7 @@
 ((draw-pixel vp) (make-posn 1 2))
 
 (define (drawpoint posn)
-   (sleep 0.0001)
+   (sleep 0.01)
    ((draw-pixel vp) posn))
 (define (displays . messages)
   (define (display-iter messagelists)
@@ -25,23 +25,32 @@
   (newline))
 
 (define (draw-horizontal start end static)
-  (cond ((< start end)
-          (drawpoint (make-posn start static))
-          (draw-horizontal (+ start 1) end static))
-         ((= start end)
-          (drawpoint (make-posn start static)))
-         ((> start end)
-          (draw-horizontal end start static))))
+  (define (draw-horizontal-int start end static)
+    (cond ((= start end)
+           (drawpoint (make-posn start static)))
+          ((< start end)
+           (drawpoint (make-posn start static))
+           (draw-horizontal-int (+ start 1) end static))
+          ((> start end)
+           (drawpoint (make-posn start static))
+           (draw-horizontal-int (- start 1) end static))))
+  (draw-horizontal-int (round start) (round end) (round static)))
+
 
 (define (draw-vertical start end static)
-  (cond ((< start end)
-          (drawpoint (make-posn static start))
-          (draw-vertical (+ start 1) end static))
-         ((= start end)
-          (drawpoint (make-posn static start)))
-         ((> start end)
-          (draw-vertical end start static))))
+  (define (draw-vertical-int start end static)
+    (cond ((= start end)
+           (drawpoint (make-posn static start)))
+          ((< start end)
+           (drawpoint (make-posn static start))
+           (draw-vertical-int (+ start 1) end static))
+          ((> start end)
+           (drawpoint (make-posn static start))
+           (draw-vertical-int (- start 1) end static))))
+  (draw-vertical-int (round start) (round end) (round static)))
 
+(draw-horizontal 10 100 10)
+(draw-vertical 10 100 10)
 
 (define (draw-angle startposn endposn)
   (let ((x1 (posn-x startposn))
@@ -91,6 +100,6 @@
 
 
 
-(drawline (make-posn 300 300) (make-posn 300 101))
+;(drawline (make-posn 300 300) (make-posn 300 101))
 
   
