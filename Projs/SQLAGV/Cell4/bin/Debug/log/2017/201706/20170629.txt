@@ -1,0 +1,40 @@
+
+ 
+记录时间：2017-06-29 10:45:06,218 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Cell4.Form1 property: [(null)] - 
+错误描述：test for log
+ 
+
+ 
+记录时间：2017-06-29 10:46:20,681 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：Cell4.Form1 property: [(null)] - 
+错误描述：test for log
+ 
+
+ 
+记录时间：2017-06-29 10:50:49,895 
+线程ID:[8] 
+日志级别：  ERROR 
+类：Cell4.Form1 property: [(null)] - 
+描述：test f====or log
+ 
+
+ 
+记录时间：2017-06-29 10:50:51,020 
+线程ID:[8] 
+日志级别：  ERROR 
+类：Cell4.Form1 property: [(null)] - 
+描述：test f====or log
+ 
+
+ 
+记录时间：2017-06-29 10:50:52,566 
+线程ID:[8] 
+日志级别：  ERROR 
+类：Cell4.Form1 property: [(null)] - 
+描述：test f====or log
+ 
