@@ -1,5 +1,5 @@
 #lang racket
-(provide square close-enough? average inc dx fixed-point average-damp exp close-enough?)
+(provide square close-enough? average inc dx fixed-point average-damp exp close-enough? displays)
 (define (square x)
   (* x x))
 (define (average x y)
@@ -27,4 +27,14 @@
 (define (exp x n)
   (if (= n 0) 1
       (* x (exp x (- n 1)))))
+
+  
+(define (displays . messages)
+  (define (display-iter messagelists)
+    (cond ((> (length messagelists) 0)
+              (display (car messagelists))
+              (newline)
+              (display-iter (cdr messagelists)))))
+  (display-iter messages)
+  )
 
