@@ -1,4 +1,4 @@
-﻿namespace Cell4
+﻿namespace SQLAGV
 {
     partial class Form1
     {

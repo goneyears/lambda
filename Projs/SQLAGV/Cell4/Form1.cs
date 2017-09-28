@@ -16,7 +16,7 @@ using Microsoft.VisualBasic;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Cell4
+namespace SQLAGV
 {
     public partial class Form1 : Form
     {

@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
-namespace Cell4
+namespace SQLAGV
 {
     public delegate void TCPEventHandle(Object sender, TCPEventArgs param);
     public delegate void ConnectEventHandle(object sender);

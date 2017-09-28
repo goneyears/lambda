@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Cell4
+namespace SQLAGV
 {
 
     class SystemState

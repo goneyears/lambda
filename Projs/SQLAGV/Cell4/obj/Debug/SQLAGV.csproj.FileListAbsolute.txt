@@ -9,3 +9,14 @@ D:\PerDocs\Project\prj17FuoShan\AGV\SQLAGV\Cell4\obj\Debug\Cell4.Properties.Reso
 D:\PerDocs\Project\prj17FuoShan\AGV\SQLAGV\Cell4\obj\Debug\SQLAGV.csproj.GenerateResource.Cache
 D:\PerDocs\Project\prj17FuoShan\AGV\SQLAGV\Cell4\obj\Debug\SQLAGV.exe
 D:\PerDocs\Project\prj17FuoShan\AGV\SQLAGV\Cell4\obj\Debug\SQLAGV.pdb
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\bin\Debug\SQLAGV.exe.config
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.exe
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.pdb
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\bin\Debug\SQLAGV.exe
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\bin\Debug\SQLAGV.pdb
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\bin\Debug\log4net.dll
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\bin\Debug\log4net.pdb
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.Form1.resources
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.Properties.Resources.resources
+D:\PerDocs\personal\lambda\Projs\SQLAGV\Cell4\obj\Debug\SQLAGV.csproj.GenerateResource.Cache

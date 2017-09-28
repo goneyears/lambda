@@ -27,11 +27,14 @@
   ((draw-rectangle vp) (make-posn (- (posn-x p) (/ 0 1)) (- (posn-y p) (/ a 1))) a a))
 
 (define (drawcycle p r)
-  ((draw-solid-ellipse vp) (make-posn (- (posn-x p) (/ r 2)) (- (posn-y p) (/ r 2))) r r))  
-  
+  ((draw-ellipse vp) (make-posn (- (posn-x p) (/ r 2)) (- (posn-y p) (/ r 2))) r r))
+
+(define (drawsolidcycle p r)
+  ((draw-solid-ellipse vp) (make-posn (- (posn-x p) (/ r 2)) (- (posn-y p) (/ r 2))) r r))
+
 (define (drawline startposn endposn)
-  (define (draw-line-start) (drawsquare startposn 10))
-  (define (draw-line-end) (drawcycle endposn 10))
+  (define (draw-line-start) (drawsquare startposn 6))
+  (define (draw-line-end) (drawsolidcycle endposn 6))
 
   (draw-line-start)
   (draw-line-end)
@@ -90,7 +93,6 @@
 
   (define crease (cond ((eq? k 'inf) (if (<= (posn-y startposn) (posn-y endposn)) 'increase 'decrease))
                          (else (if (<= (posn-x startposn) (posn-x endposn)) 'increase 'decrease))))
-  (displayln crease)
   
   (define (drawline-iter startposn endposn)
     (let ((s-x (posn-x startposn))
@@ -118,3 +120,5 @@
 (drawsquare (make-posn 390 130) 50)
   
 (drawsquare (make-posn 330 320) 50)
+
+((get-string-size vp) "k")

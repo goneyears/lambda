@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading;
-namespace Cell4
+namespace SQLAGV
 {
     public struct MESTASK
     {

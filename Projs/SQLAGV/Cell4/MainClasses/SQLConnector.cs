@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-namespace Cell4
+namespace SQLAGV
 {
     class SQLConnector
     {
