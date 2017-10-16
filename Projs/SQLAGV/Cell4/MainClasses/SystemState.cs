@@ -12,31 +12,36 @@ namespace SQLAGV
 
     class SystemState
     {
-        public struct _STEPS
+        public struct AGVMOTIONTASK
         {
-           public int RobotInterface;
-           public int WPCPreStop;
-           public int WPCPosing;
-           public int PCUSBTest;
-           public int PCCommandToRobot;
-           public int CameraColorTest;
-           public int RFIDCheck;
-           public int RobotAssemblyStep;
-        }
+            public int ID;
+            public string AGV_INDEX;
+            public int LOGISTIC_STATUS;
+            public int MOVE_STATUS;
+            public int QTY;
+            public string SOURCE_AREA;
+            public string[] SOURCE_LOCATION=new string[5];
+            public string LOGISTIC_STATUS;
+            public string TARGET_AREA;
+            public string[] TARGET_LOCATION=new string[5];
 
-        public _STEPS Steps = new _STEPS();
+
+        }
 
         public SystemState(DataGridView sysGridView)
         {
-            Messages.WriteLine("建立状态监控-PLC通信连接");
-            StateTcp = new TCP_Client("192.168.10.40", "50003");
             
             initialStatesTable();
             SetDataGridViewAppearance(sysGridView);
             sysGridView.DataSource = statesTable;
-            StateTcp.MessageReceived += AnalyzePLCMessage; 
+ 
+            SQLc = new SQLConnector("Server=192.168.10.100;Database=PhoenixDB;user id=sa ;password=Phoenix@123 ;");
+           
         }
 
+
+        private TCP_Client MESTcp;
+        private SQLConnector SQLc;
         private void SetDataGridViewAppearance(DataGridView dataGridView)
         {
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
@@ -46,22 +51,21 @@ namespace SQLAGV
             
         } 
 
-        private TCP_Client StateTcp;
+        private TCP_Client StateTcp; 
 
         public void QueryState()
         {
-            StateTcp.Send("request steps state"); 
         }
 
         public DataTable statesTable;
         public void initialStatesTable(){
             statesTable = new DataTable();
 
-            statesTable.Columns.Add("No", System.Type.GetType("System.Int16"));
+            statesTable.Columns.Add("id", System.Type.GetType("System.Int16"));
           
-            statesTable.Columns.Add("Name", System.Type.GetType("System.String"));
+            statesTable.Columns.Add("agv", System.Type.GetType("System.String"));
 
-            statesTable.Columns.Add("Step", System.Type.GetType("System.Int16"));
+            statesTable.Columns.Add("movestatus", System.Type.GetType("System.Int16"));
 
             for (int i = 0; i < 20; i++) {
                 DataRow dr = statesTable.NewRow(); 
@@ -79,30 +83,7 @@ namespace SQLAGV
                 case 3:
                     dr["Name"] = "RFID Check Step";
                     break;
-                case 4:
-                    dr["Name"] = "PC USB Test Step";
-                    break;
-                case 5:
-                    dr["Name"] = "Camera Color Test Step";
-                    break;
-                case 6:
-                    dr["Name"] = "PC Command To Robot Step";
-                    break;
-                case 7:
-                    dr["Name"] = "Robot Assembly Step";
-                    break;
-                case 8:
-                    dr["Name"] = "reserved";
-                    break;
-                case 9:
-                    dr["Name"] = "reserved";
-                    break;
-                case 10:
-                    dr["Name"] = "reserved";
-                    break;
-                case 11:
-                    dr["Name"] = "reserved";
-                    break;
+
 
                 }
                 statesTable.Rows.Add(dr);
@@ -113,51 +94,34 @@ namespace SQLAGV
         public void SetStatesTable()
         { 
             if(statesTable.Rows.Count>8){
-            statesTable.Rows[0][2] = Steps.RobotInterface     ;
-            statesTable.Rows[1][2] = Steps.WPCPreStop 	      ;
-            statesTable.Rows[2][2] = Steps.WPCPosing          ;
-            statesTable.Rows[3][2] = Steps.RFIDCheck          ;
-            statesTable.Rows[4][2] = Steps.PCUSBTest          ;
-            statesTable.Rows[5][2] = Steps.CameraColorTest    ;
-            statesTable.Rows[6][2] = Steps.PCCommandToRobot   ;
-            statesTable.Rows[7][2] = Steps.RobotAssemblyStep  ;
+            statesTable.Rows[0][2] = 1   ;
+            statesTable.Rows[1][2] = 2	      ;
+            statesTable.Rows[2][2] = 3          ;
+            statesTable.Rows[3][2] = 4         ;
             }
-            else {
-                Messages.WriteLine("statestable error");
-            }
+
         }
 
+        public void GetNewTask()
+        {
+            DataTable AGVTaskDataTable = new DataTable();
+            AGVMOTIONTASK agvMotionTask=new AGVMOTIONTASK();
 
+            AGVTaskDataTable = SQLc.GetNewData(
+                "select ID from CMD_ITEM_MOVE "
+                + " where (MOVE_STATUS=1 or MOVE_STATUS=2 ) "
+                +" order by PRIORITY_LEVEL desc,ID asc");
+            if (AGVTaskDataTable.Rows.Count == 0) {  
+
+            }else{
+                Debug.WriteLine(AGVTaskDataTable.Rows.Count);
+                agvMotionTask.ID = TaskDataTable.Rows[0]["ID"].ToString();
+                agvMotionTask.SN = TaskDataTable.Rows[0]["SN"].ToString();
+                agvMotionTask.copyfilestr = TaskDataTable.Rows[0]["PROCESS_FILE_PATH"].ToString();
+                Common.copyfilelist = ExtractCopyFiles(CurrentMESTask.copyfilestr);
+            }
         public void ResetControlSystem()
         {
-            StateTcp.Send("reset all"); 
-        }
-
-
-        private void AnalyzePLCMessage(object sender, TCPEventArgs e)
-        {
-            Debug.WriteLine(e.receivedmessage);
-                        
-            string recStr = e.receivedmessage;
-
-            recStr.Replace(" ", "");
-            string[] recStrArr = recStr.Split(' ');
-            if (recStrArr[0] == "steps:" ) {
-
-                Steps.RobotInterface    = int.Parse(recStrArr[1]);
-				Steps.WPCPreStop 	    = int.Parse(recStrArr[2]);
-				Steps.WPCPosing         = int.Parse(recStrArr[3]);
-				Steps.RFIDCheck         = int.Parse(recStrArr[4]);
-				Steps.PCUSBTest         = int.Parse(recStrArr[5]);
-				Steps.CameraColorTest   = int.Parse(recStrArr[6]);
-				Steps.PCCommandToRobot  = int.Parse(recStrArr[7]);
-                Steps.RobotAssemblyStep = int.Parse(recStrArr[8]);
-
-                SetStatesTable();
-            }
-
-                  
-            //throw new NotImplementedException();
         }
 
 

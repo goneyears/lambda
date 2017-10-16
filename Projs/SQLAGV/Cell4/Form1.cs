@@ -14,8 +14,7 @@ using System.Security.Cryptography;
 using System.Data.SqlClient;
 using Microsoft.VisualBasic;
 using System.Net;
-using System.Net.Sockets;
-
+using System.Net.Sockets; 
 namespace SQLAGV
 {
     public partial class Form1 : Form
@@ -29,14 +28,7 @@ namespace SQLAGV
         private void Form1_Load(object sender, EventArgs e)
         {
             Control.CheckForIllegalCrossThreadCalls = false;
-            port = 9877;
-            host = "127.0.0.1";//服务器端ip地址
 
-            ip = IPAddress.Parse(host);
-            ipe = new IPEndPoint(ip, port);
-
-            clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            clientSocket.Connect(ipe);
         }
 
         private void sysGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -77,6 +69,28 @@ namespace SQLAGV
             byte[] sendBytes = Encoding.UTF8.GetBytes(str);
             Debug.WriteLine(sendBytes.ToString());
             clientSocket.Send(sendBytes);
+        }
+
+
+        public Cell cell1;
+        public Cell cell2;
+        Graphics g;
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            cell1.Connect(cell2);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            cell1.Release(cell2);
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            g = CreateGraphics();
+            g.Clear(Color.White);
+            cell1 = new Cell(g, new Point(300, 200));
+            cell2 = new Cell(g, new Point(100, 200));
         }
 
 
