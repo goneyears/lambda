@@ -69,11 +69,14 @@ class Input:
 
     def display(self):
         if self.Type == 'Cylinder Sensor':
-            print("St"+self.StN+" B"+self.SensorN+" SensorName:"+self.SensorName+" A"+self.A+"."+self.Points)
+            print("St"+self.StN+" B"+self.SensorN+" SensorName:"+self.SensorName+" A"+self.A+"."+self.Points )
         if self.Type == 'Normal Sensor':
             print("St"+self.StN+" B"+self.SensorN+" SensorName:"+self.SensorName+" A"+self.A+"."+self.Points)
         if self.Type == 'Normal Input':
             print(self.Type)
+
+    def Imap(self, point):
+        p=int(point)
 
 
 class Inputs:
@@ -87,7 +90,7 @@ class Inputs:
         self.list.append(input)
 
     def stsort(self):
-        self.list.sort(key=lambda o:(int(o.A), int(o.Points), int(o.StN), int(o.SensorN)))
+        self.list.sort(key=lambda o:(int(o.StN), int(o.SensorN), int(o.A), int(o.Points)))
 
     def display(self):
         for elems in self.list:

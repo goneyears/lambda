@@ -68,13 +68,27 @@ class Output:
             self.Points = match.group('Points')
             self.OutName = match.group('OutName')
 
+
     def display(self):
         if self.Type == 'Cylinder Output':
-            print("St"+self.StN+" Y"+self.CylinderN+" CylinderName:"+self.CylinderName+" A"+self.A+","+self.Points)
+            print("St"+self.StN+" Y"+self.CylinderN+" CylinderName:"+self.CylinderName+" A"+self.A+","+self.Points+ " slot:"+self.slotmap(self.Points))
         if self.Type == 'Normal Station Output':
-            print("St"+self.StN+" StationOutputName:"+self.OutName+" A"+self.A+","+self.Points)
+            print("St"+self.StN+" StationOutputName:"+self.OutName+" A"+self.A+","+self.Points+ " slot:"+self.slotmap(self.Points))
         if self.Type == 'Normal Output':
             print(" NormalOutputName:"+self.OutName+" A"+self.A+","+self.Points)
+
+
+    def slotmap(self, point):
+        p=int(point)
+        if p== 0  or p == 1: return '5'
+        if p== 2  or p == 3: return '6'
+        if p== 4  or p == 5: return '7'
+        if p== 6  or p == 7: return '8'
+        if p== 8  or p == 9: return '1'
+        if p== 10 or p == 11:return '2'
+        if p== 12 or p == 13:return '3'
+        if p== 14 or p == 15:return '4'
+        else: return 'error point number'
 
 class Outputs:
     def __init__(self):
@@ -88,7 +102,7 @@ class Outputs:
 
 
     def stsort(self):
-        self.list.sort(key=lambda o:(int(o.A), int(o.Points), int(o.StN), int(o.CylinderN)))
+        self.list.sort(key=lambda o:(int(o.StN), int(o.CylinderN), int(o.A), int(o.Points)))
 
     def display(self):
         for elems in self.list:

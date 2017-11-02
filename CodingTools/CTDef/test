@@ -1,0 +1,3 @@
+ t=3
+
+ r'\s*st(?P<StN>\d+)\s+z(?P<CylinderN>\d+)\s+(?P<Motion>\w+)(\s?\(?\s*f(ehler)?\s*=\s*(?P<fehler>\d).*)?(\s?\(?\s*t(imer)?\s*=\s*(?P<timer>\d).*)?'
