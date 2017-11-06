@@ -21,8 +21,6 @@ def filetolinelist():
     fstream = open("sps.h", encoding='utf-8', errors='ignore')
 
     matchlinelist = []
-    line = fstream.readline()
-
     while True:
         line = fstream.readline()
         if not line:

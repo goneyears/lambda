@@ -102,7 +102,8 @@ class Outputs:
 
 
     def stsort(self):
-        self.list.sort(key=lambda o:(int(o.StN), int(o.CylinderN), int(o.A), int(o.Points)))
+        #self.list.sort(key=lambda o:(int(o.StN), int(o.CylinderN), int(o.A), int(o.Points)))
+        self.list.sort(key=lambda o:(int(o.A), int(o.Points), int(o.StN), int(o.CylinderN)))
 
     def display(self):
         for elems in self.list:
