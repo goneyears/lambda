@@ -21,19 +21,19 @@ class Form:
     def windowinit(self):
         print('2')
         self.root = tkinter.Tk()
-        #self.root.protocol("WM_DELETE_WINDOW", self.windowclose)
+        self.root.protocol("WM_DELETE_WINDOW", self.WindowClose)
         self.root.title("CTDef")
         self.root.geometry('700x505')
         frm=tkinter.Frame(self.root)
         frm_L=tkinter.Frame(frm)
         frm_R=tkinter.Frame(frm)
 
-        editbox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
-        displaybox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
+        self.editbox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
+        self.displaybox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
 
 
-        editbox.pack(expand=1, fill="both", side=tkinter.LEFT)
-        displaybox.pack(expand=1, fill="both", side=tkinter.RIGHT)
+        self.editbox.pack(expand=1, fill="both", side=tkinter.LEFT)
+        self.displaybox.pack(expand=1, fill="both", side=tkinter.RIGHT)
         tkinter.Button(frm_L, height=6, width=20, text="更新", command=self.updatebuttonclick).pack(side=tkinter.TOP)
 
         frm_L.pack(side=tkinter.LEFT)
@@ -42,7 +42,7 @@ class Form:
 
         self.root.mainloop()
 
-    def windowclose(self):
+    def WindowClose(self):
         #[m() for m in self.CloseWindowEvent]
         print('mainwindow exit')
 
@@ -51,10 +51,14 @@ class Form:
     def updatebuttonclick(self):
         [n() for n in self.UpdateButtonEvent]
 
+    def readeditbox(self):
+        return self.editbox.get('1.0', tkinter.END)
+
+    def writedisplaybox(self,str):
+        self.displaybox.insert(tkinter.END, str)
 
 
-    def test(self):
-        print('test print')
+
 
 
 
