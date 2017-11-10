@@ -3,8 +3,8 @@ import re
 class Output:
     def __init__(self, aline):
         self.StN = 999
-        self.CylinderN = 999
-        self.CylinderName = ''
+        self.ZN = 999
+        self.ZName = ''
         self.OutName = ''
         self.A = 0
         self.Points = 0
@@ -43,8 +43,8 @@ class Output:
             self.A = match.group('A')
             self.Points = match.group('Points')
             self.StN = match.group('StN')
-            self.CylinderN = match.group('CylinderN')
-            self.CylinderName = match.group('CylinderName')
+            self.ZN = match.group('CylinderN')
+            self.ZName = match.group('CylinderName')
 
     def tonstout(self, aline):
         """transform station statement to Normal Outputs struct"""
@@ -71,7 +71,7 @@ class Output:
 
     def display(self):
         if self.Type == 'Cylinder Output':
-            print("St"+self.StN+" Y"+self.CylinderN+" CylinderName:"+self.CylinderName+" A"+self.A+","+self.Points+ " slot:"+self.slotmap(self.Points))
+            print("St" + self.StN +" Y" + self.ZN + " CylinderName:" + self.ZName + " A" + self.A + "," + self.Points + " slot:" + self.slotmap(self.Points))
         if self.Type == 'Normal Station Output':
             print("St"+self.StN+" StationOutputName:"+self.OutName+" A"+self.A+","+self.Points+ " slot:"+self.slotmap(self.Points))
         if self.Type == 'Normal Output':

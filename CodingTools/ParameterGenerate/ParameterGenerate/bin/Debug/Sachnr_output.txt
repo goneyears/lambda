@@ -305,6 +305,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435307-00/010 BCP-500-2 GY          
  
+sdfasfdadfafd
 BS# BCP-500-3 GY          
 TL# 5.00
 PL# 3 
@@ -399,6 +400,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435310-00/010 BCP-500-3 GY          
  
+sdfasfdadfafd
 BS# BCP-500-4 GY          
 TL# 5.00
 PL# 4 
@@ -493,6 +495,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435323-00/010 BCP-500-4 GY          
  
+sdfasfdadfafd
 BS# BCP-500-5 GY          
 TL# 5.00
 PL# 5 
@@ -587,6 +590,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435336-00/010 BCP-500-5 GY          
  
+sdfasfdadfafd
 BS# BCP-500-6 GY          
 TL# 5.00
 PL# 6 
@@ -681,6 +685,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435349-00/010 BCP-500-6 GY          
  
+sdfasfdadfafd
 BS# BCP-500-7 GY          
 TL# 5.00
 PL# 7 
@@ -775,6 +780,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435352-00/010 BCP-500-7 GY          
  
+sdfasfdadfafd
 BS# BCP-500-8 GY          
 TL# 5.00
 PL# 8 
@@ -869,6 +875,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435365-00/010 BCP-500-8 GY          
  
+sdfasfdadfafd
 BS# BCP-500-9 GY          
 TL# 5.00
 PL# 9 
@@ -963,6 +970,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435378-00/010 BCP-500-9 GY          
  
+sdfasfdadfafd
 BS# BCP-500-10 GY         
 TL# 5.00
 PL# 10
@@ -1057,6 +1065,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435381-00/010 BCP-500-10 GY         
  
+sdfasfdadfafd
 BS# BCP-500-11 GY         
 TL# 5.00
 PL# 11
@@ -1151,6 +1160,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435394-00/010 BCP-500-11 GY         
  
+sdfasfdadfafd
 BS# BCP-500-12 GY         
 TL# 5.00
 PL# 12
@@ -1245,6 +1255,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435404-00/010 BCP-500-12 GY         
  
+sdfasfdadfafd
 BS# BCP-500-13 GY         
 TL# 5.00
 PL# 13
@@ -1339,6 +1350,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435417-00/010 BCP-500-13 GY         
  
+sdfasfdadfafd
 BS# BCP-500-14 GY         
 TL# 5.00
 PL# 14
@@ -1433,6 +1445,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435420-00/010 BCP-500-14 GY         
  
+sdfasfdadfafd
 BS# BCP-500-15 GY         
 TL# 5.00
 PL# 15
@@ -1527,6 +1540,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435433-00/010 BCP-500-15 GY         
  
+sdfasfdadfafd
 BS# BCP-500-16 GY         
 TL# 5.00
 PL# 16
@@ -1621,6 +1635,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435446-00/010 BCP-500-16 GY         
  
+sdfasfdadfafd
 BS# BCP-500-17 GY         
 TL# 5.00
 PL# 17
@@ -1715,6 +1730,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435459-00/010 BCP-500-17 GY         
  
+sdfasfdadfafd
 BS# BCP-500-18 GY         
 TL# 5.00
 PL# 18
@@ -1809,6 +1825,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435462-00/010 BCP-500-18 GY         
  
+sdfasfdadfafd
 BS# BCP-500-19 GY         
 TL# 5.00
 PL# 19
@@ -1903,6 +1920,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435475-00/010 BCP-500-19 GY         
  
+sdfasfdadfafd
 BS# BCP-500-20 GY         
 TL# 5.00
 PL# 20
@@ -1997,6 +2015,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435488-00/010 BCP-500-20 GY         
  
+sdfasfdadfafd
 BS# BCP-500-21 GY         
 TL# 5.00
 PL# 21
@@ -2091,6 +2110,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435491-00/010 BCP-500-21 GY         
  
+sdfasfdadfafd
 BS# BCP-500-22 GY         
 TL# 5.00
 PL# 22
@@ -2185,6 +2205,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435501-00/010 BCP-500-22 GY         
  
+sdfasfdadfafd
 BS# BCP-500-23 GY         
 TL# 5.00
 PL# 23
@@ -2279,6 +2300,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435514-00/010 BCP-500-23 GY         
  
+sdfasfdadfafd
 BS# BCP-500-24 GY         
 TL# 5.00
 PL# 24
@@ -2373,6 +2395,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435527-00/010 BCP-500-24 GY         
  
+sdfasfdadfafd
 BS# BCP-500-2 GN          
 TL# 5.00
 PL# 2 
@@ -2467,6 +2490,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441171-00/010 BCP-500-2 GN          
  
+sdfasfdadfafd
 BS# BCP-500-3 GN          
 TL# 5.00
 PL# 3 
@@ -2561,6 +2585,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448242-00/010 BCP-500-3 GN          
  
+sdfasfdadfafd
 BS# BCP-500-4 GN          
 TL# 5.00
 PL# 4 
@@ -2655,6 +2680,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441184-00/010 BCP-500-4 GN          
  
+sdfasfdadfafd
 BS# BCP-500-5 GN          
 TL# 5.00
 PL# 5 
@@ -2749,6 +2775,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448255-00/010 BCP-500-5 GN          
  
+sdfasfdadfafd
 BS# BCP-500-6 GN          
 TL# 5.00
 PL# 6 
@@ -2843,6 +2870,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448268-00/010 BCP-500-6 GN          
  
+sdfasfdadfafd
 BS# BCP-500-7 GN          
 TL# 5.00
 PL# 7 
@@ -2937,6 +2965,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448271-00/010 BCP-500-7 GN          
  
+sdfasfdadfafd
 BS# BCP-500-8 GN          
 TL# 5.00
 PL# 8 
@@ -3031,6 +3060,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441906-00/010 BCP-500-8 GN          
  
+sdfasfdadfafd
 BS# BCP-500-9 GN          
 TL# 5.00
 PL# 9 
@@ -3125,6 +3155,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448284-00/010 BCP-500-9 GN          
  
+sdfasfdadfafd
 BS# BCP-500-10 GN         
 TL# 5.00
 PL# 10
@@ -3219,6 +3250,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448297-00/010 BCP-500-10 GN         
  
+sdfasfdadfafd
 BS# BCP-500-11 GN         
 TL# 5.00
 PL# 11
@@ -3313,6 +3345,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448307-00/010 BCP-500-11 GN         
  
+sdfasfdadfafd
 BS# BCP-500-12 GN         
 TL# 5.00
 PL# 12
@@ -3407,6 +3440,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448310-00/010 BCP-500-12 GN         
  
+sdfasfdadfafd
 BS# BCP-500-13 GN         
 TL# 5.00
 PL# 13
@@ -3501,6 +3535,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448323-00/010 BCP-500-13 GN         
  
+sdfasfdadfafd
 BS# BCP-500-14 GN         
 TL# 5.00
 PL# 14
@@ -3595,6 +3630,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448336-00/010 BCP-500-14 GN         
  
+sdfasfdadfafd
 BS# BCP-500-15 GN         
 TL# 5.00
 PL# 15
@@ -3689,6 +3725,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448349-00/010 BCP-500-15 GN         
  
+sdfasfdadfafd
 BS# BCP-500-16 GN         
 TL# 5.00
 PL# 16
@@ -3783,6 +3820,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448352-00/010 BCP-500-16 GN         
  
+sdfasfdadfafd
 BS# BCP-500-17 GN         
 TL# 5.00
 PL# 17
@@ -3877,6 +3915,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448365-00/010 BCP-500-17 GN         
  
+sdfasfdadfafd
 BS# BCP-500-18 GN         
 TL# 5.00
 PL# 18
@@ -3971,6 +4010,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448378-00/010 BCP-500-18 GN         
  
+sdfasfdadfafd
 BS# BCP-500-19 GN         
 TL# 5.00
 PL# 19
@@ -4065,6 +4105,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448381-00/010 BCP-500-19 GN         
  
+sdfasfdadfafd
 BS# BCP-500-20 GN         
 TL# 5.00
 PL# 20
@@ -4159,6 +4200,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448394-00/010 BCP-500-20 GN         
  
+sdfasfdadfafd
 BS# BCP-500-21 GN         
 TL# 5.00
 PL# 21
@@ -4253,6 +4295,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448404-00/010 BCP-500-21 GN         
  
+sdfasfdadfafd
 BS# BCP-500-22 GN         
 TL# 5.00
 PL# 22
@@ -4347,6 +4390,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448417-00/010 BCP-500-22 GN         
  
+sdfasfdadfafd
 BS# BCP-500-23 GN         
 TL# 5.00
 PL# 23
@@ -4441,6 +4485,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448420-00/010 BCP-500-23 GN         
  
+sdfasfdadfafd
 BS# BCP-500-24 GN         
 TL# 5.00
 PL# 24
@@ -4535,6 +4580,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448433-00/010 BCP-500-24 GN         
  
+sdfasfdadfafd
 BS# BCP-500-2 BK          
 TL# 5.00
 PL# 2 
@@ -4629,6 +4675,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452214-00/010 BCP-500-2 BK          
  
+sdfasfdadfafd
 BS# BCP-500-3 BK          
 TL# 5.00
 PL# 3 
@@ -4723,6 +4770,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441731-00/010 BCP-500-3 BK          
  
+sdfasfdadfafd
 BS# BCP-500-4 BK          
 TL# 5.00
 PL# 4 
@@ -4817,6 +4865,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452215-00/010 BCP-500-4 BK          
  
+sdfasfdadfafd
 BS# BCP-500-5 BK          
 TL# 5.00
 PL# 5 
@@ -4911,6 +4960,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452216-00/010 BCP-500-5 BK          
  
+sdfasfdadfafd
 BS# BCP-500-6 BK          
 TL# 5.00
 PL# 6 
@@ -5005,6 +5055,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452217-00/010 BCP-500-6 BK          
  
+sdfasfdadfafd
 BS# BCP-500-7 BK          
 TL# 5.00
 PL# 7 
@@ -5099,6 +5150,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441757-00/010 BCP-500-7 BK          
  
+sdfasfdadfafd
 BS# BCP-500-8 BK          
 TL# 5.00
 PL# 8 
@@ -5193,6 +5245,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452218-00/010 BCP-500-8 BK          
  
+sdfasfdadfafd
 BS# BCP-500-9 BK          
 TL# 5.00
 PL# 9 
@@ -5287,6 +5340,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452219-00/010 BCP-500-9 BK          
  
+sdfasfdadfafd
 BS# BCP-500-10 BK         
 TL# 5.00
 PL# 10
@@ -5381,6 +5435,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452220-00/010 BCP-500-10 BK         
  
+sdfasfdadfafd
 BS# BCP-500-11 BK         
 TL# 5.00
 PL# 11
@@ -5475,6 +5530,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452221-00/010 BCP-500-11 BK         
  
+sdfasfdadfafd
 BS# BCP-500-12 BK         
 TL# 5.00
 PL# 12
@@ -5569,6 +5625,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452222-00/010 BCP-500-12 BK         
  
+sdfasfdadfafd
 BS# BCP-500-13 BK         
 TL# 5.00
 PL# 13
@@ -5663,6 +5720,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452223-00/010 BCP-500-13 BK         
  
+sdfasfdadfafd
 BS# BCP-500-14 BK         
 TL# 5.00
 PL# 14
@@ -5757,6 +5815,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452224-00/010 BCP-500-14 BK         
  
+sdfasfdadfafd
 BS# BCP-500-15 BK         
 TL# 5.00
 PL# 15
@@ -5851,6 +5910,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452225-00/010 BCP-500-15 BK         
  
+sdfasfdadfafd
 BS# BCP-500-16 BK         
 TL# 5.00
 PL# 16
@@ -5945,6 +6005,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452226-00/010 BCP-500-16 BK         
  
+sdfasfdadfafd
 BS# BCP-500-17 BK         
 TL# 5.00
 PL# 17
@@ -6039,6 +6100,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452227-00/010 BCP-500-17 BK         
  
+sdfasfdadfafd
 BS# BCP-500-18 BK         
 TL# 5.00
 PL# 18
@@ -6133,6 +6195,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452228-00/010 BCP-500-18 BK         
  
+sdfasfdadfafd
 BS# BCP-500-19 BK         
 TL# 5.00
 PL# 19
@@ -6227,6 +6290,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452229-00/010 BCP-500-19 BK         
  
+sdfasfdadfafd
 BS# BCP-500-20 BK         
 TL# 5.00
 PL# 20
@@ -6321,6 +6385,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452230-00/010 BCP-500-20 BK         
  
+sdfasfdadfafd
 BS# BCP-500-21 BK         
 TL# 5.00
 PL# 21
@@ -6415,6 +6480,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452231-00/010 BCP-500-21 BK         
  
+sdfasfdadfafd
 BS# BCP-500-22 BK         
 TL# 5.00
 PL# 22
@@ -6509,6 +6575,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452232-00/010 BCP-500-22 BK         
  
+sdfasfdadfafd
 BS# BCP-500-23 BK         
 TL# 5.00
 PL# 23
@@ -6603,6 +6670,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452233-00/010 BCP-500-23 BK         
  
+sdfasfdadfafd
 BS# BCP-500-24 BK         
 TL# 5.00
 PL# 24
@@ -6697,6 +6765,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452234-00/010 BCP-500-24 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-2 GY         
 TL# 5.00
 PL# 2 
@@ -6791,6 +6860,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435530-00/010 BCP-500F-2 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-3 GY         
 TL# 5.00
 PL# 3 
@@ -6885,6 +6955,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435543-00/010 BCP-500F-3 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-4 GY         
 TL# 5.00
 PL# 4 
@@ -6979,6 +7050,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435556-00/010 BCP-500F-4 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-5 GY         
 TL# 5.00
 PL# 5 
@@ -7073,6 +7145,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435569-00/010 BCP-500F-5 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-6 GY         
 TL# 5.00
 PL# 6 
@@ -7167,6 +7240,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435572-00/010 BCP-500F-6 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-7 GY         
 TL# 5.00
 PL# 7 
@@ -7261,6 +7335,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435585-00/010 BCP-500F-7 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-8 GY         
 TL# 5.00
 PL# 8 
@@ -7355,6 +7430,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435598-00/010 BCP-500F-8 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-9 GY         
 TL# 5.00
 PL# 9 
@@ -7449,6 +7525,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435608-00/010 BCP-500F-9 GY         
  
+sdfasfdadfafd
 BS# BCP-500F-10 GY        
 TL# 5.00
 PL# 10
@@ -7543,6 +7620,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435611-00/010 BCP-500F-10 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-11 GY        
 TL# 5.00
 PL# 11
@@ -7637,6 +7715,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435624-00/010 BCP-500F-11 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-12 GY        
 TL# 5.00
 PL# 12
@@ -7731,6 +7810,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435637-00/010 BCP-500F-12 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-13 GY        
 TL# 5.00
 PL# 13
@@ -7825,6 +7905,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435640-00/010 BCP-500F-13 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-14 GY        
 TL# 5.00
 PL# 14
@@ -7919,6 +8000,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435653-00/010 BCP-500F-14 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-15 GY        
 TL# 5.00
 PL# 15
@@ -8013,6 +8095,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435666-00/010 BCP-500F-15 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-16 GY        
 TL# 5.00
 PL# 16
@@ -8107,6 +8190,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435679-00/010 BCP-500F-16 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-17 GY        
 TL# 5.00
 PL# 17
@@ -8201,6 +8285,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435682-00/010 BCP-500F-17 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-18 GY        
 TL# 5.00
 PL# 18
@@ -8295,6 +8380,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435695-00/010 BCP-500F-18 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-19 GY        
 TL# 5.00
 PL# 19
@@ -8389,6 +8475,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435705-00/010 BCP-500F-19 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-20 GY        
 TL# 5.00
 PL# 20
@@ -8483,6 +8570,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435718-00/010 BCP-500F-20 GY        
  
+sdfasfdadfafd
 BS# BCP-500F-2 GN         
 TL# 5.00
 PL# 2 
@@ -8577,6 +8665,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448446-00/010 BCP-500F-2 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-3 GN         
 TL# 5.00
 PL# 3 
@@ -8671,6 +8760,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448459-00/010 BCP-500F-3 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-4 GN         
 TL# 5.00
 PL# 4 
@@ -8765,6 +8855,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448462-00/010 BCP-500F-4 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-5 GN         
 TL# 5.00
 PL# 5 
@@ -8859,6 +8950,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448475-00/010 BCP-500F-5 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-6 GN         
 TL# 5.00
 PL# 6 
@@ -8953,6 +9045,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448488-00/010 BCP-500F-6 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-7 GN         
 TL# 5.00
 PL# 7 
@@ -9047,6 +9140,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448491-00/010 BCP-500F-7 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-8 GN         
 TL# 5.00
 PL# 8 
@@ -9141,6 +9235,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448501-00/010 BCP-500F-8 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-9 GN         
 TL# 5.00
 PL# 9 
@@ -9235,6 +9330,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448514-00/010 BCP-500F-9 GN         
  
+sdfasfdadfafd
 BS# BCP-500F-10 GN        
 TL# 5.00
 PL# 10
@@ -9329,6 +9425,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448527-00/010 BCP-500F-10 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-11 GN        
 TL# 5.00
 PL# 11
@@ -9423,6 +9520,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448530-00/010 BCP-500F-11 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-12 GN        
 TL# 5.00
 PL# 12
@@ -9517,6 +9615,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448543-00/010 BCP-500F-12 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-13 GN        
 TL# 5.00
 PL# 13
@@ -9611,6 +9710,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448556-00/010 BCP-500F-13 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-14 GN        
 TL# 5.00
 PL# 14
@@ -9705,6 +9805,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448569-00/010 BCP-500F-14 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-15 GN        
 TL# 5.00
 PL# 15
@@ -9799,6 +9900,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448527-00/010 BCP-500F-15 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-16 GN        
 TL# 5.00
 PL# 16
@@ -9893,6 +9995,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448585-00/010 BCP-500F-16 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-17 GN        
 TL# 5.00
 PL# 17
@@ -9987,6 +10090,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448598-00/010 BCP-500F-17 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-18 GN        
 TL# 5.00
 PL# 18
@@ -10081,6 +10185,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448608-00/010 BCP-500F-18 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-19 GN        
 TL# 5.00
 PL# 19
@@ -10175,6 +10280,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448611-00/010 BCP-500F-19 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-20 GN        
 TL# 5.00
 PL# 20
@@ -10269,6 +10375,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448624-00/010 BCP-500F-20 GN        
  
+sdfasfdadfafd
 BS# BCP-500F-2 BK         
 TL# 5.00
 PL# 2 
@@ -10363,6 +10470,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452549-00/010 BCP-500F-2 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-3 BK         
 TL# 5.00
 PL# 3 
@@ -10457,6 +10565,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452550-00/010 BCP-500F-3 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-4 BK         
 TL# 5.00
 PL# 4 
@@ -10551,6 +10660,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452551-00/010 BCP-500F-4 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-5 BK         
 TL# 5.00
 PL# 5 
@@ -10645,6 +10755,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452552-00/010 BCP-500F-5 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-6 BK         
 TL# 5.00
 PL# 6 
@@ -10739,6 +10850,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452553-00/010 BCP-500F-6 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-7 BK         
 TL# 5.00
 PL# 7 
@@ -10833,6 +10945,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452554-00/010 BCP-500F-7 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-8 BK         
 TL# 5.00
 PL# 8 
@@ -10927,6 +11040,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452555-00/010 BCP-500F-8 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-9 BK         
 TL# 5.00
 PL# 9 
@@ -11021,6 +11135,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452556-00/010 BCP-500F-9 BK         
  
+sdfasfdadfafd
 BS# BCP-500F-10 BK        
 TL# 5.00
 PL# 10
@@ -11115,6 +11230,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452557-00/010 BCP-500F-10 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-11 BK        
 TL# 5.00
 PL# 11
@@ -11209,6 +11325,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452558-00/010 BCP-500F-11 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-12 BK        
 TL# 5.00
 PL# 12
@@ -11303,6 +11420,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452559-00/010 BCP-500F-12 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-13 BK        
 TL# 5.00
 PL# 13
@@ -11397,6 +11515,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452560-00/010 BCP-500F-13 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-14 BK        
 TL# 5.00
 PL# 14
@@ -11491,6 +11610,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452561-00/010 BCP-500F-14 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-15 BK        
 TL# 5.00
 PL# 15
@@ -11585,6 +11705,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452562-00/010 BCP-500F-15 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-16 BK        
 TL# 5.00
 PL# 16
@@ -11679,6 +11800,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452563-00/010 BCP-500F-16 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-17 BK        
 TL# 5.00
 PL# 17
@@ -11773,6 +11895,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452564-00/010 BCP-500F-17 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-18 BK        
 TL# 5.00
 PL# 18
@@ -11867,6 +11990,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452565-00/010 BCP-500F-18 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-19 BK        
 TL# 5.00
 PL# 19
@@ -11961,6 +12085,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452566-00/010 BCP-500F-19 BK        
  
+sdfasfdadfafd
 BS# BCP-500F-20 BK        
 TL# 5.00
 PL# 20
@@ -12055,6 +12180,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452567-00/010 BCP-500F-20 BK        
  
+sdfasfdadfafd
 BS# BCP-508-2 GY          
 TL# 5.08
 PL# 2 
@@ -12149,6 +12275,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435721-00/010 BCP-508-2 GY          
  
+sdfasfdadfafd
 BS# BCP-508-3 GY          
 TL# 5.08
 PL# 3 
@@ -12243,6 +12370,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435734-00/010 BCP-508-3 GY          
  
+sdfasfdadfafd
 BS# BCP-508-4 GY          
 TL# 5.08
 PL# 4 
@@ -12337,6 +12465,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435747-00/010 BCP-508-4 GY          
  
+sdfasfdadfafd
 BS# BCP-508-5 GY          
 TL# 5.08
 PL# 5 
@@ -12431,6 +12560,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435750-00/010 BCP-508-5 GY          
  
+sdfasfdadfafd
 BS# BCP-508-6 GY          
 TL# 5.08
 PL# 6 
@@ -12525,6 +12655,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435763-00/010 BCP-508-6 GY          
  
+sdfasfdadfafd
 BS# BCP-508-7 GY          
 TL# 5.08
 PL# 7 
@@ -12619,6 +12750,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435776-00/010 BCP-508-7 GY          
  
+sdfasfdadfafd
 BS# BCP-508-8 GY          
 TL# 5.08
 PL# 8 
@@ -12713,6 +12845,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435789-00/010 BCP-508-8 GY          
  
+sdfasfdadfafd
 BS# BCP-508-9 GY          
 TL# 5.08
 PL# 9 
@@ -12807,6 +12940,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435792-00/010 BCP-508-9 GY          
  
+sdfasfdadfafd
 BS# BCP-508-10 GY         
 TL# 5.08
 PL# 10
@@ -12901,6 +13035,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435802-00/010 BCP-508-10 GY         
  
+sdfasfdadfafd
 BS# BCP-508-11 GY         
 TL# 5.08
 PL# 11
@@ -12995,6 +13130,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435815-00/010 BCP-508-11 GY         
  
+sdfasfdadfafd
 BS# BCP-508-12 GY         
 TL# 5.08
 PL# 12
@@ -13089,6 +13225,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435828-00/010 BCP-508-12 GY         
  
+sdfasfdadfafd
 BS# BCP-508-13 GY         
 TL# 5.08
 PL# 13
@@ -13183,6 +13320,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435831-00/010 BCP-508-13 GY         
  
+sdfasfdadfafd
 BS# BCP-508-14 GY         
 TL# 5.08
 PL# 14
@@ -13277,6 +13415,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435844-00/010 BCP-508-14 GY         
  
+sdfasfdadfafd
 BS# BCP-508-15 GY         
 TL# 5.08
 PL# 15
@@ -13371,6 +13510,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435857-00/010 BCP-508-15 GY         
  
+sdfasfdadfafd
 BS# BCP-508-16 GY         
 TL# 5.08
 PL# 16
@@ -13465,6 +13605,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435860-00/010 BCP-508-16 GY         
  
+sdfasfdadfafd
 BS# BCP-508-17 GY         
 TL# 5.08
 PL# 17
@@ -13559,6 +13700,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435873-00/010 BCP-508-17 GY         
  
+sdfasfdadfafd
 BS# BCP-508-18 GY         
 TL# 5.08
 PL# 18
@@ -13653,6 +13795,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435886-00/010 BCP-508-18 GY         
  
+sdfasfdadfafd
 BS# BCP-508-19 GY         
 TL# 5.08
 PL# 19
@@ -13747,6 +13890,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435899-00/010 BCP-508-19 GY         
  
+sdfasfdadfafd
 BS# BCP-508-20 GY         
 TL# 5.08
 PL# 20
@@ -13841,6 +13985,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435909-00/010 BCP-508-20 GY         
  
+sdfasfdadfafd
 BS# BCP-508-21 GY         
 TL# 5.08
 PL# 21
@@ -13935,6 +14080,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435912-00/010 BCP-508-21 GY         
  
+sdfasfdadfafd
 BS# BCP-508-22 GY         
 TL# 5.08
 PL# 22
@@ -14029,6 +14175,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435925-00/010 BCP-508-22 GY         
  
+sdfasfdadfafd
 BS# BCP-508-23 GY         
 TL# 5.08
 PL# 23
@@ -14123,6 +14270,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435938-00/010 BCP-508-23 GY         
  
+sdfasfdadfafd
 BS# BCP-508-24 GY         
 TL# 5.08
 PL# 24
@@ -14217,6 +14365,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435941-00/010 BCP-508-24 GY         
  
+sdfasfdadfafd
 BS# BCP-508-2 GN          
 TL# 5.08
 PL# 2 
@@ -14311,6 +14460,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441980-00/010 BCP-508-2 GN          
  
+sdfasfdadfafd
 BS# BCP-508-3 GN          
 TL# 5.08
 PL# 3 
@@ -14405,6 +14555,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441977-00/010 BCP-508-3 GN          
  
+sdfasfdadfafd
 BS# BCP-508-4 GN          
 TL# 5.08
 PL# 4 
@@ -14499,6 +14650,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448637-00/010 BCP-508-4 GN          
  
+sdfasfdadfafd
 BS# BCP-508-5 GN          
 TL# 5.08
 PL# 5 
@@ -14593,6 +14745,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448640-00/010 BCP-508-5 GN          
  
+sdfasfdadfafd
 BS# BCP-508-6 GN          
 TL# 5.08
 PL# 6 
@@ -14687,6 +14840,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441964-00/010 BCP-508-6 GN          
  
+sdfasfdadfafd
 BS# BCP-508-7 GN          
 TL# 5.08
 PL# 7 
@@ -14781,6 +14935,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441948-00/010 BCP-508-7 GN          
  
+sdfasfdadfafd
 BS# BCP-508-8 GN          
 TL# 5.08
 PL# 8 
@@ -14875,6 +15030,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441951-00/010 BCP-508-8 GN          
  
+sdfasfdadfafd
 BS# BCP-508-9 GN          
 TL# 5.08
 PL# 9 
@@ -14969,6 +15125,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448653-00/010 BCP-508-9 GN          
  
+sdfasfdadfafd
 BS# BCP-508-10 GN         
 TL# 5.08
 PL# 10
@@ -15063,6 +15220,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448666-00/010 BCP-508-10 GN         
  
+sdfasfdadfafd
 BS# BCP-508-11 GN         
 TL# 5.08
 PL# 11
@@ -15157,6 +15315,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448679-00/010 BCP-508-11 GN         
  
+sdfasfdadfafd
 BS# BCP-508-12 GN         
 TL# 5.08
 PL# 12
@@ -15251,6 +15410,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448682-00/010 BCP-508-12 GN         
  
+sdfasfdadfafd
 BS# BCP-508-13 GN         
 TL# 5.08
 PL# 13
@@ -15345,6 +15505,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448695-00/010 BCP-508-13 GN         
  
+sdfasfdadfafd
 BS# BCP-508-14 GN         
 TL# 5.08
 PL# 14
@@ -15439,6 +15600,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448705-00/010 BCP-508-14 GN         
  
+sdfasfdadfafd
 BS# BCP-508-15 GN         
 TL# 5.08
 PL# 15
@@ -15533,6 +15695,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448718-00/010 BCP-508-15 GN         
  
+sdfasfdadfafd
 BS# BCP-508-16 GN         
 TL# 5.08
 PL# 16
@@ -15627,6 +15790,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448721-00/010 BCP-508-16 GN         
  
+sdfasfdadfafd
 BS# BCP-508-17 GN         
 TL# 5.08
 PL# 17
@@ -15721,6 +15885,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448734-00/010 BCP-508-17 GN         
  
+sdfasfdadfafd
 BS# BCP-508-18 GN         
 TL# 5.08
 PL# 18
@@ -15815,6 +15980,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448747-00/010 BCP-508-18 GN         
  
+sdfasfdadfafd
 BS# BCP-508-19 GN         
 TL# 5.08
 PL# 19
@@ -15909,6 +16075,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448750-00/010 BCP-508-19 GN         
  
+sdfasfdadfafd
 BS# BCP-508-20 GN         
 TL# 5.08
 PL# 20
@@ -16003,6 +16170,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448763-00/010 BCP-508-20 GN         
  
+sdfasfdadfafd
 BS# BCP-508-21 GN         
 TL# 5.08
 PL# 21
@@ -16097,6 +16265,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448776-00/010 BCP-508-21 GN         
  
+sdfasfdadfafd
 BS# BCP-508-22 GN         
 TL# 5.08
 PL# 22
@@ -16191,6 +16360,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448789-00/010 BCP-508-22 GN         
  
+sdfasfdadfafd
 BS# BCP-508-23 GN         
 TL# 5.08
 PL# 23
@@ -16285,6 +16455,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448792-00/010 BCP-508-23 GN         
  
+sdfasfdadfafd
 BS# BCP-508-24 GN         
 TL# 5.08
 PL# 24
@@ -16379,6 +16550,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448802-00/010 BCP-508-24 GN         
  
+sdfasfdadfafd
 BS# BCP-508-2 BK          
 TL# 5.08
 PL# 2 
@@ -16473,6 +16645,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452235-00/010 BCP-508-2 BK          
  
+sdfasfdadfafd
 BS# BCP-508-3 BK          
 TL# 5.08
 PL# 3 
@@ -16567,6 +16740,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452236-00/010 BCP-508-3 BK          
  
+sdfasfdadfafd
 BS# BCP-508-4 BK          
 TL# 5.08
 PL# 4 
@@ -16661,6 +16835,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452237-00/010 BCP-508-4 BK          
  
+sdfasfdadfafd
 BS# BCP-508-5 BK          
 TL# 5.08
 PL# 5 
@@ -16755,6 +16930,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452238-00/010 BCP-508-5 BK          
  
+sdfasfdadfafd
 BS# BCP-508-6 BK          
 TL# 5.08
 PL# 6 
@@ -16849,6 +17025,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441786-00/010 BCP-508-6 BK          
  
+sdfasfdadfafd
 BS# BCP-508-7 BK          
 TL# 5.08
 PL# 7 
@@ -16943,6 +17120,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452239-00/010 BCP-508-7 BK          
  
+sdfasfdadfafd
 BS# BCP-508-8 BK          
 TL# 5.08
 PL# 8 
@@ -17037,6 +17215,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5441809-00/010 BCP-508-8 BK          
  
+sdfasfdadfafd
 BS# BCP-508-9 BK          
 TL# 5.08
 PL# 9 
@@ -17131,6 +17310,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452240-00/010 BCP-508-9 BK          
  
+sdfasfdadfafd
 BS# BCP-508-10 BK         
 TL# 5.08
 PL# 10
@@ -17225,6 +17405,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452241-00/010 BCP-508-10 BK         
  
+sdfasfdadfafd
 BS# BCP-508-11 BK         
 TL# 5.08
 PL# 11
@@ -17319,6 +17500,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452242-00/010 BCP-508-11 BK         
  
+sdfasfdadfafd
 BS# BCP-508-12 BK         
 TL# 5.08
 PL# 12
@@ -17413,6 +17595,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452243-00/010 BCP-508-12 BK         
  
+sdfasfdadfafd
 BS# BCP-508-13 BK         
 TL# 5.08
 PL# 13
@@ -17507,6 +17690,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452244-00/010 BCP-508-13 BK         
  
+sdfasfdadfafd
 BS# BCP-508-14 BK         
 TL# 5.08
 PL# 14
@@ -17601,6 +17785,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452245-00/010 BCP-508-14 BK         
  
+sdfasfdadfafd
 BS# BCP-508-15 BK         
 TL# 5.08
 PL# 15
@@ -17695,6 +17880,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452246-00/010 BCP-508-15 BK         
  
+sdfasfdadfafd
 BS# BCP-508-16 BK         
 TL# 5.08
 PL# 16
@@ -17789,6 +17975,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452247-00/010 BCP-508-16 BK         
  
+sdfasfdadfafd
 BS# BCP-508-17 BK         
 TL# 5.08
 PL# 17
@@ -17883,6 +18070,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452248-00/010 BCP-508-17 BK         
  
+sdfasfdadfafd
 BS# BCP-508-18 BK         
 TL# 5.08
 PL# 18
@@ -17977,6 +18165,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452249-00/010 BCP-508-18 BK         
  
+sdfasfdadfafd
 BS# BCP-508-19 BK         
 TL# 5.08
 PL# 19
@@ -18071,6 +18260,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452250-00/010 BCP-508-19 BK         
  
+sdfasfdadfafd
 BS# BCP-508-20 BK         
 TL# 5.08
 PL# 20
@@ -18165,6 +18355,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452251-00/010 BCP-508-20 BK         
  
+sdfasfdadfafd
 BS# BCP-508-21 BK         
 TL# 5.08
 PL# 21
@@ -18259,6 +18450,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452252-00/010 BCP-508-21 BK         
  
+sdfasfdadfafd
 BS# BCP-508-22 BK         
 TL# 5.08
 PL# 22
@@ -18353,6 +18545,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452253-00/010 BCP-508-22 BK         
  
+sdfasfdadfafd
 BS# BCP-508-23 BK         
 TL# 5.08
 PL# 23
@@ -18447,6 +18640,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452254-00/010 BCP-508-23 BK         
  
+sdfasfdadfafd
 BS# BCP-508-24 BK         
 TL# 5.08
 PL# 24
@@ -18541,6 +18735,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452255-00/010 BCP-508-24 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-2 GY         
 TL# 5.08
 PL# 2 
@@ -18635,6 +18830,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435954-00/010 BCP-508F-2 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-3 GY         
 TL# 5.08
 PL# 3 
@@ -18729,6 +18925,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435967-00/010 BCP-508F-3 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-4 GY         
 TL# 5.08
 PL# 4 
@@ -18823,6 +19020,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435970-00/010 BCP-508F-4 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-5 GY         
 TL# 5.08
 PL# 5 
@@ -18917,6 +19115,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435983-00/010 BCP-508F-5 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-6 GY         
 TL# 5.08
 PL# 6 
@@ -19011,6 +19210,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5435996-00/010 BCP-508F-6 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-7 GY         
 TL# 5.08
 PL# 7 
@@ -19105,6 +19305,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436005-00/010 BCP-508F-7 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-8 GY         
 TL# 5.08
 PL# 8 
@@ -19199,6 +19400,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436018-00/010 BCP-508F-8 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-9 GY         
 TL# 5.08
 PL# 9 
@@ -19293,6 +19495,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436021-00/010 BCP-508F-9 GY         
  
+sdfasfdadfafd
 BS# BCP-508F-10 GY        
 TL# 5.08
 PL# 10
@@ -19387,6 +19590,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436034-00/010 BCP-508F-10 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-11 GY        
 TL# 5.08
 PL# 11
@@ -19481,6 +19685,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436047-00/010 BCP-508F-11 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-12 GY        
 TL# 5.08
 PL# 12
@@ -19575,6 +19780,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436050-00/010 BCP-508F-12 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-13 GY        
 TL# 5.08
 PL# 13
@@ -19669,6 +19875,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436063-00/010 BCP-508F-13 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-14 GY        
 TL# 5.08
 PL# 14
@@ -19763,6 +19970,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436076-00/010 BCP-508F-14 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-15 GY        
 TL# 5.08
 PL# 15
@@ -19857,6 +20065,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436089-00/010 BCP-508F-15 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-16 GY        
 TL# 5.08
 PL# 16
@@ -19951,6 +20160,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436092-00/010 BCP-508F-16 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-17 GY        
 TL# 5.08
 PL# 17
@@ -20045,6 +20255,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436012-00/010 BCP-508F-17 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-18 GY        
 TL# 5.08
 PL# 18
@@ -20139,6 +20350,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436115-00/010 BCP-508F-18 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-19 GY        
 TL# 5.08
 PL# 19
@@ -20233,6 +20445,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436128-00/010 BCP-508F-19 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-20 GY        
 TL# 5.08
 PL# 20
@@ -20327,6 +20540,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5436131-00/010 BCP-508F-20 GY        
  
+sdfasfdadfafd
 BS# BCP-508F-2 GN         
 TL# 5.08
 PL# 2 
@@ -20421,6 +20635,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448815-00/010 BCP-508F-2 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-3 GN         
 TL# 5.08
 PL# 3 
@@ -20515,6 +20730,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448828-00/010 BCP-508F-3 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-4 GN         
 TL# 5.08
 PL# 4 
@@ -20609,6 +20825,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448831-00/010 BCP-508F-4 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-5 GN         
 TL# 5.08
 PL# 5 
@@ -20703,6 +20920,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448844-00/010 BCP-508F-5 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-6 GN         
 TL# 5.08
 PL# 6 
@@ -20797,6 +21015,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448857-00/010 BCP-508F-6 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-7 GN         
 TL# 5.08
 PL# 7 
@@ -20891,6 +21110,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448860-00/010 BCP-508F-7 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-8 GN         
 TL# 5.08
 PL# 8 
@@ -20985,6 +21205,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448873-00/010 BCP-508F-8 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-9 GN         
 TL# 5.08
 PL# 9 
@@ -21079,6 +21300,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448886-00/010 BCP-508F-9 GN         
  
+sdfasfdadfafd
 BS# BCP-508F-10 GN        
 TL# 5.08
 PL# 10
@@ -21173,6 +21395,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448899-00/010 BCP-508F-10 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-11 GN        
 TL# 5.08
 PL# 11
@@ -21267,6 +21490,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448909-00/010 BCP-508F-11 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-12 GN        
 TL# 5.08
 PL# 12
@@ -21361,6 +21585,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448912-00/010 BCP-508F-12 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-13 GN        
 TL# 5.08
 PL# 13
@@ -21455,6 +21680,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448925-00/010 BCP-508F-13 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-14 GN        
 TL# 5.08
 PL# 14
@@ -21549,6 +21775,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448938-00/010 BCP-508F-14 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-15 GN        
 TL# 5.08
 PL# 15
@@ -21643,6 +21870,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448941-00/010 BCP-508F-15 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-16 GN        
 TL# 5.08
 PL# 16
@@ -21737,6 +21965,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448954-00/010 BCP-508F-16 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-17 GN        
 TL# 5.08
 PL# 17
@@ -21831,6 +22060,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448967-00/010 BCP-508F-17 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-18 GN        
 TL# 5.08
 PL# 18
@@ -21925,6 +22155,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448970-00/010 BCP-508F-18 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-19 GN        
 TL# 5.08
 PL# 19
@@ -22019,6 +22250,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448983-00/010 BCP-508F-19 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-20 GN        
 TL# 5.08
 PL# 20
@@ -22113,6 +22345,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5448996-00/010 BCP-508F-20 GN        
  
+sdfasfdadfafd
 BS# BCP-508F-2 BK         
 TL# 5.08
 PL# 2 
@@ -22207,6 +22440,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452568-00/010 BCP-508F-2 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-3 BK         
 TL# 5.08
 PL# 3 
@@ -22301,6 +22535,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452569-00/010 BCP-508F-3 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-4 BK         
 TL# 5.08
 PL# 4 
@@ -22395,6 +22630,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452570-00/010 BCP-508F-4 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-5 BK         
 TL# 5.08
 PL# 5 
@@ -22489,6 +22725,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452571-00/010 BCP-508F-5 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-6 BK         
 TL# 5.08
 PL# 6 
@@ -22583,6 +22820,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452572-00/010 BCP-508F-6 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-7 BK         
 TL# 5.08
 PL# 7 
@@ -22677,6 +22915,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452573-00/010 BCP-508F-7 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-8 BK         
 TL# 5.08
 PL# 8 
@@ -22771,6 +23010,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452574-00/010 BCP-508F-8 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-9 BK         
 TL# 5.08
 PL# 9 
@@ -22865,6 +23105,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452575-00/010 BCP-508F-9 BK         
  
+sdfasfdadfafd
 BS# BCP-508F-10 BK        
 TL# 5.08
 PL# 10
@@ -22959,6 +23200,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452576-00/010 BCP-508F-10 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-11 BK        
 TL# 5.08
 PL# 11
@@ -23053,6 +23295,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452577-00/010 BCP-508F-11 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-12 BK        
 TL# 5.08
 PL# 12
@@ -23147,6 +23390,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452578-00/010 BCP-508F-12 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-13 BK        
 TL# 5.08
 PL# 13
@@ -23241,6 +23485,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452579-00/010 BCP-508F-13 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-14 BK        
 TL# 5.08
 PL# 14
@@ -23335,6 +23580,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452580-00/010 BCP-508F-14 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-15 BK        
 TL# 5.08
 PL# 15
@@ -23429,6 +23675,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452581-00/010 BCP-508F-15 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-16 BK        
 TL# 5.08
 PL# 16
@@ -23523,6 +23770,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452582-00/010 BCP-508F-16 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-17 BK        
 TL# 5.08
 PL# 17
@@ -23617,6 +23865,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452583-00/010 BCP-508F-17 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-18 BK        
 TL# 5.08
 PL# 18
@@ -23711,6 +23960,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452584-00/010 BCP-508F-18 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-19 BK        
 TL# 5.08
 PL# 19
@@ -23805,6 +24055,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452585-00/010 BCP-508F-19 BK        
  
+sdfasfdadfafd
 BS# BCP-508F-20 BK        
 TL# 5.08
 PL# 20
@@ -23899,6 +24150,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452586-00/010 BCP-508F-20 BK        
  
+sdfasfdadfafd
 BS# MSTB 2.5/2-ST-5.08    
 TL# 5.08
 PL# 2 
@@ -23993,6 +24245,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757019-00/010 MSTB 2.5/2-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/3-ST-5.08    
 TL# 5.08
 PL# 3 
@@ -24087,6 +24340,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757022-00/010 MSTB 2.5/3-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/4-ST-5.08    
 TL# 5.08
 PL# 4 
@@ -24181,6 +24435,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757035-00/010 MSTB 2.5/4-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/5-ST-5.08    
 TL# 5.08
 PL# 5 
@@ -24275,6 +24530,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757048-00/010 MSTB 2.5/5-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/6-ST-5.08    
 TL# 5.08
 PL# 6 
@@ -24369,6 +24625,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757051-00/010 MSTB 2.5/6-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/7-ST-5.08    
 TL# 5.08
 PL# 7 
@@ -24463,6 +24720,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757064-00/010 MSTB 2.5/7-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/8-ST-5.08    
 TL# 5.08
 PL# 8 
@@ -24557,6 +24815,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757077-00/010 MSTB 2.5/8-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/9-ST-5.08    
 TL# 5.08
 PL# 9 
@@ -24651,6 +24910,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757080-00/010 MSTB 2.5/9-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/10-ST-5.08   
 TL# 5.08
 PL# 10
@@ -24745,6 +25005,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757093-00/010 MSTB 2.5/10-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/11-ST-5.08   
 TL# 5.08
 PL# 11
@@ -24839,6 +25100,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757103-00/010 MSTB 2.5/11-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/12-ST-5.08   
 TL# 5.08
 PL# 12
@@ -24933,6 +25195,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757116-00/010 MSTB 2.5/12-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/13-ST-5.08   
 TL# 5.08
 PL# 13
@@ -25027,6 +25290,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757129-00/010 MSTB 2.5/13-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/14-ST-5.08   
 TL# 5.08
 PL# 14
@@ -25121,6 +25385,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757132-00/010 MSTB 2.5/14-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/15-ST-5.08   
 TL# 5.08
 PL# 15
@@ -25215,6 +25480,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757145-00/010 MSTB 2.5/15-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/16-ST-5.08   
 TL# 5.08
 PL# 16
@@ -25309,6 +25575,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757158-00/010 MSTB 2.5/16-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/18-ST-5.08   
 TL# 5.08
 PL# 18
@@ -25403,6 +25670,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757174-00/010 MSTB 2.5/18-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/20-ST-5.08   
 TL# 5.08
 PL# 20
@@ -25497,6 +25765,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1757190-00/010 MSTB 2.5/20-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/3-ST-5.08    
 TL# 5.08
 PL# 3 
@@ -25591,6 +25860,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1759509-00/010 MSTB 2.5/3-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/5-ST-5.08    
 TL# 5.08
 PL# 5 
@@ -25685,6 +25955,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1758814-00/010 MSTB 2.5/5-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/10-ST-5.08   
 TL# 5.08
 PL# 10
@@ -25779,6 +26050,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1758694-00/010 MSTB 2.5/10-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/2-STF-5.08   
 TL# 5.08
 PL# 2 
@@ -25873,6 +26145,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1777989-00/010 MSTB 2.5/2-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/3-STF-5.08   
 TL# 5.08
 PL# 3 
@@ -25967,6 +26240,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1777992-00/010 MSTB 2.5/3-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/4-STF-5.08   
 TL# 5.08
 PL# 4 
@@ -26061,6 +26335,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778001-00/010 MSTB 2.5/4-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/5-STF-5.08   
 TL# 5.08
 PL# 5 
@@ -26155,6 +26430,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778014-00/010 MSTB 2.5/5-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/6-STF-5.08   
 TL# 5.08
 PL# 6 
@@ -26249,6 +26525,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778027-00/010 MSTB 2.5/6-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/7-STF-5.08   
 TL# 5.08
 PL# 7 
@@ -26343,6 +26620,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778030-00/010 MSTB 2.5/7-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/8-STF-5.08   
 TL# 5.08
 PL# 8 
@@ -26437,6 +26715,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778043-00/010 MSTB 2.5/8-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/9-STF-5.08   
 TL# 5.08
 PL# 9 
@@ -26531,6 +26810,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778056-00/010 MSTB 2.5/9-STF-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/10-STF-5.08  
 TL# 5.08
 PL# 10
@@ -26625,6 +26905,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778069-00/010 MSTB 2.5/10-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/11-STF-5.08  
 TL# 5.08
 PL# 11
@@ -26719,6 +27000,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778072-00/010 MSTB 2.5/11-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/12-STF-5.08  
 TL# 5.08
 PL# 12
@@ -26813,6 +27095,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778085-00/010 MSTB 2.5/12-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/13-STF-5.08  
 TL# 5.08
 PL# 13
@@ -26907,6 +27190,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778098-00/010 MSTB 2.5/13-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/14-STF-5.08  
 TL# 5.08
 PL# 14
@@ -27001,6 +27285,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778108-00/010 MSTB 2.5/14-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/15-STF-5.08  
 TL# 5.08
 PL# 15
@@ -27095,6 +27380,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778111-00/010 MSTB 2.5/15-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/16-STF-5.08  
 TL# 5.08
 PL# 16
@@ -27189,6 +27475,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778124-00/010 MSTB 2.5/16-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/18-STF-5.08  
 TL# 5.08
 PL# 18
@@ -27283,6 +27570,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778140-00/010 MSTB 2.5/18-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/20-STF-5.08  
 TL# 5.08
 PL# 20
@@ -27377,6 +27665,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1778166-00/010 MSTB 2.5/20-STF-5.08  
  
+sdfasfdadfafd
 BS# MSTB 2.5/22-STF-5.08  
 TL# 5.08
 PL# 22
@@ -27471,6 +27760,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1995570-00/010 MSTB 2.5/22-STF-5.08  
  
+sdfasfdadfafd
 BS# BCP-508F-7 GY         
 TL# 5.08
 PL# 7 
@@ -27565,6 +27855,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5451899-00/010 BCP-508F-7 GY         
  
+sdfasfdadfafd
 BS# BCP-508-3 GY          
 TL# 5.08
 PL# 3 
@@ -27659,6 +27950,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5452982-00/010 BCP-508-3 GY          
  
+sdfasfdadfafd
 BS# BCP-508-7 GN          
 TL# 5.08
 PL# 7 
@@ -27753,6 +28045,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5453499-00/010 BCP-508-7 GN          
  
+sdfasfdadfafd
 BS# BCP-500-3 GN          
 TL# 5.00
 PL# 3 
@@ -27847,6 +28140,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5474313-00/010 BCP-500-3 GN          
  
+sdfasfdadfafd
 BS# BCP-500-5 GN          
 TL# 5.00
 PL# 5 
@@ -27941,6 +28235,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5474339-00/010 BCP-500-5 GN          
  
+sdfasfdadfafd
 BS# BCP-508-6 GY          
 TL# 5.08
 PL# 6 
@@ -28035,6 +28330,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5775271-00/010 BCP-508-6 GY          
  
+sdfasfdadfafd
 BS# BCP-508-6 GY          
 TL# 5.08
 PL# 6 
@@ -28129,6 +28425,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5775281-00/010 BCP-508-6 GY          
  
+sdfasfdadfafd
 BS# BCP-508-7 GY          
 TL# 5.08
 PL# 7 
@@ -28223,6 +28520,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5775315-00/010 BCP-508-7 GY          
  
+sdfasfdadfafd
 BS# MSTB 2.5/11-ST-5.08   
 TL# 5.08
 PL# 11
@@ -28317,6 +28615,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1995143-00/010 MSTB 2.5/11-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/3-ST-5.08    
 TL# 5.08
 PL# 3 
@@ -28411,6 +28710,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1702836-00/010 MSTB 2.5/3-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/10-ST-5.08   
 TL# 5.08
 PL# 10
@@ -28505,6 +28805,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1702838-00/010 MSTB 2.5/10-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/13-ST-5.08   
 TL# 5.08
 PL# 13
@@ -28599,6 +28900,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1702841-00/010 MSTB 2.5/13-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/13-ST-5.08   
 TL# 5.08
 PL# 13
@@ -28693,6 +28995,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 1832658-00/010 MSTB 2.5/13-ST-5.08   
  
+sdfasfdadfafd
 BS# MSTB 2.5/4-ST-5.08    
 TL# 5.08
 PL# 4 
@@ -28787,6 +29090,7 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5775302-00/010 MSTB 2.5/4-ST-5.08    
  
+sdfasfdadfafd
 BS# MSTB 2.5/5-STF-5.08   
 TL# 5.08
 PL# 5 
@@ -28881,3 +29185,4 @@ KAM# 0       /* Parameter 10  free
 RM# 2
 SNR# 5775303-00/010 MSTB 2.5/5-STF-5.08   
  
+sdfasfdadfafd

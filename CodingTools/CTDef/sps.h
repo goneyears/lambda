@@ -329,7 +329,7 @@ void Input(void)
 	E_St10_B2_4_fixture_presser1_down				= Eing(A52,0);
 	E_St10_B2_2_fixture_presser1_up					= Eing(A52,1);
 	E_St10_B3_4_fixture_presser2_down				= Eing(A52,2);
-	E_St10_B3_2_fixture_presser2_up					= Eing(A52,3);
+	E_St10_B3_2_fixture_presser2_up					= Eing(A52,3); //E_St9_B2_4_fixture_presser1_down			 	= Eing(A52,4);
 	E_St9_B2_4_fixture_presser1_down			 	= Eing(A52,4);
 	E_St9_B2_2_fixture_presser1_up					= Eing(A52,5);
 	E_St9_B3_4_fixture_presser2_down				= Eing(A52,6);

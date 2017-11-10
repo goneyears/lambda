@@ -1,61 +1,73 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import tkinter,socket,threading, sys
+import tkinter, threading, sys
 import time
 from tkinter.scrolledtext import ScrolledText
 
+
 class Form:
     def __init__(self):
-        t2 = threading.Thread(target=self.windowinit)
-        t2.setDaemon(False)
-        t2.start()
+        t1 = threading.Thread(target=self.window_init)
+        t1.setDaemon(False)
+        t1.start()
 
         print('true')
         self.UpdateButtonEvent = []
+        self.ImportButtonEvent = []
         self.CloseWindowEvent = []
-        #self.windowinit()
+        # self.window_init()
 
-
-
-    def windowinit(self):
+    def window_init(self):
         print('2')
         self.root = tkinter.Tk()
-        self.root.protocol("WM_DELETE_WINDOW", self.WindowClose)
+        self.root.protocol("WM_DELETE_WINDOW", self.window_close)
         self.root.title("CTDef")
-        self.root.geometry('700x505')
-        frm=tkinter.Frame(self.root)
-        frm_L=tkinter.Frame(frm)
-        frm_R=tkinter.Frame(frm)
+        self.root.geometry('1000x505')
+        frm = tkinter.Frame(self.root)
+        frm__l = tkinter.Frame(frm)
+        frm__r = tkinter.Frame(frm)
 
-        self.editbox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
-        self.displaybox=ScrolledText(frm_R, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
+        self.editbox=ScrolledText(frm__r, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
+        self.displaybox=ScrolledText(frm__r, width=100, height=33.5, font=('Consolas', 10), background='#ffffff')
 
 
         self.editbox.pack(expand=1, fill="both", side=tkinter.LEFT)
         self.displaybox.pack(expand=1, fill="both", side=tkinter.RIGHT)
-        tkinter.Button(frm_L, height=6, width=20, text="更新", command=self.updatebuttonclick).pack(side=tkinter.TOP)
 
-        frm_L.pack(side=tkinter.LEFT)
-        frm_R.pack(side=tkinter.RIGHT)
+        tkinter.Button(frm__l, height=6, width=10, text="import", command=self.import_button_click).pack(side=tkinter.TOP)
+        tkinter.Button(frm__l, height=6, width=10, text="refresh", command=self.update_button_click).pack(side=tkinter.TOP)
+
+
+        frm__l.pack(side=tkinter.LEFT)
+        frm__r.pack(side=tkinter.RIGHT)
         frm.pack()
 
         self.root.mainloop()
 
-    def WindowClose(self):
+    def window_close(self):
         #[m() for m in self.CloseWindowEvent]
-        print('mainwindow exit')
+        print('main window exit')
 
         self.root.quit()
 
-    def updatebuttonclick(self):
+    def update_button_click(self):
         [n() for n in self.UpdateButtonEvent]
 
-    def readeditbox(self):
+    def import_button_click(self):
+        [n() for n in self.ImportButtonEvent]
+
+    def read_editbox(self):
         return self.editbox.get('1.0', tkinter.END)
 
-    def writedisplaybox(self,str):
+    def write_editbox(self, str):
+        self.editbox.insert(tkinter.END, str)
+
+    def write_displaybox(self, str):
         self.displaybox.insert(tkinter.END, str)
+
+    def clear_displaybox(self):
+        self.displaybox.delete('1.0', tkinter.END)
 
 
 
