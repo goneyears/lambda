@@ -8,14 +8,15 @@ class Zout:
         self.ZN = ''
         self.ZName = ''
         self.Motion = ''
+        self.Ztype = ''
         self.tozout(aline)
 
     def tozout(self, aline):
         """transform station statement to Cylinder Outputs struct"""
         # SetAusg(A120,5,A.St201_Y1_2_SwivelUnit_backward);
         #front|back|up|down|left|right
-        pattern = re.compile(r'.*(?P<Var>A.*[sS]t(?P<StN>\d+)_Y(?P<ZN>\d+)_[24]_(?P<ZName>\w+'
-                             r'(?P<Motion>open|close|forward|backward|up|upward|down|downward|left|leftward|right|rightward))).*')
+        pattern = re.compile(r'.*(?P<Var>A.*[sS]t(?P<StN>\d+)_Y(?P<ZN>\d+)_[24]_(?P<ZName>\w+)_'
+                             r'(?P<Motion>open|close|forward|backward|up|upward|down|downward|left|leftward|right|rightward))\s*\).*')
         match = pattern.match(aline)
         if match:
             #print('match')
@@ -31,6 +32,14 @@ class Zout:
             #     print('match')
             #     self.Motion = obj.subn('ward',self.Motion)[0]
             self.Motion = re.sub(r'^(up|down|left|right)$',r'\1ward', self.Motion)
+            isgrippermatch = re.compile(r'.*(open|close).*').match(aline)
+            if isgrippermatch:
+                print('is gripper?')
+                print(aline)
+                self.Ztype = 'gripper'
+                print(self.ZName)
+            else:
+                self.Ztype = 'not gripper'
 
     def display(self):
         print(self.Var)

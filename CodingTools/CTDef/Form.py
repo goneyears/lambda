@@ -23,23 +23,22 @@ class Form:
         self.root = tkinter.Tk()
         self.root.protocol("WM_DELETE_WINDOW", self.window_close)
         self.root.title("CTDef")
-        self.root.geometry('1000x505')
+        self.root.geometry('1500x505')
         frm = tkinter.Frame(self.root)
         frm__l = tkinter.Frame(frm)
+        frm__i = tkinter.Frame(frm)
         frm__r = tkinter.Frame(frm)
 
         self.editbox=ScrolledText(frm__r, width=40, height=33.5, font=('Consolas', 10), background='#ffffff')
-        self.displaybox=ScrolledText(frm__r, width=100, height=33.5, font=('Consolas', 10), background='#ffffff')
-
+        self.displaybox=ScrolledText(frm__r, width=160, height=33.5, font=('Consolas', 10), background='#ffffff')
 
         self.editbox.pack(expand=1, fill="both", side=tkinter.LEFT)
         self.displaybox.pack(expand=1, fill="both", side=tkinter.RIGHT)
 
-        tkinter.Button(frm__l, height=6, width=10, text="import", command=self.import_button_click).pack(side=tkinter.TOP)
-        tkinter.Button(frm__l, height=6, width=10, text="refresh", command=self.update_button_click).pack(side=tkinter.TOP)
-
+        tkinter.Button(frm__r, height=3, width=10, text="get->", command=self.update_button_click).pack(side=tkinter.LEFT)
 
         frm__l.pack(side=tkinter.LEFT)
+        frm__i.pack(side=tkinter.RIGHT)
         frm__r.pack(side=tkinter.RIGHT)
         frm.pack()
 

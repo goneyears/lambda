@@ -16,9 +16,9 @@ class ZLine:
     def __init__(self,_zline):
         self.Str=_zline
         self.StN = 'xxx'
-        self.ZN = ['xxx']
-        self.Motion = ['xxx']
-        self.Fehler = ['xxx']
+        self.ZNs = []
+        self.Motions = []
+        self.Fehler = []
         self.Case = 'xxx'
 
         self.extract(_zline)
@@ -28,42 +28,46 @@ class ZLine:
         strnr1 = re.sub(r',+|(\s+)', r' ', strl)
         stnr = re.sub(r'\sz(\d+)', r', z\1', strnr1)
         stnr = stnr + ','
+        return stnr
 
     def extract(self, str):
         str = self.regular(str)
-        self.stN = re.compile(r'.*[sS]t(\d+).*').match(str).group(1)
+        print('000---'+ str)
+        self.StN = re.compile(r'.*[sS]t(\d+).*').match(str).group(1)
+        print('stn---'+self.StN)
+        cmatch = re.compile(r'.*c(ase)?\s*(?P<Case>\d+)').match(str)
+        if cmatch:
+            self.Case = cmatch.group('Case')
 
         zstrls=re.compile(r'\bz\d.*?,').findall(str)
 
-        i = 0
         for zstr in zstrls:
-            zmatch = re.compile(r'.*z(?P<ZN>\d+)\s+(?P<Motion>\w+)').match(str)
-            self.ZN[i] = zmatch.group('ZN')
+            print('zstr---',zstr)
+            zmatch = re.compile(r'.*z(?P<ZN>\d+)\s+(?P<Motion>\w+)').match(zstr)
+            self.ZNs.append(zmatch.group('ZN'))
 
-            self.Motion[i] = zmatch.group('Motion')
-            self.Motion[i] = re.sub(r'^(up|down|left|right)$',r'\1ward', self.Motion)
+            self.Motions.append(re.sub(r'^(up|down|left|right|back)$',r'\1ward', zmatch.group('Motion')))
 
-            fmatch = re.compile(r'.*f(ehler)?\s*(?P<Fehler>\d+)').match(str)
+            fmatch = re.compile(r'.*f(ehler)?\s*(?P<Fehler>\d+)').match(zstr)
             if fmatch:
-                self.Fehler = fmatch.group('Fehler')
+                self.Fehler.append(fmatch.group('Fehler'))
+            else:
+                self.Fehler.append('xxx')
 
-            cmatch = re.compile(r'.*c(ase)?\s*(?P<Case>\d+)').match(str)
-            if cmatch(str):
-                self.Case = cmatch.group('Case')
- 
+        print(self.Fehler)
         
     def neg_motion(self, motion):
-        dict = {'forward':'backward', 'backward':'forward', 'upward' : 'downward', 'leftward' : 'rightward',
-                'rightward': 'leftward', 'open': 'close', 'close': 'open'}
-
+        dict = {'forward':'backward', 'backward':'forward', 'upward' : 'downward', 'downward' : 'upward',
+                'leftward' : 'rightward', 'rightward': 'leftward', 'open': 'close', 'close': 'open'}
+        print('motion----->'+motion)
         return dict[motion]
     # case 3:
     # if (M_.MaStepEn)
     #     {
-    #     if (E_St10_B1_4_good_parts_ejector_in_front & & !E_St10_B1_2_good_parts_ejector_back )
-    #     {
-    #         Step[SEQ] + +;
-    #     }
+    #       if (E_St10_B1_4_good_parts_ejector_in_front && !E_St10_B1_2_good_parts_ejector_back )
+    #       {
+    #            Step[SEQ] + +;
+    #       }
     #     }
     #
     #     // Main Air Off
@@ -80,19 +84,78 @@ class ZLine:
     #         }
     #         break;
     def formatted_code(self, zbins, nbins, zouts):
-        cstr1  = 'case' + self.Case + ':'
-        cstr2  = '   St' + self.StN + ' Z' + self.ZN + ' ' + self.Motion
-        cstr3 = 'if(' +\
-                zbins.search(self.StN, self.ZN, self.Motion).Var + '&&' +\
-                zbins.search(self.StN, self.ZN, self.neg_motion(self.Motion)).Var +\
-                ') \n'
-        print(self.neg_motion(self.Motion))
-        print(zbins.search(self.StN, self.ZN, self.neg_motion(self.Motion)).Var)
+        bpairs=[]
+        zpairs=[]
 
-        cstr4 = zouts.search(self.StN, self.ZN, self.Motion).Var + '= true; \n' +\
-                zouts.search(self.StN, self.ZN, self.neg_motion(self.Motion)).Var + '= false; \n'
-        cstr5  = 'f:' + self.Fehler
-        return cstr1 + '\n' + cstr2 + '\n' + cstr3 + '\n' + cstr4 + '\n' + cstr5
+        i=0
+        for z in self.ZNs:
+            if zouts.search(self.StN, z, self.Motions[i]).Ztype == 'not gripper':
+                bpair=[]
+                bpair.append(zbins.search(self.StN, z, self.Motions[i]).Var)
+                bpair.append(zbins.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
+                bpair.append(self.Fehler[i])
+                bpairs.append(bpair)
+
+                zpair=[]
+                zpair.append(zouts.search(self.StN, z, self.Motions[i]).Var)
+                zpair.append(zouts.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
+                zpairs.append(zpair)
+
+            elif zouts.search(self.StN, z, self.Motions[i]).Ztype == 'gripper':
+                timevar = 'T_St' + self.StN + '_Z' + z + '_' + zouts.search(self.StN, z, self.Motions[i]).ZName
+                bpair=[]
+                bpair.append('Time('+timevar+')')
+                bpair.append('')
+                bpair.append(self.Fehler[i])
+                bpairs.append(bpair)
+
+                zpair=[]
+                zpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ]== ' + self.Case + ');')
+                zpair.append('')
+                zpairs.append(zpair)
+
+            i = i+1
+        eincond=''
+        ainout=''
+        einfehler=''
+
+        i = 1
+        for bp in bpairs:
+            if i==len(bpairs):
+                if bp[1]=='':
+                    eincond =eincond+ bp[0]
+                else:
+                    eincond =eincond+ bp[0] + ' && !' + bp[1]
+
+            else:
+                if bp[1]=='':
+                    eincond =eincond+ bp[0] + ' &&\n' + '            '
+                else:
+                    eincond =eincond+ bp[0] + ' && !' + bp[1] + ' &&\n' + '            '
+
+
+            einfehler = einfehler + '         if(!' + bp[0] + '||' + bp[1] +') Fehler(PRG1, ErrorNum, ' + bp[2] + ', 0);\n'
+            i = i+1
+
+        for zp in zpairs:
+            if zp[1]=='':
+                ainout = ainout +zp[0] +' \n      ' + zp[1] + '\n' + '      '
+            else:
+                ainout = ainout + zp[0] + ' = true; \n      ' + zp[1] + ' = false;\n' + '      '
+
+
+        ccode  = '   case ' + self.Case + ':' + '\n' +\
+                '      if (M_.MaStepEn)\n' +\
+                '      {\n' +\
+                '         if(' + eincond +')\n         {\n'+'            Step[SEQ]++;\n         }\n' +\
+                '      }\n\n' +\
+                '      MainAir[MainAirValve] = false;\n\n' +\
+                '      '+ainout +'\n' +\
+                '      if (M_Error_Search)\n      {\n' +\
+                einfehler +\
+                '      }\n\n'
+
+        return ccode
 
     def display(self):
         return 'self.Str: ' + self.Str+' self.StN: ' + self.StN + ' self.CylinderN: ' + self.ZN +\

@@ -12,17 +12,24 @@ zouts = sps_h_file.zouts
 sps_h_file.zouts.display()
 
 def update_button_click():
-    print("test print-----")
-    form1.write_editbox('c3 st10 z1 forward f1')
+    #form1.write_editbox('c3 st10 z1 forward z1 back f2 \nc4 st5 z1 up ')
     zcode = form1.read_editbox().strip('\r\n')
-    print('zcode: ' + zcode)
     zcode_lines = re.split('\n', zcode)
 
     form1.clear_displaybox()
     for ln in zcode_lines:
-        print('line is  '+ln)
-        zl = ZLine(ln)
-        form1.write_displaybox(zl.formatted_code(zbins, nbins, zouts))
+        ln = ln.lower()
+        if re.compile('.*st.*z\d+.*\w+.*').match(ln):
+            zl = ZLine(ln)
+            try:
+                form1.write_displaybox(zl.formatted_code(zbins, nbins, zouts))
+            except:
+                form1.write_displaybox(ln + '--->can not find this cylinder or motion')
+
+        elif re.compile('^\s*$').match(ln):
+            form1.write_displaybox('\n')
+        else:
+            form1.write_displaybox(ln+ '--->formate needs to be like this: stx zx motion ')
 
 
 def import_button_click():
