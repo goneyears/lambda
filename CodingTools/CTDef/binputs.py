@@ -39,14 +39,13 @@ class NBin:
     def tobin(self, eline):
         """transform station statement to Inputs struct"""
         # E_St4_B1_4_Belt_crushing_in_front				= Eing(A51,0);
-        pattern = re.compile(r'\s*(?P<Var>E_[sS]t(?P<StN>\d+)_B(?P<SensorN>\d+)_(?P<SensorName>\w+))\s*')
+        pattern = re.compile(r'\s*(?P<Var>E_[sS]t(?P<StN>\d+)_B(?P<BN>\d+)_(?P<BName>\w+))\s*')
         match = pattern.match(eline)
         if match:
             self.Var = match.group('Var')
             self.StN = match.group('StN')
-            self.BN = match.group('SensorN')
-
-            self.BName = match.group('SensorName')
+            self.BN = match.group('BN')
+            self.BName = match.group('BName')
 
     def display(self):
         print(self.Var)

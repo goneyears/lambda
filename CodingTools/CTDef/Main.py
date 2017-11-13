@@ -19,7 +19,7 @@ def update_button_click():
     form1.clear_displaybox()
     for ln in zcode_lines:
         ln = ln.lower()
-        if re.compile('.*st.*z\d+.*\w+.*').match(ln):
+        if re.compile('.*st.*(z\d+|b\d+).*\w+.*').match(ln):
             zl = ZLine(ln)
             try:
                 form1.write_displaybox(zl.formatted_code(zbins, nbins, zouts))

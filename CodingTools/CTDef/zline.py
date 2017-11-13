@@ -18,27 +18,32 @@ class ZLine:
         self.StN = 'xxx'
         self.ZNs = []
         self.Motions = []
+
+        self.BNs = []
+        self.BMotions = [] #only on or off
+
         self.Fehler = []
         self.Case = 'xxx'
         self.extract(_zline)
 
     def regular(self, str):
-        strl = str.lower()
-        strnr1 = re.sub(r',+|(\s+)', r' ', strl)
-        stnr = re.sub(r'\sz(\d+)', r', z\1', strnr1)
-        stnr = stnr + ','
-        return stnr
+        str = str.lower()
+        str = re.sub(r',+|(\s+)', r' ', str)
+        str = re.sub(r'\sz(\d+)', r', z\1', str)
+        str = re.sub(r'\sb(\d+)', r', b\1', str)
+        str = str + ','
+        return str
 
     def extract(self, str):
         str = self.regular(str)
         print('000---'+ str)
-        self.StN = re.compile(r'.*[sS]t(\d+).*').match(str).group(1)
+        self.StN = re.compile(r'.*st(\d+).*').match(str).group(1)
         print('stn---'+self.StN)
         cmatch = re.compile(r'.*c(ase)?\s*(?P<Case>\d+)').match(str)
         if cmatch:
             self.Case = cmatch.group('Case')
 
-        zstrls=re.compile(r'\bz\d.*?,').findall(str)
+        zstrls=re.compile(r'\bz\d+.*?,').findall(str)
 
         for zstr in zstrls:
             print('zstr---',zstr)
@@ -53,7 +58,19 @@ class ZLine:
             else:
                 self.Fehler.append('xxx')
 
-        print(self.Fehler)
+        nbstrls=re.compile(r'\bb\d+.*?,').findall(str)
+
+        for nbstr in nbstrls:
+            print('nbstr---',nbstr)
+            bmatch = re.compile(r'.*b(?P<BN>\d+)\s+(?P<BMotion>\w+)').match(nbstr)
+            self.BNs.append(bmatch.group('BN'))
+            self.BMotions.append(bmatch.group('BMotion'))
+
+            fmatch = re.compile(r'.*f(ehler)?\s*(?P<Fehler>\d+)').match(nbstr)
+            if fmatch:
+                self.Fehler.append(fmatch.group('Fehler'))
+            else:
+                self.Fehler.append('xxx')
         
     def neg_motion(self, motion):
         dict = {'forward':'backward', 'backward':'forward', 'upward' : 'downward', 'downward' : 'upward',
@@ -83,8 +100,10 @@ class ZLine:
     #         }
     #         break;
     def formatted_code(self, zbins, nbins, zouts):
-        bpairs=[]
-        zpairs=[]
+        bpairs = []
+        zpairs = []
+
+        nbpairs = []
 
         i=0
         for z in self.ZNs:
@@ -122,13 +141,26 @@ class ZLine:
                 zpairs.append(zpair)
 
             i = i+1
+
+        for nb in self.BNs:
+            timevar = 'T_St' + self.StN + nbins.search(self.StN,nb).BName
+            nbpair = ['normal sensor'] #reserved
+            nbpair.append('Time('+timevar+')')
+            nbpair.append(self.Fehler[i])
+
+            nbpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ]== ' + self.Case + ');')#remarkremark
+
+            nbpairs.append(nbpair)
+
+
+
         eincond=''
         ainout=''
         einfehler=''
 
         i = 1
         for bp in bpairs:
-            if i==len(bpairs):
+            if i==len(bpairs) and len(nbpairs)==0:
                 if bp[0]=='gripper':
                     eincond =eincond+ bp[1]
                 else:
@@ -142,15 +174,26 @@ class ZLine:
                     eincond =eincond+ bp[1] + ' && !' + bp[2] + ' &&\n' + '            '
                     einfehler = einfehler + '         if(!' + bp[1] + '||' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
 
-
             i = i+1
 
         for zp in zpairs:
             if zp[0]=='gripper':
                 ainout = ainout + zp[1] + ' = true; \n      ' + zp[2] + ' = false;\n\n' + '      '
-                ainout = ainout +zp[3] +' \n\n      '
+                ainout = ainout + zp[3] +' \n\n      '
             else:
                 ainout = ainout + zp[1] + ' = true; \n      ' + zp[2] + ' = false;\n' + '      '
+
+        i = 1
+        for nbp in nbpairs:
+            if i == len(nbpairs):
+                eincond = eincond + nbp[1]
+            else:
+                eincond = eincond + nbp[1] + ' &&\n' + '            '
+
+            ainout = ainout + nbp[2] +'\n'
+            einfehler = einfehler + '         if(!' + nbp[1] +') Fehler(PRG1, ErrorNum, ' + nbp[2] + ', 0);\n'
+
+
 
 
         ccode  = '   case ' + self.Case + ':' + '\n' +\
@@ -171,7 +214,7 @@ class ZLine:
 
     def formate_B(self, zbins, nbins, zouts):
         pass
-    
+
     def display(self):
         return 'self.Str: ' + self.Str+' self.StN: ' + self.StN + ' self.CylinderN: ' + self.ZN +\
                ' self.Motion:' + self.Motion + ' self.Fehler: ' + self.Fehler + ' self.Case: ' + self.Case
