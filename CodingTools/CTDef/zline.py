@@ -20,7 +20,6 @@ class ZLine:
         self.Motions = []
         self.Fehler = []
         self.Case = 'xxx'
-
         self.extract(_zline)
 
     def regular(self, str):
@@ -90,28 +89,36 @@ class ZLine:
         i=0
         for z in self.ZNs:
             if zouts.search(self.StN, z, self.Motions[i]).Ztype == 'not gripper':
-                bpair=[]
+                #bp[0]:type, gripper or not gripper
+                #bp[1]:positive motion if not girrper or time on if is griiper
+                #bp[2]:negative motion or noting if is gripper
+                #bp[3]:fehler number if not gripper or nothing if is gripper
+                bpair=['not gripper']
                 bpair.append(zbins.search(self.StN, z, self.Motions[i]).Var)
                 bpair.append(zbins.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
                 bpair.append(self.Fehler[i])
                 bpairs.append(bpair)
 
-                zpair=[]
+                zpair=['not gripper']
                 zpair.append(zouts.search(self.StN, z, self.Motions[i]).Var)
                 zpair.append(zouts.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
                 zpairs.append(zpair)
 
             elif zouts.search(self.StN, z, self.Motions[i]).Ztype == 'gripper':
+                #zp[0]:type, gripper or not gripper
+                #zp[1]:positive motion
+                #zp[2]:negative motion
+                #zp[3]:Isettimer if is gripper or nothing if not gripper
                 timevar = 'T_St' + self.StN + '_Z' + z + '_' + zouts.search(self.StN, z, self.Motions[i]).ZName
-                bpair=[]
+                bpair=['gripper']
                 bpair.append('Time('+timevar+')')
-                bpair.append('')
                 bpair.append(self.Fehler[i])
                 bpairs.append(bpair)
 
-                zpair=[]
+                zpair=['gripper']
+                zpair.append(zouts.search(self.StN, z, self.Motions[i]).Var)
+                zpair.append(zouts.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
                 zpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ]== ' + self.Case + ');')
-                zpair.append('')
                 zpairs.append(zpair)
 
             i = i+1
@@ -122,26 +129,28 @@ class ZLine:
         i = 1
         for bp in bpairs:
             if i==len(bpairs):
-                if bp[1]=='':
-                    eincond =eincond+ bp[0]
+                if bp[0]=='gripper':
+                    eincond =eincond+ bp[1]
                 else:
-                    eincond =eincond+ bp[0] + ' && !' + bp[1]
+                    eincond =eincond+ bp[1] + ' && !' + bp[1]
+                    einfehler = einfehler + '         if(!' + bp[1] + '||' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
 
             else:
-                if bp[1]=='':
-                    eincond =eincond+ bp[0] + ' &&\n' + '            '
+                if bp[0]=='gripper':
+                    eincond =eincond+ bp[1] + ' &&\n' + '            '
                 else:
-                    eincond =eincond+ bp[0] + ' && !' + bp[1] + ' &&\n' + '            '
+                    eincond =eincond+ bp[1] + ' && !' + bp[2] + ' &&\n' + '            '
+                    einfehler = einfehler + '         if(!' + bp[1] + '||' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
 
 
-            einfehler = einfehler + '         if(!' + bp[0] + '||' + bp[1] +') Fehler(PRG1, ErrorNum, ' + bp[2] + ', 0);\n'
             i = i+1
 
         for zp in zpairs:
-            if zp[1]=='':
-                ainout = ainout +zp[0] +' \n      ' + zp[1] + '\n' + '      '
+            if zp[0]=='gripper':
+                ainout = ainout + zp[1] + ' = true; \n      ' + zp[2] + ' = false;\n\n' + '      '
+                ainout = ainout +zp[3] +' \n\n      '
             else:
-                ainout = ainout + zp[0] + ' = true; \n      ' + zp[1] + ' = false;\n' + '      '
+                ainout = ainout + zp[1] + ' = true; \n      ' + zp[2] + ' = false;\n' + '      '
 
 
         ccode  = '   case ' + self.Case + ':' + '\n' +\
@@ -157,6 +166,12 @@ class ZLine:
 
         return ccode
 
+    def formate_Z(self, zbins, nbins, zouts):
+        pass
+
+    def formate_B(self, zbins, nbins, zouts):
+        pass
+    
     def display(self):
         return 'self.Str: ' + self.Str+' self.StN: ' + self.StN + ' self.CylinderN: ' + self.ZN +\
                ' self.Motion:' + self.Motion + ' self.Fehler: ' + self.Fehler + ' self.Case: ' + self.Case

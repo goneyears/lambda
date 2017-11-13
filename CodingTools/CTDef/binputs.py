@@ -67,7 +67,6 @@ class ZBins:
             # print(elem.BN + '->' + BN + ':' + str(elem.BN == BN))
             # print(elem.Motion + '->' + ':' + str(elem.Motion == Motion))
             if elem.StN == StN and elem.BN == BN and elem.Motion == Motion:
-                # print('match')
                 return elem
         return None
 
@@ -82,15 +81,9 @@ class NBins:
     def __init__(self):
         self.elements = []
 
-    def search(self, StN, BN, Motion):
+    def search(self, StN, BN):
         for elem in self.elements:
-            # print('elem:')
-            # print(str(type(elem.StN)) + str(type(StN)))
-            # print(elem.StN + '->' + StN + ':' + str(elem.StN == StN))
-            # print(elem.BN + '->' + BN + ':' + str(elem.BN == BN))
-            # print(elem.Motion + '->' + ':' + str(elem.Motion == Motion))
-            if elem.StN == StN and elem.BN == BN and elem.Motion == Motion:
-                # print('match')
+            if elem.StN == StN and elem.BN == BN :
                 return elem
         return None
 
