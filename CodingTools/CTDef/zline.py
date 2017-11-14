@@ -36,7 +36,7 @@ class ZLine:
 
     def extract(self, str):
         str = self.regular(str)
-        self.StN = re.compile(r'.*st(\d+).*').match(str).group(1)
+        self.StN = re.compile(r'.*st?(\d+).*').match(str).group(1)
         cmatch = re.compile(r'.*c(ase)?\s*(?P<Case>\d+)').match(str)
         if cmatch:
             self.Case = cmatch.group('Case')
@@ -108,6 +108,7 @@ class ZLine:
                 #bp[2]:negative motion or noting if is gripper
                 #bp[3]:fehler number if not gripper or nothing if is gripper
                 bpair=['not gripper']
+                temp = zbins.search(self.StN, z, self.Motions[i])
                 bpair.append(zbins.search(self.StN, z, self.Motions[i]).Var)
                 bpair.append(zbins.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
                 bpair.append(self.Fehler[i])
@@ -138,6 +139,8 @@ class ZLine:
 
         i = 0
         for nb in self.BNs:
+            #nbp[0]:type reserved
+            #nbp[1]:condition
             timevar = 'T_St' + self.StN + '_B' +nbins.search(self.StN,nb).BN+'_'+ nbins.search(self.StN,nb).BName
             nbpair = ['normal sensor'] #reserved
             nbpair.append('Time('+timevar+')')
@@ -166,14 +169,14 @@ class ZLine:
                     eincond =eincond+ bp[1]
                 else:
                     eincond =eincond+ bp[1] + ' && !' + bp[1]
-                    einfehler = einfehler + '         if(!' + bp[1] + '||' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
+                    einfehler = einfehler + '         if(!' + bp[1] + ' || ' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
 
             else:
                 if bp[0]=='gripper':
                     eincond =eincond+ bp[1] + ' &&\n' + '            '
                 else:
                     eincond =eincond+ bp[1] + ' && !' + bp[2] + ' &&\n' + '            '
-                    einfehler = einfehler + '         if(!' + bp[1] + '||' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
+                    einfehler = einfehler + '         if(!' + bp[1] + ' || ' + bp[2] +') Fehler(PRG1, ErrorNum, ' + bp[3] + ', 0);\n'
 
             i = i+1
 

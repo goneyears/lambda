@@ -44,6 +44,7 @@ void SPS_Programm_Start(void);
 void MachineProcess1();
 void MachineProcess2();
 
+
 #if defined(Scanner_V24) || defined(Scanner_IBS_RS232)
 	#include "Scanner.h"
 #endif
@@ -121,27 +122,40 @@ void MachineProcess2();
 #endif    
 
 // TODO: Headerdateien der Baugruppen einfügen!
+#include "St201_MainDriveUnit_Line.h"
+#include "St001_housing_Separating.h"	
+#include "St003_Housing_Press1.h"
+#include "St005_Housing_Press2.h"
 
-#include "St01_1_Extra_housing_separate.h"
-#include "St01_2_Extra_housing_foot_pusher.h"
-#include "St01_3_Extra_housing_foot_test.h"
-#include "St01_4_Extra_reject_housing_remove.h"
-#include "St01_Insert_Housing_01.h"
-#include "St01_Press_Cover.h"
-//#include "St01_Insert_Housing_02.h"
-#include "St02_Check_Housing.h"
-#include "St04_Check_Pressure_Plate .h"
-#include "St06_Check_Flange_Screw.h"
-#include "St09_Check_Screw_Available.h"
-#include "St10_Camera_Pressure_Plate.h"
-#include "St11_Screw_Test.h"
-#include "St13_Camera_Screw.h"
-#include "St12_Screw_Test.h"
-#include "St14_Screw_take_out.h"
-#include "St03_Insert_Pressure_Plate.h"
-#include "St05_Insert_Clamping_Sleeve.h"
-#include "St08_Screw_Insert.h"
-#include "St16_Reject_Take_Out.h"
+#include "St202_MainDriveUnit_Rotate1.h"
+#include "St021_Check_Carrier_Empty.h"
+#include "St022_Current_Bar_Feeding.h"
+#include "St023_Check_Press_Current_Bar.h"             
+#include "St024_Clamping_Sleeve_Feeding.h" 
+#include "St025_Metal_Parts_Assembly.h"
+#include "St026_Clamping_Sleeve_Checking.h"
+#include "St027_Reject_Parts_Eject.h"
+#include "St028_Pre_Assembled_Parts_Eject.h"
+
+#include "St203_MainDriveUnit_Rotate2.h"
+#include "St041_Check_Carrier_Empty.h"
+#include "St042_Current_Bar_Feeding.h"
+#include "St043_Check_Press_Current_Bar.h"             
+#include "St044_Clamping_Sleeve_Feeding.h" 
+#include "St045_Metal_Parts_Assembly.h"
+#include "St046_Clamping_Sleeve_Checking.h"
+#include "St047_Reject_Parts_Eject.h"
+#include "St048_Pre_Assembled_Parts_Eject.h"
+
+
+
+
+
+
+
+
+
+
 
 
 //*****************************************************************
@@ -187,55 +201,56 @@ void Input(void)
 //	frei										= Eing(A32, 3);
 //	frei										= Eing(A32, 4);
 //	frei										= Eing(A32, 5);
-	SBTMaPart1.E_Door[1]				        = Eing(A33, 8);	// -S401.1
-	SBTMaPart1.E_Door[2]				        = Eing(A33, 9);	// -S401.2
-	SBTMaPart1.E_Door[3]				        = Eing(A33,10);	// -S401.3
-	SBTMaPart1.E_Door[4]				        = Eing(A33,11);	// -S401.4
-	SBTMaPart1.E_Door[5]				        = Eing(A33,12);	// -S402.1
-	SBTMaPart1.E_Door[6]				        = Eing(A33,13);	// -S402.2
-	SBTMaPart1.E_Door[7]				        = Eing(A33,14);	// -S402.3
-	SBTMaPart1.E_Door[8]				        = Eing(A33,15);	// -S402.4
+	SBTMaPart1.E_Door[1]				        = Eing(A32, 6);	// -S401.1
+	SBTMaPart1.E_Door[1]				        = Eing(A32, 7);	// -S401.2
+	SBTMaPart1.E_Door[1]				        = Eing(A32, 8);	// -S401.3
+	SBTMaPart1.E_Door[1]				        = Eing(A32, 9);	// -S401.4
+	SBTMaPart1.E_Door[1]				        = Eing(A32,10);	// -S402.1
+	SBTMaPart1.E_Door[1]				        = Eing(A32,11);	// -S402.2
+	SBTMaPart1.E_Door[1]				        = Eing(A32,12);	// -S402.3
+	SBTMaPart1.E_Door[1]				        = Eing(A32,13);	// -S402.4
 	E_PressureSwitch				            = Eing(A32,14); // -S01
 //	frei										= Eing(A32,15);
 	
 
 // ******************************
-// -GATEWAY- /IB IL 24 DI/32
+// -A33/A34- /IB IL 24 DI/32
 // ******************************
-    E_Gateway_following_SPS_Enable_Conveyor		= Eing(GATEWAY_CT_1_W9,0);	//<-enable conveyer of the following SPS receive		//<- Freigabe der Vibratoren von folgender SPS empfangen
-    E_Gateway_following_SPS_Quit				= Eing(GATEWAY_CT_1_W9,1);	//<-E_Quit of the following SPS receive				 	//<- E_TP_Quittieren von folgender SPS empfangen
+    E_Gateway_following_SPS_Enable_Conveyor		= Eing(A33,0);	//<-enable conveyer of the following SPS receive		//<- Freigabe der Vibratoren von folgender SPS empfangen
+    E_Gateway_following_SPS_Quit				= Eing(A33,1);	//<-E_Quit of the following SPS receive				 	//<- E_TP_Quittieren von folgender SPS empfangen
    
-    E_Gateway_following_SPS_Unloaded            = Eing(GATEWAY_CT_1_W9,2) || (MACHINETYPE == SINGLE_MG) ||  (MACHINETYPE == LAST_MG);	//<-Machine unloaded of the following SPS receive //<- Maschine leergefahren von folgender SPS empfangen
-    E_Gateway_following_SPS_St302_FlexLink_Run  = Eing(GATEWAY_CT_1_W9,3);	//<-Flix Link run of the following SPS receive			//<- Zwischenförderband läuft von folgender SPS empfangen
-//	E_Gateway_folgende_SPS_Eingang_5			    = Eing(GATEWAY_CT_1_W9,4);	//<- 
-//	E_Gateway_folgende_SPS_Eingang_6			    = Eing(GATEWAY_CT_1_W9,5);	//<- 
-//	E_Gateway_folgende_SPS_Eingang_7			    = Eing(GATEWAY_CT_1_W9,6);	//<- 
-//	E_Gateway_folgende_SPS_Eingang_8                = Eing(GATEWAY_CT_1_W9,7);	//<- 
-// 	frei										    = Eing(GATEWAY_CT_1_W9,8);
-// 	frei										    = Eing(GATEWAY_CT_1_W9,9);
-// 	frei										    = Eing(GATEWAY_CT_1_W9,10);
-// 	frei										    = Eing(GATEWAY_CT_1_W9,11);
-// 	frei										    = Eing(GATEWAY_CT_1_W9,12);
-// 	frei										    = Eing(GATEWAY_CT_1_W9,13);
-//	frei										    = Eing(GATEWAY_CT_1_W9,14);
-//	frei								            = Eing(GATEWAY_CT_1_W9,15);
+    E_Gateway_following_SPS_Unloaded            = Eing(A33,2) || (MACHINETYPE == SINGLE_MG) ||  (MACHINETYPE == LAST_MG);	//<-Machine unloaded of the following SPS receive //<- Maschine leergefahren von folgender SPS empfangen
+    E_Gateway_following_SPS_St302_FlexLink_Run  = Eing(A33,3);	//<-Flix Link run of the following SPS receive			//<- Zwischenförderband läuft von folgender SPS empfangen
+//	E_Gateway_folgende_SPS_Eingang_5			    = Eing(A33,4);	//<- 
+//	E_Gateway_folgende_SPS_Eingang_6			    = Eing(A33,5);	//<- 
+//	E_Gateway_folgende_SPS_Eingang_7			    = Eing(A33,6);	//<- 
+//	E_Gateway_folgende_SPS_Eingang_8                = Eing(A33,7);	//<- 
+// 	frei										    = Eing(A33,8);
+// 	frei										    = Eing(A33,9);
+// 	frei										    = Eing(A33,10);
+// 	frei										    = Eing(A33,11);
+// 	frei										    = Eing(A33,12);
+// 	frei										    = Eing(A33,13);
+//	frei										    = Eing(A33,14);
+//	frei								            = Eing(A33,15);
 
-//   E_Gateway_before_SPS_Enable_Conveyor		= Eing(GATEWAY_CT_2_W9,0);	//<- enable conveyer of previous SPS receive		//<- Freigabe der Vibratoren von vorheriger SPS empfangen
-//	E_Gateway_before_SPS_Quit					= Eing(GATEWAY_CT_2_W9,1);	//<- E_Quit of previous SPS receive					//<- E_TP_Quittieren von vorheriger SPS empfangen
-//	E_Gateway_before_SPS_Unloaded				= Eing(GATEWAY_CT_2_W9,2);	//<- Machine unloaded of previous SPS receive		//<- Maschine leergefahren von vorheriger SPS empfangen
-//	M_Gateway_St301_FlexLink_Run                = Eing(GATEWAY_CT_2_W9,3);	//<- Flix Link run of previous SPS receive			//<- Umlaufförderband läuft von vorheriger SPS empfangen
-//	E_Gateway_before_SPS_St302_FlexLink_full	= Eing(GATEWAY_CT_2_W9,4);	//<- Connecting conveyor belt full of previous SPS receive	//<- Verbindungsförderband voll von vorheriger SPS empfangen
-//	E_Gateway_vorherige_SPS_Eingang_6			    = Eing(GATEWAY_CT_2_W9,5);	//<- 
-//	E_Gateway_vorherige_SPS_Eingang_7			    = Eing(GATEWAY_CT_2_W9,6);	//<- 
-//	E_Gateway_vorherige_SPS_Eingang_8               = Eing(GATEWAY_CT_2_W9,7);	//<- 
-//	frei										    = Eing(GATEWAY_CT_2_W9,8);
-//	frei										    = Eing(GATEWAY_CT_2_W9,9);
-//	frei										    = Eing(GATEWAY_CT_2_W9,10);
-//	frei										    = Eing(GATEWAY_CT_2_W9,11);
-//	frei										    = Eing(GATEWAY_CT_2_W9,12);
-//	frei										    = Eing(GATEWAY_CT_2_W9,13);
-//	frei										    = Eing(GATEWAY_CT_2_W9,14);
-//	frei										    = Eing(GATEWAY_CT_2_W9,15);  
+    E_Gateway_before_SPS_Enable_Conveyor		= Eing(A34,0);	//<- enable conveyer of previous SPS receive		//<- Freigabe der Vibratoren von vorheriger SPS empfangen
+	E_Gateway_before_SPS_Quit					= Eing(A34,1);	//<- E_Quit of previous SPS receive					//<- E_TP_Quittieren von vorheriger SPS empfangen
+	E_Gateway_before_SPS_Unloaded				= Eing(A34,2);	//<- Machine unloaded of previous SPS receive		//<- Maschine leergefahren von vorheriger SPS empfangen
+	M_Gateway_St301_FlexLink_Run                = Eing(A34,3);	//<- Flix Link run of previous SPS receive			//<- Umlaufförderband läuft von vorheriger SPS empfangen
+	E_Gateway_before_SPS_St302_FlexLink_full	= Eing(A34,4);	//<- Connecting conveyor belt full of previous SPS receive	//<- Verbindungsförderband voll von vorheriger SPS empfangen
+//	E_Gateway_vorherige_SPS_Eingang_6			    = Eing(A34,5);	//<- 
+//	E_Gateway_vorherige_SPS_Eingang_7			    = Eing(A34,6);	//<- 
+//	E_Gateway_vorherige_SPS_Eingang_8               = Eing(A34,7);	//<- 
+//	frei										    = Eing(A34,8);
+//	frei										    = Eing(A34,9);
+//	frei										    = Eing(A34,10);
+//	frei										    = Eing(A34,11);
+//	frei										    = Eing(A34,12);
+//	frei										    = Eing(A34,13);
+//	frei										    = Eing(A34,14);
+//	frei										    = Eing(A34,15);  
+
 //-----------------------------------------------------------------
 //---------------------------- +SK02A -----------------------------
 //-----------------------------------------------------------------
@@ -243,18 +258,11 @@ void Input(void)
 // -A40- /IB IL 24 DI/16
 // ******************************
 #ifdef Axis_exist
-	Achse[Axis1].E_Controller_OK				    = Eing(A42,0); // -A201.1/27
-	Achse[Axis1].E_Motor_stand					    = Eing(A42,1); // -A201.1/25
-	Achse[Axis1].E_Pos_StopPosition				    = Eing(A42,4); // +201-B1
-	Achse[Axis1].E_Neg_StopPosition				    = Eing(A42,5); // +201-B2
-	Achse[Axis1].E_Ref_Switch						= Eing(A42,6); // +201-B3
-
-	E_St201_B4_WPC_InPosition					    = Eing(A42,7); // +201-B4
-	//Achse[Axis2].E_Controller_OK				    = Eing(A42,8); // -A1.1/27
-	//Achse[Axis2].E_Motor_stand					    = Eing(A42,9); // -A1.1/25
-	//Achse[Axis2].E_Pos_StopPosition				    = Eing(A42,12); // 
-	//Achse[Axis2].E_Neg_StopPosition				    = Eing(A42,13); // 
-	//Achse[Axis2].E_Ref_Switch						= Eing(A42,14); // +1-B3
+	Achse[Axis1].E_Controller_OK				    = Eing(A40,0); // -A201.1/27
+	Achse[Axis1].E_Motor_stand					    = Eing(A40,1); // -A201.1/25
+	Achse[Axis1].E_Pos_StopPosition				    = Eing(A40,2); // +201-B1
+	Achse[Axis1].E_Neg_StopPosition				    = Eing(A40,3); // +201-B2
+	Achse[Axis1].E_Ref_Switch						= Eing(A40,4); // +201-B3
 #endif
 //	frei										    = Eing(A40,5);
 //	frei										    = Eing(A40,6);
@@ -266,29 +274,14 @@ void Input(void)
 //	frei										    = Eing(A40,12);
 //	frei										    = Eing(A40,13);
 //	frei										    = Eing(A40,14);
+	E_St201_B4_WPC_InPosition					    = Eing(A40,15); // +201-B4
 
-
-//Steuerwort KEB-Servo St.1
-	St_1_KEB_Einsetzen.E_Reglerfreigabe						=Eing(A800,0);	
-	St_1_KEB_Einsetzen.E_Fehler								=Eing(A800,1);	
-	St_1_KEB_Einsetzen.E_Run								=Eing(A800,2);	
-	St_1_KEB_Einsetzen.E_Drehrichtung						=Eing(A800,3);	
-	St_1_KEB_Einsetzen.E_Aktuelle_Parametersatz_Bit1		=Eing(A800,4);	
-	St_1_KEB_Einsetzen.E_Aktuelle_Parametersatz_Bit2		=Eing(A800,5);	
-	St_1_KEB_Einsetzen.E_Aktuelle_Parametersatz_Bit3		=Eing(A800,6);	
-	St_1_KEB_Einsetzen.E_Schnellhalt_aktiv					=Eing(A800,8);	
-	St_1_KEB_Einsetzen.E_Referenzpunktfahrt_abgeschlossen	=Eing(A800,10);	
-	St_1_KEB_Einsetzen.E_Position_erreicht					=Eing(A800,11);	
-	St_1_KEB_Einsetzen.E_Betriebsart_Bit1					=Eing(A800,12);	
-	St_1_KEB_Einsetzen.E_Betriebsart_Bit2					=Eing(A800,13);	
-	St_1_KEB_Einsetzen.E_Position_uebernommen				=Eing(A800,14);	
-	St_1_KEB_Einsetzen.Istposition_high						=EingWortEx(A800,1);
-	St_1_KEB_Einsetzen.Istposition_low						=EingWortEx(A800,2);
+	
 // *************************
 // -A43- /FLS IB M12 DI 8 
 // *************************
 #ifdef Plate_Siemens_FU_exist 
-//	Teller[Plate1].E_P_Nocke					    = Eing(A43,0);		// St.204
+	Teller[Plate1].E_P_Nocke					    = Eing(A43,0);		// St.204
 //	Teller[Plate2].E_P_Nocke					    = Eing(A43,1);		// St.??
 //	Teller[Plate3].E_P_Nocke					    = Eing(A43,2);		// St.??
 //	frei										    = Eing(A43,3);		
@@ -319,258 +312,284 @@ void Input(void)
 // *************************
 // -A50- /FLS IB M12 DI 8 
 // *************************
-	//free											= Eing(A50,0);
-	//free											= Eing(A50,1);
-	//free											= Eing(A50,2);
-	//free											= Eing(A50,3);
-	E_St1_B8_4_gripper_lifter_down					= Eing(A50,4);
-	E_St1_B8_2_gripper_lifter_up					= Eing(A50,5);
-	E_St1_B10_4_housing_foot_test_driver_in_front	= Eing(A50,6);
-	E_St1_B10_2_housing_foot_test_driver_back		= Eing(A50,7);
-	
+E_St1_B3_4_housing_separator_driver_forward		       = Eing(A50,0);
+E_St1_B3_2_housing_separator_driver_backward	       = Eing(A50,1);
+E_St1_B2_4_housing_separator_downward			       = Eing(A50,2);
+E_St1_B2_2_housing_separator_upward				       = Eing(A50,3); 
+E_St1_B1_4_housing_stopper_downward				       = Eing(A50,4);
+E_St1_B1_2_housing_stopper_upward				       = Eing(A50,5);
+E_St201_B4_4_houisng_pin_driver3_forward			   = Eing(A50,6);
+E_St201_B4_2_houisng_pin_driver3_backward		       = Eing(A50,7);
 // *************************
 // -A51- /FLS IB M12 DI 8 
 // *************************
-	E_St1_B11_4_fork_driver_down					= Eing(A51,0);
-	E_St1_B11_2_fork_driver_up						= Eing(A51,1);
-	E_St1_B12_4_fork_position_driver_in_front		= Eing(A51,2);
-	E_St1_B12_2_fork_position_driver_back			= Eing(A51,3);
-	E_St1_B13_4_fork_position_driver_in_front		= Eing(A51,4);
-	E_St1_B13_2_fork_position_driver_back			= Eing(A51,5);
-	E_St1_B14_4_housing_guider_switcher_up			= Eing(A51,6);
-	E_St1_B14_2_housing_guider_switcher_down		= Eing(A51,7);
-
-// *************************
-// -A52- /FLS IB M12 DI 8 
-// *************************
-	E_St1_B15_4_housing_presser_down		    	= Eing(A52,0);
-	E_St1_B15_2_housing_presser_up			    	= Eing(A52,1);
-	//free											= Eing(A52,2);
-	//free											= Eing(A52,3);
-	E_St1_B5_4_carrier_pos_switcher_driver_in_front	= Eing(A52,4);
-	E_St1_B5_2_carrier_pos_switcher_driver_back		= Eing(A52,5);
-	E_St1_B16_4_carrier_opener_in_front				= Eing(A52,6);
-	E_St1_B16_2_carrier_opener_back      			= Eing(A52,7);		
+E_St201_B3_4_houisng_pin_driver2_forward			   = Eing(A51,0);
+E_St201_B3_2_houisng_pin_driver2_backward		       = Eing(A51,1);
+E_St201_B2_4_houisng_pin_driver1_forward		       = Eing(A51,2);
+E_St201_B2_2_houisng_pin_driver1_backward		       = Eing(A51,3); 
+E_St201_B6_4_housing_carrier_lifterZ8_upward		   = Eing(A51,4);
+E_St201_B6_2_housing_carrier_lifterZ8_downward		   = Eing(A51,5);
+E_St201_B5_4_housing_carrier_lifterZ6_upward	       = Eing(A51,6);
+E_St201_B5_2_housing_carrier_lifterZ6_downward	       = Eing(A51,7);
+													   
+// *************************						   
+// -A52- /FLS IB M12 DI 8 							   
+// *************************						   
+//frei 		                              	     	   = Eing(A52,0);
+//frei		                              		       = Eing(A52,1);
+E_St027_B2_2_gripper_lifter_downward		           = Eing(A52,2);
+E_St027_B2_4_gripper_lifter_upward 		               = Eing(A52,3); 
+E_St027_B3_4_reject_parts_ejector_forward	    	   = Eing(A52,4);
+E_St027_B3_2_reject_parts_ejector_backward	    	   = Eing(A52,5);
+E_St025_B1_4_metal_parts_assembling_close	           = Eing(A52,6);
+E_St025_B1_2_metal_parts_assembling_open	           = Eing(A52,7);
 
 // *************************
 // -A53- /FLS IB M12 DI 8 
 // *************************
-	E_St1_B17_4_carrier_opener_in_front				= Eing(A53,0);
-	E_St1_B17_2_carrier_opener_back					= Eing(A53,1);
-	E_St1_B18_4_carrier_opener_in_front				= Eing(A53,2);
-	E_St1_B18_2_carrier_opener_back					= Eing(A53,3);
-	E_St1_B19_4_carrier_opener_in_front				= Eing(A53,4);
-	E_St1_B19_2_carrier_opener_back					= Eing(A53,5);
-	E_St1_B9_4_gripper_lifter_driver_in_front		= Eing(A53,6);
-	E_St1_B9_2_gripper_lifter_driver_back			= Eing(A53,7);	
+E_St025_B2_2_gripper_lifter_downward	               = Eing(A53,0);
+E_St025_B2_4_gripper_lifter_upward			           = Eing(A53,1);
+E_St024_B5_4_clamping_sleeve_gripper_close 		       = Eing(A53,2);
+E_St024_B5_2_clamping_sleeve_gripper_open		       = Eing(A53,3); 
+E_St024_B3_4_gripper_lifter_downward			       = Eing(A53,4);
+E_St024_B3_2_gripper_lifter_upward					   = Eing(A53,5);
+E_St024_B6_4_clamping_sleeve_driver_forward            = Eing(A53,6);
+E_St024_B6_2_clamping_sleeve_driver_backward           = Eing(A53,7);
 
-	EW_St1_B2_carrier_switcher_position		= EingWortEx(A400,0);
 // *************************
 // -A54- /FLS IB M12 DI 8 
 // *************************
-	E_St8_B1_4_screw_inserter_driver_in_front		= Eing(A54,0);
-	E_St8_B1_2_screw_inserter_driver_back			= Eing(A54,1);
-	E_St8_B2_4_screw_inserter_in_right				= Eing(A54,2);
-	E_St8_B2_2_screw_inserter_in_left				= Eing(A54,3);
-	E_St8_B3_4_metal_parts_holder_down	            = Eing(A54,4);
-	E_St8_B3_2_metal_parts_holder_up	            = Eing(A54,5);
-	E_St5_B1_4_clamping_sleeve_inserter_holder_down	= Eing(A54,6);
-	E_St5_B1_2_clamping_sleeve_inserter_holder_up	= Eing(A54,7);
+E_St024_B1_4_clamping_sleeve_presser_forward			= Eing(A54,0);
+E_St024_B1_2_clamping_sleeve_presser_backward		    = Eing(A54,1);
+E_St024_B2_4_clamping_sleeve_presser_forward		    = Eing(A54,2);
+E_St024_B2_2_clamping_sleeve_presser_backward		    = Eing(A54,3); 
+E_St023_B1_4_current_bar_presser_downward		        = Eing(A54,4);
+E_St023_B1_2_current_bar_presser_upward		            = Eing(A54,5);
+//frei 		                                            = Eing(A54,6);
+//frei		                              	            = Eing(A54,7);
 
 // *************************
 // -A55- /FLS IB M12 DI 8 
-// *************************
-	E_St5_B2_4_clamping_sleeve_inserter_down		= Eing(A55,0);
-	E_St5_B2_2_clamping_sleeve_inserter_up			= Eing(A55,1);
-	E_St3_B1_4_pressure_plate_separator_in_left		= Eing(A55,2);
-	E_St3_B1_2_pressure_plate_separator_in_right	= Eing(A55,3);
-	//free											= Eing(A55,4);
-	//free											= Eing(A55,5);
-	//free											= Eing(A55,6);
-	//free											= Eing(A55,7);
+// *************************				      
+E_St022_B4_2_gripper_lifter_downward			        = Eing(A55,0);
+E_St022_B4_4_gripper_lifter_upward		                = Eing(A55,1);
+E_St022_B5_4_current_bar_driver_forward		            = Eing(A55,2);
+E_St022_B5_2_current_bar_driver_backward		        = Eing(A55,3); 
+E_St022_B2_4_current_bar_rotating_take		            = Eing(A55,4);
+E_St022_B2_2_current_bar_rotating_send			        = Eing(A55,5);
+E_St022_B1_4_current_bar_inserter_forward		        = Eing(A55,6);
+E_St022_B1_2_current_bar_inserter_backward		        = Eing(A55,7);
 
 // *************************
 // -A56- /FLS IB M12 DI 8 
-// *************************
-	E_St12_B1_4_screw_test_in_front					= Eing(A56,0);
-	E_St12_B1_2_screw_test_back						= Eing(A56,1);
-	E_St12_B2_4_metal_parts_holder_down				= Eing(A56,2);
-	E_St12_B2_2_metal_parts_holder_up				= Eing(A56,3);
-	E_St11_B1_4_screw_test_in_front					= Eing(A56,4);
-	E_St11_B1_2_screw_test_back						= Eing(A56,5);
-	E_St11_B2_4_hook_driver_down					= Eing(A56,6);
-	E_St11_B2_2_hook_driver_up						= Eing(A56,7);
+// *************************				      
+E_St028_B4_4_pre_assembled_parts_ejector_forward		= Eing(A56,0);
+E_St028_B4_2_pre_assembled_parts_ejector_backward	    = Eing(A56,1);
+E_St028_B3_4_pre_assembled_parts_ejector_forward	    = Eing(A56,2);
+E_St028_B3_2_pre_assembled_parts_ejector_backward		= Eing(A56,3); 
+E_St028_B2_2_gripper_lifter_downward		            = Eing(A56,4);
+E_St028_B2_4_gripper_lifter_upward			            = Eing(A56,5);
+//frei 		                              	            = Eing(A56,6);
+//frei		                              		        = Eing(A56,7);
 
-// *************************
+// *************************				
 // -A57- /FLS IB M12 DI 8 
-// *************************
-	E_St10_B1_4_metal_parts_holder_down				= Eing(A57,0);
-	E_St10_B1_2_metal_parts_holder_up				= Eing(A57,1);
-	E_St9_B1_4_screw_tester_driver_in_front			= Eing(A57,2);
-	E_St9_B1_2_screw_tester_driver_back				= Eing(A57,3);
-	E_St8_B4B_4_screw_seperate_up					= Eing(A57,4);
-	E_St8_B4B_2_screw_seperate_down					= Eing(A57,5);
-	E_St8_B4A_4_screw_seperate_up					= Eing(A57,6);
-	E_St8_B4A_2_screw_seperate_down					= Eing(A57,7);
+// *************************				      
+E_St003_B1_4_metal_parts_blocking_downward			    = Eing(A57,0);
+E_St003_B1_2_metal_parts_blocking_upward		        = Eing(A57,1);
+E_St005_B1_4_metal_parts_blocking_downward	            = Eing(A57,2);
+E_St005_B1_2_metal_parts_blocking_upward  		        = Eing(A57,3); 
+//frei 		                              	            = Eing(A57,4);
+//frei		                              		        = Eing(A57,5);
+//frei 		                              	            = Eing(A57,6);
+//frei		                              		        = Eing(A57,7);
 
 // *************************
 // -A58- /FLS IB M12 DI 8 
 // *************************
-	E_St16_B8_4_carrier_opener_in_front				= Eing(A58,0);
-	E_St16_B8_2_carrier_opener_back					= Eing(A58,1);
-	E_St16_B9_4_carrier_opener_in_front				= Eing(A58,2);
-	E_St16_B9_2_carrier_opener_back					= Eing(A58,3);
-	E_St16_B10_4_carrier_opener_in_front			= Eing(A58,4);
-	E_St16_B10_2_carrier_opener_back				= Eing(A58,5);
-	E_St14_B1_4_screw_tester_driver_in_front		= Eing(A58,6);
-	E_St14_B1_2_screw_tester_driver_back			= Eing(A58,7);
+E_St042_B1_4_current_bar_separator_forward				= Eing(A58,0);
+E_St042_B1_2_current_bar_separator_backward	            = Eing(A58,1);
+E_St042_B2_4_current_bar_inserter_forward			    = Eing(A58,2);
+E_St042_B2_2_current_bar_inserter_backward		        = Eing(A58,3); 
+E_St042_B3_4_current_bar_rotating_take	                = Eing(A58,4);
+E_St042_B3_2_current_bar_rotating_send			        = Eing(A58,5);
+E_St042_B7_4_current_bar_driver_forward	                = Eing(A58,6);
+E_St042_B7_2_current_bar_driver_backward		        = Eing(A58,7);
 
-// *************************
+ // *************************
 // -A59- /FLS IB M12 DI 8 
 // *************************
-	E_St14_B2_4_gripper_driver_in_front				= Eing(A59,0);
-	E_St14_B2_2_gripper_driver_back					= Eing(A59,1);
-	//free											= Eing(A59,2);
-	//free											= Eing(A59,3);
-	E_St14_B4_4_metal_parts_presser_in_front		= Eing(A59,4);
-	E_St14_B4_2_metal_parts_presser_back			= Eing(A59,5);
-	E_St14_B5_4_housing_holder_up					= Eing(A59,6);
-	E_St14_B5_2_housing_holder_down					= Eing(A59,7);
+E_St042_B6_2_gripper_rotating_downward			        = Eing(A59,0);
+E_St042_B6_4_gripper_rotating_upward	                = Eing(A59,1);
+E_St042_B5_4_gripper_rotating_take		                = Eing(A59,2);
+E_St042_B5_2_gripper_rotating_send			            = Eing(A59,3); 
+//frei 		                                            = Eing(A59,4);
+//frei		                                            = Eing(A59,5);
+//frei 		                              	            = Eing(A59,6);
+//frei		                              	            = Eing(A59,7);
 
-//**************************
+
+ // *************************
 // -A60- /FLS IB M12 DI 8 
 // *************************
-	E_St16_B1_4_reject_parts_driver_in_front		= Eing(A60,0);
-	E_St16_B1_2_reject_parts_driver_back			= Eing(A60,1);
-	E_St16_B2_4_reject_parts_stopper_up				= Eing(A60,2);
-	E_St16_B2_2_reject_parts_stopper_down			= Eing(A60,3);
-	E_St16_B3_4_reject_parts_stopper_up				= Eing(A60,4);
-	E_St16_B3_2_reject_parts_stopper_down			= Eing(A60,5);
-	E_St16_B4_4_reject_parts_stopper_up				= Eing(A60,6);
-	E_St16_B4_2_reject_parts_stopper_down			= Eing(A60,7);
-	
+E_St043_B1_4_current_bar_presser_downward               = Eing(A60,0);
+E_St043_B1_2_current_bar_presser_upward                 = Eing(A60,1);
+E_St044_B6_4_clamping_sleeve_driver_forward		        = Eing(A60,2);
+E_St044_B6_2_clamping_sleeve_driver_backward		    = Eing(A60,3); 
+E_St044_B1_4_clamping_sleeve_presser_forward	        = Eing(A60,4);
+E_St044_B1_2_clamping_sleeve_presser_backward           = Eing(A60,5);
+E_St044_B3_2_gripper_lifter_upward		                = Eing(A60,6);
+E_St044_B3_4_gripper_lifter_downward                    = Eing(A60,7);
+
+ // *************************
+// -A63- /FLS IB M12 DI 8 
+// *************************
+//frei	                                                = Eing(A61,0);
+//frei	                                                = Eing(A61,1);
+//frei		                                            = Eing(A61,2);
+//frei	                                                = Eing(A61,3); 
+E_St044_B2_4_clamping_sleeve_presser_forward            = Eing(A61,4);
+E_St044_B2_2_clamping_sleeve_presser_backward           = Eing(A61,5);
+E_St045_B2_2_gripper_lifter_downward 	                    = Eing(A61,6);
+E_St045_B2_4_gripper_lifter_upward	                       = Eing(A61,7);
+
+
+ // *************************
+// -A62- /FLS IB M12 DI 8 
+// *************************
+//frei 		                                            = Eing(A62,0);
+//frei		                                            = Eing(A62,1);
+E_St048_B2_2_gripper_lifter_downward 			        = Eing(A62,2);
+E_St048_B2_4_gripper_lifter_upward 				        = Eing(A62,3); 
+E_St048_B3_4_pre_assembled_parts_ejector_forward	    = Eing(A62,4);
+E_St048_B3_2_pre_assembled_parts_ejector_backward       = Eing(A62,5);
+E_St048_B4_4_pre_assembled_parts_ejector_forward	    = Eing(A62,6);
+E_St048_B4_2_pre_assembled_parts_ejector_backward       = Eing(A62,7);
+
+ // *************************
+// -A63- /FLS IB M12 DI 8 
+// *************************
+//frei	                                                = Eing(A63,0);
+//frei	                                                = Eing(A63,1);
+E_St047_B2_2_gripper_lifter_downward		            = Eing(A63,2);
+E_St047_B2_4_gripper_lifter_upward 		                = Eing(A63,3); 
+E_St047_B3_4_reject_parts_ejector_forward	            = Eing(A63,4);
+E_St047_B3_2_reject_parts_ejector_backward              = Eing(A63,5);
+E_St045_B1_4_metal_parts_assembling_close		        = Eing(A63,6);
+E_St045_B1_2_metal_parts_assembling_open		        = Eing(A63,7);
 
 // *************************
-// -A61- /FLS IB M12 DI 8 
+// -A109- /FLS IB M12 DI 8 
 // *************************
-	E_St16_B5_4_gripper_lifter_down					= Eing(A61,0);
-	E_St16_B5_2_gripper_lifter_up					= Eing(A61,1);
-	E_St16_B1_4A									= Eing(A61,2);
-	E_St16_B1_4B									= Eing(A61,3);
-	E_St16_B1_4C									= Eing(A61,4);
-	//free											= Eing(A61,5);
-	//free											= Eing(A61,6);
-	//free											= Eing(A61,7);	
 
-// **************************************
-// -A110- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-	E_St3_B1_pressure_plate_in_position             = Eing(A110,0);
-	E_St3_B2_linear_feeder_empty	                = Eing(A110,1);
-	E_St3_B3_linear_feeder_full		             	= Eing(A110,2); 
-	//free									     	= Eing(A110,3);
-											     
-											     
-											     
-// **************************************	     
-// -A111- /FLS IB M12 DIO 4/4 (US3/US3)		     
-// **************************************	     
-	E_St8_B2B_screw_in_position                     = Eing(A111,0);
-	E_St8_B3B_screw_channel_full                    = Eing(A111,1);
-	E_St8_B4B_screw_bunker_empty			     	= Eing(A111,2); 
-	//free									     	= Eing(A120,3);
-// **************************************	     
-// -A112- /FLS IB M12 DIO 4/4 (US3/US3)		     
-// **************************************	     
-	E_St8_B2A_screw_in_position                     = Eing(A112,0);
-	E_St8_B3A_screw_channel_full                    = Eing(A112,1);
-	E_St8_B4A_screw_bunker_empty			     	= Eing(A112,2); 
-	//free									     	= Eing(A112,3); 
-// **************************************	     
-// -A113- /FLS IB M12 DIO 4/4 (US3/US3)		     
-// **************************************	     
-	E_St8_B1_screw_in_separated_position            = Eing(A113,0);
-	//E_St6_B1_clamping_sleeve_available	     	= Eing(A113,1);
-	E_St6_B1_flange_screw_available	         	= Eing(A113,2); 
-	E_St6_B2_flange_screw_available	         	= Eing(A113,3); 
+E_St043_B1_current_bar_in_position						= Eing(A109,0);
+E_St041_B1_WT_checking									= Eing(A109,1); 
+E_St201_B4_houisng_pin_in_position2						= Eing(A109,2);
+E_St201_B3_houisng_pin_in_position1						= Eing(A109,3); 
+
+// *************************
+// -A110- /FLS IB M12 DI 8 
+// *************************
+
+E_St021_B1_WT_checking									= Eing(A110,0);
+E_St023_B1_current_bar_in_position						= Eing(A110,1); 
+E_St026_B1_check_clamping_sleeve_in_position			= Eing(A110,2);
+E_St026_B2_check_clamping_sleeve_in_position			= Eing(A110,3); 
+
+// *************************
+// -A112- /FLS IB M12 DI 8 
+// *************************
+
+E_St022_B1_current_bar_in_position						= Eing(A112,0);
+E_St022_B3_housing_channel_full						    = Eing(A112,1);
+
+// *************************
+// -A113- /FLS IB M12 DI 8 
+// *************************
+E_St024_B1_clamping_sleeve_in_position					= Eing(A113,0);
+E_St024_B2_clamping_sleeve_in_position					= Eing(A113,1);
+E_St024_B2_housing_channel_full							= Eing(A113,2);
+E_St024_B3_housing_channel_full							= Eing(A113,3);
 
 // *************************
 // -A114- /FLS IB M12 DI 8 
 // *************************
-    E_St9_B1_screw_available						= Eing(A114,0);
-	E_St4_B1_cover_hole_checking   	     	            = Eing(A114,1);
-	E_St4_B2_clip_available				    = Eing(A114,2);
- //	E_St1_B6_housing_foot_checking					= Eing(A114,3); 
-	E_St2_B1_Housing_with_flange_front_position		= Eing(A114,4);
-	E_St2_B2_Housing_empty_checking					= Eing(A114,5);
-    E_St2_B3_Houisng_poles_checking					= Eing(A114,6);
-	E_St2_B4_Housing_with_flange_back_position      = Eing(A114,7);
+E_St201_B8_4_housing_carrier_lifterZ7_upward		    = Eing(A114,0);
+E_St201_B8_2_housing_carrier_lifterZ7_downward          = Eing(A114,1);
+E_St201_B7_4_housing_carrier_lifterZ5_upward	        = Eing(A114,2);
+E_St201_B7_2_housing_carrier_lifterZ5_downward	        = Eing(A114,3); 
+E_St201_B1_4_houisng_carrier_driver_forward		        = Eing(A114,4);
+E_St201_B1_2_houisng_carrier_driver_backward	        = Eing(A114,5);
+//	frei										        = Eing(A114,6);
+//	frei										        = Eing(A114,7);
 
 // *************************
-// -A115- /FLS IB M12 DI 8 
+// -A116- /FLS IB M12 DI4/4 
 // *************************
-	E_St201_B1_4_SwivelUnit_in_front				= Eing(A115,0); // +201-B1/4
-	E_St201_B1_2_SwivelUnit_back					= Eing(A115,1); // +201-B1/2
-    E_St302_B1_FB_voll								= Eing(A115,2);
-	//E_St4_B1_cover_hole_checking	     	        = Eing(A115,1);
-	//E_St4_B2_clip_available				        = Eing(A115,2);
- //	E_St1_B6_housing_foot_checking					= Eing(A115,3); 
+E_St042_B1_current_bar_in_position		                = Eing(A116,0);
+//	frei		                                        = Eing(A116,1);
+//	frei											    = Eing(A116,2);
+//	frei											    = Eing(A116,3); 
+//	frei											    = Eing(A116,4);
+//	frei											    = Eing(A116,5);
+//	frei										        = Eing(A116,6);
+//	frei										        = Eing(A116,7);
 
 // *************************
-// -A116- /FLS IB M12 DI 8 
+// -A117- /FLS IB M12 DI4/4 
 // *************************
-	E_St1_Bunknown								    = Eing(A116,1);//remarkremark unused
-	E_St1_B7_housing_position_checking	     	    = Eing(A116,0);
-	E_St1_B5_housing_foot_checking				    = Eing(A116,2);
- 	E_St1_B6_housing_foot_checking					= Eing(A116,3); 
-	E_St1_B8_housing_in_position				    = Eing(A116,4);
-	E_St1_B2_carrier_switcher_position_Check	    = Eing(A116,5);
-//	frei										    = Eing(A116,6);
-//	frei										    = Eing(A116,7);
+E_St201_B1_MBK_3_houisng_in_position		            = Eing(A117,0);
+E_St201_B2_MBK_2p5_houisng_in_position					= Eing(A117,1);
+//	frei											    = Eing(A117,2);
+//	frei											    = Eing(A117,3); 
+//	frei											    = Eing(A117,4);
+//	frei											    = Eing(A117,5);
+//	frei										        = Eing(A117,6);
+//	frei										        = Eing(A117,7);
 
 // *************************
-// -A117- /FLS IB M12  DIO 4/4 (US3/US3)
+// -A201- /FLS IB M12 DI 8 
 // *************************
-	E_St5_B1_Clamping_sleeve_in_position			= Eing(A117,0);
-	E_St5_B2_Clamping_sleeve_channel_empty			= Eing(A117,1);
-	E_St5_B3_Clamping_sleeve_channel_full			= Eing(A117,2);
- 	E_St5_B4_bunker_empty								= Eing(A117,3); 
+E_St202_B1_Teller_Ready		        = Eing(A201,0);
+E_St202_B2_Teller_Rotating          = Eing(A201,2);
+E_St202_B3_Teller_Lock	            = Eing(A201,1);
 
+E_St203_B1_Teller_Ready			    = Eing(A201,6);
+E_St203_B2_Teller_Rotating          = Eing(A201,4);
+E_St203_B3_Teller_Lock	            = Eing(A201,5);
 
 // **************************************
 // -A118- /FLS IB M12 DIO 4/4 (US2/US3)
 // **************************************
-	E_St1_B15_short_housing_selected				= Eing(A118,0); 
-	E_St1_B16_long_housing_selected					= Eing(A118,1); 
-	E_St1_B17_short_BF_empty             			= Eing(A118,2);
-	E_St1_B18_short_bunker_jammed			        = Eing(A118,3);
-
-// **************************************
-// -A119- /FLS IB M12 DIO 4/4 (US2/US3)
-// **************************************
-	E_St1_B1_housing_in_position     				= Eing(A119,0); 
-	E_St1_B3_housing_channel_empty					= Eing(A119,1); 
-	E_St1_B4_housing_channel_full                   = Eing(A119,2);
-	E_St1_B9_housing_channel_empty                  = Eing(A119,3);
-
+//	E_St201_B1_4_SwivelUnit_in_front				= Eing(A118,0); // +201-B1/4
+//	E_St201_B1_2_SwivelUnit_back					= Eing(A118,1); // +201-B1/2
+//	frei                                            = Eing(A118,2);
+//	frei                                            = Eing(A118,3);
 
 // **************************************
 // -A120- /FLS IB M12 DIO 4/4 (US3/US3)
 // **************************************
 
-	E_St1_B11_housing_channel_full                  = Eing(A120,0);
-	E_St1_B19_long_BF_empty                         = Eing(A120,1);
-	E_St1_B20_long_bunker_jammed				    = Eing(A120,2); 
-	//E_St301_B3_AxisProtector_in_front				= Eing(A120,3); 
+//	frei                                            = Eing(A120,2);
+//	frei                                            = Eing(A120,3);
+//	E_St301_B2_AxisProtector_in_front				= Eing(A120,2); // +301-B2
+//	E_St301_B3_AxisProtector_in_front				= Eing(A120,3); // +301-B3
+
+
 
 // **************************************
-// -A121- /FLS IB M12 DIO 4/4 (US3/US3)
+// -A110- /FLS IB M12 DIO 4/4 (US3/US3)
 // **************************************
+	//E_St3_B1_Artikel_in_Position                    = Eing(A110,0);
+	//E_St3_B2_Rinne_leer                             = Eing(A110,1);
+	//E_St3_B3_Rinne_voll                             = Eing(A110,2);
+	//E_St3_B5_Platine_vorhanden                      = Eing(A110,3);
 
-//	frei                                            = Eing(A121,0);
-//	frei                                            = Eing(A121,1);
-//	E_St301_B2_AxisProtector_in_front				= Eing(A121,2); 
-//	E_St301_B3_AxisProtector_in_front				= Eing(A121,3); 
+
+
+
+
+
 
 
 
@@ -585,11 +604,6 @@ void Input(void)
 	E_Kamera_Beleuchtung_OK[1]	= Kameradaten_E[KameraPC_1].Beleuchtung_Kamera1_ok;
 	E_Kamera_Beleuchtung_ein[1]	= Kameradaten_E[KameraPC_1].Beleuchtung_Kamera1_ein;
 
-	E_Kamera_fertig[2]			= Kameradaten_E[KameraPC_1].Fertigmeldung_Kamera2;
-	E_Kamera_Gutmeldung[2]		= Kameradaten_E[KameraPC_1].Gutmeldung_Kamera2;
-	E_Kamera_Beleuchtung_OK[2]	= Kameradaten_E[KameraPC_1].Beleuchtung_Kamera2_ok;
-	E_Kamera_Beleuchtung_ein[2]	= Kameradaten_E[KameraPC_1].Beleuchtung_Kamera2_ein;
-
 	E_Kameraprogramm_RUN[KameraPC_1]		= Kameradaten_E[KameraPC_1].Kameraprogramm_laeuft;
 #endif//#ifdef Camera_Pipe_exist
 
@@ -598,8 +612,28 @@ void Input(void)
 //TODO: Zuweisen der Zylindervariablen, die als Bewegungstest dienen sollen
 //		Assign to the cylinder variable who should serve as a movement test
 
-	//E_MovingTest_in_front[1]	= E_St3_B5_4_WT_Oeffner_vorne;
-	//E_MovingTest_back[1]		= E_St3_B5_2_WT_Oeffner_hinten;
+	E_MovingTest_in_front[1]	= E_St1_B3_4_housing_separator_driver_forward;
+	E_MovingTest_back[1]		= E_St1_B3_2_housing_separator_driver_backward;
+
+	E_MovingTest_in_front[3]	= E_St024_B1_4_clamping_sleeve_presser_forward;
+	E_MovingTest_back[3]		= E_St024_B1_2_clamping_sleeve_presser_backward;
+
+	E_MovingTest_in_front[5]	= E_St042_B1_4_current_bar_separator_forward;	
+	E_MovingTest_back[5]		= E_St042_B1_2_current_bar_separator_backward;
+
+	E_MovingTest_in_front[2]	= E_St027_B3_4_reject_parts_ejector_forward;	
+	E_MovingTest_back[2]		= E_St027_B3_2_reject_parts_ejector_backward;	
+
+	E_MovingTest_in_front[4]	= E_St028_B4_4_pre_assembled_parts_ejector_forward;
+	E_MovingTest_back[4]		= E_St028_B4_2_pre_assembled_parts_ejector_backward;
+
+	E_MovingTest_in_front[7]	= E_St048_B3_4_pre_assembled_parts_ejector_forward;
+	E_MovingTest_back[7]		= E_St048_B3_2_pre_assembled_parts_ejector_backward;
+
+	//E_MovingTest_in_front[6]	= ;
+	//E_MovingTest_back[6]		= ;
+
+	
 
 
 }
@@ -623,22 +657,22 @@ void Output(void)
 
 if (!M_Error_Air_Off[1])
 {
-	SetAusg(A1,0,A.St1_Y11_4_fork_driver_downward);			
-	SetAusg(A1,1,A.St1_Y11_2_fork_driver_upward);			
-	SetAusg(A1,2,A.St1_Y12_4_fork_position_driver_forward);		
-	SetAusg(A1,3,A.St1_Y12_2_fork_position_driver_backward);		
-	SetAusg(A1,4,A.St1_Y13_4_fork_position_driver_forward);
-	SetAusg(A1,5,A.St1_Y13_2_fork_position_driver_backward);				
-	SetAusg(A1,6,A.St1_Y14_4_housing_guider_switcher_upward);					
-	SetAusg(A1,7,A.St1_Y14_2_housing_guider_switcher_downward);					
-	SetAusg(A1,8,A.St1_Y6_4_housing_gripper_close);			
-	SetAusg(A1,9,A.St1_Y6_2_housing_gripper_open);			
-	SetAusg(A1,10,A.St1_Y7_4_housing_gripper_close);		
-	SetAusg(A1,11,A.St1_Y7_2_housing_gripper_open);			
-	SetAusg(A1,12,A.St1_Y8_4_gripper_lifter_downward);		
-	SetAusg(A1,13,A.St1_Y8_2_gripper_lifter_upward);			
-	SetAusg(A1,14,A.St1_Y10_4_housing_foot_test_driver_forward);		
-	SetAusg(A1,15,A.St1_Y10_2_housing_foot_test_driver_backward);		
+	SetAusg(A1,0,A.St201_A2_4_houisng_pin_driver1_2_forward);
+	SetAusg(A1,1,A.St201_A2_2_houisng_pin_driver1_2_backward);
+	SetAusg(A1,2,A.St201_A8_4_housing_carrier_lifterZ68_upward)  ;	
+	SetAusg(A1,3,A.St201_A8_2_housing_carrier_lifterZ68_downward);
+	SetAusg(A1,4,A.St201_A7_4_housing_carrier_lifterZ57_upward)  ;
+	SetAusg(A1,5,A.St201_A7_2_housing_carrier_lifterZ57_downward);
+	SetAusg(A1,6,A.St201_A1_4_houisng_carrier_driver_forward);   
+	SetAusg(A1,7,A.St201_A1_2_houisng_carrier_driver_backward );
+	SetAusg(A1,8,A.St1_Y3_4_housing_separator_driver_forward);
+	SetAusg(A1,9,A.St1_Y3_2_housing_separator_driver_backward);
+	SetAusg(A1,10,A.St1_Y2_4_housing_separator_downward);
+	SetAusg(A1,11,A.St1_Y2_2_housing_separator_upward);
+	SetAusg(A1,12,A.St1_Y1_4_housing_stopper_downward);
+	SetAusg(A1,13,A.St1_Y1_2_housing_stopper_upward);
+	SetAusg(A1,14,A.St201_A4_4_houisng_pin_driver3_forward);
+	SetAusg(A1,15,A.St201_A4_2_houisng_pin_driver3_backward);	
 }
 else
 {
@@ -648,77 +682,37 @@ else
 	SetAusg (A1,3,false);
 	SetAusg (A1,4,false);
 	SetAusg (A1,5,false);
-	SetAusg (A1,6,A_MovingTest_forward[1]);
-	SetAusg (A1,7,A_MovingTest_backward[1]);
-	SetAusg (A1,8,false);
-	SetAusg (A1,9,false);
+	SetAusg (A1,6,false);
+	SetAusg (A1,7,false);
+	SetAusg (A1,8,A_MovingTest_forward[1]);
+	SetAusg (A1,9,A_MovingTest_backward[1]);
 	SetAusg (A1,10,false);
 	SetAusg (A1,11,false);
 	SetAusg (A1,12,false);
 	SetAusg (A1,13,false);
 	SetAusg (A1,14,false);
 	SetAusg (A1,15,false);
-
 }
 
-if (!M_Error_Air_Off[2])
-{
-	SetAusg(A2,0,A.St1_Y17_4_carrier_opener_forward);					
-	SetAusg(A2,1,A.St1_Y17_2_carrier_opener_backward);						
-	SetAusg(A2,2,A.St1_Y18_4_carrier_opener_forward);					
-	SetAusg(A2,3,A.St1_Y18_2_carrier_opener_backward);				
-	SetAusg(A2,4,A.St1_Y19_4_carrier_opener_forward);				
-	SetAusg(A2,5,A.St1_Y19_2_carrier_opener_backward);				
-	SetAusg(A2,6,A.St1_Y9_4_gripper_lifter_driver_forward);		
-	SetAusg(A2,7,A.St1_Y9_2_gripper_lifter_driver_backward);	
-	SetAusg(A2,8,A.St1_Y1_4_housing_gripper_close);		
-	SetAusg(A2,9,A.St1_Y1_2_housing_gripper_open);	
-	SetAusg(A2,10,A.St1_Y4_4_carrier_pos_switcher_forward );	
-	SetAusg(A2,11,A.St1_Y4_2_carrier_pos_switcher_backward);
-	SetAusg(A2,12,A.St1_Y5_4_carrier_pos_switcher_driver_forward );		
-	SetAusg(A2,13,A.St1_Y5_2_carrier_pos_switcher_driver_backward);			
-	SetAusg(A2,14,A.St1_Y16_4_carrier_opener_forward);			
-	SetAusg(A2,15,A.St1_Y16_2_carrier_opener_backward);			
-}
-else
-{
-	SetAusg (A2,0,false);
-	SetAusg (A2,1,false);
-	SetAusg (A2,2,false);
-	SetAusg (A2,3,false);
-	SetAusg (A2,4,false);
-	SetAusg (A2,5,false);
-	SetAusg (A2,6,A_MovingTest_forward[2]);
-	SetAusg (A2,7,A_MovingTest_backward[2]);
-	SetAusg (A2,8,false);
-	SetAusg (A2,9,false);
-	SetAusg (A2,10,false);
-	SetAusg (A2,11,false);
-	SetAusg (A2,12,false);
-	SetAusg (A2,13,false);
-	SetAusg (A2,14,false);
-	SetAusg (A2,15,false);
-
-}
 
 if (!M_Error_Air_Off[3])
 {
-	SetAusg(A3,0,A.St5_Y2_4_clamping_sleeve_inserter_downward);			
-	SetAusg(A3,1,A.St5_Y2_2_clamping_sleeve_inserter_upward);			
-	SetAusg(A3,2,A.St3_Y1_4_pressure_plate_separator_leftward);			
-	SetAusg(A3,3,A.St3_Y1_2_pressure_plate_separator_rightward);			
-	SetAusg(A3,4,A.St1_Y15_4_housing_presser_downward);				
-	SetAusg(A3,5,A.St1_Y15_2_housing_presser_upward);			
-	SetAusg(A3,6,A.St1_Y3_4_end_position_exchanger_forward);					
-	SetAusg(A3,7,A.St1_Y3_2_end_position_exchanger_backward);			
-	SetAusg(A3,8,A.St8_Y1_4_screw_inserter_driver_forward);	
-	SetAusg(A3,9,A.St8_Y1_2_screw_inserter_driver_backward);	
-	SetAusg(A3,10,A.St8_Y2_4_screw_inserter_rightward);		
-	SetAusg(A3,11,A.St8_Y2_2_screw_inserter_leftward);			
-	SetAusg(A3,12,A.St8_Y3_4_metal_parts_holder_downward);	
-	SetAusg(A3,13,A.St8_Y3_2_metal_parts_holder_upward);
-	SetAusg(A3,14,A.St5_Y1_4_clamping_sleeve_inserter_holder_downward);		  
-	SetAusg(A3,15,A.St5_Y1_2_clamping_sleeve_inserter_holder_upward);		  
+	SetAusg(A3,0,A.St022_Y4_2_gripper_lifter_downward);
+	SetAusg(A3,1,A.St022_Y4_4_gripper_lifter_upward);
+	SetAusg(A3,2,A.St022_Y5_4_current_bar_driver_forward );	
+	SetAusg(A3,3,A.St022_Y5_2_current_bar_driver_backward );
+	SetAusg(A3,4,A.St022_Y2_4_current_bar_rotating_take);
+	SetAusg(A3,5,A.St022_Y2_2_current_bar_rotating_send);
+	SetAusg(A3,6,A.St022_Y1_4_current_bar_inserter_forward);   
+	SetAusg(A3,7,A.St022_Y1_2_current_bar_inserter_backward);
+	SetAusg(A3,8,A.St024_Y1_4_clamping_sleeve_presser_forward);
+	SetAusg(A3,9,A.St024_Y1_2_clamping_sleeve_presser_backward);
+	SetAusg(A3,10,A.St024_Y2_4_clamping_sleeve_presser_forward);
+	SetAusg(A3,11,A.St024_Y2_2_clamping_sleeve_presser_backward);
+	SetAusg(A3,12,A.St023_Y1_4_current_bar_presser_downward);
+	SetAusg(A3,13,A.St023_Y1_2_current_bar_presser_upward);
+	SetAusg(A3,14,A.St022_Y3_4_current_bar_gripper_close);
+	SetAusg(A3,15,A.St022_Y3_2_current_bar_gripper_open);
 }
 else
 {
@@ -728,10 +722,10 @@ else
 	SetAusg (A3,3,false);
 	SetAusg (A3,4,false);
 	SetAusg (A3,5,false);
-	SetAusg (A3,6,A_MovingTest_forward[3]);
-	SetAusg (A3,7,A_MovingTest_backward[3]);
-	SetAusg (A3,8,false);
-	SetAusg (A3,9,false);
+	SetAusg (A3,6,false);
+	SetAusg (A3,7,false);
+	SetAusg (A3,8,A_MovingTest_forward[3]);
+	SetAusg (A3,9,A_MovingTest_backward[3]);
 	SetAusg (A3,10,false);
 	SetAusg (A3,11,false);
 	SetAusg (A3,12,false);
@@ -741,24 +735,107 @@ else
 
 }
 
+
+if (!M_Error_Air_Off[5])
+{
+	SetAusg(A5,0,A.St042_Y6_2_gripper_rotating_downward);
+	SetAusg(A5,1,A.St042_Y6_4_gripper_rotating_upward);
+	SetAusg(A5,2,A.St042_Y5_4_gripper_rotating_take);	
+	SetAusg(A5,3,A.St042_Y5_2_gripper_rotating_send);
+	SetAusg(A5,4,A.St042_Y4_4_current_bar_gripper_close);
+	SetAusg(A5,5,A.St042_Y4_2_current_bar_gripper_open);
+	//SetAusg(A5,6,A.);   
+	//SetAusg(A5,7,A.);
+	SetAusg(A5,8,A.St042_Y1_4_current_bar_separator_forward);
+	SetAusg(A5,9,A.St042_Y1_2_current_bar_separator_backward);
+	SetAusg(A5,10,A.St042_Y2_4_current_bar_inserter_forward);
+	SetAusg(A5,11,A.St042_Y2_2_current_bar_inserter_backward);
+	SetAusg(A5,12,A.St042_Y3_4_current_bar_rotating_take);
+	SetAusg(A5,13,A.St042_Y3_2_current_bar_rotating_send);
+	SetAusg(A5,14,A.St042_Y7_4_current_bar_driver_forward);
+	SetAusg(A5,15,A.St042_Y7_2_current_bar_driver_backward);
+}
+else
+{
+	SetAusg (A5,0,false);
+	SetAusg (A5,1,false);
+	SetAusg (A5,2,false);
+	SetAusg (A5,3,false);
+	SetAusg (A5,4,false);
+	SetAusg (A5,5,false);
+	SetAusg (A5,6,false);
+	SetAusg (A5,7,false);
+	SetAusg (A5,8,A_MovingTest_forward[5]);
+	SetAusg (A5,9,A_MovingTest_backward[5]);
+	SetAusg (A5,10,false);
+	SetAusg (A5,11,false);
+	SetAusg (A5,12,false);
+	SetAusg (A5,13,false);
+	SetAusg (A5,14,false);
+	SetAusg (A5,15,false);
+
+}
+
+if (!M_Error_Air_Off[2])
+{
+	SetAusg(A2,0,A.St025_Y2_2_gripper_lifter_downward);
+	SetAusg(A2,1,A.St025_Y2_4_gripper_lifter_upward);
+	SetAusg(A2,2,A.St024_Y5_4_clamping_sleeve_gripper_close);	
+	SetAusg(A2,3,A.St024_Y5_2_clamping_sleeve_gripper_open);
+	SetAusg(A2,4,A.St024_Y3_4_gripper_lifter_downward);
+	SetAusg(A2,5,A.St024_Y3_2_gripper_lifter_upward);
+	SetAusg(A2,6,A.St024_Y6_4_clamping_sleeve_driver_forward);   
+	SetAusg(A2,7,A.St024_Y6_2_clamping_sleeve_driver_backward);
+	SetAusg(A2,8,A.St027_Y1_4_reject_parts_gripper_close );
+	SetAusg(A2,9,A.St027_Y1_2_reject_parts_gripper_open);
+	SetAusg(A2,10,A.St027_Y2_2_gripper_lifter_downward);
+	SetAusg(A2,11,A.St027_Y2_4_gripper_lifter_upward);
+	SetAusg(A2,12,A.St027_Y3_4_reject_parts_ejector_forward);
+	SetAusg(A2,13,A.St027_Y3_2_reject_parts_ejector_backward);
+	SetAusg(A2,14,A.St025_Y1_4_metal_parts_assembling_close);
+	SetAusg(A2,15,A.St025_Y1_2_metal_parts_assembling_open);
+}
+
+else
+{
+	SetAusg (A2,0,false);
+	SetAusg (A2,1,false);
+	SetAusg (A2,2,false);
+	SetAusg (A2,3,false);
+	SetAusg (A2,4,false);
+	SetAusg (A2,5,false);
+	SetAusg (A2,6,false);
+	SetAusg (A2,7,false);
+	SetAusg (A2,8,false);
+	SetAusg (A2,9,false);
+	SetAusg (A2,10,false);
+	SetAusg (A2,11,false);
+	SetAusg (A2,12,A_MovingTest_forward[2]);
+	SetAusg (A2,13,A_MovingTest_backward[2]);
+	SetAusg (A2,14,false);
+	SetAusg (A2,15,false);
+
+}
+
+
 if (!M_Error_Air_Off[4])
 {
-	SetAusg(A4,0,A.St10_Y1_4_metal_parts_holder_downward);					
-	SetAusg(A4,1,A.St10_Y1_2_metal_parts_holder_upward);		
-	SetAusg(A4,2,A.St9_Y1_4_screw_tester_driver_forward);			
-	SetAusg(A4,3,A.St9_Y1_2_screw_tester_driver_backward);		
-	SetAusg(A4,4,A.St8_Y4B_4_screw_seperate_upward);			
-	SetAusg(A4,5,A.St8_Y4B_2_screw_seperate_downward);			
-	SetAusg(A4,6,A.St8_Y4A_4_screw_seperate_upward);		
-	SetAusg(A4,7,A.St8_Y4A_2_screw_seperate_downward);					
-	SetAusg(A4,8,A.St12_Y1_4_screw_test_forward);			
-	SetAusg(A4,9,A.St12_Y1_2_screw_test_backward);			
-	SetAusg(A4,10,A.St12_Y2_4_metal_parts_holder_downward);		
-	SetAusg(A4,11,A.St12_Y2_2_metal_parts_holder_upward);			
-	SetAusg(A4,12,A.St11_Y1_4_screw_test_forward);		
-	SetAusg(A4,13,A.St11_Y1_2_screw_test_backward);			
-	SetAusg(A4,14,A.St11_Y2_4_hook_driver_downward);		
-	SetAusg(A4,15,A.St11_Y2_2_hook_driver_upward);		
+	SetAusg(A4,0,A.St003_Y1_4_metal_parts_blocking_downward);
+	SetAusg(A4,1,A.St003_Y1_2_metal_parts_blocking_upward);
+	SetAusg(A4,2,A.St005_Y1_4_metal_parts_blocking_downward);	
+	SetAusg(A4,3,A.St005_Y1_2_metal_parts_blocking_upward);
+	//SetAusg(A4,4,A.);
+	//SetAusg(A4,5,A.);
+	//SetAusg(A4,6,A.);   
+	//SetAusg(A4,7,A.);
+	SetAusg(A4,8,A.St028_Y4_4_pre_assembled_parts_ejector_forward);
+	SetAusg(A4,9,A.St028_Y4_2_pre_assembled_parts_ejector_backward);
+	SetAusg(A4,10,A.St028_Y3_4_pre_assembled_parts_ejector_forward);
+	SetAusg(A4,11,A.St028_Y3_2_pre_assembled_parts_ejector_backward);
+	SetAusg(A4,12,A.St028_Y2_2_gripper_lifter_downward);
+	SetAusg(A4,13,A.St028_Y2_4_gripper_lifter_upward);
+	SetAusg(A4,14,A.St028_Y1_4_pre_assembled_parts_gripper_close);
+	SetAusg(A4,15,A.St028_Y1_2_pre_assembled_parts_gripper_open);
 }
 else
 {
@@ -770,8 +847,8 @@ else
 	SetAusg (A4,5,false);
 	SetAusg (A4,6,false);
 	SetAusg (A4,7,false);
-	SetAusg (A4,8,false);
-	SetAusg (A4,9,false);
+	SetAusg (A4,8,A_MovingTest_forward[4]);
+	SetAusg (A4,9,A_MovingTest_backward[4]);
 	SetAusg (A4,10,false);
 	SetAusg (A4,11,false);
 	SetAusg (A4,12,false);
@@ -781,64 +858,65 @@ else
 
 }
 
-if (!M_Error_Air_Off[5])
+if (!M_Error_Air_Off[7])
 {
-	SetAusg(A5,0,A.St14_Y2_4_gripper_driver_forward);			
-	SetAusg(A5,1,A.St14_Y2_2_gripper_driver_backward);			
-	SetAusg(A5,2,A.St14_Y3_4_screw_gripper_close);		
-	SetAusg(A5,3,A.St14_Y3_2_screw_gripper_open);		
-	SetAusg(A5,4,A.St14_Y4_4_metal_parts_presser_forward);		
-	SetAusg(A5,5,A.St14_Y4_2_metal_parts_presser_backward);		
-	SetAusg(A5,6,A.St14_Y5_4_housing_holder_upward);
-	SetAusg(A5,7,A.St14_Y5_2_housing_holder_downward);
-	SetAusg(A5,8,A.St16_Y8_4_carrier_opener_forward);		
-	SetAusg(A5,9,A.St16_Y8_2_carrier_opener_backward);		
-	SetAusg(A5,10,A.St16_Y9_4_carrier_opener_forward);			
-	SetAusg(A5,11,A.St16_Y9_2_carrier_opener_backward);			
-	SetAusg(A5,12,A.St16_Y10_4_carrier_opener_forward);		
-	SetAusg(A5,13,A.St16_Y10_2_carrier_opener_backward);			
-	SetAusg(A5,14,A.St14_Y1_4_screw_tester_driver_forward);		
-	SetAusg(A5,15,A.St14_Y1_2_screw_tester_driver_backward);		
+	SetAusg(A7,0,A.St047_Y1_4_reject_parts_gripper_close);
+	SetAusg(A7,1,A.St047_Y1_2_reject_parts_gripper_open	);
+	SetAusg(A7,2,A.St047_Y2_2_gripper_lifter_downward);	
+	SetAusg(A7,3,A.St047_Y2_4_gripper_lifter_upward);
+	SetAusg(A7,4,A.St047_Y3_4_reject_parts_ejector_forward);
+	SetAusg(A7,5,A.St047_Y3_2_reject_parts_ejector_backward);
+	SetAusg(A7,6,A.St045_Y1_4_metal_parts_assembling_close);   
+	SetAusg(A7,7,A.St045_Y1_2_metal_parts_assembling_open	);
+	SetAusg(A7,8,A.St048_Y1_4_pre_assembled_parts_gripper_close);
+	SetAusg(A7,9,A.St048_Y1_2_pre_assembled_parts_gripper_open);
+	SetAusg(A7,10,A.St048_Y2_2_gripper_lifter_downward);
+	SetAusg(A7,11,A.St048_Y2_4_gripper_lifter_upward);
+	SetAusg(A7,12,A.St048_Y3_4_pre_assembled_parts_ejector_forward);
+	SetAusg(A7,13,A.St048_Y3_2_pre_assembled_parts_ejector_backward);
+	SetAusg(A7,14,A.St048_Y4_4_pre_assembled_parts_ejector_forward);
+	SetAusg(A7,15,A.St048_Y4_2_pre_assembled_parts_ejector_backward);
 }
 else
 {
-	SetAusg (A5,0,false);
-	SetAusg (A5,1,false);
-	SetAusg (A5,2,false);
-	SetAusg (A5,3,false);
-	SetAusg (A5,4,false);
-	SetAusg (A5,5,false);
-	SetAusg (A5,6,A_MovingTest_forward[5]);
-	SetAusg (A5,7,A_MovingTest_backward[5]);
-	SetAusg (A5,8,false);
-	SetAusg (A5,9,false);
-	SetAusg (A5,10,false);
-	SetAusg (A5,11,false);
-	SetAusg (A5,12,false);
-	SetAusg (A5,13,false);
-	SetAusg (A5,14,false);
-	SetAusg (A5,15,false);
+	SetAusg (A7,0,false);
+	SetAusg (A7,1,false);
+	SetAusg (A7,2,false);
+	SetAusg (A7,3,false);
+	SetAusg (A7,4,false);
+	SetAusg (A7,5,false);
+	SetAusg (A7,6,false);
+	SetAusg (A7,7,false);
+	SetAusg (A7,8,false);
+	SetAusg (A7,9,false);
+	SetAusg (A7,10,false);
+	SetAusg (A7,11,false);
+	SetAusg (A7,12,A_MovingTest_forward[7]);
+	SetAusg (A7,13,A_MovingTest_backward[7]);
+	SetAusg (A7,14,false);
+	SetAusg (A7,15,false);
 
 }
 
+
 if (!M_Error_Air_Off[6])
 {
-	SetAusg(A6,0,A.St16_Y5_4_gripper_lifter_downward);				
-	SetAusg(A6,1,A.St16_Y5_2_gripper_lifter_upward);				
-	SetAusg(A6,2,A.St16_Y6_4_reject_parts_gripper_close);				
-	SetAusg(A6,3,A.St16_Y6_2_reject_parts_gripper_open);				
-	SetAusg(A6,4,A.St16_Y7_4_reject_parts_gripper_close);			
-	SetAusg(A6,5,A.St16_Y7_2_reject_parts_gripper_open);			
-//	SetAusg(A6,6,A.);		
-//	SetAusg(A6,7,A.);
-	SetAusg(A6,8,A.St16_Y1_4_reject_parts_driver_forward);		
-	SetAusg(A6,9,A.St16_Y1_2_reject_parts_driver_backward);		
-	SetAusg(A6,10,A.St16_Y2_4_reject_parts_driver_stopper_upward);			
-	SetAusg(A6,11,A.St16_Y2_2_reject_parts_driver_stopper_downward);			
-	SetAusg(A6,12,A.St16_Y3_4_reject_parts_driver_stopper_upward);			
-	SetAusg(A6,13,A.St16_Y3_2_reject_parts_driver_stopper_downward);			
-	SetAusg(A6,14,A.St16_Y4_4_reject_parts_driver_stopper_upward);			
-	SetAusg(A6,15,A.St16_Y4_2_reject_parts_driver_stopper_downward);		
+	SetAusg(A6,0,A.St044_Y4_4_clamping_sleeve_gripper_close);
+	SetAusg(A6,1,A.St044_Y4_2_clamping_sleeve_gripper_open);
+	SetAusg(A6,2,A.St044_Y5_4_clamping_sleeve_gripper_close);	
+	SetAusg(A6,3,A.St044_Y5_2_clamping_sleeve_gripper_open);
+	SetAusg(A6,4,A.St044_Y2_4_clamping_sleeve_presser_forward);
+	SetAusg(A6,5,A.St044_Y2_2_clamping_sleeve_presser_backward);
+	SetAusg(A6,6,A.St045_Y2_2_gripper_lifter_downward );   
+	SetAusg(A6,7,A.St045_Y2_4_gripper_lifter_upward);
+	SetAusg(A6,8,A.St043_Y1_4_current_bar_presser_downward);
+	SetAusg(A6,9,A.St043_Y1_2_current_bar_presser_upward);
+	SetAusg(A6,10,A.St044_Y6_4_clamping_sleeve_driver_forward);
+	SetAusg(A6,11,A.St044_Y6_2_clamping_sleeve_driver_backward);
+	SetAusg(A6,12,A.St044_Y2_4_clamping_sleeve_presser_forward);
+	SetAusg(A6,13,A.St044_Y2_2_clamping_sleeve_presser_backward);
+	SetAusg(A6,14,A.St044_Y3_4_gripper_lifter_downward);
+	SetAusg(A6,15,A.St044_Y3_2_gripper_lifter_upward);
 }
 else
 {
@@ -848,10 +926,10 @@ else
 	SetAusg (A6,3,false);
 	SetAusg (A6,4,false);
 	SetAusg (A6,5,false);
-	SetAusg (A6,6,A_MovingTest_forward[6]);
-	SetAusg (A6,7,A_MovingTest_backward[6]);
-	SetAusg (A6,8,false);
-	SetAusg (A6,9,false);
+	SetAusg (A6,6,false);
+	SetAusg (A6,7,false);
+	SetAusg (A6,8,A_MovingTest_forward[6]);
+	SetAusg (A6,9,A_MovingTest_backward[6]);
 	SetAusg (A6,10,false);
 	SetAusg (A6,11,false);
 	SetAusg (A6,12,false);
@@ -861,7 +939,24 @@ else
 
 }
 
+if (!M_Error_Air_Off[8])
+{
+	SetAusg(A110,4,A.St202_A1_4_Rotate);
+    SetAusg(A110,5,A.St202_A1_2_Lock);
+}
 
+if (!M_Error_Air_Off[9])
+{
+	SetAusg(A110,6,A.St203_A1_4_Rotate);
+    SetAusg(A110,7,A.St203_A1_2_Lock);
+}
+
+SetAusg(A112,4,A_St022_A1_Enable_BF);
+SetAusg(A112,5,A_St022_A2_Enable_LC);
+
+SetAusg(A113,4,A_St024_A1_Enable_BF);
+SetAusg(A113,5,A_St024_A2_Enable_LC);
+SetAusg(A113,6,A_St024_Y1_BlastAir_BF);
 
 // **************************************
 // -A118- /FLS IB M12 DIO 4/4 (US2/US3)
@@ -872,125 +967,70 @@ else
 
 	if (!M_Error_Air_Off[201])
 	{
-		SetAusg(A115,2,A.St201_Y1_4_SwivelUnit_forward);
-		SetAusg(A115,3,A.St201_Y1_2_SwivelUnit_backward);
+		SetAusg(A118,0,A.St201_Y1_4_SwivelUnit_forward);
+		SetAusg(A118,1,A.St201_Y1_2_SwivelUnit_backward);
 
-		//SetAusg(A119,0,A.St201_Y1_4_SwivelUnit_forward);
-		//SetAusg(A119,1,A.St201_Y1_2_SwivelUnit_backward);
+		SetAusg(A119,0,A.St201_Y1_4_SwivelUnit_forward);
+		SetAusg(A119,1,A.St201_Y1_2_SwivelUnit_backward);
 	}
 	else
 	{
 		SetAusg (A118,0,false);	
 		SetAusg (A118,1,false);
 	
-		//SetAusg (A119,0,false);
-		//SetAusg (A119,1,false);
+		SetAusg (A119,0,false);
+		SetAusg (A119,1,false);
 	}
 
-	SetAusg(A115,0,A_MainAir[201]);
-	//SetAusg(A119,2,A_MainAir[201]);
+	SetAusg(A118,2,A_MainAir[201]);
+	SetAusg(A119,2,A_MainAir[201]);
 
 #endif
 
-// **************************************
-// -A110- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A110,0,A_St3_A1_release_bowl_feeder);         
-    SetAusg(A110,1,A_St3_A2_release_linear_feeder);         
-    SetAusg(A110,2,A_St3_A3_release_linear_feeder);         
-    SetAusg(A110,3,A_St3_Y1_blowing_air_for_feeder);      
+// *************************
+// -A108- /FLM IB M12 DIO 8/4 
+// *************************
+   SetAusg(A108,4,A_MainAir[3]);
+   SetAusg(A108,5,A_MainAir[1]);
+   SetAusg(A108,6,A_MainAir[5]);				        
+   //SetAusg(A108,7,);				        			       
 
-
+// *************************
+// -A109- /FLS IB M12 DO 8 Hauplüfte
+// *************************
+   SetAusg(A109,5,A_MainAir[4]);
+   SetAusg(A109,4,A_MainAir[2]);
+   SetAusg(A109,6,A_MainAir[7]);				        
+   SetAusg(A109,7,A_MainAir[6]);				        			       
 // **************************************
 // -A111- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A111,0,A_St8_A1B_release_bowl_feeder);         
-    SetAusg(A111,1,A_St8_A2B_release_linear_feeder);         
-    SetAusg(A111,2,A_St8_A3B_release_bunker);         
-    SetAusg(A111,3,A_St8_Y1B_blowing_air_for_screw);      
-// **************************************
-// -A112- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A112,0,A_St8_A1A_release_bowl_feeder);         
-    SetAusg(A112,1,A_St8_A2A_release_linear_feeder);         
-    SetAusg(A112,2,A_St8_A3A_release_bunker);         
-    SetAusg(A112,3,A_St8_Y1A_blowing_air_for_screw);
-// **************************************
-// -A113- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A113,0,A_St8_Y2B_blowing_air_for_screw_pos);         
-    SetAusg(A113,1,A_St8_Y2A_blowing_air_for_screw_pos);         
-    //SetAusg(A113,2,free);         
-    SetAusg(A113,3,A_St7_Y1_blowing_air_for_heat);
-
-// **************************************
-// -A117- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A117,0,A_St5_A1_release_bowl_feeder);         
-    //SetAusg(A117,1,A_St5_A3_release_bunker);         
-    SetAusg(A117,2,A_St5_A3_release_bunker);         
-    SetAusg(A117,3,A_St5_Y1_blowing_air_for_feeder);
-
-// **************************************
-// -A118- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    //SetAusg(A118,0,A_St5_A1_release_bowl_feeder);         
-    SetAusg(A118,1,A_St1_Y1_blowing_air_for_linear);         
-    SetAusg(A118,2,A_St1_Y2_BlastAir_long_housing_BF);         
-    SetAusg(A118,3,A_St1_Y1_BlastAir_short_housing_BF);
-
-// **************************************
-// -A119- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A119,0,A_St1_A7_short_housing_BF);         
-    SetAusg(A119,1,A_St1_A9_release_short_housing_bunker);         
-    SetAusg(A119,2,A_St1_A2_release_linear_feeder);         
-    SetAusg(A119,3,A_St1_A3_release_linear_feeder);
+// **************************************        
+    SetAusg(A111,6,A_MainAir[8]);         
+    SetAusg(A111,7,A_MainAir[9]);      
 
 // **************************************
 // -A120- /FLS IB M12 DIO 4/4 (US3/US3)
 // **************************************
-    SetAusg(A120,0,A_St1_A8_long_housing_BF);         
-    SetAusg(A120,1,A_St1_A10_release_long_housing_bunker);         
-    SetAusg(A120,2,A_St1_A4_release_linear_feeder);         
-    SetAusg(A120,3,A_St1_A5_release_linear_feeder);
-// **************************************
-// -A121- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
-    SetAusg(A121,0,A_St1_Y3_BlastAir_flange);         
-    SetAusg(A121,1,A_St1_Y4_BlastAir_long_housing_A_select_BF);         
-    SetAusg(A121,2,A_St1_Y5_BlastAir_long_housing_B_select_BF);         
-    //SetAusg(A121,3,A_St1_Y3_BlastAir_flange);
-// **************************************
-// -A121- /FLS IB M12 DIO 4/4 (US3/US3)
-// **************************************
 
-//if (!M_Error_Air_Off[301])
-//{
-//	SetAusg(A120,0,A.St301_Y1_4_AxisProtector_forward);
-//	SetAusg(A120,1,A.St301_Y1_2_AxisProtector_forward);
-////	SetAusg(A120,2,frei);
-////	SetAusg(A120,3,frei);
-//}
-//else
-//{
-//	SetAusg (A120,0,false);
-//	SetAusg (A120,1,false);
-//}
+if (!M_Error_Air_Off[301])
+{
+	//SetAusg(A120,0,A.St301_Y1_4_AxisProtector_forward);
+	//SetAusg(A120,1,A.St301_Y1_2_AxisProtector_forward);
+//	SetAusg(A120,2,frei);
+//	SetAusg(A120,3,frei);
+}
+else
+{
+	SetAusg (A120,0,false);
+	SetAusg (A120,1,false);
+}
 
 
 
-// *************************
-// -A125- /FLS IB M12 DO 8 Hauplüfte
-// *************************
-   SetAusg(A125,0,A_MainAir[1]);
-   SetAusg(A125,1,A_MainAir[2]);
-   SetAusg(A125,2,A_MainAir[3]);				        
-   SetAusg(A125,3,A_MainAir[4]);				        			       
-   SetAusg(A125,4,A_MainAir[5]);				        
-   SetAusg(A125,5,A_MainAir[6]);				        
-   SetAusg(A125,6,A_MainAir[7]);			        
-   //SetAusg(A125,7,A_St302_Y1_WT_abblasen);
+
+
+
+
 
 //-----------------------------------------------------------------
 //---------------------------- +SK01A -----------------------------
@@ -1016,18 +1056,18 @@ else
 //	SetAusg(A151,15,frei);
 
 	// GATEWAY to following SPS		    // GATEWAY AN FOLGENDE SPS
-	SetAusg(GATEWAY_CT_1_W9,0,M_.ConveyorEn);										// -> Conveyor enable to the following SPS send		// -> Freigabe Vibratoren an folgende SPS senden
-	SetAusg(GATEWAY_CT_1_W9,1,E_Button_Quit);										// -> E_Quit to the following SPS send				// -> E_TP_Quittieren an folgende SPS senden
-    SetAusg(GATEWAY_CT_1_W9,2,DriveUnit[DriveUnit1].Unloaded && M.Unload_Machine);	// -> Machine unladed to the following SPS send		// -> Maschinenteil leergefahren an folgende SPS senden
-	SetAusg(GATEWAY_CT_1_W9,3,M_Gateway_St301_FlexLink_Run);						// -> Enable Flex Link conveyor belt to the following SPS send	// -> Freigabe Flex Link Umlaufförderband an folgende SPS senden
-	SetAusg(GATEWAY_CT_1_W9,4,E_St302_B1_FB_voll);									// -> WPC on connecting conveyor belt to the following SPS send	// -> Nest auf Zwischenförderband an folgende SPSS senden
-//	SetAusg(GATEWAY_CT_1_W9,5,Gateway_folgende_SPS_Ausgang_6);		// -> 
-//	SetAusg(GATEWAY_CT_1_W9,6,Gateway_folgende_SPS_Ausgang_7);		// -> 
-//	SetAusg(GATEWAY_CT_1_W9,7,Gateway_folgende_SPS_Ausgang_8);		// -> 
-	SetAusg(A152,8, A_St201_M2_Paramtersatz_1);
-	SetAusg(A152,9, A_St201_M2_Paramtersatz_2);
-	SetAusg(A152,10,A_St201_M2_Paramtersatz_3);
-	SetAusg(A152,11,A_St201_M2_Paramtersatz_4);
+	SetAusg(A152,0,M_.ConveyorEn);										// -> Conveyor enable to the following SPS send		// -> Freigabe Vibratoren an folgende SPS senden
+	SetAusg(A152,1,E_Button_Quit);										// -> E_Quit to the following SPS send				// -> E_TP_Quittieren an folgende SPS senden
+    SetAusg(A152,2,DriveUnit[DriveUnit1].Unloaded && M.Unload_Machine);	// -> Machine unladed to the following SPS send		// -> Maschinenteil leergefahren an folgende SPS senden
+	SetAusg(A152,3,M_Gateway_St301_FlexLink_Run);						// -> Enable Flex Link conveyor belt to the following SPS send	// -> Freigabe Flex Link Umlaufförderband an folgende SPS senden
+	SetAusg(A152,4,E_St302_B1_FB_voll);									// -> WPC on connecting conveyor belt to the following SPS send	// -> Nest auf Zwischenförderband an folgende SPSS senden
+//	SetAusg(A152,5,Gateway_folgende_SPS_Ausgang_6);		// -> 
+//	SetAusg(A152,6,Gateway_folgende_SPS_Ausgang_7);		// -> 
+//	SetAusg(A152,7,Gateway_folgende_SPS_Ausgang_8);		// -> 
+//	SetAusg(A152,8,frei);
+//	SetAusg(A152,9,frei);
+//	SetAusg(A152,10,frei);
+//	SetAusg(A152,11,frei);
 //	SetAusg(A152,12,frei);
 //	SetAusg(A152,13,frei);
 //	SetAusg(A152,14,frei);
@@ -1054,21 +1094,11 @@ else
 //	SetAusg(A153,15,frei); 
 
     // GATEWAY AN VORHERIGE SPS
-	//SetAusg(A154,0,M_.ConveyorEn);					      // ->	Conveyor enable to previous SPS send			// -> Freigabe Vibratoren an vorherige SPS senden
-	//SetAusg(A154,1,E_Button_Quit);						  // ->	Quit to previous SPS send						// -> E_TP_Quittieren an vorherige SPS senden
-	//SetAusg(A154,2,M.Machine_Unloaded);				      // ->	Machine unloaded to previous SPS send			// -> Maschinenteil leergefahren an vorherige SPS senden
-	//SetAusg(A154,3,A_St302_A1_FlexLink_Enable);			  // ->	connecting conveyor belt to previous SPS send	// -> Zwischenförderband läuft an vorherige SPS senden
-	SetAusg(A154,0,A_St201_M3_Paramtersatz_1);  //+201 - M3
-	SetAusg(A154,1,A_St201_M3_Paramtersatz_2);			//+201 - M3
-	SetAusg(A154,2,A_St201_M3_Paramtersatz_3);			//+201 - M3
-	SetAusg(A154,3,A_St201_M3_Paramtersatz_4);			//+201 - M3
-	//SetAusg(A154,4,A_St201_M3_Paramtersatz_4);			//+201 - M3
-	
-	SetAusg(A157,0,A_St11_screw_driver_reset);			
-	SetAusg(A157,1,A_St12_screw_driver_reset);
-	SetAusg(A157,2,A_St14_screw_driver_reset);
-	
-	//	SetAusg(A154,4,A_Gateway_vorherige_SPS_Ausgang_5);			// -> 
+	SetAusg(A154,0,M_.ConveyorEn);					      // ->	Conveyor enable to previous SPS send			// -> Freigabe Vibratoren an vorherige SPS senden
+	SetAusg(A154,1,E_Button_Quit);						  // ->	Quit to previous SPS send						// -> E_TP_Quittieren an vorherige SPS senden
+	SetAusg(A154,2,M.Machine_Unloaded);				      // ->	Machine unloaded to previous SPS send			// -> Maschinenteil leergefahren an vorherige SPS senden
+	SetAusg(A154,3,A_St302_A1_FlexLink_Enable);			  // ->	connecting conveyor belt to previous SPS send	// -> Zwischenförderband läuft an vorherige SPS senden
+//	SetAusg(A154,4,A_Gateway_vorherige_SPS_Ausgang_5);			// -> 
 //	SetAusg(A154,5,A_Gateway_vorherige_SPS_Ausgang_6);			// -> 
 //	SetAusg(A154,6,A_Gateway_vorherige_SPS_Ausgang_7);			// -> 
 //	SetAusg(A154,7,A_Gateway_vorherige_SPS_Ausgang_8);			// -> 
@@ -1080,13 +1110,6 @@ else
 //	SetAusg(A154,13,frei);
 //	SetAusg(A154,14,frei);
 //	SetAusg(A154,15,frei);  
-// ******************************
-// -A191- /IB IL 24 DO/4 (US3)
-// ******************************
-	SetAusg(A191,0,A_St201_M2_Enable_WPC_accelerator);	// +301-A1/E1   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
-	SetAusg(A191,1,A_St201_M3_Enable_WPC_accelerator);	// +301-A1/E2   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
-	SetAusg(A191,2,true);     // +302-K5  enable connecting conveyor belt		(Freig. Verbindungsfoerderband)
-	SetAusg(A191,3,A_St5_A2_belt_enable); 
 
 //-----------------------------------------------------------------
 //---------------------------- +SK02A -----------------------------
@@ -1094,32 +1117,29 @@ else
 // ******************************
 // -A155- /IB IL 24 DO/4 (US1)
 // ******************************
-	//SetAusg(A155,0,A_St301_A1_FlexLink_slow);	// +301-A1/E1   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
-	//SetAusg(A155,1,A_St301_A1_FlexLink_fast);	// +301-A1/E2   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
-	//SetAusg(A155,2,A_St302_A1_FlexLink_Enable);     // +302-K5  enable connecting conveyor belt		(Freig. Verbindungsfoerderband)
+	SetAusg(A155,0,A_St301_A1_FlexLink_slow);	// +301-A1/E1   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
+	SetAusg(A155,1,A_St301_A1_FlexLink_fast);	// +301-A1/E2   speed Flex Link conveyor belt		(Geschw. Umlaufförderband)
+	SetAusg(A155,2,A_St302_A1_FlexLink_Enable);     // +302-K5  enable connecting conveyor belt		(Freig. Verbindungsfoerderband)
 //	SetAusg(A155,3,frei); 
 
 // ******************************
 // -A175- /IB IL 24 DO/4 (US2)
 // ******************************
 #ifdef Axis_exist
-	SetAusg(A155,0,Achse[Axis1].A_Freigabe_Servo);		//-A201.1/16
-	SetAusg(A155,1,Achse[Axis1].A_Reset_Servo);			//-A201.1/17
-
-
-	//SetAusg(A155,2,Achse[Axis2].A_Freigabe_Servo);		//-A1.1/16
-	//SetAusg(A155,3,Achse[Axis2].A_Reset_Servo);			//-A1.1/17
-	SetAusg(A156,0,A_St1_HSP_Freigabe_Servo_A2_16);		//-A1.1/16
-	SetAusg(A156,1,A_St1_HSP_Reset_Servo_A2_17);			//-A1.1/17
+	SetAusg(A175,0,Achse[Axis1].A_Freigabe_Servo);		//-A201.1/16
+	SetAusg(A175,1,Achse[Axis1].A_Reset_Servo);			//-A201.1/17
+//	SetAusg(A175,0,Achse[Axis2].A_Freigabe_Servo);		//-A202.1/16
+//	SetAusg(A175,1,Achse[Axis2].A_Reset_Servo);			//-A202.1/17
 #endif
     
  // ******************************
  // -A195- /IB IL 24 DO/4  (US3)
  // ******************************
     SetAusg(A195,0,A_St301_A1_FlexLink_Enable);         // +301-A1/K15	enable Flex Link conveyor belt	(Freig. Umlauffoerderband)   
-	//SetAusg(A195,1,A_St201_M2_Enable_WPC_accelerator);  // +201-M2/K1
+	SetAusg(A195,1,A_St201_M2_Enable_WPC_accelerator);  // +201-M2/K1
 	SetAusg(A195,2,A_St201_M3_Enable_WPC_accelerator);  // +201-M3/K1
 //	SetAusg(A195,3,frei);
+
 // ******************************
 // Barcode Scanner
 // ******************************
@@ -1137,25 +1157,10 @@ else
 	SetAusgByte(Scanner_RS232+5,8,bSendData[10]);
 	SetAusgByte(Scanner_RS232+5,0,bSendData[11]);
 #endif
-//Steuerwort KEB-Servo St.1
-	SetAusg(KEB_SERVO_1,0,St_1_KEB_Einsetzen.A_Reglerfreigabe);
-	SetAusg(KEB_SERVO_1,1,St_1_KEB_Einsetzen.A_Reset);
-	SetAusg(KEB_SERVO_1,2,St_1_KEB_Einsetzen.A_Start);
-	SetAusg(KEB_SERVO_1,3,St_1_KEB_Einsetzen.A_Drehrichtung);
-	SetAusg(KEB_SERVO_1,4,St_1_KEB_Einsetzen.A_Parametersatz_Bit1);
-	SetAusg(KEB_SERVO_1,5,St_1_KEB_Einsetzen.A_Parametersatz_Bit2);
-	SetAusg(KEB_SERVO_1,6,St_1_KEB_Einsetzen.A_Parametersatz_Bit3);
-	SetAusg(KEB_SERVO_1,8,St_1_KEB_Einsetzen.A_Schnellhalt);
-	SetAusg(KEB_SERVO_1,9,St_1_KEB_Einsetzen.A_Start_Referenzpunktfahrt);
-	SetAusg(KEB_SERVO_1,10,St_1_KEB_Einsetzen.A_Start_Positionierung);
-	SetAusg(KEB_SERVO_1,12,St_1_KEB_Einsetzen.A_Betriebsart_Bit1);
-	SetAusg(KEB_SERVO_1,13,St_1_KEB_Einsetzen.A_Betriebsart_Bit2);
-	
-			//St_1_KEB_Einsetzen.Sollposition_low =LOWORD(M.Sollpos);
-			//St_1_KEB_Einsetzen.Sollposition_high=HIWORD(M.Sollpos);
 
-	SetAusgWortEx(KEB_SERVO_1,1,St_1_KEB_Einsetzen.Sollposition_high);
-	SetAusgWortEx(KEB_SERVO_1,2,St_1_KEB_Einsetzen.Sollposition_low);
+   
+
+
 
 
 
@@ -1170,12 +1175,6 @@ else
 	Kameradaten_A[KameraPC_1].Beleuchtung_ein_Kamera1	= A_Beleuchtung_einschalten_Kamera[1];
 	Kameradaten_A[KameraPC_1].Stat_Kamera1_eingeschaltet= A_Kamera_ein[1];
 
-	Kameradaten_A[KameraPC_1].Start1_Kamera2			= A_Start_Sig1_Kamera[2];
-	Kameradaten_A[KameraPC_1].Start2_Kamera2			= A_Start_Sig2_Kamera[2];
-	Kameradaten_A[KameraPC_1].Blockbeginn_Kamera2		= A_Blockbeginn_Kamera[2];
-	Kameradaten_A[KameraPC_1].Beleuchtung_ein_Kamera2	= A_Beleuchtung_einschalten_Kamera[2];
-	Kameradaten_A[KameraPC_1].Stat_Kamera1_eingeschaltet= A_Kamera_ein[2];
-
 	Kameradaten_A[KameraPC_1].Programm_beenden			= A_PRG_beenden;
 	Kameradaten_A[KameraPC_1].Interbus_laeuft			= M_.IBS_RUN && Kameradaten_E[KameraPC_1].Kameraprogramm_laeuft;
 
@@ -1188,8 +1187,8 @@ else
 	// Wird eine NULL eingetragen so wird diese Kamera nicht berücksichtigt, der Start erfogt wie gehabt
 
 // TODO: Kamera Startsignale eintragen
-	if (!StartSignale_der_Kameras_vorhanden	( DriveUnit[DriveUnit1].Start[K_St10_Camera_Pressure_Plate] 
-											, DriveUnit[DriveUnit1].Start[K_St13_Camera_Screw]
+	if (!StartSignale_der_Kameras_vorhanden	( 0
+											, 0
 											, 0
 											, 0
 											, KameraPC_1))
@@ -1197,11 +1196,6 @@ else
 		Kameradaten_A[KameraPC_1].Start1_Kamera1 = false;
 		Kameradaten_A[KameraPC_1].Start2_Kamera1 = false;
 		Kameradaten_A[KameraPC_1].Blockbeginn_Kamera1 = false;
-
-		Kameradaten_A[KameraPC_1].Start1_Kamera2 = false;
-		Kameradaten_A[KameraPC_1].Start2_Kamera2 = false;
-		Kameradaten_A[KameraPC_1].Blockbeginn_Kamera2 = false;
-
 	}
 
 	Kamera_PIPE_Sendesdaten_Eintragen(KameraPC_1);
@@ -1213,7 +1207,7 @@ else
 //*****************************************************************
 void  Stations_Process(void)
 {
-	
+
 //  Stationen an der Achse
 #ifdef Scanner_V24
 /* TODO: Einstellungen des Scanners kontrollieren!
@@ -1229,13 +1223,13 @@ void  Stations_Process(void)
     if (    MACHINETYPE == FIRST_MG
         ||  MACHINETYPE == SINGLE_MG )
     {
-        Barcodescanner(Axis1, 390, COM4, 0, true, true, E_St201_B4_WPC_InPosition );
+        Barcodescanner(Axis1, 390, COM2, 0, true, true, E_St201_B4_WPC_InPosition );
     }
 
     if (    MACHINETYPE == MIDDLE_MG
         ||  MACHINETYPE == LAST_MG )
     {
-        Barcodescanner(Axis1, 390, COM4, 0, false, true, E_St201_B4_WPC_InPosition );
+        Barcodescanner(Axis1, 390, COM2, 0, false, true, E_St201_B4_WPC_InPosition );
     }
 #endif
 
@@ -1279,233 +1273,256 @@ void  Stations_Process(void)
 
 // ************************************
 //        Baugruppen ohne Teile
-//		  Stations without material
+//		  Stations without   
 // ************************************
-
+    M_.All_Stations_without_material = true ;
 	if (PosFlanke(Fl_PosWithoutMaterial, M_.All_Stations_without_material ))
 	{
-		M_.St1_without_material = true;
-		M_.Extra_St1_without_material = true;
-		M_.St2_without_material = true;
-		M_.St3_without_material = true;
-		M_.St4_without_material = true;
-		M_.St5_without_material = true;
-		M_.St6_without_material = true;
-		M_.St7_without_material = true;
-		M_.St8_without_material = true;
-		M_.St9_without_material = true;
-		M_.St10_without_material = true;
-		M_.St11_without_material = true;
-		M_.St12_without_material = true;
-		M_.St13_without_material = true;
-		M_.St14_without_material = true;
-		M_.St16_without_material = true;
-		M_.St201_without_material = true;
+		//M_.St1_without_material = true;
+		//M_.St021_without_material = true;
+		M_.St022_without_material = true;
+		//M_.St023_without_material = true;
+		M_.St024_without_material = true;
+		M_.St025_without_material = true;
+		M_.St026_without_material = true;
+		M_.St027_without_material = true;
+		M_.St028_without_material = true;
+		//M_.St041_without_material = true;
+		M_.St042_without_material = true;
+		//M_.St043_without_material = true;
+		M_.St044_without_material = true;
+		M_.St045_without_material = true;
+		M_.St046_without_material = true;
+		M_.St047_without_material = true;
+		M_.St048_without_material = true;
 	}
 	if (NegFlanke(Fl_NegWithoutMaterial , M_.All_Stations_without_material ))
 	{
 		M_.St1_without_material = false;
-		M_.Extra_St1_without_material = false;
-		M_.St2_without_material = false;
-		M_.St3_without_material = false;
-		M_.St4_without_material = false;
-		M_.St5_without_material = false;
-		M_.St6_without_material = false;
-		M_.St7_without_material = false;
-		M_.St8_without_material = false;
-		M_.St9_without_material = false;
-		M_.St10_without_material = false;
-		M_.St11_without_material = false;
-		M_.St12_without_material = false;
-		M_.St13_without_material = false;
-		M_.St14_without_material = false;
-		M_.St16_without_material = false;
-		M_.St201_without_material = false;
+		//M_.St021_without_material = false;
+		M_.St022_without_material = false;
+		//M_.St023_without_material = false;
+		M_.St024_without_material = false;
+		M_.St025_without_material = false;
+		M_.St026_without_material = false;
+		M_.St027_without_material = false;
+		M_.St028_without_material = false;
+		//M_.St041_without_material = false;
+		M_.St042_without_material = false;
+		//M_.St043_without_material = false;
+		M_.St044_without_material = false;
+		M_.St045_without_material = false;
+		M_.St046_without_material = false;
+		M_.St047_without_material = false;
+		M_.St048_without_material = false;
 		ArticleData();
 	}
 
-    PC_Message[8] = M_.All_Stations_without_material ;
+    PC_Message[5] = M_.All_Stations_without_material ;
 
 
 
 // ************************************
 // TODO: Stationsaufrufe eintragen!
 // ************************************
-St1_Extra_housing_seperate		( K_St1_Extra_Housing_seperate		// Sequence
+St201_MainDriveUnit_Line		( K_St201_MainDriveUnit_Line			
+								, 0		
+								, 1	
+								, DriveUnit1	
+								, 201	
+								);
+St001_Housing_Separating		( K_St001_Housing_Separating			// Sequence
 								, 10								// Start of error range of this function
 								, 1									// Valve terminal is to be switched off in case of failure
-								, 2									// Valve terminal is to be switched off in case of failure
-								, DriveUnit2						// DriveUnitNum
-								, 21								// Station number of BDE
-								, 21								// Register of the station
+								, DriveUnit1						// DriveUnitNum
+								, 1									// Station number of BDE
+								, 1									// Register of the station
 								, false								// Setup phase conveyors and StandBy are deactivated
 								);
-
-St1_Extra_housing_foot_pusher	( K_St1_Extra_Housing_foot_pusher	// Sequence
-								, 10								// Start of error range of this function
-								, 1									// Valve terminal is to be switched off in case of failure
-								, 2									// Valve terminal is to be switched off in case of failure
-								, DriveUnit2						// DriveUnitNum
-								, 22								// Station number of BDE
-								, 22								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
-								);
-
-St1_Extra_housing_foot_test		( K_St1_Extra_Housing_foot_test			// Sequence
-								, 10									// Start of error range of this function
-								, 1										// Valve terminal is to be switched off in case of failure
-								, 2										// Valve terminal is to be switched off in case of failure
-								, DriveUnit2							// DriveUnitNum
-								, 25									// Station number of BDE
-								, 25									// Register of the station
-								, false									// Setup phase conveyors and StandBy are deactivated
-								);
-
-
-St1_Extra_reject_housing_remove	( K_St1_Extra_Reject_Housing_remove		// Sequence
-								, 10									// Start of error range of this function
-								, 1										// Valve terminal is to be switched off in case of failure
-								, 2										// Valve terminal is to be switched off in case of failure
-								, DriveUnit2							// DriveUnitNum
-								, 26									// Station number of BDE
-								, 26									// Register of the station
-								, false									// Setup phase conveyors and StandBy are deactivated
-								);
-
- St01_Insert_Housing_01			( K_St1_Insert_Housing				// Sequence
-								, 10			// Start of error range of this function
-								, 2		// Valve terminal is to be switched off in case of failure
+St003_Housing_Press1		    ( K_St003_Housing_Press1 			// Sequence
+								, 20		// Start of error range of this function
+								, 4		// Valve terminal is to be switched off in case of failure
 								, DriveUnit1		// DriveUnitNum
-								, 1		// Station number of BDE
+								, 26		// Station number of BDE
+								, 3		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St005_Housing_Press2		    ( K_St005_Housing_Press2 			// Sequence
+								, 30		// Start of error range of this function
+								, 4		// Valve terminal is to be switched off in case of failure
+								, DriveUnit1		// DriveUnitNum
+								, 26		// Station number of BDE
+								, 5		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+St202_MainDriveUnit_Rotate1		( K_St202_MainDriveUnit_Rotate1			
+								, 40		
+								, 8	
+								, DriveUnit2	
+								, 202	
+								);
+
+St021_Check_Carrier_Empty		( K_St021_Check_Carrier_Empty				// Sequence
+								, 50		// Start of error range of this function
+								, DriveUnit2		// DriveUnitNum
+								, 11		// Station number of BDE
 								, 1		// Register of the station
-								, false			// Setup phase conveyors and StandBy are deactivated
-					
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
- St01_Press_Cover	  ( K_St1_Press_Cover				// Sequence
-						, 10								// Start of error range of this function
-						, 2 								// Valve terminal is to be switched off in case of failure
-						, DriveUnit1						// DriveUnitNum
-						, 1									// Station number of BDE
-						, 1									// Register of the station
-						, false								// Setup phase conveyors and StandBy are deactivated
-						);
-//St1_Gehaeuse_einsetzen();
-//
-
-St2_Check_Housing				( K_St2_Check_Housing					// Sequence
-								, 70								// Start of error range of this function
-								, DriveUnit1						// DriveUnitNum
-								, 2							// Station number of BDE
-								, 2								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
+St022_Current_Bar_Feeding_A  	( K_St022_Current_Bar_Feeding_A				// Sequence
+								, 60		// Start of error range of this function
+								, 3		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 12		// Station number of BDE
+								, 2		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-
-St3_Insert_Pressure_Plate		( K_St3_Insert_Pressure_Plate					// Sequence
-								, 80								// Start of error range of this function
-								, 2									// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 3								// Station number of BDE
-								, 3								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
+St023_Check_Press_Current_Bar  	( K_St023_Check_Press_Current_Bar 			// Sequence
+								, 70		// Start of error range of this function
+								, 3		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 13		// Station number of BDE
+								, 3		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-
-St4_Check_Pressure_Plate		( K_St4_Check_Pressure_Plate					// Sequence
-								, 90								// Start of error range of this function
-								, DriveUnit1						// DriveUnitNum
-								, 4								// Station number of BDE
-								, 4								// Register of the station
-								, false
+St024_Clamping_Sleeve_Feeding  	( K_St024_Clamping_Sleeve_Feeding 			// Sequence
+								, 80		// Start of error range of this function
+								, 2	
+								, 3// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 14		// Station number of BDE
+								, 4		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-
-
-St5_Insert_Clamping_Sleeve		( K_St5_Insert_Clamping_Sleeve					// Sequence
-								, 100								// Start of error range of this function
-								, 3									// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 5								// Station number of BDE
-								, 5								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
+St025_Metal_Parts_Assembly  	( K_St025_Metal_Parts_Assembly 			// Sequence
+								, 90		// Start of error range of this function
+								, 2		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 15		// Station number of BDE
+								, 5		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-St6_Check_Flange_Screw		( K_St6_Check_Flange_Screw					// Sequence
-								, 120								// Start of error range of this function
-								, DriveUnit1						// DriveUnitNum
-								, 6								// Station number of BDE
-								, 6								// Register of the station
-								,false
+St026_Clamping_Sleeve_Checking  ( K_St026_Clamping_Sleeve_Checking 			// Sequence
+								, 100		// Start of error range of this function
+								, 1		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 16		// Station number of BDE
+								, 6		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-//
-
-St8_screw_insert				( K_St8_Insert_Screw				// Sequence
-								, 260								// Start of error range of this function
-								, 4 								// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 8									// Station number of BDE
-								, 8									// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
+St027_Reject_Parts_Eject        ( K_St027_Reject_Parts_Eject 			// Sequence
+								, 110		// Start of error range of this function
+								, 2		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, 17		// Station number of BDE
+								, 7		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
-St09_Check_Screw_Available		( K_St9_Check_screw				// Sequence
-								, 280								// Start of error range of this function
-								, 4 								// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 9									// Station number of BDE
-								, 9									// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
-								);
-St10_camera_check				( K_St10_Camera_Pressure_Plate		// Sequence
-								, 120								// Start of error range of this function
-								, 4									// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 10								// Station number of BDE
-								, 10								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
+St028_Pre_Assembled_Parts_Eject ( K_St028_Pre_Assembled_Parts_Eject
+	                            , 2 // Sequence
+								, 120		// Start of error range of this function
+								, 4		// Valve terminal is to be switched off in case of failure
+								, DriveUnit2		// DriveUnitNum
+								, DriveUnit1		// DriveUnitNum
+								, 18		// Station number of BDE
+								, 8		// Register of the station
+								, 2		    // Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
 
-St11_Screwdriver_close			( K_St11_Screwdriver_close				// Sequence
-								, 170									// Start of error range of this function
-								, 4										// Valve terminal is to be switched off in case of failure
-								, DriveUnit1							// DriveUnitNum
-								, 11									// Station number of BDE
-								, 11									// Register of the station
-								, false									// Setup phase conveyors and StandBy are deactivated
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+St203_MainDriveUnit_Rotate2 	( K_St203_MainDriveUnit_Rotate2			
+								, 140		
+								, 9
+								, DriveUnit3	
+								, 203	
+								);
+St041_Check_Carrier_Empty		( K_St041_Check_Carrier_Empty				// Sequence
+								, 150		// Start of error range of this function
+								, DriveUnit3		// DriveUnitNum
+								, 21		// Station number of BDE
+								, 11		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St042_Current_Bar_Feeding_A  	( K_St042_Current_Bar_Feeding_A				// Sequence
+								, 160		// Start of error range of this function
+								, 5		// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 22		// Station number of BDE
+								, 12		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St043_Check_Press_Current_Bar  	( K_St043_Check_Press_Current_Bar 			// Sequence
+								, 180		// Start of error range of this function
+								, 6	// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 23		// Station number of BDE
+								, 13		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St044_Clamping_Sleeve_Feeding  	( K_St044_Clamping_Sleeve_Feeding 			// Sequence
+								, 190		// Start of error range of this function
+								, 6		// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 24		// Station number of BDE
+								, 14		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St045_Metal_Parts_Assembly  	( K_St045_Metal_Parts_Assembly 			// Sequence
+								, 200		// Start of error range of this function
+								, 6
+								, 7// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 25		// Station number of BDE
+								, 15		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St046_Clamping_Sleeve_Checking  ( K_St046_Clamping_Sleeve_Checking 			// Sequence
+								, 210		// Start of error range of this function
+								, 1		// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 26		// Station number of BDE
+								, 16		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St047_Reject_Parts_Eject        ( K_St047_Reject_Parts_Eject 			// Sequence
+								, 220		// Start of error range of this function
+								, 7		// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, 27		// Station number of BDE
+								, 17		// Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
+								);
+St048_Pre_Assembled_Parts_Eject ( K_St048_Pre_Assembled_Parts_Eject
+	                            , 4 // Sequence
+								, 230		// Start of error range of this function
+								, 7		// Valve terminal is to be switched off in case of failure
+								, DriveUnit3		// DriveUnitNum
+								, DriveUnit1		// DriveUnitNum
+								, 28		// Station number of BDE
+								, 18		// Register of the station
+								, 4		    // Register of the station
+								, false				// Setup phase conveyors and StandBy are deactivated
 								);
 
-St12_Screwdriver_open			( K_St12_Screwdriver_open				// Sequence
-								, 190									// Start of error range of this function
-								, 4										// Valve terminal is to be switched off in case of failure
-								, DriveUnit1							// DriveUnitNum
-								, 12									// Station number of BDE
-								, 12									// Register of the station
-								, false									// Setup phase conveyors and StandBy are deactivated
-								);
-St13_camera_check				( K_St13_Camera_Screw				// Sequence
-								, 140								// Start of error range of this function
-								, DriveUnit1						// DriveUnitNum
-								, 13								// Station number of BDE
-								, 13								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
-								);
-
-St14_Screw_take_out				( K_St14_Screw_take_out				// Sequence
-								, 220								// Start of error range of this function
-								, 5									// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 14								// Station number of BDE
-								, 14								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
-								//, true							// true = Nebenantrieb, false = Hauptantrieb
-								);
-
-St16_reject_out					( K_St16_Reject_take_out					// Sequence
-								, 280								// Start of error range of this function
-								, 5									// Valve terminal is to be switched off in case of failure
-								, 6									// Valve terminal is to be switched off in case of failure
-								, DriveUnit1						// DriveUnitNum
-								, 16								// Station number of BDE
-								, 16								// Register of the station
-								, false								// Setup phase conveyors and StandBy are deactivated
-								);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #ifdef HVPruefung_vorhanden
 	}
 	else
@@ -1521,10 +1538,10 @@ St16_reject_out					( K_St16_Reject_take_out					// Sequence
 	}
 #endif
 
-	// Stationen_Ablauf
-	if	(	M.Save_RunTime_in_file
+// Stationen_Ablauf
+if	(	M.Save_RunTime_in_file
 		||	IFCBIT
-		)
+	)
 		LaufzeitenSpeichern();
 
 }
@@ -1918,10 +1935,12 @@ void ArticleData(void)
 //-------------------- Anzahl Gehaeuse im Nest --------------------
 
 	//DriveUnit[DriveUnit1].NumberOfHousings = 1;
+	//
+	//if (MW_ArtikelTyp.Parameter[0] == 1) M.ArticleType_MBK2p5 = true;
+	//else M.ArticleType_MBK2p5 = false;
+	//if (MW_ArtikelTyp.Parameter[0] == 2) M.ArticleType_MBK3p0 = true;	
+	//else M.ArticleType_MBK3p0 = false;
 
-	//if (MW_ArtikelTyp.Parameter[0] == 2) 
-	//	DriveUnit[DriveUnit1].NumberOfHousings = 2;
-	DriveUnit[DriveUnit1].NumberOfHousings = MW_ArtikelTyp.Parameter[0];
 //------------------------- Parameter  1 --------------------------
 //------------------------- xxxxxxxxxxxx ---------------------------
 	
@@ -2523,7 +2542,6 @@ void Unload_Machine(void)
 	PC_Message[1] = M.Unload_Machine && !M.Machine_Unloaded_in_EndPos;
 	PC_Message[2] = M.Machine_Unloaded_in_EndPos && !M_.MaRun && !M_.MaError;	
 
-	PC_release_Article = true; //for test
 }// of void Unload_Machine(...)
 
 //*****************************************************************
@@ -2778,7 +2796,7 @@ void SPS_Programm_Start(void)
 {
 
 #ifdef Scanner_V24
-	M.scanner_init = Scanner_init(COM4);
+	Scanner_init(COM2);
 #endif
 
 }
@@ -2796,7 +2814,7 @@ void SPS_Programm_Stop(void)
 {
 
 #ifdef Scanner_V24
-	Scanner_close(COM4); // Scanner Maschine
+	Scanner_close(COM2); // Scanner Maschine
 #endif
 
 }
@@ -2955,7 +2973,6 @@ void MachineProcess1(void)
 	// Main process of axis				// Hauptablauf der Achse
 	// Function in SPSKette.h			// Funktion in SPSKette.h
 	// TODO: Check function				// TODO: Funktionen überprüfen
-
 #if defined(DoubleAxis) || defined(SingleAxis)
 		St201_MainProcess();
 #endif
@@ -3118,7 +3135,7 @@ void MachineProcess1(void)
 	if (M_.APCIDatenAusgeben)
 	{
 		M_.APCIDatenAusgeben = false;
-		APCISlotNummerAusgeben();
+		//APCISlotNummerAusgeben();
 	}
 }// of void MachineProcess1(...)
 

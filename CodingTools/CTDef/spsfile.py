@@ -61,6 +61,7 @@ class SpsFile:
         for stl in self.stlines:
             match = pattern.match(stl)
             if match:
+                print('bbbbbb:'+stl)
                 zbins.add(ZBin(stl))
         return zbins
 
@@ -81,6 +82,7 @@ class SpsFile:
 # f.zouts.display()
 # print('--------')
 # f.zouts.search('10','1','forward').display()
+
 
 
 

@@ -119,7 +119,8 @@ namespace fehlertranslater
             thisAdapter = new OleDbDataAdapter(sql, thisConnection);
             thisAdapter.Fill(thisDataSet, "UntransDictionary1");
             dt = thisDataSet.Tables["UntransDictionary1"];
-            this.dataGridView2.DataSource = dt;
+            this.UntransDicGrid.DataSource = dt;
+            tabControl1.SelectTab(2);
 
             fs.Close();
             fehlerTxt.Close();
@@ -146,7 +147,12 @@ namespace fehlertranslater
             FehlerUnicodePathBox.Text = fehlerUnicodePath;
             configIni.Close();
 
+            Update_AllDataGrids();
 
+        }
+
+        private void Update_AllDataGrids()
+        {
             OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
 
 
@@ -156,64 +162,49 @@ namespace fehlertranslater
             thisAdapter.Fill(thisDataSet, "BasicDictionary1");
             DataTable dt = thisDataSet.Tables["BasicDictionary1"];
             this.BasicDicGrid.DataSource = dt;
-             
+
             BasicDicGrid.EndEdit();
-             
+
 
             sql = "select OriginalField,TranslationField from NewDictionary order by OriginalField";
-            thisAdapter = new OleDbDataAdapter(sql, thisConnection); 
+            thisAdapter = new OleDbDataAdapter(sql, thisConnection);
             thisAdapter.Fill(thisDataSet, "NewDictionary1");
             dt = thisDataSet.Tables["NewDictionary1"];
             this.NewDicGrid.DataSource = dt;
 
-            thisConnection.Close();
             NewDicGrid.EndEdit();
 
 
-
-
-
-
-
-        }
-
-        private void BasicDic_Disp_Click(object sender, EventArgs e)
-        { 
-            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
-             
-            
-            string sql = "select OriginalField,TranslationField from BasicDictionary order by OriginalField";
+            sql = "select OriginalField,TranslationField from UntransDictionary";
             thisAdapter = new OleDbDataAdapter(sql, thisConnection);
-            System.Data.DataSet thisDataSet = new System.Data.DataSet();
-            thisAdapter.Fill(thisDataSet, "BasicDictionary1");
-            DataTable dt = thisDataSet.Tables["BasicDictionary1"];
-            this.dataGridView2.DataSource = dt;
+            thisAdapter.Fill(thisDataSet, "UnTransDictionary1");
+            dt = thisDataSet.Tables["UnTransDictionary1"];
+            this.UntransDicGrid.DataSource = dt;
 
             thisConnection.Close();
-            dataGridView2.EndEdit();
-
+            UntransDicGrid.EndEdit();
         }
+ 
 
         private void BasicDic_Update_Click(object sender, EventArgs e)
         {
             //check empty key
-            for (int i = 0; i < dataGridView2.Rows.Count-1;i++ )
+            for (int i = 0; i < BasicDicGrid.Rows.Count - 1; i++)
             {
-                if (dataGridView2.Rows[i].Cells[0].Value == null || dataGridView2.Rows[i].Cells[0].Value.ToString()=="")
+                if (BasicDicGrid.Rows[i].Cells[0].Value == null || BasicDicGrid.Rows[i].Cells[0].Value.ToString() == "")
                 {
                     MessageBox.Show("Empty key");
-                    dataGridView2.CurrentCell = dataGridView2.Rows[i].Cells[1];
+                    BasicDicGrid.CurrentCell = BasicDicGrid.Rows[i].Cells[1];
                     return;
                 }
                 else
                 {
-                    dataGridView2.Rows[i].Cells[0].Value = Regex.Replace(dataGridView2.Rows[i].Cells[0].Value.ToString(), @"\b\s+\b", " ").Trim(' ');
+                    BasicDicGrid.Rows[i].Cells[0].Value = Regex.Replace(BasicDicGrid.Rows[i].Cells[0].Value.ToString(), @"\b\s+\b", " ").Trim(' ');
                 }
             }
 
-            dataGridView2.EndEdit();
+            BasicDicGrid.EndEdit();
             string sql = "select OriginalField,TranslationField from BasicDictionary order by OriginalField";
-         //   OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
             OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
 
 
@@ -224,7 +215,7 @@ namespace fehlertranslater
 
 
 
-            DataTable dt = (DataTable)dataGridView2.DataSource;
+            DataTable dt = (DataTable)BasicDicGrid.DataSource;
           //  dt.AcceptChanges();
  
             try
@@ -239,41 +230,25 @@ namespace fehlertranslater
 
             thisConnection.Close(); 
         }
-
-        private void NewDic_Disp_Click(object sender, EventArgs e)
-        {
-//            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
-            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
-
-            string sql = "select OriginalField,TranslationField from NewDictionary order by OriginalField";
-            thisAdapter = new OleDbDataAdapter(sql, thisConnection);
-            System.Data.DataSet thisDataSet = new System.Data.DataSet();
-            thisAdapter.Fill(thisDataSet, "NewDictionary1");
-            DataTable dt = thisDataSet.Tables["NewDictionary1"];
-            this.dataGridView2.DataSource = dt;
-
-            thisConnection.Close();
-            dataGridView2.EndEdit();
-        }
+ 
 
         private void NewDic_Update_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+            for (int i = 0; i < NewDicGrid.Rows.Count - 1; i++)
             {
-                if (dataGridView2.Rows[i].Cells[0].Value == null || dataGridView2.Rows[i].Cells[0].Value.ToString() == "")
+                if (NewDicGrid.Rows[i].Cells[0].Value == null || NewDicGrid.Rows[i].Cells[0].Value.ToString() == "")
                 {
                     MessageBox.Show("Empty key");
-                    dataGridView2.CurrentCell = dataGridView2.Rows[i].Cells[1];
+                    NewDicGrid.CurrentCell = NewDicGrid.Rows[i].Cells[1];
                     return;
                 }
                 else
                 {
-                    dataGridView2.Rows[i].Cells[0].Value = Regex.Replace(dataGridView2.Rows[i].Cells[0].Value.ToString(), @"\b\s+\b", " ").Trim(' ');
+                    NewDicGrid.Rows[i].Cells[0].Value = Regex.Replace(NewDicGrid.Rows[i].Cells[0].Value.ToString(), @"\b\s+\b", " ").Trim(' ');
                 }
             }
-            dataGridView2.EndEdit();
+            NewDicGrid.EndEdit();
             string sql = "select OriginalField,TranslationField from NewDictionary order by OriginalField";
- //           OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
             OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
            
             
@@ -282,7 +257,7 @@ namespace fehlertranslater
             OleDbCommandBuilder bld = new OleDbCommandBuilder(da);
             thisAdapter.UpdateCommand = bld.GetUpdateCommand();
 
-            DataTable dt = (DataTable)dataGridView2.DataSource;
+            DataTable dt = (DataTable)NewDicGrid.DataSource;
 
             try
             {
@@ -297,24 +272,6 @@ namespace fehlertranslater
             thisConnection.Close(); 
         }
 
-        private void UnTrans_Disp_Click(object sender, EventArgs e)
-        {
-  //          OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\dictionary.accdb;Persist Security Info=False");
-            OleDbConnection thisConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dictionary.accdb;Persist Security Info=False");
-          
-            
-            
-            string sql = "select OriginalField,TranslationField from UntransDictionary";
-            thisAdapter = new OleDbDataAdapter(sql, thisConnection);
-            System.Data.DataSet thisDataSet = new System.Data.DataSet();
-            thisAdapter.Fill(thisDataSet, "UnTransDictionary1");
-            DataTable dt = thisDataSet.Tables["UnTransDictionary1"];
-            this.dataGridView2.DataSource = dt;
-
-            thisConnection.Close();
-            dataGridView2.EndEdit();
-        }
-
 
         public void DataGridViewEnableCopy(DataGridView p_Data)
         {
@@ -324,18 +281,17 @@ namespace fehlertranslater
         public void DataGirdViewCellPaste(DataGridView p_Data)
         {
 
-                string pasteText = Clipboard.GetText();
-                if (string.IsNullOrEmpty(pasteText))
-                    return;
-                string[] lines = pasteText.Split('\n');
-                foreach (string line in lines)
-                {
-                    if (string.IsNullOrEmpty(line.Trim('\t',' ')))
-                        continue;
+            string pasteText = Clipboard.GetText();
+            if (string.IsNullOrEmpty(pasteText))
+                return;
+            string[] lines = pasteText.Split('\n');
+            foreach (string line in lines) {
+                if (string.IsNullOrEmpty(line.Trim('\t', ' ')))
+                    continue;
 
-                    string[] vals = (line.Trim('\t')).Split('\t');
-                   ( (DataTable)p_Data.DataSource).Rows.Add(vals);
-                }
+                string[] vals = (line.Trim('\t')).Split('\t');
+                ((DataTable)p_Data.DataSource).Rows.Add(vals);
+            }
 
         }
 
@@ -395,6 +351,11 @@ namespace fehlertranslater
             configIni.WriteLine(fehlerPath);
             configIni.WriteLine(fehlerUnicodePath);
             configIni.Close();
+        }
+
+        private void UntransDicGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

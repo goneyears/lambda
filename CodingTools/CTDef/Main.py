@@ -19,17 +19,17 @@ def update_button_click():
     form1.clear_displaybox()
     for ln in zcode_lines:
         ln = ln.lower()
-        if re.compile('.*st.*(z\d+|b\d+).*\w+.*').match(ln):
+        if re.compile('.*st?.*(z\d+|b\d+).*\w+.*').match(ln):
             zl = ZLine(ln)
             try:
                 form1.write_displaybox(zl.formatted_code(zbins, nbins, zouts))
             except:
-                form1.write_displaybox(ln + '--->can not find this cylinder or motion')
+                form1.write_displaybox(ln + '--->can not find this object or action\n\n')
 
         elif re.compile('^\s*$').match(ln):
             form1.write_displaybox('\n')
         else:
-            form1.write_displaybox(ln+ '--->formate needs to be like this: stx zx motion ')
+            form1.write_displaybox(ln+ '--->format needs to be like this:[cx] s[t]x zx action [fx] or [cx] stx bx on/off [fx]\n')
 
 
 def import_button_click():

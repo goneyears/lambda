@@ -34,10 +34,7 @@ class Zout:
             self.Motion = re.sub(r'^(up|down|left|right)$',r'\1ward', self.Motion)
             isgrippermatch = re.compile(r'.*(open|close).*').match(aline)
             if isgrippermatch:
-                print('is gripper?')
-                print(aline)
                 self.Ztype = 'gripper'
-                print(self.ZName)
             else:
                 self.Ztype = 'not gripper'
 
@@ -50,13 +47,14 @@ class Zouts:
 
     def search(self, StN, ZN, Motion):
         for elem in self.elements:
-            # print('elem:')
-            # print(str(type(elem.StN)) + str(type(StN)))
-            # print(elem.StN + '->' + StN + ':' + str(elem.StN == StN))
-            # print(elem.BN + '->' + BN + ':' + str(elem.BN == BN))
-            # print(elem.Motion + '->' + ':' + str(elem.Motion == Motion))
+            print('elem:')
+            print(str(type(elem.StN)) + str(type(StN)))
+            print(elem.StN + '->' + StN + ':' + str(elem.StN == StN))
+            print(elem.Motion + '->' + ':' + str(elem.Motion == Motion))
             if elem.StN == StN and elem.ZN == ZN and elem.Motion == Motion:
+                print('match')
                 return elem
+        print('not match')
         return None
 
     def add(self, zout):

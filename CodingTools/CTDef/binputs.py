@@ -14,7 +14,7 @@ class ZBin:
     def tozin(self,eline):
         """transform station statement to Inputs struct"""
         # "E_St201_B4_WPC_InPosition					    = Eing(A42,7);
-        pattern = re.compile(r'\s*(?P<Var>E_[sS]t(?P<StN>\d+)_B(?P<BN>\d+)_[24]_(?P<BName>\w+(?P<Motion>front|back|up|down|left|right)))\s*')
+        pattern = re.compile(r'\s*(?P<Var>E_[sS]t(?P<StN>\d+)_B(?P<BN>\d+)_[24]_(?P<BName>\w+(?P<Motion>forward|front|back|up|down|left|right)))\s*')
         match = pattern.match(eline)
         if match:
             self.Var = match.group('Var')
@@ -22,6 +22,7 @@ class ZBin:
             self.BN = match.group('BN')
             self.BName = match.group('BName')
             self.Motion = match.group('Motion')
+            if self.Motion == 'forward': self.Motion = 'front'
 
     def display(self):
         print(self.Var)

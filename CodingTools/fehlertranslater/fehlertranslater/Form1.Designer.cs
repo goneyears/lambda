@@ -33,12 +33,8 @@
             this.fehlerlines_label = new System.Windows.Forms.Label();
             this.translines_label = new System.Windows.Forms.Label();
             this.untranslines_label = new System.Windows.Forms.Label();
-            this.BasicDic_Disp = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.BasicDic_Update = new System.Windows.Forms.Button();
-            this.NewDic_Disp = new System.Windows.Forms.Button();
             this.NewDic_Update = new System.Windows.Forms.Button();
-            this.UnTrans_Disp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,18 +46,17 @@
             this.FehlerUnicodePathBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BasicDicGrid = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.NewDicGrid = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.UntransDicGrid = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BasicDicGrid)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NewDicGrid)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UntransDicGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,31 +106,9 @@
             this.untranslines_label.TabIndex = 4;
             this.untranslines_label.Text = "0";
             // 
-            // BasicDic_Disp
-            // 
-            this.BasicDic_Disp.Location = new System.Drawing.Point(329, 362);
-            this.BasicDic_Disp.Name = "BasicDic_Disp";
-            this.BasicDic_Disp.Size = new System.Drawing.Size(100, 36);
-            this.BasicDic_Disp.TabIndex = 7;
-            this.BasicDic_Disp.Text = "BasicDisplay";
-            this.BasicDic_Disp.UseVisualStyleBackColor = true;
-            this.BasicDic_Disp.Click += new System.EventHandler(this.BasicDic_Disp_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(226, 33);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(519, 302);
-            this.dataGridView2.TabIndex = 8;
-            this.dataGridView2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.p_Data_KeyDown);
-            // 
             // BasicDic_Update
             // 
-            this.BasicDic_Update.Location = new System.Drawing.Point(329, 415);
+            this.BasicDic_Update.Location = new System.Drawing.Point(6, 372);
             this.BasicDic_Update.Name = "BasicDic_Update";
             this.BasicDic_Update.Size = new System.Drawing.Size(100, 36);
             this.BasicDic_Update.TabIndex = 9;
@@ -143,35 +116,15 @@
             this.BasicDic_Update.UseVisualStyleBackColor = true;
             this.BasicDic_Update.Click += new System.EventHandler(this.BasicDic_Update_Click);
             // 
-            // NewDic_Disp
-            // 
-            this.NewDic_Disp.Location = new System.Drawing.Point(486, 363);
-            this.NewDic_Disp.Name = "NewDic_Disp";
-            this.NewDic_Disp.Size = new System.Drawing.Size(100, 36);
-            this.NewDic_Disp.TabIndex = 10;
-            this.NewDic_Disp.Text = "NewDisplay";
-            this.NewDic_Disp.UseVisualStyleBackColor = true;
-            this.NewDic_Disp.Click += new System.EventHandler(this.NewDic_Disp_Click);
-            // 
             // NewDic_Update
             // 
-            this.NewDic_Update.Location = new System.Drawing.Point(486, 415);
+            this.NewDic_Update.Location = new System.Drawing.Point(6, 372);
             this.NewDic_Update.Name = "NewDic_Update";
             this.NewDic_Update.Size = new System.Drawing.Size(100, 36);
             this.NewDic_Update.TabIndex = 11;
             this.NewDic_Update.Text = "NewUpdate";
             this.NewDic_Update.UseVisualStyleBackColor = true;
             this.NewDic_Update.Click += new System.EventHandler(this.NewDic_Update_Click);
-            // 
-            // UnTrans_Disp
-            // 
-            this.UnTrans_Disp.Location = new System.Drawing.Point(633, 363);
-            this.UnTrans_Disp.Name = "UnTrans_Disp";
-            this.UnTrans_Disp.Size = new System.Drawing.Size(100, 36);
-            this.UnTrans_Disp.TabIndex = 13;
-            this.UnTrans_Disp.Text = "UntransDisplay";
-            this.UnTrans_Disp.UseVisualStyleBackColor = true;
-            this.UnTrans_Disp.Click += new System.EventHandler(this.UnTrans_Disp_Click);
             // 
             // label1
             // 
@@ -211,7 +164,7 @@
             // 
             // ImportTranslation
             // 
-            this.ImportTranslation.Location = new System.Drawing.Point(633, 415);
+            this.ImportTranslation.Location = new System.Drawing.Point(6, 373);
             this.ImportTranslation.Name = "ImportTranslation";
             this.ImportTranslation.Size = new System.Drawing.Size(100, 35);
             this.ImportTranslation.TabIndex = 18;
@@ -260,90 +213,94 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(801, 113);
+            this.tabControl1.Location = new System.Drawing.Point(259, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(686, 507);
+            this.tabControl1.Size = new System.Drawing.Size(529, 447);
             this.tabControl1.TabIndex = 25;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.BasicDicGrid);
+            this.tabPage1.Controls.Add(this.BasicDic_Update);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(678, 481);
+            this.tabPage1.Size = new System.Drawing.Size(521, 421);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "基础字典";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BasicDicGrid
+            // 
+            this.BasicDicGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.BasicDicGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BasicDicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BasicDicGrid.Location = new System.Drawing.Point(-4, 0);
+            this.BasicDicGrid.Name = "BasicDicGrid";
+            this.BasicDicGrid.Size = new System.Drawing.Size(525, 353);
+            this.BasicDicGrid.TabIndex = 0;
+            this.BasicDicGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.p_Data_KeyDown);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.NewDicGrid);
+            this.tabPage2.Controls.Add(this.NewDic_Update);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(678, 481);
+            this.tabPage2.Size = new System.Drawing.Size(521, 421);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "新增字典";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // NewDicGrid
+            // 
+            this.NewDicGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.NewDicGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NewDicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NewDicGrid.Location = new System.Drawing.Point(0, 0);
+            this.NewDicGrid.Name = "NewDicGrid";
+            this.NewDicGrid.Size = new System.Drawing.Size(520, 353);
+            this.NewDicGrid.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.UntransDicGrid);
+            this.tabPage3.Controls.Add(this.ImportTranslation);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(678, 481);
+            this.tabPage3.Size = new System.Drawing.Size(521, 421);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "未翻译词";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // BasicDicGrid
-            // 
-            this.BasicDicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BasicDicGrid.Location = new System.Drawing.Point(0, 0);
-            this.BasicDicGrid.Name = "BasicDicGrid";
-            this.BasicDicGrid.Size = new System.Drawing.Size(678, 481);
-            this.BasicDicGrid.TabIndex = 0;
-            // 
-            // NewDicGrid
-            // 
-            this.NewDicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NewDicGrid.Location = new System.Drawing.Point(0, 0);
-            this.NewDicGrid.Name = "NewDicGrid";
-            this.NewDicGrid.Size = new System.Drawing.Size(678, 481);
-            this.NewDicGrid.TabIndex = 0;
             // 
             // UntransDicGrid
             // 
+            this.UntransDicGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.UntransDicGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UntransDicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UntransDicGrid.Location = new System.Drawing.Point(0, 0);
             this.UntransDicGrid.Name = "UntransDicGrid";
-            this.UntransDicGrid.Size = new System.Drawing.Size(678, 481);
+            this.UntransDicGrid.Size = new System.Drawing.Size(524, 353);
             this.UntransDicGrid.TabIndex = 0;
+            this.UntransDicGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UntransDicGrid_CellContentClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1527, 686);
+            this.ClientSize = new System.Drawing.Size(848, 545);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.FehlerUnicodePathBox);
             this.Controls.Add(this.FehlerPathBox);
             this.Controls.Add(this.FehlerUnicodeBtn);
             this.Controls.Add(this.FehlerSelectBtn);
-            this.Controls.Add(this.ImportTranslation);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.UnTrans_Disp);
-            this.Controls.Add(this.NewDic_Update);
-            this.Controls.Add(this.NewDic_Disp);
-            this.Controls.Add(this.BasicDic_Update);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.BasicDic_Disp);
             this.Controls.Add(this.untranslines_label);
             this.Controls.Add(this.translines_label);
             this.Controls.Add(this.fehlerlines_label);
@@ -352,13 +309,12 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BasicDicGrid)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NewDicGrid)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UntransDicGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -372,12 +328,8 @@
         private System.Windows.Forms.Label fehlerlines_label;
         private System.Windows.Forms.Label translines_label;
         private System.Windows.Forms.Label untranslines_label;
-        private System.Windows.Forms.Button BasicDic_Disp;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button BasicDic_Update;
-        private System.Windows.Forms.Button NewDic_Disp;
         private System.Windows.Forms.Button NewDic_Update;
-        private System.Windows.Forms.Button UnTrans_Disp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
