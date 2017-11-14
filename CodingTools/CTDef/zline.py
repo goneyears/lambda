@@ -36,9 +36,7 @@ class ZLine:
 
     def extract(self, str):
         str = self.regular(str)
-        print('000---'+ str)
         self.StN = re.compile(r'.*st(\d+).*').match(str).group(1)
-        print('stn---'+self.StN)
         cmatch = re.compile(r'.*c(ase)?\s*(?P<Case>\d+)').match(str)
         if cmatch:
             self.Case = cmatch.group('Case')
@@ -46,7 +44,6 @@ class ZLine:
         zstrls=re.compile(r'\bz\d+.*?,').findall(str)
 
         for zstr in zstrls:
-            print('zstr---',zstr)
             zmatch = re.compile(r'.*z(?P<ZN>\d+)\s+(?P<Motion>\w+)').match(zstr)
             self.ZNs.append(zmatch.group('ZN'))
 
@@ -61,7 +58,6 @@ class ZLine:
         nbstrls=re.compile(r'\bb\d+.*?,').findall(str)
 
         for nbstr in nbstrls:
-            print('nbstr---',nbstr)
             bmatch = re.compile(r'.*b(?P<BN>\d+)\s+(?P<BMotion>\w+)').match(nbstr)
             self.BNs.append(bmatch.group('BN'))
             self.BMotions.append(bmatch.group('BMotion'))
@@ -75,7 +71,6 @@ class ZLine:
     def neg_motion(self, motion):
         dict = {'forward':'backward', 'backward':'forward', 'upward' : 'downward', 'downward' : 'upward',
                 'leftward' : 'rightward', 'rightward': 'leftward', 'open': 'close', 'close': 'open'}
-        print('motion----->'+motion)
         return dict[motion]
     # case 3:
     # if (M_.MaStepEn)
@@ -137,20 +132,26 @@ class ZLine:
                 zpair=['gripper']
                 zpair.append(zouts.search(self.StN, z, self.Motions[i]).Var)
                 zpair.append(zouts.search(self.StN, z, self.neg_motion(self.Motions[i])).Var)
-                zpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ]== ' + self.Case + ');')
+                zpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ] == ' + self.Case + ');')
                 zpairs.append(zpair)
+            i = i + 1
 
-            i = i+1
-
+        i = 0
         for nb in self.BNs:
-            timevar = 'T_St' + self.StN + nbins.search(self.StN,nb).BName
+            timevar = 'T_St' + self.StN + '_B' +nbins.search(self.StN,nb).BN+'_'+ nbins.search(self.StN,nb).BName
             nbpair = ['normal sensor'] #reserved
             nbpair.append('Time('+timevar+')')
             nbpair.append(self.Fehler[i])
 
-            nbpair.append('ISetTimer('+timevar + ', M_.MaRun && Step[SEQ]== ' + self.Case + ');')#remarkremark
-
+            bmotionsymbol = ''
+            fehlerbmotionsymbol = '!'
+            if self.BMotions[i] == 'off':
+                bmotionsymbol = '!'
+                fehlerbmotionsymbol = ''
+            nbpair.append('ISetTimer('+timevar + ', '+bmotionsymbol +nbins.search(self.StN,nb).Var + ' && MaRun && Step[SEQ] == ' + self.Case + ');') #remarkremark
+            nbpair.append(fehlerbmotionsymbol + nbins.search(self.StN,nb).Var)
             nbpairs.append(nbpair)
+            i = i + 1
 
 
 
@@ -190,9 +191,9 @@ class ZLine:
             else:
                 eincond = eincond + nbp[1] + ' &&\n' + '            '
 
-            ainout = ainout + nbp[2] +'\n'
-            einfehler = einfehler + '         if(!' + nbp[1] +') Fehler(PRG1, ErrorNum, ' + nbp[2] + ', 0);\n'
-
+            ainout = ainout + nbp[3] +'\n      '
+            einfehler = einfehler + '         if(' + nbp[4] +') Fehler(PRG1, ErrorNum, ' + nbp[2] + ', 0);\n'
+            i = i+1
 
 
 
