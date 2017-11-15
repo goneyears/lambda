@@ -79,7 +79,6 @@ namespace fehlertranslater
 
             Debug.WriteLine(System.AppDomain.CurrentDomain.BaseDirectory);
 
-            //System.IO.StreamReader fehlerTxt = new System.IO.StreamReader(fehlerPath);
             FileStream fs = new FileStream(fehlerPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             StreamReader fehlerTxt = new StreamReader(fs, System.Text.Encoding.Default);
             System.IO.StreamWriter fehlerunicodeTxt = new System.IO.StreamWriter(fehlerUnicodePath, false, Encoding.GetEncoding("Unicode"));
@@ -90,8 +89,7 @@ namespace fehlertranslater
                 Line line = new Line(fehlerLine, dic);
                 if (line.TransResult == Line.TranslationResult.Partial)
                 {
-                    //string sqlInsert = "insert into UntransDictionary(OriginalField,TranslationField)values(" + "\"" + "@LineOriginalBlock" + "\"" + "," + "\"" + "@LineTranslatedBlock" + "\"" + ")";
-                    string sqlInsert = "insert into UntransDictionary(OriginalField,TranslationField)values(@LineOriginalBlock,@LineTranslatedBlock)";
+                   string sqlInsert = "insert into UntransDictionary(OriginalField,TranslationField)values(@LineOriginalBlock,@LineTranslatedBlock)";
 
                     OleDbCommand comm = new OleDbCommand(sqlInsert, thisConnection);
                     OleDbParameter[] parameters = {
