@@ -100,7 +100,7 @@ namespace fehlertranslater
                                                   };
 
                     parameters[0].Value = line.OriginalBlock;
-                    parameters[1].Value = line.TranslatedBlock.Replace("\r", "");
+                    parameters[1].Value = line.TranslatedBlock.Replace("\r", "").Replace("\n","");
 
                     untranslist.Add(line.TranslatedBlock.Replace("\r", ""));
 
