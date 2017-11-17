@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using Microsoft.Office.Core;
 using System.Reflection;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Text.RegularExpressions;
 
 using System.Data.OleDb; 
 
@@ -36,7 +37,8 @@ namespace fehlertranslater
         int transLines = 0;
         int fehlerLines = 0;
         int untransLines = 0;
-
+              
+        List<string> untranslist= new List<string>();
         #region hide
         public Form1()
         {
@@ -97,8 +99,11 @@ namespace fehlertranslater
                     comm.Parameters.Add(new OleDbParameter("@LineTranslatedBlock", OleDbType.VarChar)),
                                                   };
 
-                    parameters[0].Value = (line.OriginalBlock).ToString();
-                    parameters[1].Value = (line.TranslatedBlock).ToString();
+                    parameters[0].Value = line.OriginalBlock;
+                    parameters[1].Value = line.TranslatedBlock.Replace("\r", "");
+
+                    untranslist.Add(line.TranslatedBlock.Replace("\r", ""));
+
                     comm.ExecuteNonQuery();
 
                     untransLines++;
@@ -310,9 +315,34 @@ namespace fehlertranslater
             }
         }
 
-        private void ImportTranslation_Click(object sender, EventArgs e)
+        private void Simplify_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("untranslines:-----\n");
+            Dictionary<string, int> untranswords = new Dictionary<string, int>();
+            foreach(string lst in untranslist){
+                string lstl = lst.ToLower();
+                Regex rgx = new Regex(@"[\u4E00-\u9FA50-9.]*([a-z -]+)[\u4E00-\u9FA50-9.]*([a-z -]+)?[\u4E00-\u9FA50-9.]*([a-z -]+)?[\u4E00-\u9FA50-9.]*");
+                Match match = rgx.Match(lstl);
+                Debug.WriteLine(match.Groups.Count);
+                Debug.WriteLine(lstl);
+                for (int i = 1; i < match.Groups.Count; i++) {
+                    string s = match.Groups[i].Value;
+                    if (s.Replace(" ","") != "") {
+                        string str = Regex.Replace(s, @"(^\s*)|(\s*$)", "");
+                        if(!untranswords.ContainsKey(str)){
+                            untranswords.Add(str,1);
+                        }
+                        else {
+                            untranswords[str] = untranswords[str] + 1;
+                        }
+                    }
+                }
+            }
 
+            Dictionary<string, int> sorteddic = untranswords.OrderByDescending(p => p.Value).ToDictionary(p => p.Key, o => o.Value);
+            foreach (KeyValuePair<string, int> kp in sorteddic) {
+                Debug.WriteLine(kp.Key + "\t" + kp.Value);
+            }
         }
 
   
@@ -353,6 +383,20 @@ namespace fehlertranslater
 
         private void UntransDicGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string str1 = "   站8turn table can 没有turn to 位this 位    ";
+            string str2 = "站8turn table can 没有be locked";
+            string str3 = "站8turn table can 没有位";
+            Regex rgx = new Regex(@"[\u4E00-\u9FA50-9]*([a-z ]+)[\u4E00-\u9FA50-9]*([a-z ]+)?[\u4E00-\u9FA50-9]*([a-z ]+)?[\u4E00-\u9FA50-9]*");
+            Match match = rgx.Match(str1);
+
+            string str = Regex.Replace(str1, @"(^\s*)|(\s*$)", "");
+            Debug.WriteLine(str);
+            
 
         }
 

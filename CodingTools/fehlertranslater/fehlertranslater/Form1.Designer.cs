@@ -39,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ImportTranslation = new System.Windows.Forms.Button();
+            this.Simplify = new System.Windows.Forms.Button();
             this.FehlerSelectBtn = new System.Windows.Forms.Button();
             this.FehlerUnicodeBtn = new System.Windows.Forms.Button();
             this.FehlerPathBox = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.NewDicGrid = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.UntransDicGrid = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BasicDicGrid)).BeginInit();
@@ -162,15 +163,15 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Untranslated Lines:";
             // 
-            // ImportTranslation
+            // Simplify
             // 
-            this.ImportTranslation.Location = new System.Drawing.Point(6, 373);
-            this.ImportTranslation.Name = "ImportTranslation";
-            this.ImportTranslation.Size = new System.Drawing.Size(100, 35);
-            this.ImportTranslation.TabIndex = 18;
-            this.ImportTranslation.Text = "Import";
-            this.ImportTranslation.UseVisualStyleBackColor = true;
-            this.ImportTranslation.Click += new System.EventHandler(this.ImportTranslation_Click);
+            this.Simplify.Location = new System.Drawing.Point(6, 373);
+            this.Simplify.Name = "Simplify";
+            this.Simplify.Size = new System.Drawing.Size(100, 35);
+            this.Simplify.TabIndex = 18;
+            this.Simplify.Text = "Simplify";
+            this.Simplify.UseVisualStyleBackColor = true;
+            this.Simplify.Click += new System.EventHandler(this.Simplify_Click);
             // 
             // FehlerSelectBtn
             // 
@@ -267,7 +268,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.UntransDicGrid);
-            this.tabPage3.Controls.Add(this.ImportTranslation);
+            this.tabPage3.Controls.Add(this.Simplify);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -287,11 +288,22 @@
             this.UntransDicGrid.TabIndex = 0;
             this.UntransDicGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UntransDicGrid_CellContentClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(163, 292);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 36);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 545);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.FehlerUnicodePathBox);
             this.Controls.Add(this.FehlerPathBox);
@@ -334,7 +346,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button ImportTranslation;
+        private System.Windows.Forms.Button Simplify;
         private System.Windows.Forms.Button FehlerSelectBtn;
         private System.Windows.Forms.Button FehlerUnicodeBtn;
         private System.Windows.Forms.TextBox FehlerPathBox;
@@ -346,6 +358,7 @@
         private System.Windows.Forms.DataGridView BasicDicGrid;
         private System.Windows.Forms.DataGridView NewDicGrid;
         private System.Windows.Forms.DataGridView UntransDicGrid;
+        private System.Windows.Forms.Button button1;
 
     }
 }
