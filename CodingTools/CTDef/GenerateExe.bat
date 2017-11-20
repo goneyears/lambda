@@ -1,0 +1,1 @@
+C:\ProgramData\Anaconda3\Scripts\pyinstaller.exe -F -w D:\PerDocs\personal\syncfiles\lambda\CodingTools\CTDef\Main.py
