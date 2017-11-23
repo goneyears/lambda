@@ -1,0 +1,96 @@
+def sensor:
+    s:stn
+    b:bn
+    c:cn
+    f:fn
+    name: nme
+    m: m1, m2 //default without m-start
+    b: m1on, m2on
+
+    statement:
+
+    m1==01-----------------------------------------------------
+	case $cn:
+		if (M_.MaStepEn)
+		{
+            if (!M.St$stn_01_B$bn_alternation)
+            {
+                M.St$stn_01_B$bn_alternation = true;
+                Step[SEQ] ++;
+            }
+
+			else
+			{
+				Step[SEQ] ++;
+			}
+		}
+
+		//Reset
+		if (M_.Quit)
+		{
+			M.St$stn_01_B$bn_alternation = false;
+		}
+
+		//Assign errors
+		if (M_Error_Search)
+		{
+			if (M.St$stn_01_B$bn_alternation)			Fehler(PRG1,ErrorNum,$fn,0);
+		}
+	break;
+
+	m1==in-----------------------------------------------------
+		case $cn:
+		if (M_.MaRun)
+		{
+			if (Time(T_St$stn_B$bn_WT_checking)
+			||   M_.St$stn_without_material) // Time to check if article type correct or not?
+			{
+				RC_SENSOR_1 = 0;
+				Step[SEQ] =80;
+			}
+
+			if (Time(T_St$stn_check_max)) // max. check time (about 300 ms)
+			{
+				if (!Time(T_St$stn_B$bn_WT_checking))
+				{
+					// Set Regisiter for Reject Block
+					SetRegister(RegisterNum, 0, (Reject_Value));
+					// Checking Faults
+					MaDatum[MaPart1].Index_22.Prueffehler[CF_SENSOR_1]++;
+					// Reject Counter
+					RC_SENSOR_1++;
+				}
+				Step[SEQ] =80;
+			}
+		}
+
+		// Assign timers
+			ISetTimer(T_St$stn_B$bn_WT_checking, !E_St$stn_B$bn_WT_checking && (Step[SEQ] == $cn));
+		    ISetTimer(T_St$stn_check_max, (Step[SEQ] == $cn) && M_.MaRun);
+	break;
+
+
+    case 80: // 3x reject
+		if (M_.MaRun)
+		{
+			if (RC_SENSOR_1 < Reject_Counts_Setting)
+			{
+				//SetRegister(RegisterNum, 0,0);
+				Step[SEQ]=0;
+				DriveUnit[DriveUnitNum].Start[SEQ] = false;
+			}
+		}
+
+		if (M_.Quit)
+		{
+			RC_SENSOR_1 = 0;
+			Step[SEQ] =0;
+			DriveUnit[DriveUnitNum].Start[SEQ] = false;
+		}
+
+        //Assign Errors
+        if (M_Error_Search)
+        {
+			if (RC_SENSOR_1 >= Reject_Counts_Setting) Fehler(PRG1,ErrorNum,2,0);
+        }
+    break;

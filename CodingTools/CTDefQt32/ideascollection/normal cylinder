@@ -1,0 +1,40 @@
+def presser:
+    z:zn
+    s:stn
+    c:cn
+    f:fn
+    name: nme
+    m: m1, m2 //default without m-start
+    b: m1on, m2on
+    statement:
+    m1:
+	case $cn:
+		if (M_.MaStepEn)
+		{
+			if(Time(T_$stn_$nme))
+			{
+				Step[SEQ] ++;
+			}
+		}
+		//Main Air Off
+		MainAir[MainAirValve] = false;
+
+		//Assign timers
+		ISetTimer(T_$stn_$nme,$m1on && !$m2on && (Step[SEQ] == $cn));
+		//Assign outputs
+
+		A.$stn_Y$zn_2_$name_$m2			        = false;
+		A.$stn_Y$zn_4_$name_$m1			        = true;
+
+		//Assign errors
+		if (M_Error_Search)
+		{
+
+			if (!E_$stn_B$zn_4_$name_$m1 || E_$stn_B$zn_2_$name_$m2$ )	Fehler(PRG1,ErrorNum,$fn,0);
+		}
+	break;
+    m2:
+
+def st023 z1: name: type: presser
+st023 z1 mup c1 f2
+

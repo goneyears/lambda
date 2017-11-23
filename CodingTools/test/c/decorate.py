@@ -28,4 +28,13 @@ def fib(n):
 
 # fib = memorize(fib)
 # print(fib(202))
-fib(202)
+#fib(202)
+
+# def mtest(f):
+#     return f
+#
+# def fun(x):
+#     return x+1
+#
+# print('mtest:')
+# print(mtest(fun)(2))
