@@ -121,6 +121,10 @@ void MachineProcess2();
 #endif    
 
 // TODO: Headerdateien der Baugruppen einfügen!
+#include "St01_housing_separate.h"
+#include "St02_MBKKB25_Metal_Parts_Checking.h"
+#include "St03_MBK3_Metal_Parts_Checking.h"
+#include"St04_Screw_Insert.h"
 //#include "St08_Screw_Test.h"
 //#include "St09_Screw_Test.h"
 //#include "St10_Screw_Test.h"
@@ -430,36 +434,39 @@ void Input(void)
 	E_St4_B1_4_screw_insert_unit_driver_in_front   = Eing(A59,6);
 	E_St4_B1_2_screw_insert_unit_driver_back       = Eing(A59,7);
 // **************************************
-// -A108- /FLM IB M8 DIO 4/4 (US3/US3)
+// -A108- /FLM IB M8 DIO 8/4 (US3/US3)
 // **************************************
-	//E_St3_B1_Artikel_in_Position                    = Eing(A108,0);
-	//E_St3_B2_Rinne_leer                             = Eing(A108,1);
-	//E_St3_B3_Rinne_voll                             = Eing(A108,2);
-	//E_St3_B5_Platine_vorhanden                      = Eing(A108,3);
+	E_St4_B2_screw_in_seperate_pos                 = Eing(A108,0);
+	E_St4_B3_screw_channel_full					   = Eing(A108,1);
+	E_St7_B1_screw_in_pos						   = Eing(A108,2);
+	E_St6_B2_screw_in_pos						   = Eing(A108,3);
+	E_St5_B2_screw_in_pos                          = Eing(A108,4);
+	E_St4_B1_screw_in_pos                          = Eing(A108,5);
+
 
 // **************************************
 // -A109- /FLM IB M8 DIO 4/4 (US3/US3)
 // **************************************
-	//E_St3_B1_Artikel_in_Position                    = Eing(A109,0);
-	//E_St3_B2_Rinne_leer                             = Eing(A109,1);
-	//E_St3_B3_Rinne_voll                             = Eing(A109,2);
-	//E_St3_B5_Platine_vorhanden                      = Eing(A109,3);
+	E_St7_B2_screw_in_seperate_pos                 = Eing(A109,0);
+	E_St7_B3_screw_channel_full                    = Eing(A109,1);
+	//E_St3_B3_Rinne_voll                          = Eing(A109,2);
+	//E_St3_B5_Platine_vorhanden                   = Eing(A109,3);
 
 // **************************************
 // -A110- /FLM IB M8 DIO 4/4 (US3/US3)
 // **************************************
-	//E_St3_B1_Artikel_in_Position                    = Eing(A110,0);
-	//E_St3_B2_Rinne_leer                             = Eing(A110,1);
-	//E_St3_B3_Rinne_voll                             = Eing(A110,2);
-	//E_St3_B5_Platine_vorhanden                      = Eing(A110,3);
+	E_St1_B1_MBK3_houisng_in_pos                    = Eing(A110,0);
+	E_St1_B2_MBKKB25_houisng_in_pos                 = Eing(A110,1);
+	//E_St2_B1_clamp_sleeve_in_position             = Eing(A110,2);
+	E_St2_B1_clamp_sleeve_in_position               = Eing(A110,3);
 
 // **************************************
 // -A111- /FLM IB M8 DIO 4/4 (US3/US3)
 // **************************************
-	//E_St3_B1_Artikel_in_Position                    = Eing(A111,0);
-	//E_St3_B2_Rinne_leer                             = Eing(A111,1);
-	//E_St3_B3_Rinne_voll                             = Eing(A111,2);
-	//E_St3_B5_Platine_vorhanden                      = Eing(A111,3);
+	E_St2_B2_Small_current_bar_in_position           = Eing(A111,0);
+	E_St2_B3_clamp_sleeve_in_position                = Eing(A111,1);
+	E_St2_B4_clamp_sleeve_in_position                = Eing(A111,2);
+	E_St2_B5_Big_current_bar_in_position             = Eing(A111,3);
 
 // **************************************
 // -A112- /FLM IB M8 DI8
@@ -468,17 +475,17 @@ void Input(void)
 	//E_St3_B2_Rinne_leer                             = Eing(A112,1);
 	//E_St3_B3_Rinne_voll                             = Eing(A112,2);
 	//E_St3_B5_Platine_vorhanden                      = Eing(A112,3);
-	//E_St3_B1_Artikel_in_Position                    = Eing(A112,4);
-	//E_St3_B2_Rinne_leer                             = Eing(A112,5);
-	//E_St3_B3_Rinne_voll                             = Eing(A112,6);
-	//E_St3_B5_Platine_vorhanden                      = Eing(A112,7);
+	E_St2_B6_clamp_sleeve_in_position                 = Eing(A112,4);
+	E_St3_B3_clamp_sleeve_in_position                 = Eing(A112,5);
+	E_St3_B1_Small_current_bar_in_position            = Eing(A112,6);
+	E_St3_B2_clamp_sleeve_in_position                 = Eing(A112,7);
 
 // **************************************
 // -A113- /FLM IB M8 DIO 4/4 (US3/US3)
 // **************************************
-	//E_St3_B1_Artikel_in_Position                    = Eing(A113,0);
-	//E_St3_B2_Rinne_leer                             = Eing(A113,1);
-	//E_St3_B3_Rinne_voll                             = Eing(A113,2);
+	E_St201_B1_houisng_pin_in_pos                     = Eing(A113,0);
+	E_St201_B2_houisng_pin_in_pos                     = Eing(A113,1);
+	E_St201_B3_houisng_pin_in_pos                     = Eing(A113,2);
 	//E_St3_B5_Platine_vorhanden                      = Eing(A113,3);
 
 // **************************************
@@ -488,9 +495,9 @@ void Input(void)
 	E_St201_B4_2_houisng_pin_driver_back			  = Eing(A114,1);
 	E_St201_B2_4_houisng_pin_driver_in_front          = Eing(A114,2);
 	E_St201_B2_2_houisng_pin_driver_back              = Eing(A114,3);
-	//E_St3_B1_Artikel_in_Position                    = Eing(A114,4);
-	//E_St3_B2_Rinne_leer                             = Eing(A114,5);
-	//E_St3_B3_Rinne_voll                             = Eing(A114,6);
+	E_St5_B1_screw_insert_unit_in_pos                 = Eing(A114,4);
+	E_St6_B1_screw_insert_unit_in_pos                 = Eing(A114,5);
+	E_St13_B1_article_in_pos                          = Eing(A114,6);
 	//E_St3_B5_Platine_vorhanden                      = Eing(A114,7);
 
 // **************************************
@@ -944,11 +951,11 @@ else
 #endif
     
  // ******************************
- // -A195- /IB IL 24 DO/4  (US3)
+ // -A191- /IB IL 24 DO/4  (US3)
  // ******************************
-    SetAusg(A195,0,A_St301_A1_FlexLink_Enable);         // +301-A1/K15	enable Flex Link conveyor belt	(Freig. Umlauffoerderband)   
-	SetAusg(A195,1,A_St201_M2_Enable_WPC_accelerator);  // +201-M2/K1
-	SetAusg(A195,2,A_St201_M3_Enable_WPC_accelerator);  // +201-M3/K1
+    SetAusg(A191,0,A_St301_A1_FlexLink_Enable);         // +301-A1/K15	enable Flex Link conveyor belt	(Freig. Umlauffoerderband)   
+	//SetAusg(A195,1,A_St201_M2_Enable_WPC_accelerator);  // +201-M2/K1
+	//SetAusg(A195,2,A_St201_M3_Enable_WPC_accelerator);  // +201-M3/K1
 //	SetAusg(A195,3,frei);
 
 // ******************************
@@ -1133,17 +1140,41 @@ void  Stations_Process(void)
 // TODO: Stationsaufrufe eintragen!
 // ************************************
 
-//St3_Zufuehren_Einsetzen_Kontaktblock    ( K_St3_Zufuehren_Einsetzen_Kontaktblock	// sequencer									// Schrittkette
-//										, 30										// Start Error number for this funktion			// Start des Fehlerbereichs für diese Funktion
-//										, 40										// Start Error number for this funktion			// Start des Fehlerbereichs für diese Funktion
-//										, 1     									// MainAir should be switched off by Error		// Ventilinsel die bei Stoerung ausgeschaltet werden soll
-//										, DriveUnit1								// Drive Unit number							// DriveUnitNum
-//										, 3  										// Station Number for BDE						// StationsNr von BDE
-//										, false										// setup phase conveyors and StandBy are deactivated	// Einrichtphase Foerdergeraete und StandBy werden deaktiviert
-//																					// 01_alternation and part in position are ignored		// 01-Wechsel und Teil in Position werden ignoriert
-//										);
+St1_housing_separate				( K_St1_Housing_Separating		// Sequence
+									, 10							// Start of error range of this function
+									, 1								// Valve terminal is to be switched off in case of failure
+									, DriveUnit1					// DriveUnitNum
+									, 1								// Station number of BDE
+									, 1								// Register of the station
+									, false							// Setup phase conveyors and StandBy are deactivated
+									);
 
+St2_MBKKB25_Metal_Parts_Checking	( K_St2_MBKKB25_Metal_Parts_Checking // Sequence
+									, 30								 // Start of error range of this function
+									, 1									 // Valve terminal is to be switched off in case of failure
+									, DriveUnit1						 // DriveUnitNum
+									, 2									 // Station number of BDE
+									, 2									 // Register of the station
+									, false								 // Setup phase conveyors and StandBy are deactivated
+									);
 
+St3_MBK3_Metal_Parts_Checking		( K_St3_MBK3_Metal_Parts_Checking // Sequence
+									, 60								 // Start of error range of this function
+									, 1									 // Valve terminal is to be switched off in case of failure
+									, DriveUnit1						 // DriveUnitNum
+									, 3									 // Station number of BDE
+									, 3									 // Register of the station
+									, false								 // Setup phase conveyors and StandBy are deactivated
+									);
+
+St4_screw_insert					( K_St4_Screw_insert				// Sequence
+									, 80								// Start of error range of this function
+									, 5 								// Valve terminal is to be switched off in case of failure
+									, DriveUnit1						// DriveUnitNum
+									, 5									// Station number of BDE
+									, 5									// Register of the station
+									, false								// Setup phase conveyors and StandBy are deactivated
+									);
 
 #ifdef HVPruefung_vorhanden		
 		//************add by Pan Hongxiang 2015,05,27**************
@@ -1586,10 +1617,25 @@ void ArticleData(void)
 //------------------------- Parameter  0 --------------------------
 //-------------------- Anzahl Gehaeuse im Nest --------------------
 
-	DriveUnit[DriveUnit1].NumberOfHousings = 1;
+//	DriveUnit[DriveUnit1].NumberOfHousings = 1;
 
-	if (MW_ArtikelTyp.Parameter[0] == 2) 
-		DriveUnit[DriveUnit1].NumberOfHousings = 2;
+	if (MW_ArtikelTyp.Parameter[0] == 2)  
+	{
+		M_.MBKKB25 =true;
+	}
+	else
+	{
+		M_.MBKKB25 =false;
+	}
+
+	if (MW_ArtikelTyp.Parameter[0] == 3)  
+	{
+		M_.MBK3 =true;
+	}
+	else
+	{
+		M_.MBK3 =false;
+	}
 
 //------------------------- Parameter  1 --------------------------
 //------------------------- xxxxxxxxxxxx ---------------------------

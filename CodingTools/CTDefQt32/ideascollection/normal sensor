@@ -94,3 +94,16 @@ def sensor:
 			if (RC_SENSOR_1 >= Reject_Counts_Setting) Fehler(PRG1,ErrorNum,2,0);
         }
     break;
+
+(define (sensor xxx)
+    (define (dispatch parameter-list)
+        (cond ((eq? parameter-list c3) (c = 3))
+              ((eq? parameter-list f2) (f = 2))
+              ((eq? parameter-list statement)
+                    (analyze statement)))
+    dispatch
+    )
+)
+
+(define st1-b1 (sensor station sensor))
+(st1-b1 'c3 'upward 'f2)
