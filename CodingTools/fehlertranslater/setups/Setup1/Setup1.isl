@@ -343,7 +343,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{31DF74C7-B18E-4B59-A485-40146EF05020}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{CC5E4F7A-21E3-47DC-9092-B40CA81F8F5C}</td><td>PXC</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{20573086-0FEF-429F-A3BB-7DE3F629D7EA}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>fehlertranslater.Primary_output</td><td>{7EB5CA19-05FA-485A-9466-C5961AF40F98}</td><td>INSTALLDIR</td><td>2</td><td/><td>fehlertranslater.primary_out</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>fehlertranslater.Primary_output</td><td>{D5B23986-F2DF-491D-B74D-6D7D25315A6A}</td><td>INSTALLDIR</td><td>2</td><td/><td>fehlertranslater.primary_out</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1887,11 +1887,11 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>config.ini2</td><td>ISX_DEFAULTCOMPONENT1</td><td>config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>E:\Docs\Dropbox\Rainbow\Projecs\projects\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\config.ini</td><td>1</td><td/></row>
-		<row><td>dictionary.accdb2</td><td>ISX_DEFAULTCOMPONENT1</td><td>DICTIO~1.ACC|dictionary.accdb</td><td>0</td><td/><td/><td/><td>1</td><td>E:\Docs\Dropbox\Rainbow\Projecs\projects\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\dictionary.accdb</td><td>1</td><td/></row>
-		<row><td>fehler.txt2</td><td>ISX_DEFAULTCOMPONENT1</td><td>Fehler.txt</td><td>0</td><td/><td/><td/><td>1</td><td>E:\Docs\Dropbox\Rainbow\Projecs\projects\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\Fehler.txt</td><td>1</td><td/></row>
+		<row><td>config.ini</td><td>ISX_DEFAULTCOMPONENT1</td><td>config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\config.ini</td><td>1</td><td/></row>
+		<row><td>dictionary.accdb</td><td>ISX_DEFAULTCOMPONENT1</td><td>DICTIO~1.ACC|dictionary.accdb</td><td>0</td><td/><td/><td/><td>1</td><td>D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\dictionary.accdb</td><td>1</td><td/></row>
+		<row><td>fehler.txt</td><td>ISX_DEFAULTCOMPONENT1</td><td>Fehler.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\Fehler.txt</td><td>1</td><td/></row>
 		<row><td>fehlertranslater.primary_out</td><td>fehlertranslater.Primary_output</td><td>fehlertranslater.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;fehlertranslater&gt;|Built</td><td>3</td><td/></row>
-		<row><td>fehlerunicode.txt2</td><td>ISX_DEFAULTCOMPONENT1</td><td>FEHLER~1.TXT|fehlerunicode.txt</td><td>0</td><td/><td/><td/><td>1</td><td>E:\Docs\Dropbox\Rainbow\Projecs\projects\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\fehlerunicode.txt</td><td>1</td><td/></row>
+		<row><td>fehlerunicode.txt</td><td>ISX_DEFAULTCOMPONENT1</td><td>FEHLER~1.TXT|fehlerunicode.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\fehlerunicode.txt</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2039,7 +2039,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_BC6B21CC_60F0_4B19_A9A1_0B49FD6C2910_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_EEBF59EF_105D_460D_8BF2_20CE21394135_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NewComponent1</td><td/><td/><td>_18B984D0_D6B7_4117_9FC9_9D892254F53D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>fehlertranslater.Primary_output</td><td/><td/><td>_C7749FA7_BFE7_4C7C_B7D2_80B01269183B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>fehlertranslater.Primary_output</td><td/><td/><td>_93D1870D_B73F_42A2_91BE_2A1C078B2F2B_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2651,7 +2651,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>PXC</td><td>0</td><td/><td>1487248620</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>PXC</td><td>0</td><td/><td>-576343505</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>816167500</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>816167500</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>816172140</td></row>
@@ -3756,8 +3756,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>816167500</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>816167500</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>816167500</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.PXC.com</td><td>0</td><td/><td>1487248620</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>PXC</td><td>0</td><td/><td>1487248620</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.PXC.com</td><td>0</td><td/><td>-576343505</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>PXC</td><td>0</td><td/><td>-576343505</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>NEWSHO~1|NewShortcut1</td><td>0</td><td/><td>816174060</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td/><td>0</td><td/><td>1353018348</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>1353038860</td></row>
@@ -4009,7 +4009,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{4F845B69-43B1-4E7B-B4D9-B4131D57F7B6}</td></row>
 		<row><td>ISUSSignature</td><td>{A2F5CD16-1724-47DD-8049-000BFC7090E4}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewShortcuts,viewUI,viewObjects,viewISToday,viewAppFiles,viewFeatureFiles,viewDependencies,viewRealSetupDesign,viewAppV,viewLearnMore</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewShortcuts,viewUI,viewObjects,viewISToday,viewAppFiles,viewFeatureFiles,viewDependencies,viewRealSetupDesign,viewAppV,viewLearnMore,viewUpgradePaths</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>

@@ -4,6 +4,7 @@ import MainDesign
 import re
 from zline import *
 from spsfile import *
+from spshelper import *
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
@@ -40,14 +41,28 @@ def update_button_click():
             write_displaybox('\n')
         else:
             write_displaybox(ln+ '--->format needs to be like this:[cx] s[t]x zx action [fx] or [cx] stx bx on/off [fx]\n')
-def test():
-    pass
+
+
+def online_insert_button_click():
+    varstrs = read_editbox().strip('\r\n')
+    varstrlines = re.split('\n', varstrs)
+    print(varstrlines)
+    for ln in varstrlines:
+        print(ln)
+        try:
+            write_displaybox(insertonlinevardef(ln.strip()))
+        except:
+            write_displaybox(ln.strip()+' can not be inserted')
+
+
+
 if __name__ =='__main__':
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
     ui = MainDesign.Ui_MainWindow()
     ui.setupUi(MainWindow)
     ui.updateButton.clicked.connect(update_button_click)
+    ui.onlineInsertButton.clicked.connect(online_insert_button_click)
     MainWindow.show()
 
     sps_h_file = SpsFile('sps.h')

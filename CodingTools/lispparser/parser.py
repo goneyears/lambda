@@ -128,8 +128,8 @@ class Procedure(object):
         self.parms, self.body, self.env = parms, body, env
     def __call__(self, *args):
         return eval(self.body, Env(self.parms, args, self.env))
-
-
+        # the lambda is just apply the environment(parms,args) to lambda's body
+        # so eval(body, (parms and args))
 ################ eval
 
 
@@ -158,7 +158,7 @@ def eval(x, env=global_env):
     elif x[0] == 'lambda':         # (lambda (var...) body)
         print('lambda')
         (_, parms, body) = x
-        return Procedure(parms, body, env)
+        return Procedure(parms, body, env) #initial procedure, create an env
     else:                          # (proc arg...)
         proc = eval(x[0], env)
         args = [eval(exp, env) for exp in x[1:]]
@@ -166,6 +166,8 @@ def eval(x, env=global_env):
 
 
 
-print(eval(parse("(define zdddddddddddddddddd 1)")))
+#print(eval(parse("(define zdddddddddddddddddd 1)")))
 # l=read_from_tokens(tokenize('(int (list (x 1)))'))
 # print(l)
+
+print(eval([op.add, 1, 'r'], Env(['r'], [1], global_env)))

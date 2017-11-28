@@ -101,3 +101,13 @@ D:\PerDocs\personal\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Deb
 D:\PerDocs\personal\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.Form1.resources
 D:\PerDocs\personal\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.Properties.Resources.resources
 D:\PerDocs\personal\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.csproj.GenerateResource.Cache
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\fehlertranslater.exe.config
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\fehlertranslater.exe
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\bin\Debug\fehlertranslater.pdb
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.csproj.ResolveComReference.cache
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.Form1.resources
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.Properties.Resources.resources
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.csproj.GenerateResource.Cache
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.exe
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.pdb
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\fehlertranslater\fehlertranslater\obj\Debug\fehlertranslater.csprojResolveAssemblyReference.cache
