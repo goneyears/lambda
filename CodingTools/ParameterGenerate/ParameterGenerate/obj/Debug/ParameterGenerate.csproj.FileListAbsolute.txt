@@ -75,3 +75,6 @@ D:\PerDocs\personal\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\D
 D:\PerDocs\personal\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\Debug\ParameterGenerate.csproj.GenerateResource.Cache
 D:\PerDocs\personal\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\Debug\ParameterGenerate.exe
 D:\PerDocs\personal\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\Debug\ParameterGenerate.pdb
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\ParameterGenerate\ParameterGenerate\bin\Debug\ParameterGenerate.exe.config
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\Debug\ParameterGenerate.exe
+D:\PerDocs\personal\syncfiles\lambda\CodingTools\ParameterGenerate\ParameterGenerate\obj\Debug\ParameterGenerate.pdb

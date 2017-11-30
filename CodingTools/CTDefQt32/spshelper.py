@@ -21,11 +21,13 @@ def getlinenumber(filename, regstr):
 
 def getvartype(filename, varname):
     flines = filetolines(filename)
-    pattern = re.compile('^\s*(bool|BYTE|int|WORD|LONG|float|double)\s+(\w+)')
+    pattern = re.compile('^\s*(bool|BYTE|int|WORD|LONG|float|double)\s+(\w+(\[\d+\])?)')
     for index,ln in enumerate(flines):
         match = pattern.match(ln)
         if match:
+            print(match.group(2))
             if match.group(2)==varname:
+                print('match')
                 print(ln)
                 print(varname)
                 return match.group(1)
@@ -48,13 +50,17 @@ def filetolines(filename):
     f.close()
     return flines
 
-def insertonlinevardef(varstr):
+def insertonlinevardef(var):
+    match = re.compile('^(M_\.|M\.)?(.*)').match(var)
+
+    classtr = match.group(1)
+    varstr = match.group(2)
     tp = getvartype('spsvar.h',varstr)
     if tp:
         tpnumber = typetonumber(tp)
     if tpnumber:
         ln = getlinenumber('spsvar.h', r'^\s*OnlineVarEintragen\("')
-        insertlinetofile('spsvar.h',ln,r'    OnlineVarEintragen("'+varstr+'",'+str(tpnumber)+', &'+varstr+r');')
+        insertlinetofile('spsvar.h',ln,r'    OnlineVarEintragen("'+var+'",'+str(tpnumber)+', &'+var+r');')
         return "complete!"
     return "variable not found"
 

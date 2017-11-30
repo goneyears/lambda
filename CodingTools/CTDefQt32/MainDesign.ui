@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>883</width>
+    <width>974</width>
     <height>596</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="updateButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>360</x>
       <y>250</y>
       <width>81</width>
       <height>51</height>
@@ -32,8 +32,8 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>251</width>
-      <height>531</height>
+      <width>341</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="font">
@@ -53,10 +53,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QTextEdit" name="displaybox">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>450</x>
       <y>20</y>
-      <width>501</width>
-      <height>531</height>
+      <width>511</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="font">
@@ -72,9 +72,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="onlineInsertButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>360</x>
       <y>180</y>
-      <width>75</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
@@ -88,7 +88,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>883</width>
+     <width>974</width>
      <height>21</height>
     </rect>
    </property>

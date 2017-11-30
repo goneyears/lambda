@@ -1821,6 +1821,9 @@ newnddddddlddddineline2
 	OnlineVarStationEinAus("Station  48 On									",1,&M.StationEin[MaPart1][28]);
 
 	// DriveUnit 1
+    OnlineVarEintragen("M.ArticleType_MBK2p5",1, &M.ArticleType_MBK2p5);
+    OnlineVarEintragen("M.ArticleType_MBK2p5",1, &M.ArticleType_MBK2p5);
+    OnlineVarEintragen("Sollpositionswert[20]",8, &Sollpositionswert[20]);
     OnlineVarEintragen("St1_Y1_4_housing_stopper_downward",1, &St1_Y1_4_housing_stopper_downward);
 	OnlineVarEintragen("----- DriveUnit 1 - AXIS 1 - STATION 201 -------------",1,&ANZEIGE);
 	OnlineVarEintragen("DriveUnit 1 - Start[St. 1]							",1,&DriveUnit[DriveUnit1].Start[K_St001_Housing_Separating]);
