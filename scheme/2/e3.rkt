@@ -24,26 +24,28 @@
   (cond ((= n 0) '())
         (else (iter (list (car olist)) 1))))
 
+(define us-coins (list 50 25 10 5 1))
+(define uk-coins (list 100 50 20 10 5 2 1 0.5))
 
-(define (reverse lst)
-  (if (null? lst)
-      lst
-      (cons (last lst) (reverse (pre-list lst (- (length lst) 1))))))
+(define (no-more? lst)
+  (null? lst))
 
-(define (even lst)
-  (cond ((null? lst) '())
-        ((= (length lst) 1) '())          
-        (else (cons (cadr lst) (even (cddr lst))))))
-(define (odd lst)
-  (cond ((null? lst) '())
-        ((= (length lst) 1) lst)
-        (else (cons (car lst) (odd (cddr lst))))))
-  
-(define lst1 (list 1 2 3 4))
-(define lst2 (list 5 6 7))
-(define lst3 (append lst1 lst2))
-(reverse lst3)
-(even lst3)
-(odd lst3)
-(display '-------------)
-(cons 3 4)
+(define (first-denomination coins-list)
+  (car coins-list))
+
+(define (except-first-denomination coins-list)
+ (cdr coins-list))
+
+(define (cc amount coin-values)
+  (cond ((= amount 0) 1)
+        ((or (< amount 0) (no-more? coin-values)) 0)
+        (else
+         (+ (cc amount
+                (except-first-denomination coin-values))
+            (cc (- amount
+                   (first-denomination coin-values))
+                coin-values)))))
+
+(cc 100 us-coins)
+
+
