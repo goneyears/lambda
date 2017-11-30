@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="FButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>890</y>
+      <x>910</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -52,10 +52,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>670</y>
-      <width>150</width>
-      <height>150</height>
+      <x>60</x>
+      <y>680</y>
+      <width>135</width>
+      <height>135</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -71,8 +71,8 @@
    <widget class="QPushButton" name="LButton">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>890</y>
+      <x>1050</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -90,8 +90,8 @@
    <widget class="QPushButton" name="RButton">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>890</y>
+      <x>1190</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -109,8 +109,8 @@
    <widget class="QPushButton" name="LBracketButton">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>890</y>
+      <x>1330</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -128,8 +128,8 @@
    <widget class="QPushButton" name="RBracketButton">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>890</y>
+      <x>1470</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -261,8 +261,8 @@
    <widget class="QPushButton" name="RunButton">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>890</y>
+      <x>1680</x>
+      <y>1030</y>
       <width>131</width>
       <height>111</height>
      </rect>
@@ -272,6 +272,9 @@
       <family>Consolas</family>
       <pointsize>22</pointsize>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>RUN</string>
@@ -296,7 +299,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -318,7 +321,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -340,7 +343,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -362,7 +365,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
@@ -384,7 +387,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -406,7 +409,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">
@@ -428,7 +431,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_13">
@@ -450,7 +453,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
@@ -472,7 +475,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
@@ -494,7 +497,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_16">
@@ -516,7 +519,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_17">
@@ -538,7 +541,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_18">
@@ -560,7 +563,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_19">
@@ -582,7 +585,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_20">
@@ -604,7 +607,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_21">
@@ -626,7 +629,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_22">
@@ -648,7 +651,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_23">
@@ -670,7 +673,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_24">
@@ -692,7 +695,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_25">
@@ -714,7 +717,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_26">
@@ -736,7 +739,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -758,7 +761,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -780,7 +783,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -802,7 +805,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -824,7 +827,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/background.png</pixmap>
+     <pixmap>down.png</pixmap>
     </property>
    </widget>
    <zorder>FButton</zorder>
@@ -840,10 +843,6 @@
    <zorder>N2Button</zorder>
    <zorder>BackspaceButton</zorder>
    <zorder>RunButton</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_5</zorder>
    <zorder>label_5</zorder>
    <zorder>label_4</zorder>
    <zorder>label_3</zorder>
@@ -877,7 +876,7 @@
      <x>0</x>
      <y>0</y>
      <width>2053</width>
-     <height>21</height>
+     <height>38</height>
     </rect>
    </property>
   </widget>
