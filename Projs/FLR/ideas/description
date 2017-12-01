@@ -12,5 +12,10 @@ B(1)
 
 ---------
 
-IF(SL)B(1)L(1)
-WHILE(SL)F(1)
+IF(SL){B(1)L(1)}
+WHILE(RUN)(F(1)P(1))
+
+---------
+
+
+WHILE(SL){F(1)IF(SL){L(1)F(1)}}

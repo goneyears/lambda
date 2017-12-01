@@ -7,8 +7,6 @@ def tokenize(s):
     return r
 
 
-
-
 def read_from_tokens(tokens):
     L = []
     def read_helper(tokens):
