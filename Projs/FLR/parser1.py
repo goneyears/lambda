@@ -1,4 +1,4 @@
-
+import re
 
 def tokenize(s):
     r = s.replace(')',')\n').split('\n')
@@ -8,6 +8,7 @@ def tokenize(s):
 
 
 def read_from_tokens(tokens):
+
     L = []
     def read_helper(tokens):
         if len(tokens)>0:
@@ -24,3 +25,14 @@ def read_from_tokens(tokens):
     return L
 
 
+def lispregulize(s):
+    pattern = re.compile(r'[A-Z]+\([A-Z0-9]+\)')
+    for m in pattern.finditer(s):
+        print(m.group())
+
+
+str = 'IF[S(L)][B(1)L(1)]'
+mstr = '[' + str + '['
+# t = tokenize(str)
+# print(read_from_tokens(t))
+lispregulize(str)
