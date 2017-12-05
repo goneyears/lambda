@@ -27,7 +27,17 @@ def s_read_from_tokens(tokens):
 
 
 def read_from_tokens(tokens):
+    def repsb(s):
+        pattern = re.compile(r'(\w+)\((\w+)\)')
+        ts = ''
+        f = pattern.search(s)
+        while (f):
+            s = s.replace(f.group(0), '[' + f.group(1) + ' ' + f.group(2) + ']')
+            f = pattern.search(s)
+        return s
+
     def tokenize(s):
+        s = repsb(s)
         return s.replace(']',' ] ').replace('[',' [ ').split()
 
     def read_helper(tokens):
@@ -46,7 +56,10 @@ def read_from_tokens(tokens):
             return token
     return read_helper(tokenize(tokens))
 
-str = '[ IF [ S(L) ] [ B(1)L(1) ] ]'
+str2 = '[ IF [ S(L) ] [ B(1)L(1) ] ]'
 
 str1 = '[ IF [ S(L) ] ]'
-print(read_from_tokens(str))
+print(read_from_tokens(str2))
+
+
+

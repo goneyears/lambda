@@ -183,7 +183,7 @@ def thread1():
             print('brun is one')
             mstr = read_edit()
             print(mstr)
-            commands = read_from_tokens(tokenize(mstr))
+            commands = s_read_from_tokens(mstr)
             for cmd in commands:
                 cmdmap(cmd[0])(int(cmd[1]))
                 print('ok')
