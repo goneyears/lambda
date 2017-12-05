@@ -1,15 +1,16 @@
+from __future__ import division
 import re
 
-def tokenize(s):
-    r = s.replace(')',')\n').split('\n')
-    while '' in r:
-        r.remove('')
-    return r
 
-
-def read_from_tokens(tokens):
+def s_read_from_tokens(tokens):
+    def tokenize(s):
+        r = s.replace(')', ')\n').split('\n')
+        while '' in r:
+            r.remove('')
+        return r
 
     L = []
+
     def read_helper(tokens):
         if len(tokens)>0:
             t = tokens[0].replace(')',' ').replace('(',' ').split()
@@ -17,7 +18,7 @@ def read_from_tokens(tokens):
             tokens.pop(0)
             L.append(read_helper(tokens))
 
-    read_helper(tokens)
+    read_helper(tokenize(tokens))
 
     while None in L:
         L.remove(None)
@@ -25,14 +26,27 @@ def read_from_tokens(tokens):
     return L
 
 
-def lispregulize(s):
-    pattern = re.compile(r'[A-Z]+\([A-Z0-9]+\)')
-    for m in pattern.finditer(s):
-        print(m.group())
+def read_from_tokens(tokens):
+    def tokenize(s):
+        return s.replace(']',' ] ').replace('[',' [ ').split()
 
+    def read_helper(tokens):
 
-str = 'IF[S(L)][B(1)L(1)]'
-mstr = '[' + str + '['
-# t = tokenize(str)
-# print(read_from_tokens(t))
-lispregulize(str)
+        if len(tokens)==0: raise SyntaxError('unexpected eof while reading')
+        token = tokens.pop(0)
+        if token=='[':
+            L = []
+            while(tokens[0] != ']'):
+                L.append(read_helper(tokens))
+            tokens.pop(0)
+            return L
+        elif ']'==token:
+            raise SyntaxError('unexpected ]')
+        else:
+            return token
+    return read_helper(tokenize(tokens))
+
+str = '[ IF [ S(L) ] [ B(1)L(1) ] ]'
+
+str1 = '[ IF [ S(L) ] ]'
+print(read_from_tokens(str))
