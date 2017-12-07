@@ -62,10 +62,15 @@ def read_from_tokens(tokens):
         elif ']'==token:
             raise SyntaxError('unexpected ]')
         else:
-            return token
+            return atom(token)
     return read_helper(tokenize(tokens))
 
-
+def atom(token):
+    try: return int(token)
+    except ValueError:
+        try: return float(token)
+        except ValueError:
+            return Symbol(token)
 class Exes:
     def __init__(self):
         self.Fevent = []
@@ -80,6 +85,8 @@ exes = Exes()
 def fakeF(x):
     print('forward'+str(x))
 exes.Fevent.append(fakeF)
+def T():
+    print ('testprint')
 
 def L(x):
     print('left'+str(x))
@@ -90,10 +97,15 @@ def S(x):
 def standard_env():
     env = Env()
     env.update({
+        '+': op.add, '-': op.sub, '*': op.mul, '/': op.truediv,
+        '>': op.gt, '<': op.lt, '>=': op.ge, '<=': op.le, '=': op.eq,
+
         'F': exes.F,
         'L': L,
         'R': R,
         'S': S,
+        'T': T,
+        'I': 1,
     })
     return env
 
@@ -112,7 +124,13 @@ def eval(x, env=global_env):
     if x==None:
         return None
     elif isinstance(x, Symbol):
+
         return env.find(x)[x]
+    elif isinstance(x, Number):
+        return x
+    elif x[0]=='SET':
+        (_, var, exp) = x
+        env.find(var)[var] = eval(exp)
     elif x[0]=='IF':
         (_, test, conseq) = x
         if eval(test):
@@ -134,15 +152,19 @@ def eval(x, env=global_env):
                 return eval(lst)
     else:
         proc = eval(x[0], env)
-        args = x[1:] # do not eval args this time
+        #args = x[1:] # do not eval args this time for S[L]
+
+        args = [eval(exp) for exp in x[1:]]
         return proc(*args)
 
 str2 = '[ IF [ S(L) ] [ R(1)[L(1)R(1)]]]'
 
 str1 = '[WHILE[S(L)][R(1)L(1)F(1)]]'
 str3 = 'F(3)'
+str4 = 'WHILE[<= I 3][[T][SET I [+ I 1]]]'
+str5 = '[SET I [+ I 1]]'
 # print(read_from_tokens(addbracket(str1)))
 # print(read_from_tokens(str2))
-eval(read_from_tokens(str3))
+eval(read_from_tokens(str4))
 
 
