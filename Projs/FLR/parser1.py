@@ -1,7 +1,9 @@
 from __future__ import division
 import re
+import time
 import math
 import operator as op
+
 Symbol = str
 List = list
 Number = (int, float)
@@ -31,6 +33,9 @@ def s_read_from_tokens(tokens):
 
 
 def read_from_tokens(tokens):
+    def addbrackets(s):
+        return '[' + s + ']'
+
     def repsb(s):
         pattern = re.compile(r'(\w+)\((\w+)\)')
         ts = ''
@@ -38,7 +43,7 @@ def read_from_tokens(tokens):
         while (f):
             s = s.replace(f.group(0), '[' + f.group(1) + ' ' + f.group(2) + ']')
             f = pattern.search(s)
-        return s
+        return addbrackets(s)
 
     def tokenize(s):
         s = repsb(s)
@@ -60,11 +65,24 @@ def read_from_tokens(tokens):
             return token
     return read_helper(tokenize(tokens))
 
-def addbracket(s):
-    return '['+s+']'
+
+class Exes:
+    def __init__(self):
+        self.Fevent = []
+        self.Levent = []
+        self.Revent = []
+        self.Sevent = []
+
+
+    def F(self, x):
+        [n(x) for n in self.Fevent]
+exes = Exes()
+def fakeF(x):
+    print('forward'+str(x))
+exes.Fevent.append(fakeF)
 
 def L(x):
-    print(x)
+    print('left'+str(x))
 def R(x):
     print('right'+str(x))
 def S(x):
@@ -72,9 +90,10 @@ def S(x):
 def standard_env():
     env = Env()
     env.update({
-        'L' : L,
-        'R' : R,
-        'S' : S,
+        'F': exes.F,
+        'L': L,
+        'R': R,
+        'S': S,
     })
     return env
 
@@ -90,43 +109,40 @@ def multibracket(x):
     return isinstance(x[0],list)
 
 def eval(x, env=global_env):
-    if isinstance(x, Symbol):
+    if x==None:
+        return None
+    elif isinstance(x, Symbol):
         return env.find(x)[x]
-    if x[0]=='IF':
-        print('in if')
+    elif x[0]=='IF':
         (_, test, conseq) = x
-        print('test: ')
-        print(test)
-        print('conseq: ')
-        print(conseq)
-        print(eval(test))
         if eval(test):
-            print('eval true')
             exp = conseq
         else:
-            print('false')
+            return None
         # exp = (conseq if eval(test,env) else print('false'))
-        print(exp)
         eval(exp)
-    if multibracket(x):
+    elif x[0]=='WHILE':
+        (_, test, dos) = x
+        while eval(test):
+            time.sleep(0.5)
+            eval(dos)
+    elif multibracket(x):
         for index, lst in enumerate(x):
-            print(lst)
             if index < len(x)-1:
                 eval(lst)
             else:#return last expression value
                 return eval(lst)
     else:
         proc = eval(x[0], env)
-        args = x[1:]
+        args = x[1:] # do not eval args this time
         return proc(*args)
 
-str2 = '[ IF [ S(L) ] [ R(1)L(1) ]]'
+str2 = '[ IF [ S(L) ] [ R(1)[L(1)R(1)]]]'
 
-str1 = '[L(1)R(1)L(3)]'
-str3 = '[S(L)]'
-str4 = '[ R(1)L(1) ]'
+str1 = '[WHILE[S(L)][R(1)L(1)F(1)]]'
+str3 = 'F(3)'
 # print(read_from_tokens(addbracket(str1)))
 # print(read_from_tokens(str2))
-eval(read_from_tokens(str2))
+eval(read_from_tokens(str3))
 
 
