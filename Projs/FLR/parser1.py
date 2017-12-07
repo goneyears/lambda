@@ -1,6 +1,10 @@
 from __future__ import division
 import re
-
+import math
+import operator as op
+Symbol = str
+List = list
+Number = (int, float)
 
 def s_read_from_tokens(tokens):
     def tokenize(s):
@@ -56,10 +60,73 @@ def read_from_tokens(tokens):
             return token
     return read_helper(tokenize(tokens))
 
-str2 = '[ IF [ S(L) ] [ B(1)L(1) ] ]'
+def addbracket(s):
+    return '['+s+']'
 
-str1 = '[ IF [ S(L) ] ]'
-print(read_from_tokens(str2))
+def L(x):
+    print(x)
+def R(x):
+    print('right'+str(x))
+def S(x):
+    return True
+def standard_env():
+    env = Env()
+    env.update({
+        'L' : L,
+        'R' : R,
+        'S' : S,
+    })
+    return env
 
+class Env(dict):
+    def __init__(self, parms=(), args=(), outer=None):
+        self.update(zip(parms, args))
+        self.outer = outer
+    def find(self, var):
+        return self if (var in self) else self.outer.find(var)
+
+global_env = standard_env()
+def multibracket(x):
+    return isinstance(x[0],list)
+
+def eval(x, env=global_env):
+    if isinstance(x, Symbol):
+        return env.find(x)[x]
+    if x[0]=='IF':
+        print('in if')
+        (_, test, conseq) = x
+        print('test: ')
+        print(test)
+        print('conseq: ')
+        print(conseq)
+        print(eval(test))
+        if eval(test):
+            print('eval true')
+            exp = conseq
+        else:
+            print('false')
+        # exp = (conseq if eval(test,env) else print('false'))
+        print(exp)
+        eval(exp)
+    if multibracket(x):
+        for index, lst in enumerate(x):
+            print(lst)
+            if index < len(x)-1:
+                eval(lst)
+            else:#return last expression value
+                return eval(lst)
+    else:
+        proc = eval(x[0], env)
+        args = x[1:]
+        return proc(*args)
+
+str2 = '[ IF [ S(L) ] [ R(1)L(1) ]]'
+
+str1 = '[L(1)R(1)L(3)]'
+str3 = '[S(L)]'
+str4 = '[ R(1)L(1) ]'
+# print(read_from_tokens(addbracket(str1)))
+# print(read_from_tokens(str2))
+eval(read_from_tokens(str2))
 
 
