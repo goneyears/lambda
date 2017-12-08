@@ -88,8 +88,8 @@ exes.Fevent.append(fakeF)
 def T():
     print ('testprint')
 
-def L(x):
-    print('left'+str(x))
+def L():
+    print('left1')
 def R(x):
     print('right'+str(x))
 def S(x):
@@ -123,6 +123,14 @@ class Env(dict):
 
 
 global_env = standard_env()
+
+
+class Procedure(object):
+    def __init__(self, proc, exp, env):
+        self.proc, self.exp = proc, exp
+        # env[proc] = exp
+    def __call__(self):
+        return eval(self.exp)
 def multibracket(x):
     return isinstance(x[0],list)
 
@@ -135,12 +143,14 @@ def eval(x, env=global_env):
         return env.find(x)[x]
     elif isinstance(x, Number):
         return x
+    elif x[0]=='DEF':
+        (_, proc, exp) = x
+        env[proc] = Procedure(proc, exp, env)
     elif x[0]=='SET':
         (_, var, exp) = x
         if env.find(var)==None:
-            print("var will be defined")
+            print("var will be defined "+str(var))
             env[var] = eval(exp)
-
         else:
             env.find(var)[var] = eval(exp)
     elif x[0]=='IF':
@@ -168,6 +178,9 @@ def eval(x, env=global_env):
         args = [eval(exp) for exp in x[1:]]
         return proc(*args)
 
+# def preproc(x):
+#     def whileformat(s):
+
 str2 = '[ IF [ S(L) ] [ R(1)[L(1)R(1)]]]'
 
 str1 = '[WHILE[S(L)][R(1)L(1)F(1)]]'
@@ -176,9 +189,17 @@ str41 = '[SET I 1]'
 str4 = '[SET I 1][WHILE[<= I 3][[SET J 1][WHILE[<= J 2][[T][SET J [+ J 1]]]][SET I [+ I 1]]]]'
 str5 = '[SET M 2]'
 str6 = '[+ M 1]'
+str70 = 'B=R(2)F(1)R(2)'
+str7 = '[DEF B [R(1)F(1)R(2)]]'
+str8 = '[B(2)]'
+str9 = '[SET I 1][WHILE[<= I 2][[B][SET I [+ I 1]]]]'
+str10 = '[SET I 1][WHILE[<= I 2][[R(2)F(1)R(2)][SET I [+ I 1]]]]'
+s1 = '[DEF B [[SET I 1][WHILE[<= I 2][[R(2)][SET I [+ I 1]]]]]]'
+s2 = '[SET I 1][WHILE[<= I 2][[B][SET I [+ I 1]]]]'
+s3 = '[B]'
 # print(read_from_tokens(addbracket(str1)))
 # print(read_from_tokens(str2))
 # eval(read_from_tokens(str41))
-eval(read_from_tokens(str4))
-
+eval(read_from_tokens(s1))
+eval(read_from_tokens(s3))
 # print(eval(read_from_tokens(str6)))
