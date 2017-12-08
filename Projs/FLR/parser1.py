@@ -98,14 +98,13 @@ def standard_env():
     env = Env()
     env.update({
         '+': op.add, '-': op.sub, '*': op.mul, '/': op.truediv,
-        '>': op.gt, '<': op.lt, '>=': op.ge, '<=': op.le, '=': op.eq,
+        '>': op.gt, '<': op.lt, '>=': op.ge, '<=': op.le, '==': op.eq,
 
         'F': exes.F,
         'L': L,
         'R': R,
         'S': S,
         'T': T,
-        'I': 1,
     })
     return env
 
@@ -114,13 +113,21 @@ class Env(dict):
         self.update(zip(parms, args))
         self.outer = outer
     def find(self, var):
-        return self if (var in self) else self.outer.find(var)
+        # return self if (var in self) else self.outer.find(var)
+        if (var in self):
+            return self
+        elif self.outer!=None:
+            self.outer.find(var)
+        else:
+            return None
+
 
 global_env = standard_env()
 def multibracket(x):
     return isinstance(x[0],list)
 
 def eval(x, env=global_env):
+    # print(x)
     if x==None:
         return None
     elif isinstance(x, Symbol):
@@ -130,14 +137,18 @@ def eval(x, env=global_env):
         return x
     elif x[0]=='SET':
         (_, var, exp) = x
-        env.find(var)[var] = eval(exp)
+        if env.find(var)==None:
+            print("var will be defined")
+            env[var] = eval(exp)
+
+        else:
+            env.find(var)[var] = eval(exp)
     elif x[0]=='IF':
         (_, test, conseq) = x
         if eval(test):
             exp = conseq
         else:
             return None
-        # exp = (conseq if eval(test,env) else print('false'))
         eval(exp)
     elif x[0]=='WHILE':
         (_, test, dos) = x
@@ -161,10 +172,13 @@ str2 = '[ IF [ S(L) ] [ R(1)[L(1)R(1)]]]'
 
 str1 = '[WHILE[S(L)][R(1)L(1)F(1)]]'
 str3 = 'F(3)'
-str4 = 'WHILE[<= I 3][[T][SET I [+ I 1]]]'
-str5 = '[SET I [+ I 1]]'
+str41 = '[SET I 1]'
+str4 = '[SET I 1][WHILE[<= I 3][[SET J 1][WHILE[<= J 2][[T][SET J [+ J 1]]]][SET I [+ I 1]]]]'
+str5 = '[SET M 2]'
+str6 = '[+ M 1]'
 # print(read_from_tokens(addbracket(str1)))
 # print(read_from_tokens(str2))
+# eval(read_from_tokens(str41))
 eval(read_from_tokens(str4))
 
-
+# print(eval(read_from_tokens(str6)))

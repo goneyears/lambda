@@ -31,3 +31,6 @@ str3 = 'F(3)'
 R(N)
 
 [DEF I 1][WHILE[<= I N][[R][+ I 1]] ]
+
+
+[[SET I 1]WHILE[<= I 3][[SET J 1][WHILE[<= J 2][[T][SET J [+ J 1]]]][SET I [+ I 1]]]]
