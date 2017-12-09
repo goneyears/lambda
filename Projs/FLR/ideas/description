@@ -34,3 +34,5 @@ R(N)
 
 
 [[SET I 1]WHILE[<= I 3][[SET J 1][WHILE[<= J 2][[T][SET J [+ J 1]]]][SET I [+ I 1]]]]
+
+[DEF B [[SET I 1][WHILE [<= I 2][[R][SET I [+ I 1]]]]  [SET I 1][WHILE [<= I 1][[F][SET I [+ I 1]]]]  [SET I 1][WHILE [<= I 2][[R][SET I [+ I 1]]]]  ]]
