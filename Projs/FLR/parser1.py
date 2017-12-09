@@ -31,10 +31,12 @@ def s_read_from_tokens(tokens):
 
     return L
 
-def addbrackets(s):
-    return '[' + s + ']'
+
+
 def read_from_tokens(tokens):
 
+    def addbrackets(s):
+        return '[' + s + ']'
 
     def repsb(s):
         pattern = re.compile(r'(\w+)\((\w+)\)')
@@ -94,6 +96,7 @@ def R():
     print('right1')
 def S(x):
     return True
+
 def standard_env():
     env = Env()
     env.update({
@@ -178,6 +181,7 @@ def eval(x, env=global_env):
         args = [eval(exp) for exp in x[1:]]
         return proc(*args)
 
+_tT = 1
 def preproc(x):
     def eqtodef(s):
         pattern = re.compile(r'(.*)=(.*)')
@@ -188,17 +192,22 @@ def preproc(x):
         print(s)
         return s
     def whileformat(s):
+        global _tT
         pattern = re.compile(r'(\w+)\((\d+)\)')
         f = pattern.search(s)
         while (f):
-            s = s.replace(f.group(0), '[SET I 1][WHILE [<= I ' + f.group(2) + '][[' + f.group(1) + '][SET I [+ I 1]]]]  ')
+            s = s.replace(f.group(0), '[SET _I 1][WHILE [<= _I ' + f.group(2) + '][[' + f.group(1) + '][SET _I [+ _I 1]]]]  ')
+            s = s.replace('_I', '_I'+str(_tT))
+            _tT = _tT + 1
             f = pattern.search(s)
         return s
     return whileformat(eqtodef(x))
 
 def repl(s):
     p1 = preproc(s)
+    print(p1)
     p2 = read_from_tokens(p1)
+    print(p2)
     p3 = eval(p2)
     return p3
 
@@ -215,7 +224,7 @@ str7b = 'R(2)F(1)R(2)'
 str70 = 'B=R(2)T(1)L(2)'
 str7s = 'B=R(2)'
 str7 = '[DEF B [R(1)F(1)R(2)]]'
-str8 = 'B(2)T(1)'
+str8 = 'B(2)'
 str9 = '[SET I 1][WHILE[<= I 2][[B][SET I [+ I 1]]]]'
 str10 = '[SET I 1][WHILE[<= I 2][[R(2)F(1)R(2)][SET I [+ I 1]]]]'
 s1 = '[DEF B [[SET I 1][WHILE[<= I 2][[T][SET I [+ I 1]]]]]]'
@@ -226,8 +235,8 @@ s3 = '[B]'
 # eval(read_from_tokens(m1))
 # m2 = preproc(str8)
 # eval(read_from_tokens(m2))
-
-repl(str70)
-repl(str8)
+stra = 'IF[S(L)][R(1)]'
+repl(stra)
+# repl(str8)
 # eval(read_from_tokens(s1))
 # eval(read_from_tokens(s3))

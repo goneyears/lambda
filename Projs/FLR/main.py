@@ -151,11 +151,11 @@ def Run_button_click():
 
 def leftmoves(n):
     for i in range(n):
-        time.sleep(0.5)
+        time.sleep(0.3)
         leftturn()
 def rightmoves(n):
     for i in range(n):
-        time.sleep(0.5)
+        time.sleep(0.3)
         rightturn()
 
 def forwards(n):
@@ -180,13 +180,13 @@ def thread1():
     print('thread runs'+str(brun))
     while(True):
         if brun == 1:
-            print('brun is one')
-            mstr = read_edit()
-            print(mstr)
-            commands = s_read_from_tokens(mstr)
-            for cmd in commands:
-                cmdmap(cmd[0])(int(cmd[1]))
-                print('ok')
+            mstr = read_edit().strip('\r\n')
+            mstr_lines = re.split('\n', mstr)
+            for ln in mstr_lines:
+                commands = repl(ln)
+            # for cmd in commands:
+            #     cmdmap(cmd[0])(int(cmd[1]))
+            #     print('ok')
             brun = 0
         time.sleep(0.1)
 
