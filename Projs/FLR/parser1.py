@@ -38,17 +38,30 @@ def read_from_tokens(tokens):
     def addbrackets(s):
         return '[' + s + ']'
 
+    def repsp(s):
+        #replace S(L) to S(_L)
+        pattern = re.compile(r'(S)\(([LRFB])\)')
+        ts = ''
+        f = pattern.search(s)
+        while (f):
+            s = s.replace(f.group(0), f.group(1) + '(_' + f.group(2) + ')')
+            f = pattern.search(s)
+        return s
+
     def repsb(s):
+        #replace R(2) to [R 2]
         pattern = re.compile(r'(\w+)\((\w+)\)')
         ts = ''
         f = pattern.search(s)
         while (f):
             s = s.replace(f.group(0), '[' + f.group(1) + ' ' + f.group(2) + ']')
             f = pattern.search(s)
-        return addbrackets(s)
+        return s
 
     def tokenize(s):
+        s = repsp(s)
         s = repsb(s)
+        s = addbrackets(s)
         return s.replace(']',' ] ').replace('[',' [ ').split()
 
     def read_helper(tokens):
@@ -81,21 +94,24 @@ class Exes:
         self.Sevent = []
 
 
-    def F(self, x):
-        [n(x) for n in self.Fevent]
+    def F(self):
+        [n() for n in self.Fevent]
+
+    def L(self):
+        [n() for n in self.Levent]
+
+    def R(self):
+        [n() for n in self.Revent]
+
+    def S(self, x):
+        return self.Sevent[0](x)
+
 exes = Exes()
-def fakeF():
-    print('forward'+str('x'))
-exes.Fevent.append(fakeF)
+
 def TF():
     print ('testprint')
 
-def L():
-    print('left1')
-def R():
-    print('right1')
-def S(x):
-    return True
+
 
 def standard_env():
     env = Env()
@@ -104,9 +120,11 @@ def standard_env():
         '>': op.gt, '<': op.lt, '>=': op.ge, '<=': op.le, '==': op.eq,
 
         'F': exes.F,
-        'L': L,
-        'R': R,
-        'S': S,
+        'L': exes.L,
+        'R': exes.R,
+        'S': exes.S,
+        '_L': 'left',
+        '_R': 'right',
         'T': TF,
     })
     return env
@@ -142,7 +160,6 @@ def eval(x, env=global_env):
     if x==None:
         return None
     elif isinstance(x, Symbol):
-
         return env.find(x)[x]
     elif isinstance(x, Number):
         return x
@@ -158,7 +175,10 @@ def eval(x, env=global_env):
             env.find(var)[var] = eval(exp)
     elif x[0]=='IF':
         (_, test, conseq) = x
+        print('test')
+        print(test)
         if eval(test):
+            print('eval true')
             exp = conseq
         else:
             return None
@@ -166,7 +186,6 @@ def eval(x, env=global_env):
     elif x[0]=='WHILE':
         (_, test, dos) = x
         while eval(test):
-            time.sleep(0.5)
             eval(dos)
     elif multibracket(x):
         for index, lst in enumerate(x):
@@ -179,7 +198,8 @@ def eval(x, env=global_env):
         #args = x[1:] # do not eval args this time for S[L]
 
         args = [eval(exp) for exp in x[1:]]
-        return proc(*args)
+        rt = proc(*args)
+        return rt
 
 _tT = 1
 def preproc(x):
@@ -198,6 +218,7 @@ def preproc(x):
         while (f):
             s = s.replace(f.group(0), '[SET _I 1][WHILE [<= _I ' + f.group(2) + '][[' + f.group(1) + '][SET _I [+ _I 1]]]]  ')
             s = s.replace('_I', '_I'+str(_tT))
+            print('snumber:'+s)
             _tT = _tT + 1
             f = pattern.search(s)
         return s
@@ -235,8 +256,5 @@ s3 = '[B]'
 # eval(read_from_tokens(m1))
 # m2 = preproc(str8)
 # eval(read_from_tokens(m2))
-stra = 'IF[S(L)][R(1)]'
-repl(stra)
-# repl(str8)
-# eval(read_from_tokens(s1))
-# eval(read_from_tokens(s3))
+stra = 'IF[S(_L)][T]'
+# repl(stra)

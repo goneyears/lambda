@@ -77,13 +77,6 @@ def rightrotate():
     print('rightrotate')
     sta = 'up'
 
-def leftturn():
-    rotatemap(sta)()
-
-def rightturn():
-    rotatemap(sta)()
-    rotatemap(sta)()
-    rotatemap(sta)()
 
 def upmove():
     global xpos,ypos
@@ -104,11 +97,29 @@ def rightmove():
     global xpos,ypos
     xpos = xpos + 150
 
+def leftturn():
+    rotatemap(sta)()
+    time.sleep(0.3)
+
+def rightturn():
+    rotatemap(sta)()
+    time.sleep(0.1)
+    rotatemap(sta)()
+    time.sleep(0.1)
+    rotatemap(sta)()
+    time.sleep(0.3)
+
 def forward():
     global xpos, ypos
     movemap(sta)()
     ui.label.setGeometry(QtCore.QRect(xpos, ypos, 181, 181))
 
+def see(x):
+    print('see run')
+    if x=='left':
+        return True
+    else:
+        return False
 
 
 def F_button_click():
@@ -149,45 +160,21 @@ def Run_button_click():
     brun = 1
     print('brun'+str(brun))
 
-def leftmoves(n):
-    for i in range(n):
-        time.sleep(0.3)
-        leftturn()
-def rightmoves(n):
-    for i in range(n):
-        time.sleep(0.3)
-        rightturn()
-
-def forwards(n):
-    for i in range(n):
-        time.sleep(0.5)
-        forward()
-
-
-
-def cmdmap(x):
-    switcher = {
-        'F':forwards,
-        'L':leftmoves,
-        'R':rightmoves,
-    }
-    return switcher.get(x,None)
-
-
 
 def thread1():
-    global brun
+    global brun,global_env
     print('thread runs'+str(brun))
     while(True):
-        if brun == 1:
-            mstr = read_edit().strip('\r\n')
-            mstr_lines = re.split('\n', mstr)
-            for ln in mstr_lines:
-                commands = repl(ln)
-            # for cmd in commands:
-            #     cmdmap(cmd[0])(int(cmd[1]))
-            #     print('ok')
-            brun = 0
+        try:
+            if brun == 1:
+                brun = 0
+                global_env = standard_env()
+                mstr = read_edit().strip('\r\n')
+                mstr_lines = re.split('\n', mstr)
+                for ln in mstr_lines:
+                    repl(ln)
+        except:
+            print('code syntax error')
         time.sleep(0.1)
 
 
@@ -208,6 +195,12 @@ if __name__ =='__main__':
     ui.N3Button.clicked.connect(N3_button_click)
     ui.N4Button.clicked.connect(N4_button_click)
     ui.N5Button.clicked.connect(N5_button_click)
+
+    #append function to exes in parser1.py
+    exes.Fevent.append(forward)
+    exes.Levent.append(leftturn)
+    exes.Revent.append(rightturn)
+    exes.Sevent.append(see)
 
     MainWindow.show()
 
