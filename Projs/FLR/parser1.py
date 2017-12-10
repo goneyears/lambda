@@ -92,6 +92,7 @@ class Exes:
         self.Levent = []
         self.Revent = []
         self.Sevent = []
+        self.Runevent = []
 
 
     def F(self):
@@ -108,6 +109,9 @@ class Exes:
 
     def NS(self, x):
         return not self.Sevent[0](x)
+
+    def RUN(self):
+        return self.Runevent[0]()
 
 exes = Exes()
 
@@ -127,6 +131,7 @@ def standard_env():
         'R': exes.R,
         'S': exes.S,
         'NS':exes.NS,
+        'RUN':exes.RUN,
         '_L': 'left',
         '_R': 'right',
         '_F': 'forward',

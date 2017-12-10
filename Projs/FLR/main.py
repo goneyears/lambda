@@ -21,6 +21,8 @@ def write_edit(str):
     ui.textEdit.setText(editstr)
 
 def clear_edit():
+    global editstr
+    editstr = ''
     ui.textEdit.setText('')
 
 def backspace_edit():
@@ -177,6 +179,10 @@ def see(dir):
     else:
         print('error sta in see function')
 
+def isrun():
+    print('isrun?' + str(brun))
+    return True if brun == 1 else False
+
 def F_button_click():
     write_edit('F')
 
@@ -186,11 +192,35 @@ def L_button_click():
 def R_button_click():
     write_edit('R')
 
+def B_button_click():
+    write_edit('B')
+
+def N_button_click():
+    write_edit('N')
+
+def S_button_click():
+    write_edit('S')
+
+def U_button_click():
+    write_edit('U')
+
 def LBracket_button_click():
     write_edit('(')
 
 def RBracket_button_click():
     write_edit(')')
+
+def LMBracket_button_click():
+    write_edit('[')
+
+def RMBracket_button_click():
+    write_edit(']')
+
+def IF_button_click():
+    write_edit('IF')
+
+def WHILE_button_click():
+    write_edit('WHILE')
 
 def N1_button_click():
     write_edit('1')
@@ -210,9 +240,17 @@ def N5_button_click():
 def Backspace_button_click():
     backspace_edit()
 
+def Clear_button_click():
+    clear_edit()
+
 def Run_button_click():
     global brun
     brun = 1
+    print('brun'+str(brun))
+
+def Stop_button_click():
+    global brun
+    brun = 0
     print('brun'+str(brun))
 
 
@@ -222,7 +260,6 @@ def thread1():
     while(True):
         try:
             if brun == 1:
-                brun = 0
                 global_env = standard_env()
                 mstr = read_edit().strip('\r\n')
                 mstr_lines = re.split('\n', mstr)
@@ -238,13 +275,27 @@ if __name__ =='__main__':
     MainWindow = QMainWindow()
     #ui = maindesign.Ui_MainWindow()
     ui.setupUi(MainWindow)
+
+
     ui.FButton.clicked.connect(F_button_click)
     ui.LButton.clicked.connect(L_button_click)
     ui.RButton.clicked.connect(R_button_click)
+    ui.BButton.clicked.connect(B_button_click)
+    ui.NButton.clicked.connect(N_button_click)
+    ui.SButton.clicked.connect(S_button_click)
+    ui.UButton.clicked.connect(U_button_click)
     ui.LBracketButton.clicked.connect(LBracket_button_click)
     ui.RBracketButton.clicked.connect(RBracket_button_click)
+    ui.LMBracketButton.clicked.connect(LMBracket_button_click)
+    ui.RMBracketButton.clicked.connect(RMBracket_button_click)
+    ui.IfButton.clicked.connect(IF_button_click)
+    ui.WhileButton.clicked.connect(WHILE_button_click)
+
+
     ui.BackspaceButton.clicked.connect(Backspace_button_click)
+    ui.ClearButton.clicked.connect(Clear_button_click)
     ui.RunButton.clicked.connect(Run_button_click)
+    ui.StopButton.clicked.connect(Stop_button_click)
     ui.N1Button.clicked.connect(N1_button_click)
     ui.N2Button.clicked.connect(N2_button_click)
     ui.N3Button.clicked.connect(N3_button_click)
@@ -256,6 +307,7 @@ if __name__ =='__main__':
     exes.Levent.append(leftturn)
     exes.Revent.append(rightturn)
     exes.Sevent.append(see)
+    exes.Runevent.append(isrun)
 
     MainWindow.show()
 

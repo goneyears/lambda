@@ -45,7 +45,7 @@
     <property name="font">
      <font>
       <family>Consolas</family>
-      <pointsize>22</pointsize>
+      <pointsize>16</pointsize>
      </font>
     </property>
    </widget>
@@ -109,7 +109,7 @@
    <widget class="QPushButton" name="LBracketButton">
     <property name="geometry">
      <rect>
-      <x>1330</x>
+      <x>1470</x>
       <y>1030</y>
       <width>131</width>
       <height>111</height>
@@ -128,7 +128,7 @@
    <widget class="QPushButton" name="RBracketButton">
     <property name="geometry">
      <rect>
-      <x>1470</x>
+      <x>1610</x>
       <y>1030</y>
       <width>131</width>
       <height>111</height>
@@ -242,7 +242,7 @@
    <widget class="QPushButton" name="BackspaceButton">
     <property name="geometry">
      <rect>
-      <x>1680</x>
+      <x>1610</x>
       <y>890</y>
       <width>131</width>
       <height>111</height>
@@ -261,7 +261,7 @@
    <widget class="QPushButton" name="RunButton">
     <property name="geometry">
      <rect>
-      <x>1680</x>
+      <x>1850</x>
       <y>1030</y>
       <width>131</width>
       <height>111</height>
@@ -830,6 +830,199 @@
      <pixmap>down.png</pixmap>
     </property>
    </widget>
+   <widget class="QPushButton" name="RMBracketButton">
+    <property name="geometry">
+     <rect>
+      <x>1610</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>]</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LMBracketButton">
+    <property name="geometry">
+     <rect>
+      <x>1470</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>[</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BButton">
+    <property name="geometry">
+     <rect>
+      <x>1330</x>
+      <y>1030</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="NButton">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SButton">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>S</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ClearButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>880</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Clr</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="StopButton">
+    <property name="geometry">
+     <rect>
+      <x>1850</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>STOP</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="IfButton">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>1280</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>IF</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="WhileButton">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>1280</y>
+      <width>201</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>WHILE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="UButton">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>U</string>
+    </property>
+   </widget>
    <zorder>FButton</zorder>
    <zorder>textEdit</zorder>
    <zorder>LButton</zorder>
@@ -869,6 +1062,16 @@
    <zorder>label_25</zorder>
    <zorder>label_26</zorder>
    <zorder>label</zorder>
+   <zorder>RMBracketButton</zorder>
+   <zorder>LMBracketButton</zorder>
+   <zorder>BButton</zorder>
+   <zorder>NButton</zorder>
+   <zorder>SButton</zorder>
+   <zorder>ClearButton</zorder>
+   <zorder>StopButton</zorder>
+   <zorder>IfButton</zorder>
+   <zorder>WhileButton</zorder>
+   <zorder>UButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
