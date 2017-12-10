@@ -265,6 +265,7 @@ def thread1():
                 mstr_lines = re.split('\n', mstr)
                 for ln in mstr_lines:
                     repl(ln)
+                brun = 0
         except:
             print('code syntax error')
         time.sleep(0.1)
