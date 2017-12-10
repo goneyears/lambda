@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 from parser1 import *
 import time
-
+from matrix import *
 ui = maindesign.Ui_MainWindow()
 editstr = ''
 
@@ -32,14 +32,23 @@ sta = 'up'
 xpos = 50
 ypos = 670
 
-def rotatemap(x):
+def leftrotatemap(curstate):
     switcher = {
-        'up': uprotate,
-        'down': downrotate,
-        'left': leftrotate,
-        'right': rightrotate,
+        'up': leftstate,
+        'down': rightstate,
+        'left': downstate,
+        'right': upstate,
     }
-    return switcher.get(x, None)
+    return switcher.get(curstate, None)
+
+def rightrotatemap(curstate):
+    switcher = {
+        'up': rightstate,
+        'down': leftstate,
+        'left': upstate,
+        'right': downstate,
+    }
+    return switcher.get(curstate, None)
 
 def movemap(x):
     switcher = {
@@ -51,76 +60,122 @@ def movemap(x):
     return switcher.get(x, None)
 
 
-def uprotate():
+def leftstate():
     global sta
     ui.label.setPixmap(QtGui.QPixmap("res/left.png"))
+    print('leftstate')
     sta = 'left'
 
 
-def downrotate():
+def rightstate():
     global sta
     ui.label.setPixmap(QtGui.QPixmap("res/right.png"))
-    print('downrotate')
+    print('rightstate')
     sta = 'right'
 
 
-def leftrotate():
+def downstate():
     global sta
     ui.label.setPixmap(QtGui.QPixmap("res/down.png"))
-    print('leftrotate')
+    print('downstate')
     sta = 'down'
 
 
-def rightrotate():
+def upstate():
     global sta
     ui.label.setPixmap(QtGui.QPixmap("res/up.png"))
-    print('rightrotate')
+    print('upstate')
     sta = 'up'
 
 
 def upmove():
     global xpos,ypos
     ypos = ypos - 155
+    mx.up()
 
 
 def downmove():
     global xpos,ypos
     ypos = ypos + 155
-
+    mx.down()
 
 def leftmove():
     global xpos,ypos
     xpos = xpos - 150
-
+    mx.left()
 
 def rightmove():
     global xpos,ypos
     xpos = xpos + 150
+    mx.right()
 
 def leftturn():
-    rotatemap(sta)()
+    leftrotatemap(sta)()
     time.sleep(0.3)
 
 def rightturn():
-    rotatemap(sta)()
-    time.sleep(0.1)
-    rotatemap(sta)()
-    time.sleep(0.1)
-    rotatemap(sta)()
+    rightrotatemap(sta)()
     time.sleep(0.3)
 
 def forward():
     global xpos, ypos
     movemap(sta)()
     ui.label.setGeometry(QtCore.QRect(xpos, ypos, 181, 181))
+    time.sleep(0.3)
 
-def see(x):
+def see(dir):
     print('see run')
-    if x=='left':
-        return True
-    else:
-        return False
+    print(dir)
+    # print(mx.see(dir))
+    if sta == 'up':
+        if dir == 'forward':
+            return mx.checkobject('up')
+        elif dir == 'backward':
+            return mx.checkobject('down')
+        elif dir == 'left':
+            return mx.checkobject('left')
+        elif dir == 'right':
+            return mx.checkobject('right')
+        else:
+            print ('error direction input')
+    elif sta == 'down':
+        if dir == 'forward':
+            return mx.checkobject('down')
+        elif dir == 'backward':
+            return mx.checkobject('up')
+        elif dir == 'left':
+            return mx.checkobject('right')
+        elif dir == 'right':
+            return mx.checkobject('left')
+        else:
+            print ('error direction input')
 
+    elif sta == 'left':
+        if dir == 'forward':
+            return mx.checkobject('left')
+        elif dir == 'backward':
+            return mx.checkobject('right')
+        elif dir == 'left':
+            return mx.checkobject('down')
+        elif dir == 'right':
+            return mx.checkobject('up')
+        else:
+            print ('error direction input')
+
+    elif sta == 'right':
+        if dir == 'forward':
+            return mx.checkobject('right')
+        elif dir == 'backward':
+            return mx.checkobject('left')
+        elif dir == 'left':
+            return mx.checkobject('up')
+        elif dir == 'right':
+            return mx.checkobject('down')
+        else:
+            print ('error direction input')
+
+    else:
+        print('error sta in see function')
 
 def F_button_click():
     write_edit('F')

@@ -40,7 +40,7 @@ def read_from_tokens(tokens):
 
     def repsp(s):
         #replace S(L) to S(_L)
-        pattern = re.compile(r'(S)\(([LRFB])\)')
+        pattern = re.compile(r'(N?S)\(([LRFB])\)')
         ts = ''
         f = pattern.search(s)
         while (f):
@@ -106,6 +106,9 @@ class Exes:
     def S(self, x):
         return self.Sevent[0](x)
 
+    def NS(self, x):
+        return not self.Sevent[0](x)
+
 exes = Exes()
 
 def TF():
@@ -123,8 +126,11 @@ def standard_env():
         'L': exes.L,
         'R': exes.R,
         'S': exes.S,
+        'NS':exes.NS,
         '_L': 'left',
         '_R': 'right',
+        '_F': 'forward',
+        '_B': 'backward',
         'T': TF,
     })
     return env
