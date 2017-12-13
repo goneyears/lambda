@@ -59,7 +59,7 @@ class Matrix:
             p = [self.curpos[0]    ,self.curpos[1] - 1]
 
         elif d == 'down':
-            p = [self.curpos[0] - 1,self.curpos[1] + 1]
+            p = [self.curpos[0]    ,self.curpos[1] + 1]
 
         else:
             print('see parameter error')

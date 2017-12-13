@@ -7,7 +7,6 @@ from parser1 import *
 import time
 from matrix import *
 ui = maindesign.Ui_MainWindow()
-editstr = ''
 
 brun = 0
 
@@ -16,23 +15,22 @@ def read_edit():
 
 
 def write_edit(str):
-    global editstr
-    editstr=editstr + str
-    ui.textEdit.setText(editstr)
+    c = ui.textEdit.textCursor()
+    c.insertText(str)
+    ui.textEdit.setFocus()
 
 def clear_edit():
-    global editstr
-    editstr = ''
-    ui.textEdit.setText('')
+    ui.textEdit.clear()
+    ui.textEdit.setFocus()
 
 def backspace_edit():
-    global editstr
-    editstr = editstr[0:len(editstr)-1]
-    ui.textEdit.setText(editstr)
+    c = ui.textEdit.textCursor()
+    c.deletePreviousChar()
+    ui.textEdit.setFocus()
 
 sta = 'up'
-xpos = 50
-ypos = 670
+xpos = 60
+ypos = 640
 
 def leftrotatemap(curstate):
     switcher = {
@@ -128,7 +126,7 @@ def forward():
 def see(dir):
     print('see run')
     print(dir)
-    # print(mx.see(dir))
+    print(sta)
     if sta == 'up':
         if dir == 'forward':
             return mx.checkobject('up')
@@ -204,6 +202,9 @@ def S_button_click():
 def U_button_click():
     write_edit('U')
 
+def Equal_button_click():
+    write_edit('=')
+
 def LBracket_button_click():
     write_edit('(')
 
@@ -216,10 +217,13 @@ def LMBracket_button_click():
 def RMBracket_button_click():
     write_edit(']')
 
-def IF_button_click():
+def If_button_click():
     write_edit('IF')
 
-def WHILE_button_click():
+def Else_button_click():
+    write_edit('ELSE')
+
+def While_button_click():
     write_edit('WHILE')
 
 def N1_button_click():
@@ -236,6 +240,9 @@ def N4_button_click():
 
 def N5_button_click():
     write_edit('5')
+
+def Newline_button_click():
+    write_edit('\n')
 
 def Backspace_button_click():
     backspace_edit()
@@ -285,15 +292,19 @@ if __name__ =='__main__':
     ui.NButton.clicked.connect(N_button_click)
     ui.SButton.clicked.connect(S_button_click)
     ui.UButton.clicked.connect(U_button_click)
+    ui.EqualButton.clicked.connect(Equal_button_click)
     ui.LBracketButton.clicked.connect(LBracket_button_click)
     ui.RBracketButton.clicked.connect(RBracket_button_click)
     ui.LMBracketButton.clicked.connect(LMBracket_button_click)
     ui.RMBracketButton.clicked.connect(RMBracket_button_click)
-    ui.IfButton.clicked.connect(IF_button_click)
-    ui.WhileButton.clicked.connect(WHILE_button_click)
+    ui.IfButton.clicked.connect(If_button_click)
+    ui.ElseButton.clicked.connect(Else_button_click)
+    ui.WhileButton.clicked.connect(While_button_click)
 
 
     ui.BackspaceButton.clicked.connect(Backspace_button_click)
+    ui.NewlineButton.clicked.connect(Newline_button_click)
+
     ui.ClearButton.clicked.connect(Clear_button_click)
     ui.RunButton.clicked.connect(Run_button_click)
     ui.StopButton.clicked.connect(Stop_button_click)

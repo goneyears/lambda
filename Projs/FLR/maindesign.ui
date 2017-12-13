@@ -45,7 +45,7 @@
     <property name="font">
      <font>
       <family>Consolas</family>
-      <pointsize>16</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
    </widget>
@@ -53,9 +53,9 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>680</y>
-      <width>135</width>
-      <height>135</height>
+      <y>640</y>
+      <width>131</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -65,7 +65,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>res/up.png</pixmap>
+     <pixmap>res/UP.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="LButton">
@@ -284,7 +284,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>70</y>
+      <y>30</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -306,7 +306,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>220</y>
+      <y>180</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -328,7 +328,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>220</y>
+      <y>180</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -350,7 +350,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>220</y>
+      <y>180</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -372,7 +372,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>220</y>
+      <y>180</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -394,7 +394,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>220</y>
+      <y>180</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -416,7 +416,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>370</y>
+      <y>330</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -438,7 +438,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>520</y>
+      <y>480</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -460,7 +460,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>520</y>
+      <y>480</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -482,7 +482,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>370</y>
+      <y>330</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -504,7 +504,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>520</y>
+      <y>480</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -526,7 +526,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>370</y>
+      <y>330</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -548,7 +548,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>370</y>
+      <y>330</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -570,7 +570,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>370</y>
+      <y>330</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -592,7 +592,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>520</y>
+      <y>480</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -614,7 +614,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>520</y>
+      <y>480</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -636,7 +636,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>670</y>
+      <y>630</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -658,7 +658,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>670</y>
+      <y>630</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -680,7 +680,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>670</y>
+      <y>630</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -702,7 +702,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>670</y>
+      <y>630</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -724,7 +724,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>670</y>
+      <y>630</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -746,7 +746,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>70</y>
+      <y>30</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -768,7 +768,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>70</y>
+      <y>30</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -790,7 +790,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>70</y>
+      <y>30</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -812,7 +812,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>70</y>
+      <y>30</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -988,7 +988,7 @@
    <widget class="QPushButton" name="WhileButton">
     <property name="geometry">
      <rect>
-      <x>1050</x>
+      <x>1260</x>
       <y>1280</y>
       <width>201</width>
       <height>111</height>
@@ -1021,6 +1021,63 @@
     </property>
     <property name="text">
      <string>U</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ElseButton">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>1280</y>
+      <width>201</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ELSE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="NewlineButton">
+    <property name="geometry">
+     <rect>
+      <x>1850</x>
+      <y>890</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>|</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EqualButton">
+    <property name="geometry">
+     <rect>
+      <x>1330</x>
+      <y>1160</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>=</string>
     </property>
    </widget>
    <zorder>FButton</zorder>
@@ -1072,6 +1129,9 @@
    <zorder>IfButton</zorder>
    <zorder>WhileButton</zorder>
    <zorder>UButton</zorder>
+   <zorder>ElseButton</zorder>
+   <zorder>NewlineButton</zorder>
+   <zorder>EqualButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -185,15 +185,20 @@ def eval(x, env=global_env):
         else:
             env.find(var)[var] = eval(exp)
     elif x[0]=='IF':
-        (_, test, conseq) = x
-        print('test')
-        print(test)
-        if eval(test):
-            print('eval true')
-            exp = conseq
+        if len(x) > 3 and x[3] == 'ELSE':
+            (_, test, conseq, _, alter) = x
+            if eval(test):
+                exp = conseq
+            else:
+                exp = alter
+            eval(exp)
         else:
-            return None
-        eval(exp)
+            (_, test, conseq) = x
+            if eval(test):
+                exp = conseq
+            else:
+                return None
+            eval(exp)
     elif x[0]=='WHILE':
         (_, test, dos) = x
         while eval(test):
