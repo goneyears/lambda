@@ -459,7 +459,7 @@ if __name__ =='__main__':
 
 
     #temporary test adapt for low resolution screen
-    compoinit()
+    #compoinit()
     #append function to exes in parser1.py
     exes.Fevent.append(forward)
     exes.Levent.append(leftturn)
