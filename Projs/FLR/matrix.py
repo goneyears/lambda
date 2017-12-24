@@ -14,6 +14,7 @@ class Matrix:
             [Block(0,5,'leftwall'),       Block(1,5),            Block(2,5),            Block(3,5),            Block(4,5),            Block(5,5),            Block(6,5,'rightwall')],
             [Block(0,6,'downleftcorner'), Block(1,6,'downwall'), Block(2,6,'downwall'), Block(3,6,'downwall'), Block(4,6,'downwall'), Block(5,6,'downwall'), Block(6,6,'downrightcorner')],
         ]
+        self.lastpos = [1, 5]
         self.curpos = [1,5]
 
     def xinc(self):
@@ -26,15 +27,23 @@ class Matrix:
         self.curpos[1] = self.curpos[1] - 1
 
     def up(self):
+        self.lastpos[0] = self.curpos[0]
+        self.lastpos[1] = self.curpos[1]
         self.ydec()
 
     def down(self):
+        self.lastpos[0] = self.curpos[0]
+        self.lastpos[1] = self.curpos[1]
         self.yinc()
 
     def right(self):
+        self.lastpos[0] = self.curpos[0]
+        self.lastpos[1] = self.curpos[1]
         self.xinc()
 
     def left(self):
+        self.lastpos[0] = self.curpos[0]
+        self.lastpos[1] = self.curpos[1]
         self.xdec()
 
     def getcurblock(self):

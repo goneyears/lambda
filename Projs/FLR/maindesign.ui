@@ -1778,38 +1778,14 @@
        </layout>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="aeroplane_label">
-        <property name="enabled">
-         <bool>true</bool>
+       <widget class="QTextEdit" name="messagetextedit">
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>8</pointsize>
+         </font>
         </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>1</width>
-          <height>1</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>1</width>
-          <height>1</height>
-         </size>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>res/up.png</pixmap>
-        </property>
-        <property name="scaledContents">
+        <property name="readOnly">
          <bool>true</bool>
         </property>
        </widget>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import threading
 import maindesign
@@ -10,9 +11,9 @@ from matrix import *
 ui = maindesign.Ui_MainWindow()
 brun = 0
 lbls = []
+path = ''
 def read_edit():
     return str(ui.textEdit.toPlainText())
-
 
 def write_edit(str):
     c = ui.textEdit.textCursor()
@@ -27,6 +28,16 @@ def backspace_edit():
     c = ui.textEdit.textCursor()
     c.deletePreviousChar()
     ui.textEdit.setFocus()
+
+def write_message(str):
+    ui.messagetextedit.append(str)
+    time.sleep(0.3)
+    bar = ui.messagetextedit.verticalScrollBar()
+    bar.setValue(bar.maximum())
+    time.sleep(0.1)#important for python not work problem.
+
+def clear_message():
+    ui.messagetextedit.clear()
 
 sta = 'up'
 xpos = 0
@@ -61,83 +72,86 @@ def movemap(x):
     }
     return switcher.get(x, None)
 
+def lblssetpixmap(x, y, pixstr):
+    if 1<=x and x<=5 and 1<=y and y<=5:
+        lbls[x][y].setPixmap(QtGui.QPixmap(pixstr))
+    else:
+        time.sleep(0.1)
+        print('path:'+ path)
+        print(mx.lastpos)
+        lblssetpixmap(mx.lastpos[1], mx.lastpos[0], path)
+        mx.curpos[0] = mx.lastpos[0]
+        mx.curpos[1] = mx.lastpos[1]
+        raise(ValueError)
 
 def leftstate():
     global sta
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/left.png"))
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/left.png")
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/left.png"))
     print('leftstate')
     sta = 'left'
 
 
 def rightstate():
     global sta
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/right.png"))
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/right.png")
     print('rightstate')
     sta = 'right'
 
 
 def downstate():
     global sta
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/down.png"))
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/down.png")
     print('downstate')
     sta = 'down'
 
 
 def upstate():
     global sta
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/up.png"))
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/up.png")
     print('upstate')
     sta = 'up'
 
 
 def upmove():
-    global xpos,ypos
-    ypos = ypos - ygap
+    global path
 
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.up()
+    path = "res/"+sta+".png"
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 
 
 def downmove():
-    global xpos,ypos
-    ypos = ypos + ygap
+    global path
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.down()
-
+    path = "res/"+sta+".png"
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def leftmove():
-    global xpos,ypos
-    xpos = xpos - xgap
+    global path
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.left()
-
+    path = "res/"+sta+".png"
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def rightmove():
-    global xpos,ypos
-    xpos = xpos + xgap
+    global path
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.right()
-
+    path = "res/"+sta+".png"
+    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def leftturn():
 
-    ui.aeroplane_label.hide()
     leftrotatemap(sta)()
-    ui.aeroplane_label.show()
-    updategeo()
+    time.sleep(0.3)
 
 def rightturn():
     rightrotatemap(sta)()
-    updategeo()
-
-def forward():
-    global xpos,ypos
-    global planegeo
-    movemap(sta)()
-    updategeo()
-
-def updategeo():
-    global xpos,ypos
-    global planegeo
-    time.sleep(0.0001)
-    planegeo.moveTopLeft(QtCore.QPoint(xpos,ypos))
-    print('planegeo movetopleft:'+str(planegeo))
-    ui.aeroplane_label.setGeometry(planegeo)
     time.sleep(0.3)
 
+def forward():
+    movemap(sta)()
+    time.sleep(0.3)
 def see(dir):
     print('see run')
     print(dir)
@@ -287,53 +301,59 @@ def thread1():
     global brun,global_env
     print('thread runs'+str(brun))
     while(True):
+        el = ''
         try:
             if brun == 1:
+                write_message('\nRunning')
                 global_env = standard_env()
                 mstr = read_edit().strip('\r\n')
                 mstr_lines = re.split('\n', mstr)
                 for ln in mstr_lines:
+                    el = ln
                     repl(ln)
                 brun = 0
+                write_message('Stop')
+        except ValueError:
+            brun = 0
+            write_message('out of range:\n' + el)
+            write_message('Stop')
         except:
-            print('code syntax error')
+            brun = 0
+            if(el != ''):
+                write_message('code syntax error:\n' + el)
+
+            write_message('Stop')
+            print('code syntax error: ' + el)
         time.sleep(0.1)
 
 bresize = 0
 def threadresize():
-    global bresize
-    while(True):
-        # try:
-        if bresize == 1:
-            bresize = 0
-            time.sleep(0.5)
-            if bresize == 0:
-                uiinitial()
-
-        time.sleep(0.5)
+    uiinitial()
+    # global bresize
+    # while(True):
+    #     # try:
+    #     if bresize == 1:
+    #         bresize = 0
+    #         time.sleep(0.5)
+    #         if bresize == 0:
+    #             uiinitial()
+    #
+    #     time.sleep(0.5)
 def uiinitial():
-    global planegeo
-    global xgap, ygap
-    global xpos, ypos
     global lbls
-    planegeo = ui.label15.geometry()
-    xpos = planegeo.left()
-    ypos = planegeo.top()
-    xgap = planegeo.width()
-    ygap = planegeo.height()
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/up.png"))
-    time.sleep(0.6)
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/left.png"))
-    time.sleep(0.3)
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/down.png"))
-    time.sleep(0.3)
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/right.png"))
-    time.sleep(0.3)
-    ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/up.png"))
-    time.sleep(0.3)
-    ui.aeroplane_label.setGeometry(planegeo)
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/up.png"))
+    # time.sleep(0.6)
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/left.png"))
+    # time.sleep(0.3)
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/down.png"))
+    # time.sleep(0.3)
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/right.png"))
+    # time.sleep(0.3)
+    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/up.png"))
+    # time.sleep(0.3)
+    # ui.aeroplane_label.setGeometry(planegeo)
 
-    lbls[mx.curpos[0]][mx.curpos[1]].setPixmap(QtGui.QPixmap("res/up.png"))
+    lbls[mx.curpos[1]][mx.curpos[0]].setPixmap(QtGui.QPixmap("res/up.png"))
     print('planegeo initial:'+str(planegeo))
 
 class nQMainWindow(QMainWindow):
