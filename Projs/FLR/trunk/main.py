@@ -136,7 +136,7 @@ def downmove():
     mx.down()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
+    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def leftmove():
     global path
     mx.curblock.dispic("res/blank_small.png")
@@ -144,7 +144,7 @@ def leftmove():
     mx.left()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
+    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def rightmove():
     global path
     mx.curblock.dispic("res/blank_small.png")
@@ -362,15 +362,14 @@ def uiinitial():
     global lbls
 
     mx.curblock.dispic("res/up.png")
-    # lbls[mx.curpos[1]][mx.curpos[0]].setPixmap(QtGui.QPixmap("res/up.png"))
-    print('planegeo initial:'+str(planegeo))
-
-    ballgeo = mx.blocks[5][1].geometry()
-        # lbls[5][1].geometry()
-    for i in range(1,21):
-        time.sleep(0.5)
-        objs[i].move(ballgeo.x(),ballgeo.y())
-        print(i)
+    #
+    # nextgeo = mx.blocks[1][5].geometry()
+    # for i in range(1,21):
+    #     time.sleep(0.5)
+    #
+    #     objs[i].move(nextgeo.right(), nextgeo.top())
+    #     nextgeo = objs[i].geometry()
+    #     print(i)
 
 class nQMainWindow(QMainWindow):
 

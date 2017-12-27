@@ -18,11 +18,10 @@ class Block:
 
 class Matrix:
     def __init__(self, blks):
-        # self.blocks = []
-        self.blocks = list(map(list, zip(*blks)))
+        self.blocks = list(map(list, zip(*blks))) #T transform of block array
         self.lastpos = Position(1, 5)
         self.curpos = Position(1, 5)
-        self.lastblk = self.blocks[self.lastpos.x][self.lastpos.y]
+        self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
     def xinc(self):
@@ -37,7 +36,7 @@ class Matrix:
     def up(self):
         self.lastpos.x = self.curpos.x
         self.lastpos.y = self.curpos.y
-        self.lastblk = self.blocks[self.lastpos.x][self.lastpos.y]
+        self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
         self.ydec()
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
@@ -45,21 +44,21 @@ class Matrix:
     def down(self):
         self.lastpos.x = self.curpos.x
         self.lastpos.y = self.curpos.y
-        self.lastblk = self.blocks[self.lastpos.x][self.lastpos.y]
+        self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
         self.yinc()
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
     def right(self):
         self.lastpos.x = self.curpos.x
         self.lastpos.y = self.curpos.y
-        self.lastblk = self.blocks[self.lastpos.x][self.lastpos.y]
+        self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
         self.xinc()
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
     def left(self):
         self.lastpos.x = self.curpos.x
         self.lastpos.y = self.curpos.y
-        self.lastblk = self.blocks[self.lastpos.x][self.lastpos.y]
+        self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
         self.xdec()
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
