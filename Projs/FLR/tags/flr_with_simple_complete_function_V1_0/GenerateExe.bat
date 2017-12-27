@@ -1,0 +1,1 @@
+C:\ProgramData\Anaconda32bit\Scripts\pyinstaller.exe -F -w C:\Users\goney\Documents\MachFiles\lambda\Projs\FLR\Main.py

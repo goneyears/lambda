@@ -1,0 +1,41 @@
+F(1)L(2)
+[[f 1][l 2]]
+---------
+
+F(1)P(2)D(1)
+
+---------
+
+BAKCWARD
+B=L(2)F(1)L(2)
+B(1)
+
+---------
+
+IF(SL){B(1)L(1)}
+WHILE(RUN)(F(1)P(1))
+
+---------
+
+WHILE(SL){F(1)IF(SL){L(1)F(1)}}
+
+
+----------
+str2 = '[ IF [ S(L) ] [ R(1)[L(1)R(1)]]]'
+
+str1 = '[WHILE[S(L)][R(1)L(1)F(1)]]'
+str3 = 'F(3)'
+
+
+-----------
+R(N)
+
+[DEF I 1][WHILE[<= I N][[R][+ I 1]] ]
+
+
+[[SET I 1]WHILE[<= I 3][[SET J 1][WHILE[<= J 2][[T][SET J [+ J 1]]]][SET I [+ I 1]]]]
+
+[DEF B [[SET I 1][WHILE [<= I 2][[R][SET I [+ I 1]]]]  [SET I 1][WHILE [<= I 1][[F][SET I [+ I 1]]]]  [SET I 1][WHILE [<= I 2][[R][SET I [+ I 1]]]]  ]]
+
+
+WHILE[RUN][[IF[NS(F)][F(1)]][IF[S(F)][R(1)]]]
