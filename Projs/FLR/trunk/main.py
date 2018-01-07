@@ -11,7 +11,7 @@ from matrix import *
 ui = maindesign.Ui_MainWindow()
 brun = 0
 lbls = []
-objs = []
+Balls = Objs()
 path = ''
 def read_edit():
     return str(ui.textEdit.toPlainText())
@@ -88,8 +88,6 @@ def lblssetpixmap(x, y, pixstr):
 def leftstate():
     global sta
     mx.curblock.dispic("res/left.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/left.png")
-    # ui.aeroplane_label.setPixmap(QtGui.QPixmap("res/left.png"))
     print('leftstate')
     sta = 'left'
 
@@ -97,7 +95,6 @@ def leftstate():
 def rightstate():
     global sta
     mx.curblock.dispic("res/right.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/right.png")
     print('rightstate')
     sta = 'right'
 
@@ -105,7 +102,6 @@ def rightstate():
 def downstate():
     global sta
     mx.curblock.dispic("res/down.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/down.png")
     print('downstate')
     sta = 'down'
 
@@ -113,7 +109,6 @@ def downstate():
 def upstate():
     global sta
     mx.curblock.dispic("res/up.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/up.png")
     print('upstate')
     sta = 'up'
 
@@ -122,40 +117,32 @@ def upmove():
     global path
 
     mx.curblock.dispic("res/blank_small.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.up()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
-
 
 def downmove():
     global path
     mx.curblock.dispic("res/blank_small.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.down()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
+
+
 def leftmove():
     global path
     mx.curblock.dispic("res/blank_small.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.left()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 def rightmove():
     global path
     mx.curblock.dispic("res/blank_small.png")
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], "res/blank_small.png")
     mx.right()
     path = "res/"+sta+".png"
     mx.curblock.dispic(path)
-    # lblssetpixmap(mx.curpos[1], mx.curpos[0], path)
 
 def leftturn():
-
     leftrotatemap(sta)()
     time.sleep(0.3)
 
@@ -220,6 +207,23 @@ def see(dir):
 
     else:
         print('error sta in see function')
+
+i = 1
+def pick():
+    global Balls, i
+    time.sleep(0.1)
+    mx.curblock.releaseobj(Balls.item[i])
+    time.sleep(0.1)
+    i -= 1
+
+
+def drop():
+    global Balls, i
+    time.sleep(0.1)
+    mx.curblock.getobj(Balls.item[i])
+    time.sleep(0.1) #add for python does not work problem
+    i += 1
+
 
 def isrun():
     print('isrun?' + str(brun))
@@ -386,21 +390,7 @@ if __name__ =='__main__':
     #ui = maindesign.Ui_MainWindow()
     ui.setupUi(MainWindow)
 
-    mx = Matrix(
-        [
-            [Block(0,0,None, 'upleftcorner'),   Block(1,0,None,'upwall'),         Block(2,0,None,'upwall'),         Block(3,0,None,'upwall'),         Block(4,0,None,'upwall'),         Block(5,0,None,'upwall'),         Block(6,0,None,'uprightcorner')],
-            [Block(0,1,None, 'leftwall'),       Block(1,1,ui.label11),            Block(2,1,ui.label21),            Block(3,1,ui.label31),            Block(4,1,ui.label41),            Block(5,1,ui.label51),            Block(6,1,None,'rightwall')],
-            [Block(0,2,None, 'leftwall'),       Block(1,2,ui.label12),            Block(2,2,ui.label22),            Block(3,2,ui.label32),            Block(4,2,ui.label42),            Block(5,2,ui.label52),            Block(6,2,None,'rightwall')],
-            [Block(0,3,None, 'leftwall'),       Block(1,3,ui.label13),            Block(2,3,ui.label23),            Block(3,3,ui.label33),            Block(4,3,ui.label43),            Block(5,3,ui.label53),            Block(6,3,None,'rightwall')],
-            [Block(0,4,None, 'leftwall'),       Block(1,4,ui.label14),            Block(2,4,ui.label24),            Block(3,4,ui.label34),            Block(4,4,ui.label44),            Block(5,4,ui.label54),            Block(6,4,None,'rightwall')],
-            [Block(0,5,None, 'leftwall'),       Block(1,5,ui.label15),            Block(2,5,ui.label25),            Block(3,5,ui.label35),            Block(4,5,ui.label45),            Block(5,5,ui.label55),            Block(6,5,None,'rightwall')],
-            [Block(0,6,None, 'downleftcorner'), Block(1,6,None,'downwall'),       Block(2,6,None,'downwall'),       Block(3,6,None,'downwall'),       Block(4,6,None,'downwall'),       Block(5,6,None,'downwall'),       Block(6,6,None,'downrightcorner')],
-        ]
-        )
-    objs = [
-        None, ui.obj1, ui.obj2, ui.obj3, ui.obj4, ui.obj5, ui.obj6, ui.obj7, ui.obj8, ui.obj9, ui.obj10,
-        ui.obj11, ui.obj12, ui.obj13, ui.obj14, ui.obj15, ui.obj16, ui.obj17, ui.obj18, ui.obj19, ui.obj20
-    ]
+
 
     ui.FButton.clicked.connect(F_button_click)
     ui.LButton.clicked.connect(L_button_click)
@@ -440,10 +430,30 @@ if __name__ =='__main__':
     exes.Levent.append(leftturn)
     exes.Revent.append(rightturn)
     exes.Sevent.append(see)
+    exes.Pevent.append(pick)
+    exes.Devent.append(drop)
     exes.Runevent.append(isrun)
 
 
     MainWindow.show()
+    Balls.addelement([
+        Obj(ui.obj1), Obj(ui.obj2), Obj(ui.obj3), Obj(ui.obj4), Obj(ui.obj5), Obj(ui.obj6), Obj(ui.obj7), Obj(ui.obj8), Obj(ui.obj9), Obj(ui.obj10),
+        Obj(ui.obj11), Obj(ui.obj12), Obj(ui.obj13), Obj(ui.obj14), Obj(ui.obj15), Obj(ui.obj16), Obj(ui.obj17), Obj(ui.obj18), Obj(ui.obj19), Obj(ui.obj20)
+    ])
+    o = Balls.item[1]
+    mx = Matrix(
+        [
+            [Block(0,0,None, o, 'upleftcorner'),   Block(1,0,None, o, 'upwall'),         Block(2,0,None, o, 'upwall'),         Block(3,0,None, o, 'upwall'),         Block(4,0,None, o, 'upwall'),         Block(5,0,None, o, 'upwall'),         Block(6,0,None, o, 'uprightcorner')],
+            [Block(0,1,None, o, 'leftwall'),       Block(1,1,ui.label11, o),            Block(2,1,ui.label21, o),            Block(3,1,ui.label31, o),            Block(4,1,ui.label41, o),            Block(5,1,ui.label51, o),            Block(6,1,None, o,'rightwall')],
+            [Block(0,2,None, o, 'leftwall'),       Block(1,2,ui.label12, o),            Block(2,2,ui.label22, o),            Block(3,2,ui.label32, o),            Block(4,2,ui.label42, o),            Block(5,2,ui.label52, o),            Block(6,2,None, o,'rightwall')],
+            [Block(0,3,None, o, 'leftwall'),       Block(1,3,ui.label13, o),            Block(2,3,ui.label23, o),            Block(3,3,ui.label33, o),            Block(4,3,ui.label43, o),            Block(5,3,ui.label53, o),            Block(6,3,None, o,'rightwall')],
+            [Block(0,4,None, o, 'leftwall'),       Block(1,4,ui.label14, o),            Block(2,4,ui.label24, o),            Block(3,4,ui.label34, o),            Block(4,4,ui.label44, o),            Block(5,4,ui.label54, o),            Block(6,4,None, o,'rightwall')],
+            [Block(0,5,None, o, 'leftwall'),       Block(1,5,ui.label15, o),            Block(2,5,ui.label25, o),            Block(3,5,ui.label35, o),            Block(4,5,ui.label45, o),            Block(5,5,ui.label55, o),            Block(6,5,None, o,'rightwall')],
+            [Block(0,6,None, o, 'downleftcorner'), Block(1,6,None, o, 'downwall'),       Block(2,6,None, o, 'downwall'),       Block(3,6,None,o, 'downwall'),       Block(4,6,None, o, 'downwall'),       Block(5,6,None, o, 'downwall'),       Block(6,6,None, o, 'downrightcorner')],
+        ]
+        )
+
+
     t1 = threading.Thread(target=thread1)
     t1.setDaemon(True)
     t1.start()

@@ -6,19 +6,79 @@ class Position:
         self.x = xpos
         self.y = ypos
 
+class Objs:
+    def __init__(self):
+        self.item = []
+
+    def addelement(self, objs):
+        self.item = objs.copy()
+        self.item.insert(0, None)
+
+
+class Obj:
+    def __init__(self, obj):
+        self.obj = obj
+        self.leftstart = self.obj.geometry().left()
+        self.topstart = self.obj.geometry().top()
+
+
+    def move(self, left, top):
+        self.obj.move(left, top)
+
+    def back(self):
+        self.obj.move(self.leftstart, self.topstart)
+
+    def geometry(self):
+        return self.obj.geometry()
+
 class Block:
-    def __init__(self, x, y, lbl, t='normal'):
+    def __init__(self, x, y, lbl, obj, t='normal'):
         self.location = Position(x, y)
         self.tp = t
         self.lbl = lbl
+        self.poss = []
+        self.curpos = 0
+        if(lbl != None):
+            self.curavailtop = self.lbl.geometry().top()
+            self.curavailleft = self.lbl.geometry().left()
+            self.calcobjspos(obj)
+            print('lblgeometry  : ' + str(self.geometry()))
+            print(self.poss)
+        else:
+            self.curavailtop = 0
+            self.curavailleft = 0
+
     def dispic(self,picpath):
         self.lbl.setPixmap(QtGui.QPixmap(picpath))
+
     def geometry(self):
         return self.lbl.geometry()
 
+    def calcobjspos(self, obj):
+        geo = QtCore.QRect(self.geometry().left(), self.geometry().top(), obj.geometry().width(), obj.geometry().height())
+        while True:
+            self.poss.append(geo)
+
+            if geo.right() + geo.width() <= self.geometry().right():
+                geo = QtCore.QRect(geo.right(), geo.top(), geo.width(), geo.height())
+            elif geo.bottom() + geo.height() <= self.geometry().bottom():
+                geo = QtCore.QRect(self.geometry().left(), geo.bottom(), geo.width(),geo.height())
+            else:
+                break;
+
+
+    def getobj(self, obj):
+        obj.move(self.poss[self.curpos].left(), self.poss[self.curpos].top())
+        self.curpos += 1
+
+    def releaseobj(self, obj):
+        obj.back()
+        self.curpos -= 1
+
+
 class Matrix:
     def __init__(self, blks):
-        self.blocks = list(map(list, zip(*blks))) #T transform of block array
+        self.blocks = list(map(list, zip(*blks))) #T transform to block array
         self.lastpos = Position(1, 5)
         self.curpos = Position(1, 5)
         self.lastblock = self.blocks[self.lastpos.x][self.lastpos.y]
@@ -62,11 +122,6 @@ class Matrix:
         self.xdec()
         self.curblock = self.blocks[self.curpos.x][self.curpos.y]
 
-    # def getcurblock(self):
-    #     return self.blocks[self.curpos.x,self.curpos.y]
-    #
-    # def getcurpos(self):
-    #     return self.curpos
 
     def iswall(self,pos):
         if self.blocks[pos.x][pos.y].tp != 'normal':
@@ -93,7 +148,8 @@ class Matrix:
 
 
         return self.iswall(p)
-        # return False
+
+
 
 
 

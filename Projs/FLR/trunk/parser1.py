@@ -92,6 +92,8 @@ class Exes:
         self.Levent = []
         self.Revent = []
         self.Sevent = []
+        self.Pevent = []
+        self.Devent = []
         self.Runevent = []
 
 
@@ -109,6 +111,15 @@ class Exes:
 
     def NS(self, x):
         return not self.Sevent[0](x)
+
+    def P(self):
+        [n() for n in self.Pevent]
+        # return self.Pevent[0]()
+
+    def D(self):
+
+        [n() for n in self.Devent]
+        # return self.Devent[0]()
 
     def RUN(self):
         return self.Runevent[0]()
@@ -131,6 +142,8 @@ def standard_env():
         'R': exes.R,
         'S': exes.S,
         'NS':exes.NS,
+        'P': exes.P,
+        'D': exes.D,
         'RUN':exes.RUN,
         '_L': 'left',
         '_R': 'right',
