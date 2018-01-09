@@ -71,3 +71,39 @@
   (if (null? lst) (newline)
       (begin (proc (car lst)) (for-each proc (cdr lst)))))
 (for-each (lambda (x) (newline) (display x)) lst1)
+
+
+(define (len lst)
+  (if (null? lst) 0
+      (+ 1 (len (cdr lst)))))
+
+(define x (list (list 1 2) (list 3 4)))
+
+(define (count-leaves lst)
+  (cond ((null? lst) 0)
+        ((not (pair? lst)) 1)
+        (else (+ (count-leaves (car lst))
+                 (count-leaves (cdr lst))))))
+
+
+
+;(define lst4 (list 1 (list 2 (list 3 (list 4 (list 5 (list 6  7)))))))
+;lst4
+;(cdr lst4)
+;(define lst40 (cons (car lst4) (cdr lst4)))
+;lst40
+;(car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr lst4))))))))))))
+(reverse x)
+(define (is-comb-list lst)
+  (cond ((null? lst)  #f)
+        ((not (pair? lst)) #f)
+        ((pair? (car lst)) #t)
+        (else (is-comb-list (cdr lst)))))
+
+(define (deep-reverse lst)
+  (cond ((null? lst) lst)
+        ((not (is-comb-list lst)) (reverse lst))
+        (else (cons (deep-reverse (last lst)) (deep-reverse (pre-list lst (- (length lst) 1)))))))
+(deep-reverse x)
+
+(deep-reverse (list 3 4))
