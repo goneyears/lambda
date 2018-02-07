@@ -1,0 +1,11 @@
+﻿<Window x:Class="test2.MainWindow"  
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+            Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label Content="s1" HorizontalAlignment="Left" Margin="54,54,0,0" Name="s1" VerticalAlignment="Top" BorderThickness="1" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFE2DBDB" Width="{Binding Unit.Size1}" Height="{Binding Unit.Size1}" />
+        <Label Content="s2" HorizontalAlignment="Left" Margin="54,114,0,0" Name="s2" VerticalAlignment="Top" BorderThickness="1" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFE2DBDB" Width="{Binding Unit.Size2}" Height="{Binding Unit.Size2}" />
+        <Button Command="{Binding ShowCommand}" Content="Display" Height="23" HorizontalAlignment="Left" Margin="345,27,0,0" Name="buttonShow" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>  
+
