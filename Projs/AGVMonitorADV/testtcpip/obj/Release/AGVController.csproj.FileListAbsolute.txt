@@ -7,3 +7,6 @@ D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.csproj
 D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.exe
 D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.pdb
 D:\PerDocs\Project\prj15\CS\testtcpip\testtcpip\obj\Release\AGVController.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\Projs\AGVMonitorADV\testtcpip\bin\Release\AGVController.exe.config
+D:\PerDocs\personal\lambda\Projs\AGVMonitorADV\testtcpip\obj\Release\AGVController.exe
+D:\PerDocs\personal\lambda\Projs\AGVMonitorADV\testtcpip\obj\Release\AGVController.pdb
