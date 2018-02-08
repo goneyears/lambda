@@ -78,7 +78,7 @@
 "AO# " MG2 "." Axis1   " "        MG2Axis1Offset8                   "               /*MG2Axis1Offset8     "
 "AO# " MG2 "." Axis1   " "        MG2Axis1Offset9                   "               /*MG2Axis1Offset9     "
 "AO# " MG2 "." Axis1   " "        MG2Axis1Offset10                  "               /*MG2Axis1Offset10    "
-"KAM# "  CameraColor                       "       /* Parameter 0   (0=MSTB GN, 1=BK, 8=GY, 23=BCP GN,  )                                                               "
+"KA5M# "  CameraColor                       "       /* Parameter 0   (0=MSTB GN, 1=BK, 8=GY, 23=BCP GN,  )                                                               "
 "KAM# "  CameraFlange                      "       /* Parameter 1   (0:  ST  1:  STF  2:  STFR 3:  STFL 4:  RN   5:  RNR  6:  RNL  7:  KG )                             "
 "KAM# "  "0"                               "       /* Parameter 2   (0:  SN silver metal surface	1:  AU golden metal surface )                                         "
 "KAM# "  "0"                               "       /* Parameter 3   free                                                                                                "
