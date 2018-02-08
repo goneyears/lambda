@@ -11,3 +11,16 @@ D:\PerDocs\personal\syncfiles\lambda\CodingTools\test\wpf\test2\test2\bin\Debug\
 D:\PerDocs\personal\syncfiles\lambda\CodingTools\test\wpf\test2\test2\obj\Debug\test2.exe
 D:\PerDocs\personal\syncfiles\lambda\CodingTools\test\wpf\test2\test2\obj\Debug\test2.pdb
 D:\PerDocs\personal\syncfiles\lambda\CodingTools\test\wpf\test2\test2\obj\Debug\test2.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\bin\Debug\test2.exe.config
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.exe
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.pdb
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\bin\Debug\test2.exe
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\bin\Debug\test2.pdb
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\MainWindow.baml
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\MainWindow.g.cs
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\App.g.cs
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2_MarkupCompile.cache
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.g.resources
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.Properties.Resources.resources
+D:\PerDocs\personal\lambda\CodingTools\test\test2\test2\obj\Debug\test2.csproj.GenerateResource.Cache
