@@ -1,8 +1,11 @@
 ﻿<Window x:Class="test2.MainWindow"  
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-            Title="MainWindow" Height="520.79" Width="1015.722">
-    <Grid>
+            Title="MainWindow" Height="500" Width="600">
+    <Viewbox>
+        <Grid>
+
+
         <Label Content="{Binding Unit.Size[0]}" HorizontalAlignment="Left" Margin="36,10,0,0"    Name="s0" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFB62323" Width="{Binding Unit.Size[0]}" Height="30" />
         <Label Content="{Binding Unit.Size[1]}" HorizontalAlignment="Left" Margin="36,45,0,0"    Name="s1" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[1]}" Height="30" />
         <Label Content="{Binding Unit.Size[2]}" HorizontalAlignment="Left" Margin="36,80,0,0"  x:Name="s2" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[2]}" Height="30" />
@@ -17,5 +20,7 @@
         <Button Command="{Binding ShowCommand}" Content="Display" Height="23" HorizontalAlignment="Left" Margin="481,427,0,0" Name="buttonShow" VerticalAlignment="Top" Width="75" />
 
     </Grid>
+
+    </Viewbox>
 </Window>  
 

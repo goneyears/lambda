@@ -59,18 +59,19 @@ namespace test2.ViewModel
 
          }
 
+        Random rd = new Random();
 
         private void ApplyChange(object obj)
         {
             Unit.setBat();
 
             int r=0;
-            Random rd = new Random();
             r = rd.Next(0,2);
             int sbatsize;
             int batsize = (int)((minarr(Unit.Size)+1)*0.3);
+            if (batsize == 0) batsize++;
             sbatsize = rd.Next(1, batsize);
-            Debug.WriteLine("restult:   "+r+"    sbat: " + sbatsize.ToString());
+            Debug.WriteLine("restult:   " + r + "    sbat: " + sbatsize.ToString());
 
             int wins = 0;
             leftpers = 0;
@@ -106,11 +107,25 @@ namespace test2.ViewModel
                     }
                 }
             }
+
+            bool rescale = false;
             for (int i = 0; i < 10; i++) {
                 if (Unit.Size[i] > 0) {
-                    Unit.Size[i] += 1;
+                    Unit.Size[i] += rd.Next(0,3)* 1;
+                }
+
+                if (Unit.Size[i] > 900) rescale = true;
+            }
+
+            if (rescale) {
+                for (int i = 0; i < 10; i++) {
+                    if (Unit.Size[i] > 0) {
+                        Unit.Size[i] /=2;
+                    }
+                     
                 }
             }
+
             Unit.Size = Unit.Size;
             Unit.Result = "";
             int total = 0;

@@ -6,44 +6,24 @@
         xmlns:local="clr-namespace:FLR"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid Margin="-78,0,68,-55.5" RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-359.902"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="738*"/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="56" Margin="211,64,0,0" VerticalAlignment="Top" Width="79" Grid.Column="2"/>
-        <Grid HorizontalAlignment="Left" Height="186" Margin="211,64,0,0" VerticalAlignment="Top" Width="199" Opacity="0.5" OpacityMask="#FFA42929" Background="#FF1E0D0D" Grid.Column="2" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-50.685"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-        </Grid>
-        <Button x:Name="button" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Height="93" Margin="41,64,0,0" VerticalAlignment="Top" Width="94"/>
-        <Rectangle Grid.Column="2" Fill="#FF2A2A56" HorizontalAlignment="Left" Height="86" Margin="525,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="163"/>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="543,120,0,0" VerticalAlignment="Top" Width="100"/>
-        <TabControl x:Name="tabControl" Grid.Column="2" HorizontalAlignment="Left" Height="107" Margin="525,155,0,0" VerticalAlignment="Top" Width="153">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-        <Grid Grid.Column="2" HorizontalAlignment="Left" Height="379" Margin="295,61,0,0" VerticalAlignment="Top" Width="433"/>
+    <Viewbox>
+        <Grid>
 
-    </Grid>
+
+            <Label Content="{Binding Unit.Size[0]}" HorizontalAlignment="Left" Margin="36,10,0,0"    Name="s0" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFB62323" Width="{Binding Unit.Size[0]}" Height="30" />
+            <Label Content="{Binding Unit.Size[1]}" HorizontalAlignment="Left" Margin="36,45,0,0"    Name="s1" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[1]}" Height="30" />
+            <Label Content="{Binding Unit.Size[2]}" HorizontalAlignment="Left" Margin="36,80,0,0"  x:Name="s2" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[2]}" Height="30" />
+            <Label Content="{Binding Unit.Size[3]}" HorizontalAlignment="Left" Margin="36,115,0,0" x:Name="s3" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFB62323" Width="{Binding Unit.Size[3]}" Height="30" />
+            <Label Content="{Binding Unit.Size[4]}" HorizontalAlignment="Left" Margin="36,150,0,0" x:Name="s4" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[4]}" Height="30" />
+            <Label Content="{Binding Unit.Size[5]}" HorizontalAlignment="Left" Margin="36,185,0,0" x:Name="s5" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[5]}" Height="30" />
+            <Label Content="{Binding Unit.Size[6]}" HorizontalAlignment="Left" Margin="36,220,0,0" x:Name="s6" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[6]}" Height="30" />
+            <Label Content="{Binding Unit.Size[7]}" HorizontalAlignment="Left" Margin="36,255,0,0" x:Name="s7" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FFB62323" Width="{Binding Unit.Size[7]}" Height="30" />
+            <Label Content="{Binding Unit.Size[8]}" HorizontalAlignment="Left" Margin="36,290,0,0" x:Name="s8" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[8]}" Height="30" />
+            <Label Content="{Binding Unit.Size[9]}" HorizontalAlignment="Left" Margin="36,325,0,0" x:Name="s9" VerticalAlignment="Top" BorderThickness="0" Opacity="0.5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Background="#FF21437E" Width="{Binding Unit.Size[9]}" Height="30" />
+            <TextBox HorizontalAlignment="Left" Height="32" Margin="36,418,0,0" TextWrapping="Wrap" Text="{Binding Unit.Result}" VerticalAlignment="Top" Width="374"/>
+            <Button Command="{Binding ShowCommand}" Content="Display" Height="23" HorizontalAlignment="Left" Margin="481,427,0,0" Name="buttonShow" VerticalAlignment="Top" Width="75" />
+
+        </Grid>
+
+    </Viewbox>
 </Window>

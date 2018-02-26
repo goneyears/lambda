@@ -12,3 +12,17 @@ C:\Users\goney\Documents\MachFiles\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.
 C:\Users\goney\Documents\MachFiles\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.csproj.GenerateResource.Cache
 C:\Users\goney\Documents\MachFiles\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.exe
 C:\Users\goney\Documents\MachFiles\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.pdb
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\bin\Debug\FLR.exe.config
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.exe
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.pdb
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\bin\Debug\FLR.exe
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\bin\Debug\FLR.pdb
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\MainWindow.g.cs
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\App.g.cs
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR_MarkupCompile.cache
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR_MarkupCompile.lref
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\MainWindow.baml
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.g.resources
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.Properties.Resources.resources
+D:\PerDocs\personal\lambda\Projs\FLRCsharp\FLR\FLR\obj\Debug\FLR.csproj.GenerateResource.Cache
