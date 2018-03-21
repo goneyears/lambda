@@ -41,3 +41,7 @@ C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\Ma
 C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.Properties.Resources.resources
 C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.TemperatureForm.resources
 C:\Users\goney\Documents\MachFiles\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.csproj.GenerateResource.Cache
+D:\PerDocs\personal\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\bin\Release\ManipulatorSim.exe.config
+D:\PerDocs\personal\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.csproj.ResolveComReference.cache
+D:\PerDocs\personal\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.exe
+D:\PerDocs\personal\lambda\Projs\newmanipulator\ManipulatorSim\ManipulatorSim\obj\x86\Release\ManipulatorSim.pdb
