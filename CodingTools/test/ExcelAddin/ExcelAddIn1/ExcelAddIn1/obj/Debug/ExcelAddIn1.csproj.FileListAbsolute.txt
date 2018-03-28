@@ -1,0 +1,11 @@
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.vsto
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Properties.Resources.resources
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
+D:\PerDocs\personal\lambda\CodingTools\test\ExcelAddin\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.ETools.resources

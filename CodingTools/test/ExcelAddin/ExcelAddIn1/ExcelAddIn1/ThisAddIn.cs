@@ -6,14 +6,18 @@ using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
-
+using System.Windows.Forms;
 namespace ExcelAddIn1
 {
     public partial class ThisAddIn
-    {
+    {     
+        // 定义一个任务窗体
+        internal Microsoft.Office.Tools.CustomTaskPane helpTaskPane;
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            this.Application.WorkbookBeforeSave += new Microsoft.Office.Interop.Excel.AppEvents_WorkbookBeforeSaveEventHandler(Application_WorkbookBeforeSave);
+
+        
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -28,6 +32,9 @@ namespace ExcelAddIn1
             Excel.Range newFirstRow = activeWorksheet.get_Range("A1");
             newFirstRow.Value2 = "This text was added by using code";
         }
+
+        
+
 
         #region VSTO generated code
 
