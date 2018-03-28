@@ -35,7 +35,8 @@
         {
             this.Etooltab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.button1 = this.Factory.CreateRibbonButton();
+            this.GetPriceBtn = this.Factory.CreateRibbonButton();
+            this.FullPriceBtn = this.Factory.CreateRibbonButton();
             this.Etooltab.SuspendLayout();
             this.group1.SuspendLayout();
             // 
@@ -47,15 +48,22 @@
             // 
             // group1
             // 
-            this.group1.Items.Add(this.button1);
+            this.group1.Items.Add(this.GetPriceBtn);
+            this.group1.Items.Add(this.FullPriceBtn);
             this.group1.Label = "Purchase";
             this.group1.Name = "group1";
             // 
-            // button1
+            // GetPriceBtn
             // 
-            this.button1.Label = "GetPrice";
-            this.button1.Name = "button1";
-            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            this.GetPriceBtn.Label = "GetPrice";
+            this.GetPriceBtn.Name = "GetPriceBtn";
+            this.GetPriceBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            // 
+            // FullPriceBtn
+            // 
+            this.FullPriceBtn.Label = "FullPrice";
+            this.FullPriceBtn.Name = "FullPriceBtn";
+            this.FullPriceBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.FullPriceBtn_Click);
             // 
             // ETools
             // 
@@ -74,7 +82,8 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab Etooltab;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton GetPriceBtn;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton FullPriceBtn;
     }
 
     partial class ThisRibbonCollection
