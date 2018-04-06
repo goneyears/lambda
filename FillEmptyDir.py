@@ -10,13 +10,13 @@ def fillEmptyDir(curdir):
     dirfiles=os.listdir(curdir)
     #print(len(dirfiles))
     if not dirfiles:
-        print('CREATE git.empty file: '+curdir+'\git.empty')
+        print(r'CREATE git.empty file: '+curdir+r'\git.empty')
         AddGitEmptyFile(curdir)
         return
     else:
         if(os.path.exists(os.path.join(curdir, 'git.empty')) and len(dirfiles)>1 ):
             os.remove(os.path.join(curdir, 'git.empty'))
-            print('REMOVE git.empty file:'+curdir+'\git.empty')
+            print(r'REMOVE git.empty file:'+curdir+r'\git.empty')
 
     for i in range(0, len(dirfiles)):
         subdir = os.path.join(curdir, dirfiles[i])
