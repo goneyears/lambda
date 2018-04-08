@@ -15,6 +15,13 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  bindChartTap: function() {
+    wx.navigateTo({
+      url: '../charts/line/line'
+    })
+  },
+  
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
