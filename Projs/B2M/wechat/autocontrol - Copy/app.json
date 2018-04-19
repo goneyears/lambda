@@ -3,16 +3,12 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/charts/line/line",
-    "pages/testajax/testajax",
-    "pages/charts/pie/pie",
-    "pages/charts/ring/ring",
-    "pages/list/list"
+    "pages/testajax/testajax"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   }
 }

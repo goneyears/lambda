@@ -1458,24 +1458,7 @@ function drawLegend(series, opts, config, context) {
     context.setFontSize(config.fontSize);
     itemList.forEach(function (item) {
       switch (opts.type) {
-        case 'line':
-          context.beginPath();
-          context.setLineWidth(1);
-          context.setStrokeStyle(item.color);
-          context.moveTo(startX - 2, startY + 5);
-          context.lineTo(startX + 17, startY + 5);
-          context.stroke();
-          context.closePath();
-          context.beginPath();
-          context.setLineWidth(1);
-          context.setStrokeStyle('#ffffff');
-          context.setFillStyle(item.color);
-          context.moveTo(startX + 7.5, startY + 5);
-          context.arc(startX + 7.5, startY + 5, 4, 0, 2 * Math.PI);
-          context.fill();
-          context.stroke();
-          context.closePath();
-          break;
+
         case 'pie':
         case 'ring':
           context.beginPath();
@@ -1484,6 +1467,8 @@ function drawLegend(series, opts, config, context) {
           context.arc(startX + 7.5, startY + 5, 7, 0, 2 * Math.PI);
           context.closePath();
           context.fill();
+
+          console.log('dddd');
           break;
         default:
           context.beginPath();
@@ -1575,91 +1560,6 @@ function drawPieDataPoints(series, opts, config, context) {
   };
 }
 
-function drawRadarDataPoints(series, opts, config, context) {
-  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
-
-  var radarOption = opts.extra.radar || {};
-  var coordinateAngle = getRadarCoordinateSeries(opts.categories.length);
-  var centerPosition = {
-    x: opts.width / 2,
-    y: (opts.height - config.legendHeight) / 2
-  };
-
-  var radius = Math.min(centerPosition.x - (getMaxTextListLength(opts.categories) + config.radarLabelTextMargin), centerPosition.y - config.radarLabelTextMargin);
-
-  radius -= config.padding;
-
-  // draw grid
-  context.beginPath();
-  context.setLineWidth(1);
-  context.setStrokeStyle(radarOption.gridColor || "#cccccc");
-  coordinateAngle.forEach(function (angle) {
-    var pos = convertCoordinateOrigin(radius * Math.cos(angle), radius * Math.sin(angle), centerPosition);
-    context.moveTo(centerPosition.x, centerPosition.y);
-    context.lineTo(pos.x, pos.y);
-  });
-  context.stroke();
-  context.closePath();
-
-  // draw split line grid
-
-  var _loop = function _loop(i) {
-    var startPos = {};
-    context.beginPath();
-    context.setLineWidth(1);
-    context.setStrokeStyle(radarOption.gridColor || "#cccccc");
-    coordinateAngle.forEach(function (angle, index) {
-      var pos = convertCoordinateOrigin(radius / config.radarGridCount * i * Math.cos(angle), radius / config.radarGridCount * i * Math.sin(angle), centerPosition);
-      if (index === 0) {
-        startPos = pos;
-        context.moveTo(pos.x, pos.y);
-      } else {
-        context.lineTo(pos.x, pos.y);
-      }
-    });
-    context.lineTo(startPos.x, startPos.y);
-    context.stroke();
-    context.closePath();
-  };
-
-  for (var i = 1; i <= config.radarGridCount; i++) {
-    _loop(i);
-  }
-
-  var radarDataPoints = getRadarDataPoints(coordinateAngle, centerPosition, radius, series, opts, process);
-  radarDataPoints.forEach(function (eachSeries, seriesIndex) {
-    // 绘制区域数据
-    context.beginPath();
-    context.setFillStyle(eachSeries.color);
-    context.setGlobalAlpha(0.6);
-    eachSeries.data.forEach(function (item, index) {
-      if (index === 0) {
-        context.moveTo(item.position.x, item.position.y);
-      } else {
-        context.lineTo(item.position.x, item.position.y);
-      }
-    });
-    context.closePath();
-    context.fill();
-    context.setGlobalAlpha(1);
-
-    if (opts.dataPointShape !== false) {
-      var shape = config.dataPointShape[seriesIndex % config.dataPointShape.length];
-      var points = eachSeries.data.map(function (item) {
-        return item.position;
-      });
-      drawPointShape(points, eachSeries.color, shape, context);
-    }
-  });
-  // draw label text
-  drawRadarLabel(coordinateAngle, radius, centerPosition, opts, config, context);
-
-  return {
-    center: centerPosition,
-    radius: radius,
-    angleList: coordinateAngle
-  };
-}
 
 function drawCanvas(opts, context) {
   context.draw();
@@ -1688,13 +1588,16 @@ var Timing = {
 };
 
 function Animation(opts) {
+
   this.isStop = false;
   opts.duration = typeof opts.duration === 'undefined' ? 1000 : opts.duration;
+  opts.duration = 1;
   opts.timing = opts.timing || 'linear';
 
   var delay = 17;
 
   var createAnimationFrame = function createAnimationFrame() {
+
     if (typeof requestAnimationFrame !== 'undefined') {
       return requestAnimationFrame;
     } else if (typeof setTimeout !== 'undefined') {
@@ -1722,7 +1625,7 @@ function Animation(opts) {
       startTimeStamp = timestamp;
     }
     if (timestamp - startTimeStamp < opts.duration) {
-      var process = (timestamp - startTimeStamp) / opts.duration;
+      var process = (timestamp - startTimeStamp) /opts.duration;
       var timingFunction = Timing[opts.timing];
       process = timingFunction(process);
       opts.onProcess && opts.onProcess(process);
@@ -1774,83 +1677,12 @@ function drawCharts(type, opts, config, context) {
   var duration = opts.animation ? 1000 : 0;
   this.animationInstance && this.animationInstance.stop();
   switch (type) {
-    case 'line':
-      this.animationInstance = new Animation({
-        timing: 'easeIn',
-        duration: duration,
-        onProcess: function onProcess(process) {
-          drawYAxisGrid(opts, config, context);
-
-          var _drawLineDataPoints = drawLineDataPoints(series, opts, config, context, process),
-            xAxisPoints = _drawLineDataPoints.xAxisPoints,
-            calPoints = _drawLineDataPoints.calPoints,
-            eachSpacing = _drawLineDataPoints.eachSpacing;
-
-          _this.chartData.xAxisPoints = xAxisPoints;
-          _this.chartData.calPoints = calPoints;
-          _this.chartData.eachSpacing = eachSpacing;
-          drawXAxis(categories, opts, config, context);
-          drawLegend(opts.series, opts, config, context);
-          drawYAxis(series, opts, config, context);
-          drawToolTipBridge(opts, config, context, process);
-          drawCanvas(opts, context);
-        },
-        onAnimationFinish: function onAnimationFinish() {
-          _this.event.trigger('renderComplete');
-        }
-      });
-      break;
-    case 'column':
-      this.animationInstance = new Animation({
-        timing: 'easeIn',
-        duration: duration,
-        onProcess: function onProcess(process) {
-          drawYAxisGrid(opts, config, context);
-
-          var _drawColumnDataPoints = drawColumnDataPoints(series, opts, config, context, process),
-            xAxisPoints = _drawColumnDataPoints.xAxisPoints,
-            eachSpacing = _drawColumnDataPoints.eachSpacing;
-
-          _this.chartData.xAxisPoints = xAxisPoints;
-          _this.chartData.eachSpacing = eachSpacing;
-          drawXAxis(categories, opts, config, context);
-          drawLegend(opts.series, opts, config, context);
-          drawYAxis(series, opts, config, context);
-          drawCanvas(opts, context);
-        },
-        onAnimationFinish: function onAnimationFinish() {
-          _this.event.trigger('renderComplete');
-        }
-      });
-      break;
-    case 'area':
-      this.animationInstance = new Animation({
-        timing: 'easeIn',
-        duration: duration,
-        onProcess: function onProcess(process) {
-          drawYAxisGrid(opts, config, context);
-
-          var _drawAreaDataPoints = drawAreaDataPoints(series, opts, config, context, process),
-            xAxisPoints = _drawAreaDataPoints.xAxisPoints,
-            calPoints = _drawAreaDataPoints.calPoints,
-            eachSpacing = _drawAreaDataPoints.eachSpacing;
-
-          _this.chartData.xAxisPoints = xAxisPoints;
-          _this.chartData.calPoints = calPoints;
-          _this.chartData.eachSpacing = eachSpacing;
-          drawXAxis(categories, opts, config, context);
-          drawLegend(opts.series, opts, config, context);
-          drawYAxis(series, opts, config, context);
-          drawToolTipBridge(opts, config, context, process);
-          drawCanvas(opts, context);
-        },
-        onAnimationFinish: function onAnimationFinish() {
-          _this.event.trigger('renderComplete');
-        }
-      });
-      break;
     case 'ring':
     case 'pie':
+      drawPieDataPoints(series, opts, config, context);
+      drawLegend(opts.series, opts, config, context);
+      drawCanvas(opts, context);
+      /*
       this.animationInstance = new Animation({
         timing: 'easeInOut',
         duration: duration,
@@ -1862,22 +1694,9 @@ function drawCharts(type, opts, config, context) {
         onAnimationFinish: function onAnimationFinish() {
           _this.event.trigger('renderComplete');
         }
-      });
+      });*/
       break;
-    case 'radar':
-      this.animationInstance = new Animation({
-        timing: 'easeInOut',
-        duration: duration,
-        onProcess: function onProcess(process) {
-          _this.chartData.radarData = drawRadarDataPoints(series, opts, config, context, process);
-          drawLegend(opts.series, opts, config, context);
-          drawCanvas(opts, context);
-        },
-        onAnimationFinish: function onAnimationFinish() {
-          _this.event.trigger('renderComplete');
-        }
-      });
-      break;
+
   }
 }
 
@@ -1945,7 +1764,7 @@ Charts.prototype.updateData = function () {
   this.opts.series = data.series || this.opts.series;
   this.opts.categories = data.categories || this.opts.categories;
 
-  this.opts.title = assign({}, this.opts.title, data.title || {});
+  this.opts.title =assign({}, this.opts.title, data.title || {});
   this.opts.subtitle = assign({}, this.opts.subtitle, data.subtitle || {});
 
   drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);

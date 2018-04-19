@@ -1,0 +1,16 @@
+<view class="container">
+
+
+      <button bindtap='startBtn' type="primary" class="searBtn">查询</button>
+
+
+
+  <scroll-view class="article-list" style="height:500px" scroll-y="true" bindscrolltolower="nextPage">
+
+<view class=".big-font">
+<block>{{list}}</block>
+</view>
+  </scroll-view>
+
+
+  </view>
