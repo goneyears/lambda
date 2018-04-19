@@ -1,0 +1,15 @@
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\bin\x86\Debug\OPCCon.exe.config
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\Interop.OPCAutomation.dll
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.csproj.ResolveComReference.cache
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\bin\x86\Debug\OPCCon.exe
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\bin\x86\Debug\OPCCon.pdb
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\bin\x86\Debug\Interop.OPCAutomation.dll
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\MainWindow.baml
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\MainWindow.g.cs
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\App.g.cs
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon_MarkupCompile.cache
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.g.resources
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.Properties.Resources.resources
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.csproj.GenerateResource.Cache
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.exe
+D:\PerDocs\personal\lambda\CodingTools\test\opc\OPCCon\OPCCon\obj\x86\Debug\OPCCon.pdb

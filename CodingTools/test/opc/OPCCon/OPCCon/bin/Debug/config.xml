@@ -1,0 +1,22 @@
+ <Config>
+ <OPC>
+  <OPCConnectString>PhoenixContact.AX-Server</OPCConnectString> 
+    <OPCNode></OPCNode>                                
+    <OPCGroup>
+    <OPCGroupName>AXC3050</OPCGroupName>               
+    <OPCGroupString>AXC3050</OPCGroupString>           
+      <GroupDeadband>0</GroupDeadband>                 
+	  <GroupLocaleID>1024</GroupLocaleID>              
+      <GroupUpdateRate>200</GroupUpdateRate>           
+      <GroupTimeBias>0</GroupTimeBias>                 
+      <ISACTIVE>1</ISACTIVE>                           
+      <OPCItem>
+        <OPCItemName>SysState</OPCItemName>            
+        <RWType>0</RWType>                             
+        <ISACTIVE>1</ISACTIVE>                         
+        <OPCItemString>DB10,INT0,1</OPCItemString>     
+      </OPCItem>
+  </OPCGroup>
+ </OPC>
+
+</Config>
