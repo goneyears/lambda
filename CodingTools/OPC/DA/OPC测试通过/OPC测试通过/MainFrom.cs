@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Collections;
 using OPCAutomation;
+using System.Diagnostics;
 
 namespace OPC测试通过
 {
@@ -161,6 +162,8 @@ namespace OPC测试通过
             foreach (object turn in oPCBrowser)
             {
                 listBox1.Items.Add(turn.ToString());
+                Debug.WriteLine(turn.ToString());
+                
             }
         }
         /// <summary>
@@ -263,6 +266,8 @@ namespace OPC测试通过
                 itmHandleClient = 1234;
                 KepItem = KepItems.AddItem(listBox1.SelectedItem.ToString(), itmHandleClient);
                 itmHandleServer = KepItem.ServerHandle;
+
+                Debug.WriteLine("ddddd");
             }
             catch(Exception err)
             {

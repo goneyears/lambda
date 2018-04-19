@@ -14,3 +14,10 @@ D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\ob
 D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPCclient.csproj.ResolveComReference.cache
 D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.exe
 D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.pdb
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\bin\Debug\OPC测试通过.exe
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\bin\Debug\OPC测试通过.pdb
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\bin\Debug\Interop.OPCAutomation.dll
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPCclient.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.MainFrom.resources
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.Properties.Resources.resources
+D:\PerDocs\personal\lambda\CodingTools\OPC\DA\OPC测试通过\OPC测试通过\obj\Debug\OPCclient.csproj.GenerateResource.Cache
