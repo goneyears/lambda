@@ -47,6 +47,8 @@ namespace Cell4
 
             usbCopyer = new USBCopyer();
 
+           // CameraColorTestTransfer camTransfer = new CameraColorTestTransfer();
+
             systemState = new SystemState(sysGridView);
         }
 
@@ -104,7 +106,11 @@ namespace Cell4
                     Messages.WriteLine("测试结果发送成功");
 
 
-                    Messages.WriteLine("任务完成");
+                    Messages.WriteLine("任务完成\r\n");
+
+
+                    mesController.CancelTask = false;
+                    
                 }
 
             //Debug.WriteLine("-----------");         
@@ -116,7 +122,7 @@ namespace Cell4
             while (true) {
                 
                 systemState.QueryState();
-                await Task.Delay(1000);
+                await Task.Delay(1000); 
             }
         }
 
@@ -124,9 +130,11 @@ namespace Cell4
         {
             while (true) {
                 MessageTextBox.Text = Messages.Text;
-                MessageTextBox.Focus();
-                MessageTextBox.Select(MessageTextBox.TextLength, 0);
-                MessageTextBox.ScrollToCaret();
+                if (AutoRollChk.Checked) {
+                    MessageTextBox.Focus();
+                    MessageTextBox.Select(MessageTextBox.TextLength, 0);
+                    MessageTextBox.ScrollToCaret();
+                }
 
 
                 await Task.Delay(500);
@@ -139,6 +147,8 @@ namespace Cell4
      
         private void ResetBtn_Click(object sender, EventArgs e)
         {
+            mesController.CancelTask = true;
+
             string str = Interaction.InputBox("请输入密码", "提示", "123456",100, 100);
             if (str == "123456") {
                 systemState.ResetControlSystem();
@@ -217,6 +227,7 @@ namespace Cell4
          //   i++;
            // InitialSystemComponent();
            // Application.Restart();
+            ;
         } 
 
          
@@ -246,7 +257,39 @@ namespace Cell4
 
         private void sysGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("datagrid view error");
+            Messages.WriteLine("datagrid view error");
+        }
+
+        private void AutoRollChk_CheckedChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine(AutoRollChk.Checked);
+        }
+
+
+
+        private void ForceFreeChk_Click(object sender, EventArgs e)
+        {
+
+            mesController.FreeForce();
+            Debug.WriteLine("force:" + mesController.CurrentMESTask.Force);
+            MessageBox.Show("停止强制，下个任务生效");
+
+        }
+
+        private void ForceGoodChk_Click(object sender, EventArgs e)
+        {
+            mesController.ForceGood();
+            Debug.WriteLine("force:" + mesController.CurrentMESTask.Force);
+            MessageBox.Show("强制检测合格，下个任务生效");
+
+        }
+
+        private void ForceNGChk_Click(object sender, EventArgs e)
+        {
+            mesController.ForceNG();
+            Debug.WriteLine("force:" + mesController.CurrentMESTask.Force);
+            MessageBox.Show("强制检测不合格，下个任务生效");
+
         }
 
 

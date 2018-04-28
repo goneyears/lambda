@@ -17,6 +17,9 @@ namespace Cell4
         public string UBodyColor;
         public string UCoverColor;
         public string copyfilestr;
+
+        public int Force;//0:ForceFree,1:ForceGood;2:FoceNG;
+        public int preForce;//pre set force value, apply the force function in next mes task
     }
 
 
@@ -52,7 +55,8 @@ namespace Cell4
         WRONGCOLOR=1,
         LEDOFF=2,
         COPYFAILURE=3,
-        WRONGVOLUME=4
+        WRONGVOLUME=4,
+        ForceNG=99
     }
     public enum CHECKSTATE
     {
@@ -82,14 +86,19 @@ namespace Cell4
             MESTcp = new TCP_Client("192.168.10.40", "50002");
 
             MESTcp.MessageReceived += AnalyzePLCMessage;
-            SQLc = new SQLConnector("Server=192.168.10.251;Database=PhoenixDB;user id=sa ;password=Phoenix@123 ;");
-           
+            SQLc = new SQLConnector("Server=192.168.10.100;Database=PhoenixDB;user id=sa ;password=Phoenix@123 ;");
+
+            CancelTask = false;
         }
 
 
         private TCP_Client MESTcp;
         private SQLConnector SQLc;
         private DataTable TaskDataTable = new DataTable();
+
+        public bool CancelTask {get;set;}
+
+
         public MESTASK CurrentMESTask = new MESTASK();
         public MESSTATE GetNewTask()
         {
@@ -184,6 +193,7 @@ namespace Cell4
         }
         public COMMANDREUSLT SendCurrentTaskToPLC()
         {
+            CurrentMESTask.Force = CurrentMESTask.preForce;
             SendPLCTask(CurrentMESTask);
             return COMMANDREUSLT.COMPLETE;
         }
@@ -191,9 +201,9 @@ namespace Cell4
         public string TaskInfoString;
         public void SendPLCTask(MESTASK _mesTask)
         {
-            SendMessageToPlc("StartNewTask " + _mesTask.ID + " " + _mesTask.SN + " " + _mesTask.UBodyColor+" "+_mesTask.UCoverColor+" ");
-            Debug.WriteLine("StartNewTask " + "ID: "+_mesTask.ID + "SN: " + _mesTask.SN + "BodyColor: " + _mesTask.UBodyColor + "CoverColor: " + _mesTask.UCoverColor + " ");
-            TaskInfoString = "任务信息:" + " ID:" + _mesTask.ID + " SN:" + _mesTask.SN + " U盘颜色:" + _mesTask.UBodyColor + " U盘帽颜色:" + _mesTask.UCoverColor + " ";
+            SendMessageToPlc("StartNewTask " + _mesTask.ID + " " + _mesTask.SN + " " + _mesTask.UBodyColor+" "+_mesTask.UCoverColor+" "+_mesTask.Force);
+            Debug.WriteLine("StartNewTask " + "ID: " + _mesTask.ID + "SN: " + _mesTask.SN + "BodyColor: " + _mesTask.UBodyColor + "CoverColor: " + _mesTask.UCoverColor + " Force:" + _mesTask.Force.ToString());
+            TaskInfoString = "任务信息:" + " ID:" + _mesTask.ID + " SN:" + _mesTask.SN + " U盘颜色:" + _mesTask.UBodyColor + " U盘帽颜色:" + _mesTask.UCoverColor + " 烧录文件名"+_mesTask.copyfilestr+" Force"+_mesTask.Force;
             Messages.WriteLine(TaskInfoString);
         }
 
@@ -208,7 +218,8 @@ namespace Cell4
             + " ,PQC_FILE_PATH="
             + "'" + TaskInfo.PQCFilePath + "'"
             + " where ID="
-            + CurrentMESTask.ID;
+            + CurrentMESTask.ID
+            + " and PROCESS_STATUS<>4" ;
 
             SQLc.SendCommand(strcmd);
 
@@ -262,8 +273,11 @@ namespace Cell4
         public delegate T DelegMethod<T>();  
 
         public async Task WaitUntil<T>(int timeSpan,DelegMethod<T> CheckMethod, params T[] continueCondition)
-        { 
-             while (true) {
+        {
+            if (CancelTask) {
+                Messages.WriteLine("----------以下步骤被取消：");
+            }
+             while (!CancelTask) {
                  try {
                      foreach (T t in continueCondition) {
                          
@@ -287,7 +301,7 @@ namespace Cell4
             
             string recStr = e.receivedmessage;
             string[] recStrArr = recStr.Split(' ');
-            Debug.WriteLine(recStr);
+            //Debug.WriteLine(recStr);
             if (recStr == "control system is available") {
                 _PLCstate = PLCSTATE.AVAILABLE;
             }
@@ -304,21 +318,37 @@ namespace Cell4
                 int.TryParse(recStrArr[1], out taskResult);
                 int.TryParse(recStrArr[2], out checkRejectReason);
 
+                if (CurrentMESTask.Force == 0) {
+                    if (taskResult == 1) {
+                        TaskInfo.TaskResult = TASKRESULT.GOOD;
+                    }
+                    else {
+                        TaskInfo.TaskResult = TASKRESULT.NOTGOOD;
+                    }
 
-                if (taskResult == 1) {
+                    TaskInfo.RejectReason = (REJECTREASON)checkRejectReason;
+                }
+                else if (CurrentMESTask.Force == 1) {
                     TaskInfo.TaskResult = TASKRESULT.GOOD;
+                    TaskInfo.RejectReason = (REJECTREASON)0;
+                }
+                else if (CurrentMESTask.Force == 2) {
+
+                    TaskInfo.TaskResult = TASKRESULT.NOTGOOD;
+                    TaskInfo.RejectReason = (REJECTREASON)REJECTREASON.ForceNG;
                 }
                 else {
-                    TaskInfo.TaskResult = TASKRESULT.NOTGOOD;
+                    Messages.WriteLine("Force Value Error Input");
                 }
+
+                
                 TaskInfo.PQCFilePath = recStrArr[3];
-                TaskInfo.RejectReason = (REJECTREASON)checkRejectReason;
                 Debug.WriteLine("taskresult is :" + TaskInfo.TaskResult.ToString());
                 Debug.WriteLine("rejectreason is :" + TaskInfo.RejectReason.ToString());
                 Debug.WriteLine(recStr);
 
             }
-            Debug.WriteLine("anastate: "+ _PLCstate.ToString());
+           // Debug.WriteLine("anastate: "+ _PLCstate.ToString());
 
             eventWait.Set();
           //  Debug.WriteLine(recStr);
@@ -335,6 +365,25 @@ namespace Cell4
             return files;
 
 
+        }
+
+         
+        public void ForceGood()
+        {
+            CurrentMESTask.preForce = 1;
+            Messages.WriteLine("FORCE GOOD WILL BE ACTIVATED IN NEXT CYCLE");
+        }
+
+        public void ForceNG()
+        {
+            CurrentMESTask.preForce = 2;
+            Messages.WriteLine("FORCE NOTGOOD WILL BE ACTIVATED IN NEXT CYCLE");
+        }
+
+        public void FreeForce()
+        {
+            CurrentMESTask.preForce = 0;
+            Messages.WriteLine("FREE FORCE WILL BE ACTIVATED IN NEXT CYCLE");
         }
     }
 }

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BasicFunctions\FileSys.cs" />
     <Compile Include="BasicFunctions\Udisk.cs" />
+    <Compile Include="MainClasses\CameraColorTestTransfer.cs" />
     <Compile Include="MainClasses\Common.cs" />
     <Compile Include="MainClasses\MESController.cs" />
     <Compile Include="MainClasses\MessageOutput.cs" />

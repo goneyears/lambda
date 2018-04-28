@@ -16,8 +16,6 @@ namespace Cell4
             newMessage = System.DateTime.Now.ToString() + "  " + newMessage;
             Text = Text + newMessage + "\r\n";
              
-            
-            
         }
 
 

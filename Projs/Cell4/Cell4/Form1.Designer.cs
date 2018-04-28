@@ -33,7 +33,11 @@
             this.MessageTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AutoRollChk = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ForceFreeChk = new System.Windows.Forms.RadioButton();
+            this.ForceNGChk = new System.Windows.Forms.RadioButton();
+            this.ForceGoodChk = new System.Windows.Forms.RadioButton();
             this.sysGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -84,6 +88,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.AutoRollChk);
             this.tabPage1.Controls.Add(this.MessageTextBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -93,8 +98,24 @@
             this.tabPage1.Text = "状态信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // AutoRollChk
+            // 
+            this.AutoRollChk.AutoSize = true;
+            this.AutoRollChk.Checked = true;
+            this.AutoRollChk.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoRollChk.Location = new System.Drawing.Point(500, 328);
+            this.AutoRollChk.Name = "AutoRollChk";
+            this.AutoRollChk.Size = new System.Drawing.Size(48, 16);
+            this.AutoRollChk.TabIndex = 5;
+            this.AutoRollChk.Text = "滚动";
+            this.AutoRollChk.UseVisualStyleBackColor = true;
+            this.AutoRollChk.CheckedChanged += new System.EventHandler(this.AutoRollChk_CheckedChanged);
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ForceFreeChk);
+            this.tabPage2.Controls.Add(this.ForceNGChk);
+            this.tabPage2.Controls.Add(this.ForceGoodChk);
             this.tabPage2.Controls.Add(this.ResetBtn);
             this.tabPage2.Controls.Add(this.sysGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -104,6 +125,41 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "状态数据";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ForceFreeChk
+            // 
+            this.ForceFreeChk.AutoSize = true;
+            this.ForceFreeChk.Checked = true;
+            this.ForceFreeChk.Location = new System.Drawing.Point(460, 128);
+            this.ForceFreeChk.Name = "ForceFreeChk";
+            this.ForceFreeChk.Size = new System.Drawing.Size(83, 16);
+            this.ForceFreeChk.TabIndex = 3;
+            this.ForceFreeChk.TabStop = true;
+            this.ForceFreeChk.Text = "Free Force";
+            this.ForceFreeChk.UseVisualStyleBackColor = true;
+            this.ForceFreeChk.Click += new System.EventHandler(this.ForceFreeChk_Click);
+            // 
+            // ForceNGChk
+            // 
+            this.ForceNGChk.AutoSize = true;
+            this.ForceNGChk.Location = new System.Drawing.Point(460, 211);
+            this.ForceNGChk.Name = "ForceNGChk";
+            this.ForceNGChk.Size = new System.Drawing.Size(71, 16);
+            this.ForceNGChk.TabIndex = 2;
+            this.ForceNGChk.Text = "Force NG";
+            this.ForceNGChk.UseVisualStyleBackColor = true;
+            this.ForceNGChk.Click += new System.EventHandler(this.ForceNGChk_Click);
+            // 
+            // ForceGoodChk
+            // 
+            this.ForceGoodChk.AutoSize = true;
+            this.ForceGoodChk.Location = new System.Drawing.Point(460, 172);
+            this.ForceGoodChk.Name = "ForceGoodChk";
+            this.ForceGoodChk.Size = new System.Drawing.Size(83, 16);
+            this.ForceGoodChk.TabIndex = 1;
+            this.ForceGoodChk.Text = "Force Good";
+            this.ForceGoodChk.UseVisualStyleBackColor = true;
+            this.ForceGoodChk.Click += new System.EventHandler(this.ForceGoodChk_Click);
             // 
             // sysGridView
             // 
@@ -140,6 +196,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sysGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -155,6 +212,10 @@
         private System.Windows.Forms.DataGridView sysGridView;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox MessageTextBox;
+        private System.Windows.Forms.CheckBox AutoRollChk;
+        private System.Windows.Forms.RadioButton ForceFreeChk;
+        private System.Windows.Forms.RadioButton ForceNGChk;
+        private System.Windows.Forms.RadioButton ForceGoodChk;
 
     }
 }

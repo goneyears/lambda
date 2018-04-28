@@ -30,9 +30,7 @@ C:\Users\BM021671\Documents\ProjectFiles\Cell4\Cell4\obj\Debug\Cell4.Properties.
 C:\Users\BM021671\Documents\ProjectFiles\Cell4\Cell4\obj\Debug\Cell4.csproj.GenerateResource.Cache
 C:\Users\BM021671\Documents\ProjectFiles\Cell4\Cell4\obj\Debug\Cell4.exe
 C:\Users\BM021671\Documents\ProjectFiles\Cell4\Cell4\obj\Debug\Cell4.pdb
+C:\Users\BM021671\Documents\ProjectFiles\Cell4\Cell4\obj\Debug\Cell4.csprojResolveAssemblyReference.cache
 D:\PerDocs\Project\prj17FuoShan\SPSD\PC\Cell4\Cell4\bin\Debug\Cell4.exe.config
 D:\PerDocs\Project\prj17FuoShan\SPSD\PC\Cell4\Cell4\obj\Debug\Cell4.exe
 D:\PerDocs\Project\prj17FuoShan\SPSD\PC\Cell4\Cell4\obj\Debug\Cell4.pdb
-D:\PerDocs\personal\lambda\Projs\Cell4\Cell4\bin\Debug\Cell4.exe.config
-D:\PerDocs\personal\lambda\Projs\Cell4\Cell4\obj\Debug\Cell4.exe
-D:\PerDocs\personal\lambda\Projs\Cell4\Cell4\obj\Debug\Cell4.pdb

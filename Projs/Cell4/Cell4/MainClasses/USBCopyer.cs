@@ -54,6 +54,7 @@ namespace Cell4
            
             bool copyComplete = false;
             foreach (string u in Udisks) {
+                Messages.WriteLine(string.Format("文件复制：{0} 到 {1}", srcDir, u));
                 if (FileSys.CopyFiles(srcDir, u, filelist)) {
                     copyComplete = true;
                     Messages.WriteLine("文件复制成功");
