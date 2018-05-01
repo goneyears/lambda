@@ -6,7 +6,8 @@ var ringChart = null;
 Page({
 
   data: {
-    test_count: 1
+    test_count: 1,
+    test_ratio: '70%'
   },
 
   onLoad: function () {
@@ -25,7 +26,6 @@ Page({
       url: 'http://123.206.125.181:8000/getdata/',//请求地址
       data: {//发送给后台的数据
         type: 'daycount'
-        //b: 20
       },
       method: "GET",
       header: {
@@ -72,7 +72,7 @@ Page({
 
   },
 
-  bindShowPie: function(){
+  bindShowPie: function () {
     wx.navigateTo({
       url: '../charts/ring/ring',
     })
@@ -99,13 +99,13 @@ Page({
   //ring display
   touchHandler: function (e) {
     console.log(ringChart.getCurrentDataIndex(e));
-  }, 
+  },
   updateData: function () {
-    var cc = this.data.test_count;
-    console.log(this.data.test_count);
+    var cc = this.data.test_ratio;
+    console.log(this.data.test_ratio);
     ringChart.updateData({
       title: {
-        name:cc
+        name: cc
       },
       subtitle: {
         color: '#ff0000'
@@ -132,7 +132,7 @@ Page({
         }
       },
       title: {
-        name: '71%',
+        name: ' ',
         color: '#7cb5ec',
         fontSize: 25
       },
@@ -176,7 +176,7 @@ Page({
 
 
 
-    bindDetailTap: function () {
+  bindDetailTap: function () {
 
     wx.navigateTo({
 

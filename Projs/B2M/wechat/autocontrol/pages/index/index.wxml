@@ -1,11 +1,7 @@
 <view class="container">
- 
-  <view class=".big-font">
-    <block>{{test_count}}</block>
-  </view>
+
+  <view class=".big-font"><block>{{test_count}}</block></view>
+  <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+  <button type="primary" bindtap="bindDetailTap" style="margin-top:30rpx">详细</button>
   
-
-
-    <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas> 
-    <button type="primary" bindtap="bindDetailTap" style="margin-top:30rpx">详细</button>
 </view>
