@@ -1,0 +1,7 @@
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\bin\Debug\VariablesLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\bin\Debug\VariablesLib.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\obj\Debug\VariablesLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\obj\Debug\VariablesLib.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\obj\Debug\VariablesLib.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\bin\Debug\OPCLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\VariablesLib\bin\Debug\OPCLib.pdb

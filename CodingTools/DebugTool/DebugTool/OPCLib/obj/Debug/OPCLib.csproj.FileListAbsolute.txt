@@ -1,0 +1,6 @@
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\bin\Debug\OPCLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\bin\Debug\OPCLib.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\obj\Debug\Interop.OPCAutomation.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\obj\Debug\OPCLib.csproj.ResolveComReference.cache
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\obj\Debug\OPCLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\OPCLib\obj\Debug\OPCLib.pdb

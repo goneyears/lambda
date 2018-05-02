@@ -1,0 +1,11 @@
+﻿//cylinder with senesor
+//cylinder without sensor(grip)
+//normal sensors
+//safty doors
+//bowl feeder and linear feeder
+//other inputs
+//other outputs
+//arrange the variables:
+//outputs,inputs
+//outputs contains: cylinders with sensros, cylinders withouts sensors
+//inputs conatsins the same as outputs above

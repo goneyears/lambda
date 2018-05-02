@@ -1,0 +1,17 @@
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\DebugTool.exe.config
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\DebugTool.exe
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\DebugTool.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.csprojResolveAssemblyReference.cache
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\MainWindow.baml
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\MainWindow.g.cs
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\App.g.cs
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool_MarkupCompile.cache
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.g.resources
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.Properties.Resources.resources
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.csproj.GenerateResource.Cache
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.exe
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\obj\Debug\DebugTool.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\OPCLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\OPCLib.pdb
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\VariablesLib.dll
+D:\PerDocs\personal\lambda\CodingTools\DebugTool\DebugTool\DebugTool\bin\Debug\VariablesLib.pdb

@@ -1,0 +1,5 @@
+C:\Users\gongyu\Downloads\好例子网_OPC测试通过\OPC测试通过\OPC测试通过\bin\Debug\OPC测试通过.exe.config
+C:\Users\gongyu\Downloads\好例子网_OPC测试通过\OPC测试通过\OPC测试通过\obj\Debug\Interop.OPCAutomation.dll
+C:\Users\gongyu\Downloads\好例子网_OPC测试通过\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.csproj.ResolveComReference.cache
+C:\Users\gongyu\Downloads\好例子网_OPC测试通过\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.exe
+C:\Users\gongyu\Downloads\好例子网_OPC测试通过\OPC测试通过\OPC测试通过\obj\Debug\OPC测试通过.pdb
